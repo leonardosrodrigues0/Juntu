@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  DiscoverViewController.swift
 //  geppetto
 //
-//  Created by Leonardo de Sousa Rodrigues on 25/06/21.
+//  Created by Leonardo de Sousa Rodrigues on 29/06/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
 }
-

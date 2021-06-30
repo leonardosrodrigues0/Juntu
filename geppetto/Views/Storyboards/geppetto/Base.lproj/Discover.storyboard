@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHf-tk-AET">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discover View Controller-->
+        <scene sceneID="HzD-9S-lRK">
+            <objects>
+                <viewController id="KwY-m7-X5d" customClass="DiscoverViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BzV-zO-Che">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover things!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzf-Lt-G6R">
+                                <rect key="frame" x="145.5" y="437.5" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2I-nd-Iq7" customClass="Card" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="32" y="372.5" width="350" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uSY-DX-s3B"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UkU-iZ-HdV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UkU-iZ-HdV" firstAttribute="trailing" secondItem="E2I-nd-Iq7" secondAttribute="trailing" constant="32" id="TV1-aB-WcS"/>
+                            <constraint firstItem="Tzf-Lt-G6R" firstAttribute="top" secondItem="E2I-nd-Iq7" secondAttribute="bottom" constant="15" id="X8U-TG-gHp"/>
+                            <constraint firstItem="Tzf-Lt-G6R" firstAttribute="centerY" secondItem="BzV-zO-Che" secondAttribute="centerY" id="ah6-Wq-vqb"/>
+                            <constraint firstItem="E2I-nd-Iq7" firstAttribute="centerX" secondItem="BzV-zO-Che" secondAttribute="centerX" id="juD-1Z-WUf"/>
+                            <constraint firstItem="Tzf-Lt-G6R" firstAttribute="centerX" secondItem="BzV-zO-Che" secondAttribute="centerX" id="xL7-uC-jTp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Afs-wN-mj1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnZ-oo-M6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2163.768115942029" y="-281.25"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="G1i-DQ-Cgn">
+            <objects>
+                <navigationController id="rHf-tk-AET" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="star" catalog="system" id="AOs-Nz-FN7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1kv-p9-ddV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KwY-m7-X5d" kind="relationship" relationship="rootViewController" id="aec-4o-1dQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wp-eL-KIm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="-281"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
