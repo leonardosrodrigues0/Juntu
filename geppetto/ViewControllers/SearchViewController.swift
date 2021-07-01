@@ -7,18 +7,76 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+public class SearchViewController: UIViewController {
+    @IBOutlet public var tableView: UITableView!
+    
+    var items: [Searchable] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredItems: [Searchable] = []
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    @IBAction func showAlert() {
-        let alert = UIAlertController(title: "Search", message: "Not implemented yet", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
     }
 
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        items = Activity.activities()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredItems = items.filter { (item: Searchable) -> Bool in
+            return item.isResultWithSearchString(searchText) || isSearchBarEmpty
+        }
+      
+        tableView.reloadData()
+    }
+
+}
+
+extension SearchViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredItems.count
+        }
+        
+        return items.count
+    }
+  
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let item: Searchable
+        if isFiltering {
+            item = filteredItems[indexPath.row]
+        } else {
+            item = items[indexPath.row]
+        }
+        
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = item.description
+        return cell
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
