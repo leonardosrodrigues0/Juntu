@@ -19,7 +19,7 @@ public class SearchViewController: UIViewController {
     }
     
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+        return searchController.isActive && !isSearchBarEmpty
     }
 
     public override func viewDidLoad() {
