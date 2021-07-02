@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discover View Controller-->
+        <!--Discover-->
         <scene sceneID="HzD-9S-lRK">
             <objects>
                 <viewController id="KwY-m7-X5d" customClass="DiscoverViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,21 +16,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover things!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzf-Lt-G6R">
-                                <rect key="frame" x="145.5" y="437.5" width="123" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-Hq-0WY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yx-fCS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-Fm-hZZ">
+                                                <rect key="frame" x="16" y="0.0" width="398" height="23"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUg-VU-vPH">
+                                                <rect key="frame" x="16" y="39" width="398" height="250"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qXS-bw-v16">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1096" height="250"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XX-Rf-u7Y" customClass="Card" customModule="geppetto" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="360" height="250"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="360" id="v0I-Hv-xsG"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T10-dD-mWB" customClass="Card" customModule="geppetto" customModuleProvider="target">
+                                                                <rect key="frame" x="368" y="0.0" width="360" height="250"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="360" id="Wp2-he-ua4"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-ME-IkW" customClass="Card" customModule="geppetto" customModuleProvider="target">
+                                                                <rect key="frame" x="736" y="0.0" width="360" height="250"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="360" id="9gh-i7-2V6"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="qXS-bw-v16" firstAttribute="bottom" secondItem="8QP-Rs-exF" secondAttribute="bottom" id="6Vv-T0-crh"/>
+                                                    <constraint firstItem="qXS-bw-v16" firstAttribute="height" secondItem="oAc-Cv-C7B" secondAttribute="height" id="aGM-kE-uzv"/>
+                                                    <constraint firstItem="qXS-bw-v16" firstAttribute="top" secondItem="8QP-Rs-exF" secondAttribute="top" id="l8m-ex-jQC"/>
+                                                    <constraint firstItem="qXS-bw-v16" firstAttribute="trailing" secondItem="8QP-Rs-exF" secondAttribute="trailing" id="mX9-5s-SE9"/>
+                                                    <constraint firstItem="qXS-bw-v16" firstAttribute="leading" secondItem="8QP-Rs-exF" secondAttribute="leading" id="n5B-4R-chH"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="8QP-Rs-exF"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="oAc-Cv-C7B"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="16" bottom="0.0" trailing="0.0"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ueg-Yx-fCS" firstAttribute="top" secondItem="Eq3-lA-ebg" secondAttribute="top" id="0IS-AK-MBm"/>
+                                    <constraint firstItem="ueg-Yx-fCS" firstAttribute="trailing" secondItem="Eq3-lA-ebg" secondAttribute="trailing" id="H0K-rX-hNW"/>
+                                    <constraint firstItem="ueg-Yx-fCS" firstAttribute="width" secondItem="OUc-Tb-NjU" secondAttribute="width" id="XxD-gC-OdO"/>
+                                    <constraint firstItem="ueg-Yx-fCS" firstAttribute="leading" secondItem="Eq3-lA-ebg" secondAttribute="leading" id="c8g-Ej-HRG"/>
+                                    <constraint firstItem="ueg-Yx-fCS" firstAttribute="bottom" secondItem="Eq3-lA-ebg" secondAttribute="bottom" id="idk-lm-bra"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Eq3-lA-ebg"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="OUc-Tb-NjU"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UkU-iZ-HdV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tzf-Lt-G6R" firstAttribute="centerY" secondItem="BzV-zO-Che" secondAttribute="centerY" id="ah6-Wq-vqb"/>
-                            <constraint firstItem="Tzf-Lt-G6R" firstAttribute="centerX" secondItem="BzV-zO-Che" secondAttribute="centerX" id="xL7-uC-jTp"/>
+                            <constraint firstItem="RN1-Hq-0WY" firstAttribute="leading" secondItem="UkU-iZ-HdV" secondAttribute="leading" id="411-Xw-9Pa"/>
+                            <constraint firstAttribute="bottom" secondItem="RN1-Hq-0WY" secondAttribute="bottom" id="DDe-Ny-tqu"/>
+                            <constraint firstItem="RN1-Hq-0WY" firstAttribute="trailing" secondItem="UkU-iZ-HdV" secondAttribute="trailing" id="Hq3-Fq-gNR"/>
+                            <constraint firstItem="RN1-Hq-0WY" firstAttribute="top" secondItem="BzV-zO-Che" secondAttribute="top" id="fhH-Xy-KWQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Afs-wN-mj1"/>
+                    <navigationItem key="navigationItem" title="Discover" id="Afs-wN-mj1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnZ-oo-M6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,8 +105,8 @@
                 <navigationController id="rHf-tk-AET" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="star" catalog="system" id="AOs-Nz-FN7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1kv-p9-ddV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1kv-p9-ddV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
