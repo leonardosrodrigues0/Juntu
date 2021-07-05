@@ -98,6 +98,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="Afs-wN-mj1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="stack" destination="qXS-bw-v16" id="ty9-hP-Tgm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnZ-oo-M6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,9 @@ import UIKit
 class Card: UIView {
     @IBOutlet var cardView: Card!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var footnoteLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
