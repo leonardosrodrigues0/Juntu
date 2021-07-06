@@ -11,8 +11,9 @@ protocol Searchable {
     
     // MARK: - Properties
     var name: String { get }
-    var description: String { get }
     
     // MARK: - Methods
+    func getDescription() -> String
+    
     func isResultWithSearchString(_ searchString: String) -> Bool
 }

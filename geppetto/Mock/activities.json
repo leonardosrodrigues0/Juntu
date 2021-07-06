@@ -1,7 +1,34 @@
 [
-  { "name": "Sound Characteristics", "description": "7 - 12" },
-  { "name": "A Travel Through Time", "description": "3 - 6" },
-  { "name": "The Cycle of Water", "description": "3 - 6" },
-  { "name": "Music for My Ears", "description": "7 - 12" },
-  { "name": "Let's balance", "description": "7 - 12" },
+    {
+        "name": "Observing the Constellations",
+        "imageName": "constellations",
+        "duration": "30 minutes",
+        "difficulty": "easy",
+        "age": "3 - 12",
+        "fullDescription": "Observe the stars and other objects with your kid. A great way to have fun."
+    },
+    {
+        "name": "Reading",
+        "imageName": "reading",
+        "duration": "30 minutes",
+        "difficulty": "easy",
+        "age": "6 - 8",
+        "fullDescription": "Observe the stars and other objects with your kid. A great way to have fun."
+    },
+    {
+        "name": "Pisa Tower",
+        "imageName": "pisa",
+        "duration": "15 minutes",
+        "difficulty": "easy",
+        "age": "3 - 6",
+        "fullDescription": "Observe the stars and other objects with your kid. A great way to have fun."
+    },
+    {
+        "name": "Easter Eggs",
+        "imageName": "easter",
+        "duration": "1 hour",
+        "difficulty": "hard",
+        "age": "3 - 12",
+        "fullDescription": "Observe the stars and other objects with your kid. A great way to have fun."
+    },
 ]

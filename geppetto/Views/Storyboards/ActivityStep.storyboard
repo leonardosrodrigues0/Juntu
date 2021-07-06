@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fej-cz-GZT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity Page View Controller-->
+        <scene sceneID="2v9-OP-EkD">
+            <objects>
+                <pageViewController storyboardIdentifier="ActivityPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FH5-K3-uih" customClass="ActivityPageViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wYf-gV-lQk"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w7Q-cb-FQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1419" y="119"/>
+        </scene>
+        <!--Activity Step View Controller-->
+        <scene sceneID="Q4E-55-P01">
+            <objects>
+                <viewController storyboardIdentifier="ActivityStepViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="US2-vD-diX" customClass="ActivityStepViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="36T-Um-fAm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-as-X68">
+                                <rect key="frame" x="0.0" y="44" width="414" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="Jew-es-EqZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8FI-3E-imV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jiq-as-X68" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" id="8FC-Ce-YVT"/>
+                            <constraint firstItem="m1K-Cs-laX" firstAttribute="centerY" secondItem="36T-Um-fAm" secondAttribute="centerY" id="Jaa-eg-tsF"/>
+                            <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="MGL-Kl-c8T"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="PFc-KA-JEF"/>
+                            <constraint firstItem="m1K-Cs-laX" firstAttribute="centerX" secondItem="36T-Um-fAm" secondAttribute="centerX" id="xRN-Lv-3Ri"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="jiq-as-X68" id="w9g-Nc-6Kk"/>
+                        <outlet property="label" destination="m1K-Cs-laX" id="u8r-ri-kPX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-A8-zXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2250.7246376811595" y="118.52678571428571"/>
+        </scene>
+        <!--Activity Page Control View Controller-->
+        <scene sceneID="BAx-M7-dZK">
+            <objects>
+                <viewController storyboardIdentifier="ActivityPageControlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fej-cz-GZT" customClass="ActivityPageControlViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j0D-XN-c29">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f7-cU-eAF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5ua-kj-F5Z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5ua-kj-F5Z" firstAttribute="bottom" secondItem="5f7-cU-eAF" secondAttribute="bottom" id="5Wq-l7-dfx"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="leading" secondItem="5ua-kj-F5Z" secondAttribute="leading" id="6e5-y7-YsH"/>
+                            <constraint firstItem="5ua-kj-F5Z" firstAttribute="trailing" secondItem="5f7-cU-eAF" secondAttribute="trailing" id="Fdm-I4-Vs6"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="top" secondItem="5ua-kj-F5Z" secondAttribute="top" id="Ouq-d3-5Z7"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="trailing" secondItem="5ua-kj-F5Z" secondAttribute="trailing" id="jZg-Fj-fXq"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="top" secondItem="5ua-kj-F5Z" secondAttribute="top" id="lVg-8z-SBh"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="leading" secondItem="5ua-kj-F5Z" secondAttribute="leading" id="mXR-ha-8Y2"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="bottom" secondItem="5ua-kj-F5Z" secondAttribute="bottom" id="qNa-9Q-3U8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="N0K-SI-hSx"/>
+                    <connections>
+                        <outlet property="contentView" destination="5f7-cU-eAF" id="biB-GT-ksd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgE-Ci-J6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

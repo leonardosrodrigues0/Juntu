@@ -22,15 +22,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOx-DZ-V1Y">
+                                <rect key="frame" x="150.5" y="490.5" width="113" height="30"/>
+                                <state key="normal" title="Activity example"/>
+                                <connections>
+                                    <action selector="activityExampleButtonTapped" destination="Y6W-OH-hqX" eventType="touchDown" id="rhl-mU-HHM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MwP-ii-8eo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8U9-zT-wif"/>
+                            <constraint firstItem="rOx-DZ-V1Y" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ClM-Iy-yTL"/>
+                            <constraint firstItem="rOx-DZ-V1Y" firstAttribute="top" secondItem="MwP-ii-8eo" secondAttribute="bottom" constant="32" id="QkW-9o-fNS"/>
                             <constraint firstItem="MwP-ii-8eo" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="RYZ-xq-4IB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lou-43-4eT"/>
+                    <connections>
+                        <outlet property="activityExampleButton" destination="rOx-DZ-V1Y" id="CF8-Wb-CXi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,17 +8,20 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var activityExampleButton: UIButton!
+    
+    @IBAction func activityExampleButtonTapped() {
+        let storyboard = UIStoryboard(name: "ActivityOverview", bundle: nil)
+        let activityViewController = storyboard.instantiateInitialViewController() as? ActivityOverviewViewController
+        activityViewController?.activity = Activity.activities().first
+        show(activityViewController!, sender: self)
+//        present(activityViewController!, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func showAlert() {
-        let alert = UIAlertController(title: "Search", message: "Not implemented yet", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
     }
 
 }

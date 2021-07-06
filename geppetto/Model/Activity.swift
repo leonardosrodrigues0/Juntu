@@ -7,13 +7,21 @@
 
 import Foundation
 
-struct Activity: Searchable, Decodable {
+struct Activity: Searchable, Codable {
 
     // MARK: - Properties
     let name: String
-    let description: String
+    let imageName: String
+    let duration: String
+    let difficulty: String
+    let age: String
+    let fullDescription: String
     
     // MARK: - Methods
+    func getDescription() -> String {
+        return age
+    }
+    
     func isResultWithSearchString(_ searchString: String) -> Bool {
         return name.lowercased().contains(searchString.lowercased())
     }
@@ -35,3 +43,4 @@ struct Activity: Searchable, Decodable {
         }
     }
 }
+
