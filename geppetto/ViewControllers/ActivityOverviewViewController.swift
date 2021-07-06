@@ -16,6 +16,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var difficulty: UILabel!
     @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
     
@@ -31,6 +32,7 @@ class ActivityOverviewViewController: UIViewController {
         duration.text = activity?.duration
         difficulty.text = activity?.difficulty
         age.text = activity?.age
+        cost.text = activity?.cost
         fullDescription.text = activity?.fullDescription
     }
     

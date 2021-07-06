@@ -15,6 +15,7 @@ struct Activity: Searchable, Codable {
     let duration: String
     let difficulty: String
     let age: String
+    let cost: String
     let fullDescription: String
     
     // MARK: - Methods

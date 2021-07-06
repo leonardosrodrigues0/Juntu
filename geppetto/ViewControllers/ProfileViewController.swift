@@ -15,8 +15,7 @@ class ProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: "ActivityOverview", bundle: nil)
         let activityViewController = storyboard.instantiateInitialViewController() as? ActivityOverviewViewController
         activityViewController?.activity = Activity.activities().first
-        show(activityViewController!, sender: self)
-//        present(activityViewController!, animated: true, completion: nil)
+        show(activityViewController!, sender: self) // Navigate to Activity Overview.
     }
 
     override func viewDidLoad() {

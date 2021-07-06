@@ -15,16 +15,6 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var image: UIImageView!
     
-//    // MARK: - Initializers
-//    init(label: String) {
-//        self.label = label
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//    }
-    
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
