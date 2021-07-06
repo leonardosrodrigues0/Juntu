@@ -7,23 +7,29 @@
 
 import UIKit
 
-@IBDesignable
 class Card: UIView {
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            self.layer.cornerRadius = cornerRadius
-        }
+    @IBOutlet var cardView: Card!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var footnoteLabel: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
-        didSet {
-            self.layer.borderWidth = borderWidth
-        }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
     }
     
-    @IBInspectable var borderColor: UIColor = UIColor.clear {
-        didSet {
-            self.layer.borderColor = borderColor.cgColor
-        }
+    private func commonInit() {
+        Bundle.main.loadNibNamed("Card", owner: self, options: nil)
+        addSubview(cardView)
+        cardView.frame = self.bounds
+        cardView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
     }
 }
