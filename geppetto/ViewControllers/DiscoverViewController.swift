@@ -22,7 +22,7 @@ class DiscoverViewController: UIViewController {
     private func createCard(_ activity: Activity) -> Card {
         let card = Card()
         card.titleLabel.text = activity.name
-        card.footnoteLabel.text = activity.description
+        card.footnoteLabel.text = activity.age
         view.addSubview(card)
         let constraint = [card.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32)]
         NSLayoutConstraint.activate(constraint)
