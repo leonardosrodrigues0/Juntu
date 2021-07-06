@@ -11,6 +11,7 @@ class DiscoverViewController: UIViewController {
     
     var items: [Activity] = []
     @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class DiscoverViewController: UIViewController {
         card.titleLabel.text = activity.name
         card.footnoteLabel.text = activity.age
         view.addSubview(card)
-        let constraint = [card.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32)]
+        let constraint = [card.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)]
         NSLayoutConstraint.activate(constraint)
         return card
     }
