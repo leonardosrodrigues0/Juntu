@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Observando as Constelações",
+        "imageName": "constelacoes",
+        "duration": "30 minutes",
+        "difficulty": "easy",
+        "age": "3 - 12",
+        "steps": [
+            {
+                "description": "Em um copo coloque bastante água, a ponto de quase enchê-lo. No outro coloque pouca ou nenhuma água.",
+                "information": "O som possui uma propriedade chamada altura. Ela pode ser aguda ou grave. Exploraremos isso nos próximos passos."
+            },
+            {
+                "description": "Com o talher bata algumas vezes no copo que tem pouca ou nenhuma água para notar o som que é emitido pelo copo. Esse som nós podemos chamar de agudo. Dê a colher para a criança bater e ouvir o som do copo.",
+                "information": """Esse som que ouvimos podemos chamar de agudo. Quando ouvimos, temos a sensação de ser algo ""fino""."""
+            },
+            {
+                "description": "Com o talher bata algumas vezes no copo que tem pouca ou nenhuma água, para notar o som que é emitido polo copo. Esse som nós podemos chamos de grave. De a colher para a criança bater e ouvir o som do copo.",
+                "information": """Com som grave, temos a sensação de ser mais ""grosso""/""gordo"""""
+            }
+        ]
+    }
+]

@@ -25,6 +25,7 @@ public class SearchViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         items = Activity.activities()
+        print(items)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
@@ -69,7 +70,7 @@ extension SearchViewController: UITableViewDataSource {
         }
         
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.description
+        cell.detailTextLabel?.text = item.getDescription()
         return cell
     }
 }

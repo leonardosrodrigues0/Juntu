@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
+		A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */; };
+		A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */; };
+		A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
 		A7BD6976268B41F30005331F /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6974268B41F30005331F /* Discover.storyboard */; };
@@ -14,10 +18,17 @@
 		A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697C268B59E10005331F /* DiscoverViewController.swift */; };
 		A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697E268B5A010005331F /* ProfileViewController.swift */; };
 		A7BD6987268B5DED0005331F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6986268B5DED0005331F /* Card.swift */; };
+		A7C6618C269332F700E79AC4 /* easter.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C66188269332F700E79AC4 /* easter.png */; };
+		A7C6618D269332F700E79AC4 /* constellations.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C66189269332F700E79AC4 /* constellations.png */; };
+		A7C6618E269332F700E79AC4 /* reading.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C6618A269332F700E79AC4 /* reading.png */; };
+		A7C6618F269332F700E79AC4 /* pisa.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C6618B269332F700E79AC4 /* pisa.png */; };
+		A7C661912693391400E79AC4 /* steps.json in Resources */ = {isa = PBXBuildFile; fileRef = A7C661902693391400E79AC4 /* steps.json */; };
+		A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66192269340D500E79AC4 /* ActivityStep.swift */; };
+		A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */; };
 		A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE1E19268CB33E00180E01 /* Searchable.swift */; };
 		A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE1E1B268CB38200180E01 /* Activity.swift */; };
 		A7CE1E1F268CB70200180E01 /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = A7CE1E1E268CB70200180E01 /* activities.json */; };
-		A7DF158F268E0AE30004C616 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DF158E268E0AE30004C616 /* Activity.storyboard */; };
+		A7DF158F268E0AE30004C616 /* ActivityStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DF158E268E0AE30004C616 /* ActivityStep.storyboard */; };
 		A7E65C3026860E1600570FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C2F26860E1600570FBD /* AppDelegate.swift */; };
 		A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C3126860E1600570FBD /* SceneDelegate.swift */; };
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
@@ -26,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A729CA85269477840000E9D3 /* ActivityOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityOverview.storyboard; sourceTree = "<group>"; };
+		A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
+		A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStepViewController.swift; sourceTree = "<group>"; };
+		A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageControlViewController.swift; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
@@ -33,10 +48,17 @@
 		A7BD697C268B59E10005331F /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		A7BD697E268B5A010005331F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A7BD6986268B5DED0005331F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A7C66188269332F700E79AC4 /* easter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easter.png; sourceTree = "<group>"; };
+		A7C66189269332F700E79AC4 /* constellations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellations.png; sourceTree = "<group>"; };
+		A7C6618A269332F700E79AC4 /* reading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reading.png; sourceTree = "<group>"; };
+		A7C6618B269332F700E79AC4 /* pisa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pisa.png; sourceTree = "<group>"; };
+		A7C661902693391400E79AC4 /* steps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = steps.json; sourceTree = "<group>"; };
+		A7C66192269340D500E79AC4 /* ActivityStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStep.swift; sourceTree = "<group>"; };
+		A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityOverviewViewController.swift; sourceTree = "<group>"; };
 		A7CE1E19268CB33E00180E01 /* Searchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
 		A7CE1E1B268CB38200180E01 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A7CE1E1E268CB70200180E01 /* activities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activities.json; sourceTree = "<group>"; };
-		A7DF158E268E0AE30004C616 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		A7DF158E268E0AE30004C616 /* ActivityStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityStep.storyboard; sourceTree = "<group>"; };
 		A7E65C2C26860E1600570FBD /* geppetto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geppetto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E65C2F26860E1600570FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7E65C3126860E1600570FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +85,10 @@
 				A7BD697C268B59E10005331F /* DiscoverViewController.swift */,
 				A7BD697A268B57B20005331F /* SearchViewController.swift */,
 				A7BD697E268B5A010005331F /* ProfileViewController.swift */,
+				A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */,
+				A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */,
+				A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */,
+				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -81,6 +107,7 @@
 			children = (
 				A7CE1E19268CB33E00180E01 /* Searchable.swift */,
 				A7CE1E1B268CB38200180E01 /* Activity.swift */,
+				A7C66192269340D500E79AC4 /* ActivityStep.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,7 +120,8 @@
 				A7BD6974268B41F30005331F /* Discover.storyboard */,
 				A7BD6970268B3AB50005331F /* Search.storyboard */,
 				A7BD6972268B3AC70005331F /* Profile.storyboard */,
-				A7DF158E268E0AE30004C616 /* Activity.storyboard */,
+				A7DF158E268E0AE30004C616 /* ActivityStep.storyboard */,
+				A729CA85269477840000E9D3 /* ActivityOverview.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -106,10 +134,23 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A7C66187269331D900E79AC4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7C66189269332F700E79AC4 /* constellations.png */,
+				A7C6618A269332F700E79AC4 /* reading.png */,
+				A7C66188269332F700E79AC4 /* easter.png */,
+				A7C6618B269332F700E79AC4 /* pisa.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A7CE1E1D268CB6B500180E01 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				A7C66187269331D900E79AC4 /* Resources */,
 				A7CE1E1E268CB70200180E01 /* activities.json */,
+				A7C661902693391400E79AC4 /* steps.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -208,8 +249,14 @@
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
 				A7E65C3726860E1600570FBD /* Main.storyboard in Resources */,
 				A7BD6971268B3AB50005331F /* Search.storyboard in Resources */,
+				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
+				A7C661912693391400E79AC4 /* steps.json in Resources */,
 				A7BD6976268B41F30005331F /* Discover.storyboard in Resources */,
-				A7DF158F268E0AE30004C616 /* Activity.storyboard in Resources */,
+				A7C6618C269332F700E79AC4 /* easter.png in Resources */,
+				A7C6618F269332F700E79AC4 /* pisa.png in Resources */,
+				A7C6618D269332F700E79AC4 /* constellations.png in Resources */,
+				A7C6618E269332F700E79AC4 /* reading.png in Resources */,
+				A7DF158F268E0AE30004C616 /* ActivityStep.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +272,13 @@
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,
 				A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
+				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
+				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
+				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
+				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
+				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
