@@ -24,6 +24,7 @@ class DiscoverViewController: UIViewController {
         let card = Card()
         card.titleLabel.text = activity.name
         card.footnoteLabel.text = activity.age
+        card.image.image = UIImage(named: activity.imageName)
         view.addSubview(card)
         let constraint = [card.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)]
         NSLayoutConstraint.activate(constraint)
