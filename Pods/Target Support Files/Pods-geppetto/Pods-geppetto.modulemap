@@ -1,0 +1,6 @@
+framework module Pods_geppetto {
+  umbrella header "Pods-geppetto-umbrella.h"
+
+  export *
+  module * { export * }
+}
