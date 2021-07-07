@@ -95,11 +95,22 @@
                     <connections>
                         <outlet property="scrollView" destination="pUg-VU-vPH" id="QgL-Cd-q35"/>
                         <outlet property="stack" destination="qXS-bw-v16" id="ty9-hP-Tgm"/>
+                        <segue destination="c8W-xN-u1d" kind="show" identifier="goToOverview" id="GSL-jU-D04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnZ-oo-M6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2163.768115942029" y="-281.25"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="7Ln-Zc-5wi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="c8W-xN-u1d" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iiT-wO-4Dj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8a-dM-AF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-281"/>
         </scene>
         <!--Discover-->
         <scene sceneID="G1i-DQ-Cgn">

@@ -53,6 +53,7 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Css-CC-r2r" firstAttribute="top" secondItem="WmG-Ws-HHg" secondAttribute="bottom" constant="8" id="49o-mp-TfG"/>
                 <constraint firstItem="WmG-Ws-HHg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LqW-GR-1iL"/>
@@ -63,8 +64,16 @@
                 <constraint firstItem="Css-CC-r2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mNk-sc-Ci8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="OvX-LL-odi" appends="YES" id="E8A-gV-mOU"/>
+            </connections>
             <point key="canvasLocation" x="421.01449275362324" y="39.84375"/>
         </view>
+        <tapGestureRecognizer id="OvX-LL-odi">
+            <connections>
+                <action selector="navigateToDetail:" destination="-1" id="1wq-rx-3G1"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="alesia-kazantceva-VWcPlbHglYc-unsplash" width="2736" height="1824"/>
