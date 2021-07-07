@@ -31,6 +31,9 @@ class ActivityPageControlViewController: UIViewController {
         addChild(pageViewController)
         pageViewController.didMove(toParent: self)
         contentView.addSubview(pageViewController.view)
+
+        // Remove borders from page view.
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         let views: [String: Any] = ["pageView": pageViewController.view!]
         

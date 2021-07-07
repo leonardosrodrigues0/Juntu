@@ -12,8 +12,10 @@ class ActivityStepViewController: UIViewController {
     // MARK: - Properties
     var index: Int? // PageController index.
     var activity: Activity?
-    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var indexLabel: UILabel!
+    @IBOutlet weak var instructions: UILabel!
+    @IBOutlet weak var references: UILabel!
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -22,9 +24,16 @@ class ActivityStepViewController: UIViewController {
     }
     
     private func updateOutlets() {
-        label.text = activity?.name
+        guard let indexValue = index else {
+            print("Error: failed to unwrap index optional at activity step.")
+            return
+        }
+        
         let newImage = UIImage(named: activity!.imageName)
         image.image = newImage
+        indexLabel.text = "Step \(indexValue + 1)"
+        instructions.text = activity?.fullDescription
+        references.text = activity?.fullDescription
     }
     
 }

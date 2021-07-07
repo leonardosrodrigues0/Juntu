@@ -26,9 +26,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX">
+                                <rect key="frame" x="20" y="324" width="90" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -38,20 +38,48 @@
                                     <constraint firstAttribute="height" constant="256" id="Jew-es-EqZ"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owt-NS-DQT">
+                                <rect key="frame" x="20" y="355" width="374" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="References" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xy-l5-d1M">
+                                <rect key="frame" x="20" y="396" width="95.5" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="referencesText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-Vv-hhh">
+                                <rect key="frame" x="20" y="427" width="374" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8FI-3E-imV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jiq-as-X68" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" id="8FC-Ce-YVT"/>
-                            <constraint firstItem="m1K-Cs-laX" firstAttribute="centerY" secondItem="36T-Um-fAm" secondAttribute="centerY" id="Jaa-eg-tsF"/>
+                            <constraint firstItem="Owt-NS-DQT" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" constant="20" id="AG8-Cf-Qn3"/>
+                            <constraint firstItem="QGe-Vv-hhh" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" constant="20" id="Gqb-eI-Iuu"/>
+                            <constraint firstItem="m1K-Cs-laX" firstAttribute="top" secondItem="jiq-as-X68" secondAttribute="bottom" constant="24" id="KEP-6w-n1a"/>
                             <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="MGL-Kl-c8T"/>
                             <constraint firstItem="8FI-3E-imV" firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="PFc-KA-JEF"/>
-                            <constraint firstItem="m1K-Cs-laX" firstAttribute="centerX" secondItem="36T-Um-fAm" secondAttribute="centerX" id="xRN-Lv-3Ri"/>
+                            <constraint firstItem="5Xy-l5-d1M" firstAttribute="top" secondItem="Owt-NS-DQT" secondAttribute="bottom" constant="24" id="Pn0-du-Q73"/>
+                            <constraint firstItem="Owt-NS-DQT" firstAttribute="top" secondItem="m1K-Cs-laX" secondAttribute="bottom" constant="8" id="T3v-7T-JlI"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="trailing" secondItem="Owt-NS-DQT" secondAttribute="trailing" constant="20" id="TbN-61-icP"/>
+                            <constraint firstItem="m1K-Cs-laX" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" constant="20" id="Y72-dF-JGD"/>
+                            <constraint firstItem="QGe-Vv-hhh" firstAttribute="top" secondItem="5Xy-l5-d1M" secondAttribute="bottom" constant="8" id="hg5-MY-hr5"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="trailing" secondItem="QGe-Vv-hhh" secondAttribute="trailing" constant="20" id="mch-0S-dnK"/>
+                            <constraint firstItem="5Xy-l5-d1M" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" constant="20" id="ziD-4H-3s2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="image" destination="jiq-as-X68" id="w9g-Nc-6Kk"/>
-                        <outlet property="label" destination="m1K-Cs-laX" id="u8r-ri-kPX"/>
+                        <outlet property="image" destination="jiq-as-X68" id="ZhF-Wd-N2W"/>
+                        <outlet property="indexLabel" destination="m1K-Cs-laX" id="rH4-bh-Lrd"/>
+                        <outlet property="instructions" destination="Owt-NS-DQT" id="Zpo-Ye-H3z"/>
+                        <outlet property="references" destination="QGe-Vv-hhh" id="Os9-7r-Jev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-A8-zXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
