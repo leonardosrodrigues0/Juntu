@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct ActivityStep: Codable {
+public struct ActivityStep {
     
-    // MARK: - Properties
-    let description: String
-    let information: String
-    
+    //MARK: - Properties
+    var information: String
+    var reference: String
 }
+
