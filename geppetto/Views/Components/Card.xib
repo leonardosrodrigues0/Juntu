@@ -22,29 +22,29 @@
             <rect key="frame" x="0.0" y="0.0" width="543" height="359"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BAv-UH-pG9">
-                    <rect key="frame" x="0.0" y="0.0" width="543" height="359"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alesia-kazantceva-VWcPlbHglYc-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-Ws-HHg">
+                    <rect key="frame" x="0.0" y="0.0" width="543" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="240" id="2d1-p0-1wn"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Css-CC-r2r">
+                    <rect key="frame" x="0.0" y="248" width="543" height="111"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alesia-kazantceva-VWcPlbHglYc-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-Ws-HHg">
-                            <rect key="frame" x="0.0" y="0.0" width="543" height="276"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="276" id="2d1-p0-1wn"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-fY-YDy" userLabel="Title">
-                            <rect key="frame" x="0.0" y="286.5" width="543" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-fY-YDy" userLabel="Title">
+                            <rect key="frame" x="0.0" y="0.0" width="543" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-Tm-Cfk" userLabel="Description">
-                            <rect key="frame" x="0.0" y="317" width="543" height="17"/>
+                            <rect key="frame" x="0.0" y="50" width="543" height="17"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" systemColor="secondaryLabelColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-eU-eom" userLabel="Footnote">
-                            <rect key="frame" x="0.0" y="344.5" width="543" height="14.5"/>
+                            <rect key="frame" x="0.0" y="96.5" width="543" height="14.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <color key="textColor" name="AccentColor"/>
                             <nil key="highlightedColor"/>
@@ -53,21 +53,36 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="BAv-UH-pG9" secondAttribute="trailing" id="M5m-fB-zBH"/>
-                <constraint firstItem="BAv-UH-pG9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OVV-70-uAL"/>
-                <constraint firstItem="BAv-UH-pG9" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="iqO-ox-Nvn"/>
-                <constraint firstItem="BAv-UH-pG9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mgL-Rg-G0F"/>
+                <constraint firstItem="Css-CC-r2r" firstAttribute="top" secondItem="WmG-Ws-HHg" secondAttribute="bottom" constant="8" id="49o-mp-TfG"/>
+                <constraint firstItem="WmG-Ws-HHg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LqW-GR-1iL"/>
+                <constraint firstAttribute="trailing" secondItem="Css-CC-r2r" secondAttribute="trailing" id="VfI-Yu-4RJ"/>
+                <constraint firstAttribute="bottom" secondItem="Css-CC-r2r" secondAttribute="bottom" id="WCL-Xc-E7W"/>
+                <constraint firstItem="WmG-Ws-HHg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YXz-Ur-n9U"/>
+                <constraint firstAttribute="trailing" secondItem="WmG-Ws-HHg" secondAttribute="trailing" id="jOK-Kj-sar"/>
+                <constraint firstItem="Css-CC-r2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mNk-sc-Ci8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="OvX-LL-odi" appends="YES" id="E8A-gV-mOU"/>
+            </connections>
             <point key="canvasLocation" x="421.01449275362324" y="39.84375"/>
         </view>
+        <tapGestureRecognizer id="OvX-LL-odi">
+            <connections>
+                <action selector="navigateToDetail:" destination="-1" id="1wq-rx-3G1"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="alesia-kazantceva-VWcPlbHglYc-unsplash" width="2736" height="1824"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
