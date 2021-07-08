@@ -26,7 +26,7 @@ class ActivityConstructor {
         // Get information from firebase.
         let databaseRef = Database.database().reference().child("activity list/\(localization)") //"activity of the week"
         
-        databaseRef.observe(.childAdded, with: { (snapshot) in
+        databaseRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
             
             if let dict = snapshot.value as? [String: Any] {
                 switch snapshot.key {
@@ -50,7 +50,7 @@ class ActivityConstructor {
         var names = [String]()
         
         let databaseRef = Database.database().reference().child("activity list")
-        databaseRef.observe(.childAdded, with: { (snapshot) in
+        databaseRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
             print(snapshot.key)
             names.append(snapshot.key)
         })
