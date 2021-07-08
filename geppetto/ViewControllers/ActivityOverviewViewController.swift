@@ -20,7 +20,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
     
-    private let itemsColor = UIColor.green
+    private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
     private let itemsSymbolName: [String: String] = [
         "duration": "square.fill",
         "difficulty": "square.fill",

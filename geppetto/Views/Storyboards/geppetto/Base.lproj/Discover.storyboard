@@ -90,7 +90,7 @@
                             <constraint firstItem="RN1-Hq-0WY" firstAttribute="top" secondItem="BzV-zO-Che" secondAttribute="top" id="fhH-Xy-KWQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" id="Afs-wN-mj1"/>
+                    <navigationItem key="navigationItem" title="Discover" largeTitleDisplayMode="always" id="Afs-wN-mj1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="pUg-VU-vPH" id="QgL-Cd-q35"/>
