@@ -63,6 +63,7 @@
 		A77BCE73269C630700E612BC /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
 		A77BCE74269C630700E612BC /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		A77BCE75269C630700E612BC /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		A77BCE7D269C85A900E612BC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 		A7E65C2326860E1600570FBD = {
 			isa = PBXGroup;
 			children = (
+				A77BCE7D269C85A900E612BC /* README.md */,
 				A7E65C2E26860E1600570FBD /* geppetto */,
 				A7E65C2D26860E1600570FBD /* Products */,
 				E83B045F180CEF165B46D1B0 /* Pods */,
