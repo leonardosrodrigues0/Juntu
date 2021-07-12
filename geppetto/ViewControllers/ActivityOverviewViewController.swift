@@ -18,6 +18,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
+    @IBOutlet weak var materialStack: UIStackView!
     @IBOutlet weak var keepInMindText: UILabel!
     
     private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
@@ -42,7 +43,29 @@ class ActivityOverviewViewController: UIViewController {
         age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
         fullDescription.text = activity?.introduction
         keepInMindText.text = activity?.caution
+        self.loadMaterialLabels()
         enterActivityStepsButton.layer.cornerRadius = 8
+    }
+    
+    private func loadMaterialLabels() {
+        for subView in materialStack.arrangedSubviews {
+            subView.removeFromSuperview()
+        }
+        
+        guard let materials = activity?.materialList else {
+            return
+        }
+        
+        for material in materials {
+            materialStack.addArrangedSubview(createMaterialLabel(material))
+        }
+    }
+    
+    private func createMaterialLabel(_ name: String) -> UILabel {
+        let label = UILabel()
+        label.text = name
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote)
+        return label
     }
     
     private func setItemsProperties() {

@@ -28,7 +28,6 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     func reloadCards() {
         let cards = items.map { createCard($0) }    // create all cards for each activity
         stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
-        stack.reloadInputViews()
     }
     
     ///Instantiate the Card Views with data from activity
