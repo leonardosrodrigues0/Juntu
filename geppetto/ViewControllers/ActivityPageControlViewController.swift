@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Control of the PageViewController for a given activity
 class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
@@ -25,6 +26,7 @@ class ActivityPageControlViewController: UIViewController {
         configurePageViewController()
     }
     
+    /// Set options for pages
     func configurePageViewController() {
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActivityPageViewController.self)) as? ActivityPageViewController else {
             return

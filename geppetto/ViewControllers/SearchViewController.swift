@@ -11,8 +11,8 @@ public class SearchViewController: UIViewController {
     @IBOutlet public var tableView: UITableView!
     
     var items: [Searchable] = []
-    let searchController = UISearchController(searchResultsController: nil)
     var filteredItems: [Searchable] = []
+    let searchController = UISearchController(searchResultsController: nil)
     
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -21,20 +21,26 @@ public class SearchViewController: UIViewController {
     var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
     }
-
+    
+    /// Set options and get data from database for the screen
     public override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        setSearchConfig()
         ActivityConstructor.getAllActivitiesData { data in
             self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
             self.tableView.reloadData()
         }
     }
     
+    private func setSearchConfig() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    /// Deselect row when returning to view
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -43,6 +49,7 @@ public class SearchViewController: UIViewController {
         }
     }
     
+    /// Update `filteredItems`
     func filterContentForSearchText(_ searchText: String) {
         filteredItems = items.filter { (item: Searchable) -> Bool in
             return item.isResultWithSearchString(searchText) || isSearchBarEmpty
@@ -51,6 +58,7 @@ public class SearchViewController: UIViewController {
         tableView.reloadData()
     }
     
+    /// Prepare activity screen for navigation
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
             segue.identifier == "ActivitySegue",
@@ -78,9 +86,9 @@ extension SearchViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredItems.count
+        } else {
+            return items.count
         }
-        
-        return items.count
     }
   
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

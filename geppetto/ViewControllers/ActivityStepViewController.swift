@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Individual activity step screen
 class ActivityStepViewController: UIViewController {
 
     // MARK: - Properties

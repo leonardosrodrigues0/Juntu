@@ -10,9 +10,12 @@ import FirebaseDatabase
 
 typealias StringDictionary = [String: String]
 
+/// Builds Activities from our database information
 class ActivityConstructor {
     
-    //MARK: - Static Methods
+    /// Builds a list of activity structs from data retrieved
+    /// - Parameter data: information retrieved from `getAllActivitiesData()`
+    /// - Returns: list of Activities built
     public static func buildStructs(data: DataSnapshot) -> [Activity] {
         var activities = [Activity]()
         
@@ -28,7 +31,16 @@ class ActivityConstructor {
         return activities
     }
     
-    public static func buildActivityStruct(data: DataSnapshot) -> Activity {
+    /// Get all activities data from database
+    /// - Parameter completion: function to run when information is retrieved
+    public static func getAllActivitiesData(completion: @escaping (DataSnapshot) -> Void) {
+        let databaseRef = Database.database().reference()
+        databaseRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            completion(snapshot)
+        })
+    }
+    
+    private static func buildActivityStruct(data: DataSnapshot) -> Activity {
         var name = ""
         var imageName = ""
         var time = ""
@@ -141,11 +153,5 @@ class ActivityConstructor {
         
         return ActivityStep(imageName: imageName, information: information, reference: reference)
     }
-    
-    public static func getAllActivitiesData(completion: @escaping (DataSnapshot) -> Void) {
-        let databaseRef = Database.database().reference()
-        databaseRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            completion(snapshot)
-        })
-    }
+
 }

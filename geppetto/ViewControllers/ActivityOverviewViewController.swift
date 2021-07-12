@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Activity details screen
 class ActivityOverviewViewController: UIViewController {
     
     // MARK: - Properties
@@ -47,6 +48,7 @@ class ActivityOverviewViewController: UIViewController {
         enterActivityStepsButton.layer.cornerRadius = 8
     }
     
+    /// Load materials and set them in the vertical stack
     private func loadMaterialLabels() {
         for subView in materialStack.arrangedSubviews {
             subView.removeFromSuperview()
@@ -68,6 +70,7 @@ class ActivityOverviewViewController: UIViewController {
         return label
     }
     
+    /// Set properties of duration, difficulty and age items
     private func setItemsProperties() {
         duration.sizeToFit()
         duration.textColor = self.itemsColor
@@ -77,6 +80,11 @@ class ActivityOverviewViewController: UIViewController {
         age.textColor = self.itemsColor
     }
     
+    /// Get item string with the corresponding SF symbol
+    /// - Parameters:
+    ///   - item: item name as described in `itemsSymbolName`
+    ///   - value: item value
+    /// - Returns: Symbol followed by the text
     private func getItemString(item: String, value: String) -> NSMutableAttributedString {
         // Get symbol as string.
         let symbolAttachment = NSTextAttachment()

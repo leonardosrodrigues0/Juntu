@@ -8,14 +8,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
-//    @IBOutlet weak var activityExampleButton: UIButton!
-//
-//    @IBAction func activityExampleButtonTapped() {
-//        let storyboard = UIStoryboard(name: "ActivityOverview", bundle: nil)
-//        let activityViewController = storyboard.instantiateInitialViewController() as? ActivityOverviewViewController
-//        show(activityViewController!, sender: self) // Navigate to Activity Overview.
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

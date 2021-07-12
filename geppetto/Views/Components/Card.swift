@@ -11,9 +11,10 @@ protocol CardNavigationDelegate: AnyObject {
     func navigate(from card: Card)
 }
 
+/// Card view for discover screen
 class Card: UIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var activity: Activity? // Essential data
     @IBOutlet var cardView: Card!
     @IBOutlet weak var image: UIImageView!
@@ -23,7 +24,7 @@ class Card: UIView {
     
     weak var delegate: CardNavigationDelegate?
     
-    //MARK: - Methods
+    // MARK: - Methods
     @IBAction func navigateToDetail(_ sender: UITapGestureRecognizer) {
         delegate?.navigate(from: self)
     }
