@@ -19,9 +19,9 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
     
-    private let itemsColor = UIColor.green
+    private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
     private let itemsSymbolName: [String: String] = [
-        "duration": "square.fill",
+        "duration": "clock.fill",
         "difficulty": "square.fill",
         "age": "square.fill"
     ]
@@ -40,6 +40,7 @@ class ActivityOverviewViewController: UIViewController {
         difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
         age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
         fullDescription.text = activity?.introduction
+        enterActivityStepsButton.layer.cornerRadius = 8
     }
     
     private func setItemsProperties() {
