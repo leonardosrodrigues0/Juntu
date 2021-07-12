@@ -7,18 +7,108 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+public class SearchViewController: UIViewController {
+    @IBOutlet public var tableView: UITableView!
+    
+    var items: [Searchable] = []
+    var filteredItems: [Searchable] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    @IBAction func showAlert() {
-        let alert = UIAlertController(title: "Search", message: "Not implemented yet", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    
+    /// Set options and get data from database for the screen
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        setSearchConfig()
+        ActivityConstructor.getAllActivitiesData { data in
+            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func setSearchConfig() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    /// Deselect row when returning to view
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    /// Update `filteredItems`
+    func filterContentForSearchText(_ searchText: String) {
+        filteredItems = items.filter { (item: Searchable) -> Bool in
+            return item.isResultWithSearchString(searchText) || isSearchBarEmpty
+        }
+      
+        tableView.reloadData()
+    }
+    
+    /// Prepare activity screen for navigation
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            segue.identifier == "ActivitySegue",
+            let indexPath = tableView.indexPathForSelectedRow,
+            let activityOverviewViewController = segue.destination as? ActivityOverviewViewController
+        else {
+            return
+        }
+        
+        // Get activity in position and set for view
+        // Force cast as there are only activities for 'Searchable' protocol for now
+        let activity: Activity
+        if isFiltering {
+            activity = filteredItems[indexPath.row] as! Activity
+        } else {
+            activity = items[indexPath.row] as! Activity
+        }
+        
+        activityOverviewViewController.activity = activity
     }
 
+}
+
+extension SearchViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredItems.count
+        } else {
+            return items.count
+        }
+    }
+  
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let item: Searchable
+        if isFiltering {
+            item = filteredItems[indexPath.row]
+        } else {
+            item = items[indexPath.row]
+        }
+        
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = item.getDescription()
+        return cell
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
