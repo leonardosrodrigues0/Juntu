@@ -43,6 +43,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="tek-2P-yZX" kind="show" identifier="ActivitySegue" id="qzq-J4-UCA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -68,6 +71,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="116"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="gOU-qx-gma">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="tek-2P-yZX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5gH-Pf-m5v"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rYr-c4-hRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="116"/>
         </scene>
         <!--Search-->
         <scene sceneID="Tem-D9-ykC">

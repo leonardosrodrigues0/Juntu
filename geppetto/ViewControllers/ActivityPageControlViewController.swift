@@ -7,12 +7,18 @@
 
 import UIKit
 
+/// Control of the PageViewController for a given activity
 class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
-    let dataSource = Activity.activities()
     var currentViewControllerIndex = 0
+    var activity: Activity? = nil
+    var dataSource: [ActivityStep] {
+        get {
+            return self.activity!.steps
+        }
+    }
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -20,6 +26,7 @@ class ActivityPageControlViewController: UIViewController {
         configurePageViewController()
     }
     
+    /// Set options for pages
     func configurePageViewController() {
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActivityPageViewController.self)) as? ActivityPageViewController else {
             return
@@ -72,7 +79,7 @@ class ActivityPageControlViewController: UIViewController {
         }
         
         activityStepViewController.index = index
-        activityStepViewController.activity = dataSource[index]
+        activityStepViewController.step = dataSource[index]
 
         return activityStepViewController
     }

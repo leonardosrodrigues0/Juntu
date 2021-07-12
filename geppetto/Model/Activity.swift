@@ -7,16 +7,18 @@
 
 import Foundation
 
-struct Activity: Searchable, Codable {
-
+struct Activity: Searchable {
+    
     // MARK: - Properties
     let name: String
     let imageName: String
-    let duration: String
+    let time: String
     let difficulty: String
     let age: String
-    let cost: String
-    let fullDescription: String
+    let caution: String
+    let introduction: String
+    let materialList: [String]
+    let steps: [ActivityStep]
     
     // MARK: - Methods
     func getDescription() -> String {
@@ -27,21 +29,5 @@ struct Activity: Searchable, Codable {
         return name.lowercased().contains(searchString.lowercased())
     }
     
-    // MARK: - Static Methods
-    static func activities() -> [Activity] {
-        guard
-            let url = Bundle.main.url(forResource: "activities", withExtension: "json"),
-            let data = try? Data(contentsOf: url)
-        else {
-            return []
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode([Activity].self, from: data)
-        } catch {
-            return []
-        }
-    }
 }
 

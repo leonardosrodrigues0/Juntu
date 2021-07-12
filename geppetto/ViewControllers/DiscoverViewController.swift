@@ -9,21 +9,29 @@ import UIKit
 
 class DiscoverViewController: UIViewController, CardNavigationDelegate {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var items: [Activity] = []
     var selectedActivity: Activity?
     @IBOutlet weak var stack: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    //MARK: - Methods
+    // MARK: - Methods
+    /// Get information from database and reload the cards
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = Activity.activities()   // read all activities from ../Mock/activities.json
+        ActivityConstructor.getAllActivitiesData { data in
+            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+            self.reloadCards()
+        }
+    }
+    
+    /// Reload cards in view with items array
+    func reloadCards() {
         let cards = items.map { createCard($0) }    // create all cards for each activity
         stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
     }
     
-    ///Instantiate the Card Views with data from activity
+    /// Instantiate the Card Views with data from activity
     private func createCard(_ activity: Activity) -> Card {
         let card = Card()
         card.activity = activity
@@ -35,19 +43,16 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
         return card
     }
     
-    ///Navigate to ActivityOverview
+    /// Navigate to ActivityOverview
     func navigate(from card: Card) {
         selectedActivity = card.activity
-        
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     
-    ///Prepare for navigate to ActivityOverview, i.e. pass the activity data foward
+    /// Prepare for navigate to ActivityOverview, i.e. pass the activity data foward
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToOverview" {
-            
             guard let vc = segue.destination as? ActivityOverviewViewController else { return }
-            
             vc.activity = selectedActivity
         }
     }
@@ -56,11 +61,13 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
 
 
 extension UIStackView {
+    
     ///Inject an array of Card Views into StackView
     fileprivate func populateWithCards(_ array: [Card]) {
         for item in self.arrangedSubviews {
             item.removeFromSuperview()
         }
+        
         for card in array {
             self.addArrangedSubview(card)
         }

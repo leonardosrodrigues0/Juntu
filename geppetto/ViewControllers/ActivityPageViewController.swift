@@ -7,13 +7,14 @@
 
 import UIKit
 
+/// Custom PageViewController for activity steps
 class ActivityPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    /// Override func to remove bottom border from page controller.
+    /// Override func to remove bottom border from page controller
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
