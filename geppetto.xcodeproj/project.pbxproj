@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */; };
-		2FC95C4D2695E55A00FCE2CC /* StructActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4C2695E55A00FCE2CC /* StructActivity.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
 		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
 		A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */; };
@@ -47,7 +46,6 @@
 		28E3FC289032081DC8A179C1 /* Pods-geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.debug.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.debug.xcconfig"; sourceTree = "<group>"; };
 		2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityConstructor.swift; sourceTree = "<group>"; };
-		2FC95C4C2695E55A00FCE2CC /* StructActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructActivity.swift; sourceTree = "<group>"; };
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A729CA85269477840000E9D3 /* ActivityOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityOverview.storyboard; sourceTree = "<group>"; };
 		A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				A7CE1E19268CB33E00180E01 /* Searchable.swift */,
 				A7CE1E1B268CB38200180E01 /* Activity.swift */,
 				2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */,
-				2FC95C4C2695E55A00FCE2CC /* StructActivity.swift */,
 				A7C66192269340D500E79AC4 /* ActivityStep.swift */,
 			);
 			path = Model;
@@ -360,7 +357,6 @@
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
-				2FC95C4D2695E55A00FCE2CC /* StructActivity.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,

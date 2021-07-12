@@ -11,7 +11,8 @@ class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
-    let dataSource = Activity.activities()
+    let dataSource = [Activity]()
+    //    let dataSource = Activity.activities()
     var currentViewControllerIndex = 0
     
     // MARK: - Methods

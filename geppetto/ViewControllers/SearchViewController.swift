@@ -24,13 +24,15 @@ public class SearchViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        items = Activity.activities()
-        print(items)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        ActivityConstructor.getAllActivitiesData { data in
+            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+            self.tableView.reloadData()
+        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {

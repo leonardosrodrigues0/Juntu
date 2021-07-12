@@ -32,8 +32,8 @@ class ActivityStepViewController: UIViewController {
         let newImage = UIImage(named: activity!.imageName)
         image.image = newImage
         indexLabel.text = "Step \(indexValue + 1)"
-        instructions.text = activity?.fullDescription
-        references.text = activity?.fullDescription
+        instructions.text = activity?.introduction
+        references.text = activity?.introduction
     }
     
 }

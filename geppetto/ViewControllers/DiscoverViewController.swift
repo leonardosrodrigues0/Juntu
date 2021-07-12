@@ -18,7 +18,7 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = Activity.activities()   // read all activities from ../Mock/activities.json
+//        items = Activity.activities()   // read all activities from ../Mock/activities.json
         let cards = items.map { createCard($0) }    // create all cards for each activity
         stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
     }

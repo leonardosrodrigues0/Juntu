@@ -16,7 +16,6 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var difficulty: UILabel!
     @IBOutlet weak var age: UILabel!
-    @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
     
@@ -24,8 +23,7 @@ class ActivityOverviewViewController: UIViewController {
     private let itemsSymbolName: [String: String] = [
         "duration": "square.fill",
         "difficulty": "square.fill",
-        "age": "square.fill",
-        "cost": "square.fill"
+        "age": "square.fill"
     ]
     
     // MARK: - Methods
@@ -38,11 +36,10 @@ class ActivityOverviewViewController: UIViewController {
     private func updateOutlets() {
         image.image = UIImage(named: activity!.imageName)
         name.text = activity?.name
-        duration.attributedText = getItemString(item: "duration", value: " \(activity!.duration)")
-        difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.duration)")
+        duration.attributedText = getItemString(item: "duration", value: " \(activity!.time)")
+        difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
         age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
-        cost.attributedText = getItemString(item: "cost", value: " \(activity!.cost)")
-        fullDescription.text = activity?.fullDescription
+        fullDescription.text = activity?.introduction
     }
     
     private func setItemsProperties() {
@@ -52,8 +49,6 @@ class ActivityOverviewViewController: UIViewController {
         difficulty.textColor = self.itemsColor
         age.sizeToFit()
         age.textColor = self.itemsColor
-        cost.sizeToFit()
-        cost.textColor = self.itemsColor
     }
     
     private func getItemString(item: String, value: String) -> NSMutableAttributedString {
