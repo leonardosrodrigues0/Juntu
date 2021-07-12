@@ -70,7 +70,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep In Mind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-BW-HAC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-BW-HAC">
                                                 <rect key="frame" x="16" y="436.5" width="382" height="23"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
@@ -152,6 +152,7 @@
                         <outlet property="enterActivityStepsButton" destination="SfA-eM-F41" id="AlP-wA-4as"/>
                         <outlet property="fullDescription" destination="Bcs-Ht-KoQ" id="WRQ-YS-UPt"/>
                         <outlet property="image" destination="47u-7P-1ot" id="dEo-DW-XBl"/>
+                        <outlet property="keepInMindText" destination="bfj-2L-7Rz" id="9fd-nf-YEZ"/>
                         <outlet property="name" destination="l45-P5-0L3" id="iTR-Hl-vJN"/>
                     </connections>
                 </viewController>

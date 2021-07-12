@@ -50,6 +50,27 @@ public class SearchViewController: UIViewController {
       
         tableView.reloadData()
     }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            segue.identifier == "ActivitySegue",
+            let indexPath = tableView.indexPathForSelectedRow,
+            let activityOverviewViewController = segue.destination as? ActivityOverviewViewController
+        else {
+            return
+        }
+        
+        // Get activity in position and set for view
+        // Force cast as there are only activities for 'Searchable' protocol for now
+        let activity: Activity
+        if isFiltering {
+            activity = filteredItems[indexPath.row] as! Activity
+        } else {
+            activity = items[indexPath.row] as! Activity
+        }
+        
+        activityOverviewViewController.activity = activity
+    }
 
 }
 

@@ -11,9 +11,13 @@ class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
-    let dataSource = [Activity]()
-    //    let dataSource = Activity.activities()
     var currentViewControllerIndex = 0
+    var activity: Activity? = nil
+    var dataSource: [ActivityStep] {
+        get {
+            return self.activity!.steps
+        }
+    }
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -73,7 +77,7 @@ class ActivityPageControlViewController: UIViewController {
         }
         
         activityStepViewController.index = index
-        activityStepViewController.activity = dataSource[index]
+        activityStepViewController.step = dataSource[index]
 
         return activityStepViewController
     }

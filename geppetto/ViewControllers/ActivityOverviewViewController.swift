@@ -18,6 +18,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var fullDescription: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
+    @IBOutlet weak var keepInMindText: UILabel!
     
     private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
     private let itemsSymbolName: [String: String] = [
@@ -40,6 +41,7 @@ class ActivityOverviewViewController: UIViewController {
         difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
         age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
         fullDescription.text = activity?.introduction
+        keepInMindText.text = activity?.caution
         enterActivityStepsButton.layer.cornerRadius = 8
     }
     
@@ -68,9 +70,9 @@ class ActivityOverviewViewController: UIViewController {
 
     @IBAction private func enterActivityButtonTapped() {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControleViewController = storyboard.instantiateInitialViewController() as? ActivityPageControlViewController
-//        activityPageControleViewController?.activity = activity // Commented as activities doesn't have steps yet
-        show(activityPageControleViewController!, sender: self)
+        let activityPageControlViewController = storyboard.instantiateInitialViewController() as? ActivityPageControlViewController
+        activityPageControlViewController?.activity = activity
+        show(activityPageControlViewController!, sender: self)
     }
     
 }

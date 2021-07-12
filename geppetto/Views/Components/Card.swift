@@ -48,6 +48,7 @@ class Card: UIView {
     /// Required to be called after the ```activity``` have been set to update the card subviews
     func updateView() {
         titleLabel.text = activity?.name
+        descriptionLabel.text = activity?.time
         footnoteLabel.text = activity?.age
         image.image = UIImage(named: activity!.imageName)
         image.layer.cornerRadius = 10

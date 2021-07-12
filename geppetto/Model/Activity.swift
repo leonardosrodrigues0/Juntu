@@ -17,7 +17,7 @@ struct Activity: Searchable {
     let age: String
     let caution: String
     let introduction: String
-    let matererialList: [String]
+    let materialList: [String]
     let steps: [ActivityStep]
     
     // MARK: - Methods

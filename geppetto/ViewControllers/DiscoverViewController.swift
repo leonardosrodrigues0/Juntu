@@ -18,9 +18,17 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        items = Activity.activities()   // read all activities from ../Mock/activities.json
+        ActivityConstructor.getAllActivitiesData { data in
+            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+            self.reloadCards()
+        }
+    }
+    
+    ///Reload cards in view with items array
+    func reloadCards() {
         let cards = items.map { createCard($0) }    // create all cards for each activity
         stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
+        stack.reloadInputViews()
     }
     
     ///Instantiate the Card Views with data from activity
@@ -38,16 +46,13 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     ///Navigate to ActivityOverview
     func navigate(from card: Card) {
         selectedActivity = card.activity
-        
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     
     ///Prepare for navigate to ActivityOverview, i.e. pass the activity data foward
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToOverview" {
-            
             guard let vc = segue.destination as? ActivityOverviewViewController else { return }
-            
             vc.activity = selectedActivity
         }
     }
@@ -56,11 +61,13 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
 
 
 extension UIStackView {
+    
     ///Inject an array of Card Views into StackView
     fileprivate func populateWithCards(_ array: [Card]) {
         for item in self.arrangedSubviews {
             item.removeFromSuperview()
         }
+        
         for card in array {
             self.addArrangedSubview(card)
         }

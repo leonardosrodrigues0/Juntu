@@ -10,6 +10,7 @@ import Foundation
 public struct ActivityStep {
     
     //MARK: - Properties
+    var imageName: String
     var information: String
     var reference: String
 }

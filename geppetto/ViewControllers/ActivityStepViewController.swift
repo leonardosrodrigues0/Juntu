@@ -11,7 +11,7 @@ class ActivityStepViewController: UIViewController {
 
     // MARK: - Properties
     var index: Int? // PageController index.
-    var activity: Activity?
+    var step: ActivityStep?
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var instructions: UILabel!
@@ -29,11 +29,11 @@ class ActivityStepViewController: UIViewController {
             return
         }
         
-        let newImage = UIImage(named: activity!.imageName)
+        let newImage = UIImage(named: step!.imageName)
         image.image = newImage
         indexLabel.text = "Step \(indexValue + 1)"
-        instructions.text = activity?.introduction
-        references.text = activity?.introduction
+        instructions.text = step?.information
+        references.text = step?.reference
     }
     
 }

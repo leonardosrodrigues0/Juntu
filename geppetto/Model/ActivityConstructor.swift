@@ -30,7 +30,7 @@ class ActivityConstructor {
     
     public static func buildActivityStruct(data: DataSnapshot) -> Activity {
         var name = ""
-        let imageName = ""
+        var imageName = ""
         var time = ""
         var difficulty = ""
         var age = ""
@@ -66,6 +66,8 @@ class ActivityConstructor {
                         introduction = stringValue
                     case "name":
                         name = stringValue
+                    case "imageName":
+                        imageName = stringValue
                     case "time":
                         time = stringValue
                     default:
@@ -107,12 +109,13 @@ class ActivityConstructor {
             age: age,
             caution: caution,
             introduction: introduction,
-            matererialList: materials,
+            materialList: materials,
             steps: steps
         )
     }
     
     private static func parseStep(dataStep: DataSnapshot) -> ActivityStep {
+        var imageName = ""
         var information = ""
         var reference = ""
         
@@ -125,6 +128,8 @@ class ActivityConstructor {
             let stringValue = dataStepInfo.value as? String ?? ""
             
             switch dataStepInfo.key {
+            case "imageName":
+                imageName = stringValue
             case "information":
                 information = stringValue
             case "reference":
@@ -134,7 +139,7 @@ class ActivityConstructor {
             }
         }
         
-        return ActivityStep(information: information, reference: reference)
+        return ActivityStep(imageName: imageName, information: information, reference: reference)
     }
     
     public static func getAllActivitiesData(completion: @escaping (DataSnapshot) -> Void) {
