@@ -27,8 +27,8 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     
     /// Reload cards in view with items array
     func reloadCards() {
-        let cards = items.map { createCard($0) }    // create all cards for each activity
-        stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
+        let cards = items.map { createCard($0) } // create all cards for each activity
+        stack.populateWithCards(cards) // append all cards into the horizontal stack of first section
     }
     
     /// Instantiate the Card Views with data from activity
@@ -37,7 +37,7 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
         card.activity = activity
         card.delegate = self
         card.updateView()
-        view.addSubview(card)
+        stack.addSubview(card) // add card as subview of the horizontal stack
         let constraint = [card.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)]
         NSLayoutConstraint.activate(constraint)
         return card
@@ -62,7 +62,7 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
 
 extension UIStackView {
     
-    ///Inject an array of Card Views into StackView
+    /// Inject an array of Card Views into StackView
     fileprivate func populateWithCards(_ array: [Card]) {
         for item in self.arrangedSubviews {
             item.removeFromSuperview()
