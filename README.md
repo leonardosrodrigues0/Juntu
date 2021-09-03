@@ -1,4 +1,6 @@
-# Family Lab
+# Juntu
+
+![Juntu](juntu.jpg?raw=true "Juntu")
 
 ## TODO
 
