@@ -69,17 +69,17 @@ public class SearchViewController: UIViewController {
         }
         
         // Get activity in position and set for view
-        // Force cast as there are only activities for 'Searchable' protocol for now
-        let activity: Activity
         if isFiltering {
-            activity = filteredItems[indexPath.row] as! Activity
+            if let activity = filteredItems[indexPath.row] as? Activity {
+                activityOverviewViewController.activity = activity
+            }
+            
         } else {
-            activity = items[indexPath.row] as! Activity
+            if let activity = items[indexPath.row] as? Activity {
+                activityOverviewViewController.activity = activity
+            }
         }
-        
-        activityOverviewViewController.activity = activity
     }
-
 }
 
 extension SearchViewController: UITableViewDataSource {

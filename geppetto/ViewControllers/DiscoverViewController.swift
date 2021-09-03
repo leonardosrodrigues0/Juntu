@@ -52,8 +52,8 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Prepare for navigate to ActivityOverview, i.e. pass the activity data foward
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToOverview" {
-            guard let vc = segue.destination as? ActivityOverviewViewController else { return }
-            vc.activity = selectedActivity
+            guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
+            activityOverviewViewController.activity = selectedActivity
         }
     }
 }

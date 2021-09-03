@@ -8,8 +8,8 @@ excluded:
 - Pods
 - SwiftLint/Common/3rdPartyLib
 line_length:
-    warning: 150
-    error: 200
+    warning: 250
+    error: 300
     ignores_function_declarations: true
     ignores_comments: true
     ignores_urls: true
