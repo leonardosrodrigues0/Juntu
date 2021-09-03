@@ -1,6 +1,6 @@
 # Juntu
 
-![Juntu](./juntu.jpg)
+![Juntu](./juntu.png)
 
 ## TODO
 
