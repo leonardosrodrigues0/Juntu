@@ -13,7 +13,7 @@ class ActivityPageControlViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
     var currentViewControllerIndex = 0
-    var activity: Activity? = nil
+    var activity: Activity?
     var dataSource: [ActivityStep] {
         get {
             return self.activity!.steps
@@ -133,4 +133,3 @@ extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIP
     }
     
 }
-

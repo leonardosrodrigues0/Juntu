@@ -58,8 +58,6 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     }
 }
 
-
-
 extension UIStackView {
     
     /// Inject an array of Card Views into StackView
