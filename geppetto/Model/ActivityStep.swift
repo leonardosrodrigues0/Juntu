@@ -14,4 +14,3 @@ public struct ActivityStep {
     var information: String
     var reference: String
 }
-

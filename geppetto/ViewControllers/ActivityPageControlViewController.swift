@@ -13,11 +13,9 @@ class ActivityPageControlViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
     var currentViewControllerIndex = 0
-    var activity: Activity? = nil
+    var activity: Activity?
     var dataSource: [ActivityStep] {
-        get {
-            return self.activity!.steps
-        }
+        return self.activity!.steps
     }
     
     // MARK: - Methods
@@ -70,7 +68,7 @@ class ActivityPageControlViewController: UIViewController {
     }
     
     func detailViewControllerAt(index: Int) -> ActivityStepViewController? {
-        guard index < dataSource.count && dataSource.count != 0 else {
+        guard index < dataSource.count && !dataSource.isEmpty else {
             return nil
         }
         
@@ -133,4 +131,3 @@ extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIP
     }
     
 }
-

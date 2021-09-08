@@ -19,8 +19,8 @@ class ActivityPageViewController: UIPageViewController {
         super.viewDidLayoutSubviews()
 
         let subViews: NSArray = view.subviews as NSArray
-        var scrollView: UIScrollView? = nil
-        var pageControl: UIPageControl? = nil
+        var scrollView: UIScrollView?
+        var pageControl: UIPageControl?
 
         for view in subViews {
             if (view as AnyObject).isKind(of: UIScrollView.self) {
@@ -30,7 +30,7 @@ class ActivityPageViewController: UIPageViewController {
             }
         }
 
-        if (scrollView != nil && pageControl != nil) {
+        if scrollView != nil && pageControl != nil {
             scrollView?.frame = view.bounds
             view.bringSubviewToFront(pageControl!)
         }

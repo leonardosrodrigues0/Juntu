@@ -1,4 +1,6 @@
-# Family Lab
+# Juntu
+
+![Juntu](./juntu.png)
 
 ## TODO
 
