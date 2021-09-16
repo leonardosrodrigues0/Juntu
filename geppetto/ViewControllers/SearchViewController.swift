@@ -35,7 +35,7 @@ public class SearchViewController: UIViewController {
     private func setSearchConfig() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "Buscar"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }

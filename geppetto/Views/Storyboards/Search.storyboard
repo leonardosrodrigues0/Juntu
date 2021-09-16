@@ -86,7 +86,7 @@
         <scene sceneID="Tem-D9-ykC">
             <objects>
                 <navigationController title="Search" id="n8W-tF-0ZK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="ed2-R3-AaO"/>
+                    <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="ed2-R3-AaO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kPD-3f-GzX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
