@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Activity-->
+        <!--Atividade-->
         <scene sceneID="nz8-Mm-bQi">
             <objects>
-                <viewController title="Activity" id="F1H-G2-Zap" customClass="ActivityOverviewViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Atividade" id="F1H-G2-Zap" customClass="ActivityOverviewViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lgV-IN-hSF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +159,7 @@
                             <constraint firstItem="8KD-dh-ZHX" firstAttribute="trailing" secondItem="HNR-OE-fhZ" secondAttribute="trailing" id="cZk-oE-YIN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Activity" largeTitleDisplayMode="never" id="VPt-Yq-5cJ"/>
+                    <navigationItem key="navigationItem" title="Atividade" largeTitleDisplayMode="never" id="VPt-Yq-5cJ"/>
                     <connections>
                         <outlet property="age" destination="Ihp-pc-7j9" id="9JG-dq-WS9"/>
                         <outlet property="difficulty" destination="xmo-kf-uAV" id="ckO-q2-bxe"/>
