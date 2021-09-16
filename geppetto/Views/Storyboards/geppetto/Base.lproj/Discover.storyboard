@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discover-->
+        <!--Descubra-->
         <scene sceneID="HzD-9S-lRK">
             <objects>
                 <viewController id="KwY-m7-X5d" customClass="DiscoverViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yx-fCS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="305"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-Fm-hZZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para Você" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-Fm-hZZ">
                                                 <rect key="frame" x="16" y="0.0" width="382" height="23"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
@@ -90,7 +90,7 @@
                             <constraint firstItem="RN1-Hq-0WY" firstAttribute="top" secondItem="BzV-zO-Che" secondAttribute="top" id="fhH-Xy-KWQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" largeTitleDisplayMode="always" id="Afs-wN-mj1"/>
+                    <navigationItem key="navigationItem" title="Descubra" largeTitleDisplayMode="always" id="Afs-wN-mj1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="pUg-VU-vPH" id="QgL-Cd-q35"/>
@@ -112,11 +112,11 @@
             </objects>
             <point key="canvasLocation" x="2831" y="-281"/>
         </scene>
-        <!--Discover-->
+        <!--Descubra-->
         <scene sceneID="G1i-DQ-Cgn">
             <objects>
                 <navigationController id="rHf-tk-AET" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="star" catalog="system" id="AOs-Nz-FN7"/>
+                    <tabBarItem key="tabBarItem" title="Descubra" image="star" catalog="system" id="AOs-Nz-FN7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1kv-p9-ddV">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>

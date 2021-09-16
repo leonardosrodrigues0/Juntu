@@ -40,7 +40,7 @@
         <scene sceneID="U8O-tJ-8cJ">
             <objects>
                 <navigationController title="Profile" id="G5v-Q3-NIc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="6Yl-YI-IVh"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="person.circle" catalog="system" id="6Yl-YI-IVh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ffb-Rk-AGQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
