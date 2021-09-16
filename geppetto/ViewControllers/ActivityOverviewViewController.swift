@@ -67,6 +67,7 @@ class ActivityOverviewViewController: UIViewController {
         let label = UILabel()
         label.text = name
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote)
+        label.numberOfLines = 0
         return label
     }
     
