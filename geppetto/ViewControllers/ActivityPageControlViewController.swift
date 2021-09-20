@@ -17,10 +17,12 @@ class ActivityPageControlViewController: UIViewController {
     var dataSource: [ActivityStep] {
         return self.activity!.steps
     }
+    var helper = AnalyticsHelper.init()
     
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        helper = AnalyticsHelper.init()
         configurePageViewController()
     }
     
@@ -104,6 +106,7 @@ extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIP
         currentViewControllerIndex = currentIndex
         
         if currentIndex == 0 {
+            helper.logViewedFinalStep(activity: self.activity!)
             return nil
         }
         

@@ -22,6 +22,9 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var materialStack: UIStackView!
     @IBOutlet weak var keepInMindText: UILabel!
     
+    var helper = AnalyticsHelper.init()
+
+    
     private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
     private let itemsSymbolName: [String: String] = [
         "duration": "clock.fill",
@@ -31,9 +34,11 @@ class ActivityOverviewViewController: UIViewController {
     
     // MARK: - Methods
     override func viewDidLoad() {
+        helper = AnalyticsHelper.init()
         super.viewDidLoad()
         updateOutlets()
         setItemsProperties()
+        helper.logViewedActivity(activity: self.activity!)
     }
     
     private func updateOutlets() {
@@ -46,6 +51,7 @@ class ActivityOverviewViewController: UIViewController {
         keepInMindText.text = activity?.caution
         self.loadMaterialLabels()
         enterActivityStepsButton.layer.cornerRadius = 8
+
     }
     
     /// Load materials and set them in the vertical stack
@@ -104,6 +110,7 @@ class ActivityOverviewViewController: UIViewController {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
         let activityPageControlViewController = storyboard.instantiateInitialViewController() as? ActivityPageControlViewController
         activityPageControlViewController?.activity = activity
+        helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
     }
     

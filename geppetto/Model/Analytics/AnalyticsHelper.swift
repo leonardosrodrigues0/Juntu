@@ -20,11 +20,25 @@ public class AnalyticsHelper {
     }
     
     public func logAppOpen() {
-        let timeElapsed = endTimer()
-        Analytics.logEvent("app_open", parameters: ["load_timer": timeElapsed])
+        Analytics.logEvent("app_open", parameters: ["load_timer": endTimer()])
     }
     
-    public func resetTimer(){
+    public func logDiveInPressed(activity: Activity) {
+        Analytics.logEvent("dive_in_pressed", parameters: ["screen_view_time": endTimer(),
+                                                           "activity": activity.name])
+    }
+    
+    public func logViewedActivity(activity: Activity) {
+        Analytics.logEvent("activity_viewed", parameters: ["load_time": endTimer(),
+                                                           "activity": activity.name])
+    }
+    
+    public func logViewedFinalStep(activity: Activity) {
+        Analytics.logEvent("viewed_final_step", parameters: ["screen_view_time": endTimer(),
+                                                           "activity": activity.name])
+    }
+    
+    public func resetTimer() {
         startTimer = CFAbsoluteTimeGetCurrent()
     }
 }

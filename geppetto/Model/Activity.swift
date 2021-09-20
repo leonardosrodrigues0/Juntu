@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity: Searchable {
+public struct Activity: Searchable {
     
     // MARK: - Properties
     let name: String
