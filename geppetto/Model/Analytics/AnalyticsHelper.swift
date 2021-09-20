@@ -35,7 +35,7 @@ public class AnalyticsHelper {
     
     public func logViewedFinalStep(activity: Activity) {
         Analytics.logEvent("viewed_final_step", parameters: ["screen_view_time": endTimer(),
-                                                           "activity": activity.name])
+                                                             "activity": activity.name])
     }
     
     public func resetTimer() {
