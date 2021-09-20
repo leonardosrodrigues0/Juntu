@@ -27,7 +27,6 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
             self.reloadCards()
             
             helper.logAppOpen()
-
         }
     }
     
