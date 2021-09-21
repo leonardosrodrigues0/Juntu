@@ -14,6 +14,7 @@
 		A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */; };
 		A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */; };
 		A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */; };
+		A7690E5C26F8C7A50097127B /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7690E5B26F8C7A50097127B /* CameraManager.swift */; };
 		A776357B26F361A5007970A8 /* carrinho08.png in Resources */ = {isa = PBXBuildFile; fileRef = A776356D26F361A4007970A8 /* carrinho08.png */; };
 		A776357C26F361A5007970A8 /* carrinho.png in Resources */ = {isa = PBXBuildFile; fileRef = A776356E26F361A4007970A8 /* carrinho.png */; };
 		A776357D26F361A5007970A8 /* carrinho05.png in Resources */ = {isa = PBXBuildFile; fileRef = A776356F26F361A4007970A8 /* carrinho05.png */; };
@@ -78,6 +79,7 @@
 		A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
 		A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStepViewController.swift; sourceTree = "<group>"; };
 		A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageControlViewController.swift; sourceTree = "<group>"; };
+		A7690E5B26F8C7A50097127B /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		A776356D26F361A4007970A8 /* carrinho08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carrinho08.png; sourceTree = "<group>"; };
 		A776356E26F361A4007970A8 /* carrinho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carrinho.png; sourceTree = "<group>"; };
 		A776356F26F361A4007970A8 /* carrinho05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carrinho05.png; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */,
 				A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */,
 				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
+				A7690E5B26F8C7A50097127B /* CameraManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
+				A7690E5C26F8C7A50097127B /* CameraManager.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
