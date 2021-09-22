@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Storage View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="StorageViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8yM-ev-a4t">
+                                <rect key="frame" x="32" y="76" width="350" height="512"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="512" id="tOM-WM-oJ9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0j-x0-MPX">
+                                <rect key="frame" x="124.5" y="620" width="165" height="30"/>
+                                <state key="normal" title="Pull Image from Storage"/>
+                                <connections>
+                                    <action selector="pullButtonTapped" destination="Y6W-OH-hqX" eventType="touchDown" id="7L8-N4-PP2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i0j-x0-MPX" firstAttribute="top" secondItem="8yM-ev-a4t" secondAttribute="bottom" constant="32" id="Ow0-PM-Xbj"/>
+                            <constraint firstItem="8yM-ev-a4t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="UZT-fi-eHP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8yM-ev-a4t" secondAttribute="trailing" constant="32" id="a0s-ki-8Ej"/>
+                            <constraint firstItem="i0j-x0-MPX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fT4-JY-xV9"/>
+                            <constraint firstItem="8yM-ev-a4t" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="l01-Zp-Kyd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="8yM-ev-a4t" id="e1q-tf-cVn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
