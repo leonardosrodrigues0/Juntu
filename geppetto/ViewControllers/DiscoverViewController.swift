@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DiscoverViewController: UIViewController, CardNavigationDelegate {
     
@@ -18,10 +19,14 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     // MARK: - Methods
     /// Get information from database and reload the cards
     override func viewDidLoad() {
+        let helper = AnalyticsHelper()
+
         super.viewDidLoad()
         ActivityConstructor.getAllActivitiesData { data in
             self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
             self.reloadCards()
+            
+            helper.logAppOpen()
         }
     }
     
