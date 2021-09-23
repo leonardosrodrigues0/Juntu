@@ -7,17 +7,17 @@
 
 import Foundation
 
-public struct Activity: Searchable {
+public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
+    let id: String
     let name: String
-    let imageName: String
-    let time: String
-    let difficulty: String
-    let age: String
-    let caution: String
     let introduction: String
-    let materialList: [String]
+    let caution: String?
+    let age: String
+    let difficulty: String
+    let time: String
+    let materials: [String]
     let steps: [ActivityStep]
     
     // MARK: - Methods

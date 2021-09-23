@@ -49,6 +49,8 @@
 		A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697C268B59E10005331F /* DiscoverViewController.swift */; };
 		A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697E268B5A010005331F /* ProfileViewController.swift */; };
 		A7BD6987268B5DED0005331F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6986268B5DED0005331F /* Card.swift */; };
+		A7C12D6326FB69FC00118564 /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C12D6226FB69FC00118564 /* StorageController.swift */; };
+		A7C12D6526FB6AFF00118564 /* Storage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C12D6426FB6AFF00118564 /* Storage.storyboard */; };
 		A7C6618C269332F700E79AC4 /* easter.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C66188269332F700E79AC4 /* easter.png */; };
 		A7C6618D269332F700E79AC4 /* constellations.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C66189269332F700E79AC4 /* constellations.png */; };
 		A7C6618E269332F700E79AC4 /* reading.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C6618A269332F700E79AC4 /* reading.png */; };
@@ -116,6 +118,8 @@
 		A7BD697C268B59E10005331F /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		A7BD697E268B5A010005331F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A7BD6986268B5DED0005331F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A7C12D6226FB69FC00118564 /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
+		A7C12D6426FB6AFF00118564 /* Storage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storage.storyboard; sourceTree = "<group>"; };
 		A7C66188269332F700E79AC4 /* easter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easter.png; sourceTree = "<group>"; };
 		A7C66189269332F700E79AC4 /* constellations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellations.png; sourceTree = "<group>"; };
 		A7C6618A269332F700E79AC4 /* reading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reading.png; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */,
 				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
 				A7690E5B26F8C7A50097127B /* CameraManager.swift */,
+				A7C12D6226FB69FC00118564 /* StorageController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				A7BD6972268B3AC70005331F /* Profile.storyboard */,
 				A7DF158E268E0AE30004C616 /* ActivityStep.storyboard */,
 				A729CA85269477840000E9D3 /* ActivityOverview.storyboard */,
+				A7C12D6426FB6AFF00118564 /* Storage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				A7C6618C269332F700E79AC4 /* easter.png in Resources */,
 				A7C6618F269332F700E79AC4 /* pisa.png in Resources */,
 				A776358226F361A5007970A8 /* carrinho02.png in Resources */,
+				A7C12D6526FB6AFF00118564 /* Storage.storyboard in Resources */,
 				A7C6618D269332F700E79AC4 /* constellations.png in Resources */,
 				A7C6618E269332F700E79AC4 /* reading.png in Resources */,
 				A776358726F361A5007970A8 /* carrinho11.png in Resources */,
@@ -492,6 +499,7 @@
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
+				A7C12D6326FB69FC00118564 /* StorageController.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */,
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
@@ -657,7 +665,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 4FRA3TQ955;
+				DEVELOPMENT_TEAM = 3W2GZBLUSM;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -680,7 +688,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 4FRA3TQ955;
+				DEVELOPMENT_TEAM = 3W2GZBLUSM;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (

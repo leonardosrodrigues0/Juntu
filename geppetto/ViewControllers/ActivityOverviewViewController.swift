@@ -42,7 +42,7 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func updateOutlets() {
-        image.image = UIImage(named: activity!.imageName)
+//        image.image = UIImage(named: activity!.imageName)
         name.text = activity?.name
         duration.attributedText = getItemString(item: "duration", value: " \(activity!.time)")
         difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
@@ -60,7 +60,7 @@ class ActivityOverviewViewController: UIViewController {
             subView.removeFromSuperview()
         }
         
-        guard let materials = activity?.materialList else {
+        guard let materials = activity?.materials else {
             return
         }
         

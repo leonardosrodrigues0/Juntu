@@ -7,10 +7,9 @@
 
 import Foundation
 
-public struct ActivityStep {
+public struct ActivityStep: Codable {
     
     // MARK: - Properties
-    var imageName: String
     var information: String
-    var reference: String
+    var reference: String?
 }

@@ -12,26 +12,16 @@ import FirebaseStorageUI
 
 class StorageViewController: UIViewController {
     
+    static let maxSize: Int64 = 2000000000
     @IBOutlet var image: UIImageView!
+    var activities = [Activity]()
     
     @IBAction func pullButtonTapped() {
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let imageRef = storageRef.child("test.jpeg")
-        image.sd_setImage(with: imageRef)
-        
-        let jsonRef = storageRef.child("test.json")
-        jsonRef.getData(maxSize: 20000) { data, _ in
-            print(data!)
-            print(type(of: data))
-            let decoder = JSONDecoder()
-            do {
-                let test = try decoder.decode(Test.self, from: data!)
-                print(test)
-                print(type(of: test))
-            } catch {
-                print("FAILURE DECODING")
-            }
+        ActivityConstructor.getActivitiesData { activityList in
+            print(activityList)
+            self.activities.append(contentsOf: activityList)
+            let activity = self.activities.first
+            self.image.sd_setImage(with: Storage.storage().reference().child("Activities/\(String(describing: activity?.id))/overview.png"))
         }
     }
     
