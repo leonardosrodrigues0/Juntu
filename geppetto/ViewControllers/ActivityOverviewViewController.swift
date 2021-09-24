@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 /// Activity details screen
 class ActivityOverviewViewController: UIViewController {
@@ -24,7 +25,6 @@ class ActivityOverviewViewController: UIViewController {
     
     var helper = AnalyticsHelper.init()
 
-    
     private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
     private let itemsSymbolName: [String: String] = [
         "duration": "clock.fill",
@@ -42,7 +42,7 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func updateOutlets() {
-//        image.image = UIImage(named: activity!.imageName)
+        image.sd_setImage(with: activity!.getImageDatabaseRef())
         name.text = activity?.name
         duration.attributedText = getItemString(item: "duration", value: " \(activity!.time)")
         difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
@@ -51,7 +51,6 @@ class ActivityOverviewViewController: UIViewController {
         keepInMindText.text = activity?.caution
         self.loadMaterialLabels()
         enterActivityStepsButton.layer.cornerRadius = 8
-
     }
     
     /// Load materials and set them in the vertical stack

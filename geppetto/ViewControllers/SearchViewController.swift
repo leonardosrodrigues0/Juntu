@@ -22,12 +22,13 @@ public class SearchViewController: UIViewController {
         return searchController.isActive && !isSearchBarEmpty
     }
     
-    /// Set options and get data from database for the screen
+    /// Set options and get data from database for the screen.
     public override func viewDidLoad() {
         super.viewDidLoad()
         setSearchConfig()
-        ActivityConstructor.getAllActivitiesData { data in
-            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+        let constructor = ActivityConstructor.getInstance()
+        constructor.getActivities { activities in
+            self.items.append(contentsOf: activities)
             self.tableView.reloadData()
         }
     }
@@ -40,7 +41,7 @@ public class SearchViewController: UIViewController {
         definesPresentationContext = true
     }
     
-    /// Deselect row when returning to view
+    /// Deselect row when returning to view.
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -49,7 +50,7 @@ public class SearchViewController: UIViewController {
         }
     }
     
-    /// Update `filteredItems`
+    /// Update `filteredItems`.
     func filterContentForSearchText(_ searchText: String) {
         filteredItems = items.filter { (item: Searchable) -> Bool in
             return item.isResultWithSearchString(searchText) || isSearchBarEmpty
@@ -58,7 +59,7 @@ public class SearchViewController: UIViewController {
         tableView.reloadData()
     }
     
-    /// Prepare activity screen for navigation
+    /// Prepare activity screen for navigation.
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
             segue.identifier == "ActivitySegue",

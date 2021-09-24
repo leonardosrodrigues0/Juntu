@@ -17,9 +17,10 @@ class StorageViewController: UIViewController {
     var activities = [Activity]()
     
     @IBAction func pullButtonTapped() {
-        ActivityConstructor.getActivitiesData { activityList in
-            print(activityList)
-            self.activities.append(contentsOf: activityList)
+        let constructor = ActivityConstructor.getInstance()
+        constructor.getActivities { activities in
+            print(activities)
+            self.activities.append(contentsOf: activities)
             let activity = self.activities.first
             self.image.sd_setImage(with: Storage.storage().reference().child("Activities/\(String(describing: activity?.id))/overview.png"))
         }
