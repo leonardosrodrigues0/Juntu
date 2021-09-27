@@ -42,13 +42,18 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func updateOutlets() {
-        image.sd_setImage(with: activity!.getImageDatabaseRef())
-        name.text = activity?.name
-        duration.attributedText = getItemString(item: "duration", value: " \(activity!.time)")
-        difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
-        age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
-        fullDescription.text = activity?.introduction
-        keepInMindText.text = activity?.caution
+        guard let activity = activity else {
+            print("Error: failed to unwrap activity at overview screen")
+            return
+        }
+
+        image.sd_setImage(with: activity.getImageDatabaseRef())
+        name.text = activity.name
+        duration.attributedText = getItemString(item: "duration", value: " \(activity.time)")
+        difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity.difficulty)")
+        age.attributedText = getItemString(item: "age", value: " \(activity.age)")
+        fullDescription.text = activity.introduction
+        keepInMindText.text = activity.caution
         self.loadMaterialLabels()
         enterActivityStepsButton.layer.cornerRadius = 8
     }

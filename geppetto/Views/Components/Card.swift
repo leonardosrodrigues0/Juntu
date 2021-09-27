@@ -49,10 +49,15 @@ class Card: UIView {
     
     /// Required to be called after the ```activity``` have been set to update the card subviews
     func updateView() {
-        image.sd_setImage(with: activity!.getImageDatabaseRef())
-        titleLabel.text = activity?.name
-        descriptionLabel.text = activity?.time
-        footnoteLabel.text = activity?.age
+        guard let activity = activity else {
+            print("Error: failed to unwrap activity at Card view")
+            return
+        }
+
+        image.sd_setImage(with: activity.getImageDatabaseRef())
+        titleLabel.text = activity.name
+        descriptionLabel.text = activity.time
+        footnoteLabel.text = activity.age
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
     }

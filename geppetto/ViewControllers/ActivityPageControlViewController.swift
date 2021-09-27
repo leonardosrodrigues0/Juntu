@@ -15,7 +15,7 @@ class ActivityPageControlViewController: UIViewController {
     var currentViewControllerIndex = 0
     var activity: Activity?
     var dataSource: [ActivityStep] {
-        return self.activity!.getSteps()
+        return self.activity?.getSteps() ?? []
     }
     var helper = AnalyticsHelper.init()
     
