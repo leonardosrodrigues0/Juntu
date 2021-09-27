@@ -11,7 +11,7 @@ import FirebaseStorage
 public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
-    let id: String
+    let directory: String
     let name: String
     let introduction: String
     let caution: String?
@@ -21,7 +21,7 @@ public struct Activity: Searchable, Codable {
     let materials: [String]
     
     // Steps are created when decoding database information.
-    // At first call, they're updated with the activity id and index.
+    // At first call, they're updated with the activity directory and index.
     private var steps: [ActivityStep]
     private var didUpdateSteps: Bool?
     
@@ -37,10 +37,10 @@ public struct Activity: Searchable, Codable {
         }
     }
     
-    /// Add activity id and index to steps.
+    /// Add activity directory and index to steps.
     mutating private func updateSteps() {
         for index in 0 ..< steps.count {
-            steps[index].updateStep(id: id, index: index + 1)
+            steps[index].updateStep(directory: directory, index: index + 1)
         }
     }
     
@@ -54,7 +54,7 @@ public struct Activity: Searchable, Codable {
     
     func getImageDatabaseRef() -> StorageReference {
         var path = ActivityConstructor.ActivitiesDirectory
-        path += "/\(id)/"
+        path += "/\(directory)/"
         path += ActivityConstructor.ActivityImageName
         path += ActivityConstructor.ImagesExtension
         return Storage.storage().reference().child(path)

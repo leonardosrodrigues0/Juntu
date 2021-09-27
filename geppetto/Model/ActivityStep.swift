@@ -13,23 +13,23 @@ public struct ActivityStep: Codable {
     // MARK: - Properties
     var information: String
     var reference: String?
-    var activityId: String?
+    var activityDirectory: String?
     var stepIndex: Int?
     
     // MARK: - Methods
-    mutating func updateStep(id: String, index: Int) {
-        activityId = id
+    mutating func updateStep(directory: String, index: Int) {
+        activityDirectory = directory
         stepIndex = index
     }
     
     func getImageDatabaseRef() -> StorageReference? {
-        guard let id = activityId, let index = stepIndex else {
+        guard let directory = activityDirectory, let index = stepIndex else {
             print("Error: failed to get reference for step image")
             return nil
         }
         
         var path = ActivityConstructor.ActivitiesDirectory
-        path += "/\(id)/"
+        path += "/\(directory)/"
         path += String(format: "%02d", index)
         path += ActivityConstructor.ImagesExtension
         return Storage.storage().reference().child(path)
