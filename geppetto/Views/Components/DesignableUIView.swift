@@ -5,7 +5,6 @@
 //  Created by Renato Noronha Máximo on 27/09/21.
 //
 
-
 // Adds Corner Radius, Border and Shadow properties to a UIView and allows you to preview it in the Interface Builder
 
 // Example of use:
@@ -117,4 +116,3 @@ extension UIView {
         }
     }
 }
-
