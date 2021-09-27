@@ -32,6 +32,7 @@
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
 		A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */; };
+		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
 		E5C0843C7C1F22294ABDFC67 /* Pods_geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2482F80FF0D8C7A94B446A4B /* Pods_geppetto.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		A7E65C3826860E1700570FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7E65C3B26860E1700570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7E65C3D26860E1700570FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			children = (
 				A7BD6986268B5DED0005331F /* Card.swift */,
 				3FDB4645268F4D8600A46720 /* Card.xib */,
+				CDF009812701E41200485CFA /* DesignableUIView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
+				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
