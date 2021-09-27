@@ -131,7 +131,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="enterActivityButtonTapped" destination="F1H-G2-Zap" eventType="touchDown" id="vJy-F2-7Bw"/>
+                                                    <action selector="enterActivityButtonTapped" destination="F1H-G2-Zap" eventType="touchUpInside" id="WyR-vU-vbq"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hug-Yt-iNJ" userLabel="MaterialStackView">
