@@ -52,7 +52,6 @@ class Card: UIView {
         descriptionLabel.text = activity?.time
         footnoteLabel.text = activity?.age
         image.image = UIImage(named: activity!.imageName)
-        image.layer.cornerRadius = 10
         image.clipsToBounds = true
     }
 }
