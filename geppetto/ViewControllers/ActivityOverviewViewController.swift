@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 /// Activity details screen
 class ActivityOverviewViewController: UIViewController {
@@ -33,13 +34,18 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func updateOutlets() {
-        image.image = UIImage(named: activity?.imageName ?? "")
-        name.text = activity?.name
-        duration.text = activity?.time
-        difficulty.text = activity?.difficulty
-        age.text = activity?.age
-        fullDescription.text = activity?.introduction
-        keepInMindText.text = activity?.caution
+        guard let activity = activity else {
+            print("Error: failed to unwrap activity at overview screen")
+            return
+        }
+
+        image.sd_setImage(with: activity.getImageDatabaseRef())
+        name.text = activity.name
+        fullDescription.text = activity.introduction
+        keepInMindText.text = activity.caution
+        duration.text = activity.time
+        difficulty.text = activity.difficulty
+        age.text = activity.age
         self.loadMaterialLabels()
     }
     
@@ -49,7 +55,7 @@ class ActivityOverviewViewController: UIViewController {
             subView.removeFromSuperview()
         }
         
-        guard let materials = activity?.materialList else {
+        guard let materials = activity?.materials else {
             return
         }
         
