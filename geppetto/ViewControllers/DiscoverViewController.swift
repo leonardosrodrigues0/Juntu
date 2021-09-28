@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DiscoverViewController: UIViewController, CardNavigationDelegate {
     
@@ -19,16 +20,20 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Get information from database and reload the cards
     override func viewDidLoad() {
         super.viewDidLoad()
-        ActivityConstructor.getAllActivitiesData { data in
-            self.items.append(contentsOf: ActivityConstructor.buildStructs(data: data))
+        let helper = AnalyticsHelper()
+        let constructor = ActivityConstructor.getInstance()
+
+        constructor.getActivities { activities in
+            self.items.append(contentsOf: activities)
             self.reloadCards()
+            helper.logAppOpen()
         }
     }
     
     /// Reload cards in view with items array
     func reloadCards() {
-        let cards = items.map { createCard($0) }    // create all cards for each activity
-        stack.populateWithCards(cards)  // append all cards into the horizontal stack of first section
+        let cards = items.map { createCard($0) } // create all cards for each activity
+        stack.populateWithCards(cards) // append all cards into the horizontal stack of first section
     }
     
     /// Instantiate the Card Views with data from activity
@@ -37,7 +42,7 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
         card.activity = activity
         card.delegate = self
         card.updateView()
-        view.addSubview(card)
+        stack.addSubview(card) // add card as subview of the horizontal stack
         let constraint = [card.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)]
         NSLayoutConstraint.activate(constraint)
         return card
@@ -52,17 +57,15 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Prepare for navigate to ActivityOverview, i.e. pass the activity data foward
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToOverview" {
-            guard let vc = segue.destination as? ActivityOverviewViewController else { return }
-            vc.activity = selectedActivity
+            guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
+            activityOverviewViewController.activity = selectedActivity
         }
     }
 }
 
-
-
 extension UIStackView {
     
-    ///Inject an array of Card Views into StackView
+    /// Inject an array of Card Views into StackView
     fileprivate func populateWithCards(_ array: [Card]) {
         for item in self.arrangedSubviews {
             item.removeFromSuperview()

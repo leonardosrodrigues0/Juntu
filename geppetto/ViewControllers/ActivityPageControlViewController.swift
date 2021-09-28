@@ -13,16 +13,16 @@ class ActivityPageControlViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
     var currentViewControllerIndex = 0
-    var activity: Activity? = nil
+    var activity: Activity?
     var dataSource: [ActivityStep] {
-        get {
-            return self.activity!.steps
-        }
+        return self.activity?.getSteps() ?? []
     }
+    var helper = AnalyticsHelper.init()
     
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        helper = AnalyticsHelper.init()
         configurePageViewController()
     }
     
@@ -70,7 +70,7 @@ class ActivityPageControlViewController: UIViewController {
     }
     
     func detailViewControllerAt(index: Int) -> ActivityStepViewController? {
-        guard index < dataSource.count && dataSource.count != 0 else {
+        guard index < dataSource.count && !dataSource.isEmpty else {
             return nil
         }
         
@@ -106,6 +106,7 @@ extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIP
         currentViewControllerIndex = currentIndex
         
         if currentIndex == 0 {
+            helper.logViewedFinalStep(activity: self.activity!)
             return nil
         }
         
@@ -133,4 +134,3 @@ extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIP
     }
     
 }
-

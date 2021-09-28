@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 /// Individual activity step screen
 class ActivityStepViewController: UIViewController {
@@ -30,9 +31,12 @@ class ActivityStepViewController: UIViewController {
             return
         }
         
-        let newImage = UIImage(named: step!.imageName)
-        image.image = newImage
-        indexLabel.text = "Step \(indexValue + 1)"
+        guard let imageRef = step?.getImageDatabaseRef() else {
+            return
+        }
+        
+        image.sd_setImage(with: imageRef)
+        indexLabel.text = "Passo \(indexValue + 1)"
         instructions.text = step?.information
         references.text = step?.reference
     }

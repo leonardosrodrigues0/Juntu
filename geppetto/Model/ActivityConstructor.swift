@@ -7,151 +7,101 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
-typealias StringDictionary = [String: String]
-
-/// Builds Activities from our database information
+/// Builds Activities from our database information.
+/// Singleton class: use `ActivityConstructor.getInstance()` method.
 class ActivityConstructor {
     
-    /// Builds a list of activity structs from data retrieved
-    /// - Parameter data: information retrieved from `getAllActivitiesData()`
-    /// - Returns: list of Activities built
-    public static func buildStructs(data: DataSnapshot) -> [Activity] {
-        var activities = [Activity]()
-        
-        for activity in data.children {
-            guard let dataActivity = activity as? DataSnapshot else {
-                print("Error: could not cast from iterable element to snapshot")
-                continue
-            }
-            
-            activities.append(buildActivityStruct(data: dataActivity))
+    // MARK: - Constants
+    static let ActivitiesDirectory = "Activities"
+    static let ActivityImageName = "overview"
+    static let ImagesExtension = ".png"
+    private static let MaxJsonFileSize: Int64 = 1000000
+    private static let JsonFilename = "info.json"
+    
+    // MARK: - Properties
+    private let decoder: JSONDecoder
+    private var activities: [Activity]?
+    
+    // MARK: - Singleton Logic
+    private static var instance: ActivityConstructor?
+    
+    static func getInstance() -> ActivityConstructor {
+        if let constructor = Self.instance {
+            return constructor
+        } else {
+            Self.instance = ActivityConstructor()
+            return Self.instance!
         }
-        
-        return activities
     }
     
-    /// Get all activities data from database
-    /// - Parameter completion: function to run when information is retrieved
-    public static func getAllActivitiesData(completion: @escaping (DataSnapshot) -> Void) {
-        let databaseRef = Database.database().reference()
-        databaseRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            completion(snapshot)
+    private init() {
+        decoder = JSONDecoder()
+    }
+    
+    // MARK: - Activity Construction Methods
+    /// Runs completion with a list of all activities.
+    func getActivities(completion: @escaping ([Activity]) -> Void) {
+        if let activities = self.activities {
+            completion(activities)
+        } else {
+            buildAllActivities(completion: completion)
+        }
+    }
+    
+    /// Get a list of activities from database files, build the list and run completion.
+    private func buildAllActivities(completion: @escaping ([Activity]) -> Void) {
+        let storageRef = Storage.storage().reference()
+        let activitiesRef = storageRef.child(Self.ActivitiesDirectory)
+        
+        activitiesRef.listAll(completion: { activities, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            self.buildActivities(completion: completion, activities: activities)
         })
     }
     
-    private static func buildActivityStruct(data: DataSnapshot) -> Activity {
-        var name = ""
-        var imageName = ""
-        var time = ""
-        var difficulty = ""
-        var age = ""
-        var caution = ""
-        var introduction = ""
-        var materials = [String]()
-        var steps = [ActivityStep]()
+    /// With the list of activities, build each struct and run completion.
+    private func buildActivities(completion: @escaping ([Activity]) -> Void, activities: StorageListResult) {
+        var activityStructs = [Activity]()
+        let dispatchGroup = DispatchGroup()
         
-        for information in data.children {
-            guard let dataInfo = information as? DataSnapshot else {
-                print("Error: could not cast from iterable element to snapshot")
-                continue
-            }
-            
-            switch dataInfo.key {
-            case "overview":
-                for firstScreenInfo in dataInfo.children {
-                    guard let dataFirstScreenInfo = firstScreenInfo as? DataSnapshot else {
-                        print("Error: could not cast from iterable element to snapshot")
-                        continue
-                    }
-                    
-                    let stringValue = dataFirstScreenInfo.value as? String ?? ""
-                    
-                    switch dataFirstScreenInfo.key {
-                    case "age":
-                        age = stringValue
-                    case "caution":
-                        caution = stringValue
-                    case "difficulty":
-                        difficulty = stringValue
-                    case "introduction":
-                        introduction = stringValue
-                    case "name":
-                        name = stringValue
-                    case "imageName":
-                        imageName = stringValue
-                    case "time":
-                        time = stringValue
-                    default:
-                        print("Error: invalid key for overview items: \(dataFirstScreenInfo.key)")
-                    }
+        for activity in activities.prefixes {
+            dispatchGroup.enter()
+            let jsonRef = activity.child(Self.JsonFilename)
+            jsonRef.getData(maxSize: Self.MaxJsonFileSize) { data, error in
+                guard let activityData = data else {
+                    print(error ?? "Error: could not get information for acitivity")
+                    return
                 }
                 
-            case "materials":
-                for materialInfo in dataInfo.children {
-                    guard let dataMaterialinfo = materialInfo as? DataSnapshot else {
-                        print("Error: could not cast from iterable element to snapshot")
-                        continue
-                    }
-                    
-                    let materialString = dataMaterialinfo.value as? String ?? ""
-                    materials.append(materialString)
+                if let activityStruct = self.buildActivityStruct(acitivityData: activityData) {
+                    activityStructs.append(activityStruct)
                 }
                 
-            case "phases":
-                for step in dataInfo.children {
-                    guard let dataStep = step as? DataSnapshot else {
-                        print("Error: could not cast from iterable element to snapshot")
-                        continue
-                    }
-                    
-                    steps.append(parseStep(dataStep: dataStep))
-                }
-                
-            default:
-                print("Error: key not found")
+                dispatchGroup.leave()
             }
         }
         
-        return Activity(
-            name: name,
-            imageName: imageName,
-            time: time,
-            difficulty: difficulty,
-            age: age,
-            caution: caution,
-            introduction: introduction,
-            materialList: materials,
-            steps: steps
-        )
+        dispatchGroup.notify(queue: .main) {
+            self.activities = activityStructs
+            completion(activityStructs)
+        }
     }
     
-    private static func parseStep(dataStep: DataSnapshot) -> ActivityStep {
-        var imageName = ""
-        var information = ""
-        var reference = ""
-        
-        for stepInfo in dataStep.children {
-            guard let dataStepInfo = stepInfo as? DataSnapshot else {
-                print("Error: could not cast from iterable element to snapshot")
-                continue
-            }
-            
-            let stringValue = dataStepInfo.value as? String ?? ""
-            
-            switch dataStepInfo.key {
-            case "imageName":
-                imageName = stringValue
-            case "information":
-                information = stringValue
-            case "reference":
-                reference = stringValue
-            default:
-                print("Error: invalid key for step information: \(dataStepInfo.key)")
-            }
+    /// Build an `Activity` from a json `Data`.
+    private func buildActivityStruct(acitivityData: Data) -> Activity? {
+        do {
+            let activity = try decoder.decode(Activity.self, from: acitivityData)
+            return activity
+        } catch {
+            print("Error: failed to decode activity data to struct")
+            return nil
         }
-        
-        return ActivityStep(imageName: imageName, information: information, reference: reference)
     }
-
+    
 }

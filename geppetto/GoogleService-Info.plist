@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>748402825926-3fd65u784cun54t9ptfg9k2ubg529ups.apps.googleusercontent.com</string>
+	<string>748402825926-1jbo9r6e11c73vnqbdn80ssgvp7o4k1c.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.748402825926-3fd65u784cun54t9ptfg9k2ubg529ups</string>
+	<string>com.googleusercontent.apps.748402825926-1jbo9r6e11c73vnqbdn80ssgvp7o4k1c</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAsbhV9SqL8Z6HeNIm6sQ6T8Ma9TjC582g</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>leo.geppetto</string>
+	<string>com.juntu.geppettoinc</string>
 	<key>PROJECT_ID</key>
 	<string>fir-teste-56475</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:748402825926:ios:56db5c01d14674f03195c7</string>
+	<string>1:748402825926:ios:4087a2351a85d4cb3195c7</string>
 	<key>DATABASE_URL</key>
 	<string>https://fir-teste-56475-default-rtdb.firebaseio.com</string>
 </dict>

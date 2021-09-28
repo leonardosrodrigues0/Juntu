@@ -6,21 +6,44 @@
 //
 
 import Foundation
+import FirebaseStorage
 
-struct Activity: Searchable {
+public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
+    let directory: String
     let name: String
-    let imageName: String
-    let time: String
-    let difficulty: String
-    let age: String
-    let caution: String
     let introduction: String
-    let materialList: [String]
-    let steps: [ActivityStep]
+    let caution: String?
+    let age: String
+    let difficulty: String
+    let time: String
+    let materials: [String]
+    
+    // Steps are created when decoding database information.
+    // At first call, they're updated with the activity directory and index.
+    private var steps: [ActivityStep]
+    private var didUpdateSteps: Bool?
     
     // MARK: - Methods
+    /// Update steps if needed and return them.
+    mutating func getSteps() -> [ActivityStep] {
+        if let update = didUpdateSteps, update {
+            return steps
+        } else {
+            updateSteps()
+            didUpdateSteps = true
+            return steps
+        }
+    }
+    
+    /// Add activity directory and index to steps.
+    mutating private func updateSteps() {
+        for index in 0 ..< steps.count {
+            steps[index].updateStep(directory: directory, index: index + 1)
+        }
+    }
+    
     func getDescription() -> String {
         return age
     }
@@ -29,5 +52,12 @@ struct Activity: Searchable {
         return name.lowercased().contains(searchString.lowercased())
     }
     
+    func getImageDatabaseRef() -> StorageReference {
+        var path = ActivityConstructor.ActivitiesDirectory
+        path += "/\(directory)/"
+        path += ActivityConstructor.ActivityImageName
+        path += ActivityConstructor.ImagesExtension
+        return Storage.storage().reference().child(path)
+    }
+    
 }
-

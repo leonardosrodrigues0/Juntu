@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 /// Activity details screen
 class ActivityOverviewViewController: UIViewController {
@@ -22,30 +23,30 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var materialStack: UIStackView!
     @IBOutlet weak var keepInMindText: UILabel!
     
-    private let itemsColor = UIColor(named: "AccentColor") ?? UIColor.red
-    private let itemsSymbolName: [String: String] = [
-        "duration": "clock.fill",
-        "difficulty": "square.fill",
-        "age": "square.fill"
-    ]
+    var helper = AnalyticsHelper.init()
     
     // MARK: - Methods
     override func viewDidLoad() {
+        helper = AnalyticsHelper.init()
         super.viewDidLoad()
         updateOutlets()
-        setItemsProperties()
+        helper.logViewedActivity(activity: self.activity!)
     }
     
     private func updateOutlets() {
-        image.image = UIImage(named: activity!.imageName)
-        name.text = activity?.name
-        duration.attributedText = getItemString(item: "duration", value: " \(activity!.time)")
-        difficulty.attributedText = getItemString(item: "difficulty", value: " \(activity!.difficulty)")
-        age.attributedText = getItemString(item: "age", value: " \(activity!.age)")
-        fullDescription.text = activity?.introduction
-        keepInMindText.text = activity?.caution
+        guard let activity = activity else {
+            print("Error: failed to unwrap activity at overview screen")
+            return
+        }
+
+        image.sd_setImage(with: activity.getImageDatabaseRef())
+        name.text = activity.name
+        fullDescription.text = activity.introduction
+        keepInMindText.text = activity.caution
+        duration.text = activity.time
+        difficulty.text = activity.difficulty
+        age.text = activity.age
         self.loadMaterialLabels()
-        enterActivityStepsButton.layer.cornerRadius = 8
     }
     
     /// Load materials and set them in the vertical stack
@@ -54,7 +55,7 @@ class ActivityOverviewViewController: UIViewController {
             subView.removeFromSuperview()
         }
         
-        guard let materials = activity?.materialList else {
+        guard let materials = activity?.materials else {
             return
         }
         
@@ -67,43 +68,15 @@ class ActivityOverviewViewController: UIViewController {
         let label = UILabel()
         label.text = name
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote)
+        label.numberOfLines = 0
         return label
-    }
-    
-    /// Set properties of duration, difficulty and age items
-    private func setItemsProperties() {
-        duration.sizeToFit()
-        duration.textColor = self.itemsColor
-        difficulty.sizeToFit()
-        difficulty.textColor = self.itemsColor
-        age.sizeToFit()
-        age.textColor = self.itemsColor
-    }
-    
-    /// Get item string with the corresponding SF symbol
-    /// - Parameters:
-    ///   - item: item name as described in `itemsSymbolName`
-    ///   - value: item value
-    /// - Returns: Symbol followed by the text
-    private func getItemString(item: String, value: String) -> NSMutableAttributedString {
-        // Get symbol as string.
-        let symbolAttachment = NSTextAttachment()
-        let config = UIImage.SymbolConfiguration(scale: .small)
-        symbolAttachment.image = UIImage(systemName: self.itemsSymbolName[item]!, withConfiguration: config)?.withTintColor(self.itemsColor)
-        let imageString = NSMutableAttributedString(attachment: symbolAttachment)
-        
-        // Get value as string.
-        let text = NSAttributedString(string: value)
-        
-        imageString.append(text)
-        return imageString
     }
 
     @IBAction private func enterActivityButtonTapped() {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
         let activityPageControlViewController = storyboard.instantiateInitialViewController() as? ActivityPageControlViewController
         activityPageControlViewController?.activity = activity
+        helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
     }
-    
 }

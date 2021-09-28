@@ -6,6 +6,8 @@ target 'geppetto' do
   use_frameworks!
 pod 'Firebase/Analytics'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'FirebaseUI/Storage'
   # Pods for geppetto
 
 end
