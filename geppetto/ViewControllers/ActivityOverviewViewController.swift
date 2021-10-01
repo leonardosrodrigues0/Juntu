@@ -74,7 +74,7 @@ class ActivityOverviewViewController: UIViewController {
 
     @IBAction private func enterActivityButtonTapped() {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControlViewController = storyboard.instantiateInitialViewController() as? ActivityPageControlViewController
+        let activityPageControlViewController = storyboard.instantiateViewController(withIdentifier: String(describing: ActivityPageControlViewController.self)) as? ActivityPageControlViewController
         activityPageControlViewController?.activity = activity
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
