@@ -15,9 +15,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet var historyContainer: UIView!
     @IBOutlet var favoritesContainer: UIView!
     
+    let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Fulano de tal"
+        self.navigationItem.rightBarButtonItems = [add]
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
