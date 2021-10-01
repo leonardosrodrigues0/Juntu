@@ -15,12 +15,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet var historyContainer: UIView!
     @IBOutlet var favoritesContainer: UIView!
     
-    let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-
+    // TODO: implementar action do bar button
+    
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+    let name: String = "Nome mockado rs"
+    let image = UIImage(named: "frameprofile")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Fulano de tal"
-        self.navigationItem.rightBarButtonItems = [add]
+        
+        self.navigationItem.title = name
+        self.navigationItem.rightBarButtonItems = [addButton]
+        profileImage.image = image
+        
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
