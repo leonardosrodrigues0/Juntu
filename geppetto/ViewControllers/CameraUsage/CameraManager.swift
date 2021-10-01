@@ -27,19 +27,23 @@ extension CameraManager {
     
     /// Share an image taken with the picker
     /// Built to be called inside `imagePickerController` method at the UIViewController
-    func dismissPickerAndShareImage(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func dismissPickerAndShareImageAndText(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any], text: String) {
 
         // Dismiss ImagePicker before any action
         picker.dismiss(animated: true)
 
         guard let image = info[.originalImage] as? UIImage else {
-            print("No image found while unwraping ImagePicker info")
+            print("No image found while unwrapping ImagePicker info")
             return
         }
 
+        shareImageAndText(image: image, text: text)
+    }
+    
+    private func shareImageAndText(image: UIImage, text: String) {
         // Set up activity view controller
-        let imageToShare = [ image ]
-        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        let shareItems: [Any] = [image, OptionalTextActivityItemSource(text: text)]
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
 
         // Present the share view controller

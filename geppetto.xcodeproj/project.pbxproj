@@ -14,6 +14,7 @@
 		A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */; };
 		A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */; };
 		A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */; };
+		A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766327C270744800024F879 /* OptionalTextActivityItemSource.swift */; };
 		A7690E5C26F8C7A50097127B /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7690E5B26F8C7A50097127B /* CameraManager.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
@@ -50,6 +51,7 @@
 		A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
 		A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStepViewController.swift; sourceTree = "<group>"; };
 		A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageControlViewController.swift; sourceTree = "<group>"; };
+		A766327C270744800024F879 /* OptionalTextActivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTextActivityItemSource.swift; sourceTree = "<group>"; };
 		A7690E5B26F8C7A50097127B /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		A77BCE7D269C85A900E612BC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -95,9 +97,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A766327B270744620024F879 /* CameraUsage */ = {
+			isa = PBXGroup;
+			children = (
+				A7690E5B26F8C7A50097127B /* CameraManager.swift */,
+				A766327C270744800024F879 /* OptionalTextActivityItemSource.swift */,
+			);
+			path = CameraUsage;
+			sourceTree = "<group>";
+		};
 		A7BD6977268B54BF0005331F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A766327B270744620024F879 /* CameraUsage */,
 				A7BD697C268B59E10005331F /* DiscoverViewController.swift */,
 				A7BD697A268B57B20005331F /* SearchViewController.swift */,
 				A7BD697E268B5A010005331F /* ProfileViewController.swift */,
@@ -105,7 +117,6 @@
 				A74A0BFD268F488C00F99C7C /* ActivityStepViewController.swift */,
 				A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */,
 				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
-				A7690E5B26F8C7A50097127B /* CameraManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +375,7 @@
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
+				A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

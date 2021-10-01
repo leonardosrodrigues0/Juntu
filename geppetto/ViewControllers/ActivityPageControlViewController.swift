@@ -90,7 +90,12 @@ class ActivityPageControlViewController: UIViewController, CameraManager {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        dismissPickerAndShareImage(picker, didFinishPickingMediaWithInfo: info)
+        guard let name = activity?.name else {
+            return
+        }
+        
+        let shareText = "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
+        dismissPickerAndShareImageAndText(picker, didFinishPickingMediaWithInfo: info, text: shareText)
     }
     
 }
