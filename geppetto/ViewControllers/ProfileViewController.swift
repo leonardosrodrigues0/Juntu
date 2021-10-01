@@ -8,7 +8,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
