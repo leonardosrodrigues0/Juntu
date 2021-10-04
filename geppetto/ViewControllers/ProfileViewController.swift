@@ -27,16 +27,20 @@ class ProfileViewController: UIViewController {
         self.navigationItem.title = name
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
+        viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
-        
-        if profileSegmentedControl.selectedSegmentIndex == 0 {
+        viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
+    }
+    
+    func viewOrganizer(_ segmentIndex: Int) {
+        if segmentIndex == 0 {
             momentsContainer.isHidden = false
             historyContainer.isHidden = true
             favoritesContainer.isHidden = true
-        } else if profileSegmentedControl.selectedSegmentIndex == 1 {
+        } else if segmentIndex == 1 {
             momentsContainer.isHidden = true
             favoritesContainer.isHidden = false
             historyContainer.isHidden = true
@@ -45,6 +49,5 @@ class ProfileViewController: UIViewController {
             favoritesContainer.isHidden = true
             historyContainer.isHidden = false
         }
-        
     }
 }
