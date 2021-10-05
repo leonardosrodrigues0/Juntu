@@ -12,8 +12,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
-    @IBOutlet var favoritesView: Moments!
-    @IBOutlet var historyView: Moments!
+    @IBOutlet var favoritesView: Favorites!
+    @IBOutlet var historyView: History!
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     let name: String = "Nome mockado rs"
@@ -26,7 +26,9 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        momentsView.momentsLabel.text = "Hallo Leute!"
+        momentsView.momentsLabel.text = "Hello"
+        favoritesView.favoritesLabel.text = "Nihao"
+        historyView.historyLabel.text = "Hallo"
         
     }
 
