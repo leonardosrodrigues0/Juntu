@@ -8,7 +8,7 @@
 import UIKit
 
 /// Control of the PageViewController for a given activity
-class ActivityPageControlViewController: UIViewController {
+class ActivityPageControlViewController: UIViewController, CameraManager {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
@@ -19,7 +19,7 @@ class ActivityPageControlViewController: UIViewController {
     }
     var helper = AnalyticsHelper.init()
     
-    // MARK: - Methods
+    // MARK: - Page Control Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         helper = AnalyticsHelper.init()
@@ -82,6 +82,22 @@ class ActivityPageControlViewController: UIViewController {
         activityStepViewController.step = dataSource[index]
 
         return activityStepViewController
+    }
+    
+    // MARK: - Camera Usage Methods
+    @IBAction private func cameraButtonTapped() {
+        takePicture()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let name = activity?.name else {
+            return
+        }
+        
+        let shareText = "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
+        shareImageAndText(didFinishPickingMediaWithInfo: info, text: shareText)
     }
     
 }
