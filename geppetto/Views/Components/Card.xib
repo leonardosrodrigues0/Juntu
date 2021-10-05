@@ -25,7 +25,6 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-Ws-HHg" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="119" width="543" height="240"/>
-                    <color key="backgroundColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="2d1-p0-1wn"/>
                     </constraints>
