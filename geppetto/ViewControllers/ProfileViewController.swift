@@ -11,11 +11,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
-    @IBOutlet var momentsContainer: UIView!
-    @IBOutlet var historyContainer: UIView!
-    @IBOutlet var favoritesContainer: UIView!
-    
-    // TODO: implementar action do bar button
+    @IBOutlet var momentsView: Moments!
+    @IBOutlet var favoritesView: Moments!
+    @IBOutlet var historyView: Moments!
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     let name: String = "Nome mockado rs"
@@ -28,6 +26,7 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
+        momentsView.momentsLabel.text = "Hallo Leute!"
         
     }
 
@@ -37,17 +36,17 @@ class ProfileViewController: UIViewController {
     
     func viewOrganizer(_ segmentIndex: Int) {
         if segmentIndex == 0 {
-            momentsContainer.isHidden = false
-            historyContainer.isHidden = true
-            favoritesContainer.isHidden = true
+            momentsView.isHidden = false
+            favoritesView.isHidden = true
+            historyView.isHidden = true
         } else if segmentIndex == 1 {
-            momentsContainer.isHidden = true
-            favoritesContainer.isHidden = false
-            historyContainer.isHidden = true
+            momentsView.isHidden = true
+            favoritesView.isHidden = false
+            historyView.isHidden = true
         } else {
-            momentsContainer.isHidden = true
-            favoritesContainer.isHidden = true
-            historyContainer.isHidden = false
+            momentsView.isHidden = true
+            favoritesView.isHidden = true
+            historyView.isHidden = false
         }
     }
 }

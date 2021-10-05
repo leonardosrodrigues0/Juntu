@@ -37,53 +37,47 @@
                                     <constraint firstAttribute="width" secondItem="cnx-Os-672" secondAttribute="height" multiplier="69:25" id="os8-JH-c9M"/>
                                 </constraints>
                             </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-pA-6sM">
-                                <rect key="frame" x="0.0" y="317" width="414" height="496"/>
-                                <connections>
-                                    <segue destination="KYR-En-QxV" kind="embed" id="k3F-1f-l1T"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-w2-CFb">
-                                <rect key="frame" x="0.0" y="317" width="414" height="496"/>
-                                <connections>
-                                    <segue destination="XwS-4R-gES" kind="embed" id="lie-I4-n5Y"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TP2-7J-I02">
-                                <rect key="frame" x="0.0" y="317" width="414" height="496"/>
-                                <connections>
-                                    <segue destination="uGa-Y6-dyi" kind="embed" id="pFp-4U-dg7"/>
-                                </connections>
-                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXb-Nc-bQz" customClass="Moments" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309" width="414" height="504"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Old-qK-bbA" customClass="Moments" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309" width="414" height="504"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uap-BM-IS0" customClass="Moments" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309" width="414" height="504"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pW3-w2-CFb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8U7-hr-rke"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Old-qK-bbA" secondAttribute="bottom" id="5O3-gj-Wg0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aXb-Nc-bQz" secondAttribute="bottom" id="6H9-qB-FU3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uap-BM-IS0" secondAttribute="bottom" id="8tc-ve-547"/>
                             <constraint firstItem="IUf-Tc-M96" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="9Xa-3N-g4c"/>
-                            <constraint firstItem="pW3-w2-CFb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="B86-5R-l3y"/>
+                            <constraint firstItem="Old-qK-bbA" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="8" symbolic="YES" id="BCW-Wq-rgj"/>
                             <constraint firstItem="IUf-Tc-M96" firstAttribute="top" secondItem="cnx-Os-672" secondAttribute="bottom" constant="16" id="GSW-sj-s89"/>
                             <constraint firstAttribute="trailing" secondItem="cnx-Os-672" secondAttribute="trailing" id="GY1-Ts-a1G"/>
-                            <constraint firstItem="IQy-pA-6sM" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NEP-El-858"/>
+                            <constraint firstItem="Old-qK-bbA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Kju-Jn-mga"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IUf-Tc-M96" secondAttribute="trailing" constant="16" id="Pjf-is-qzS"/>
-                            <constraint firstItem="pW3-w2-CFb" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="16" id="cEy-PY-nBL"/>
-                            <constraint firstItem="TP2-7J-I02" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dIK-Qh-aQX"/>
-                            <constraint firstItem="TP2-7J-I02" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="16" id="fZa-Rf-QLa"/>
+                            <constraint firstItem="aXb-Nc-bQz" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="S4u-vt-WEY"/>
+                            <constraint firstItem="Old-qK-bbA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="TJT-fG-VPY"/>
+                            <constraint firstItem="aXb-Nc-bQz" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="8" symbolic="YES" id="Xbm-QO-iCd"/>
+                            <constraint firstItem="uap-BM-IS0" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="8" symbolic="YES" id="YI0-Un-eu2"/>
+                            <constraint firstItem="uap-BM-IS0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="boD-sf-ZDu"/>
                             <constraint firstItem="cnx-Os-672" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="faW-Xs-Q5B"/>
-                            <constraint firstItem="IQy-pA-6sM" firstAttribute="top" secondItem="IUf-Tc-M96" secondAttribute="bottom" constant="16" id="k5A-h6-4L3"/>
-                            <constraint firstItem="pW3-w2-CFb" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="lS7-MW-jrL"/>
                             <constraint firstItem="cnx-Os-672" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="laz-C5-Anp"/>
-                            <constraint firstItem="TP2-7J-I02" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="om4-H3-rvJ"/>
-                            <constraint firstItem="IQy-pA-6sM" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="roj-ZG-Nvw"/>
-                            <constraint firstItem="TP2-7J-I02" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="s9H-eZ-IA0"/>
-                            <constraint firstItem="IQy-pA-6sM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wWe-w8-RT1"/>
+                            <constraint firstItem="aXb-Nc-bQz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p0j-Ys-vnD"/>
+                            <constraint firstItem="uap-BM-IS0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="rJr-GH-ZzY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lou-43-4eT"/>
                     <connections>
-                        <outlet property="favoritesContainer" destination="TP2-7J-I02" id="oi7-Om-70j"/>
-                        <outlet property="historyContainer" destination="pW3-w2-CFb" id="gfi-Hf-GME"/>
-                        <outlet property="momentsContainer" destination="IQy-pA-6sM" id="1ZB-Fd-qFl"/>
+                        <outlet property="favoritesView" destination="Old-qK-bbA" id="Dja-Ab-6Hv"/>
+                        <outlet property="historyView" destination="uap-BM-IS0" id="eps-ei-blK"/>
+                        <outlet property="momentsView" destination="aXb-Nc-bQz" id="t0F-IY-gIM"/>
                         <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
                     </connections>
@@ -110,48 +104,6 @@
             </objects>
             <point key="canvasLocation" x="-714" y="116"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="H2b-Qu-Ycy">
-            <objects>
-                <viewController id="KYR-En-QxV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wui-jG-3v4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="weY-HG-3N6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1025" y="450"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Qp0-ce-3Ec">
-            <objects>
-                <viewController id="XwS-4R-gES" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J5E-Iw-6fG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q5E-7N-XtQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1025" y="69"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="aAL-iO-SUa">
-            <objects>
-                <viewController id="uGa-Y6-dyi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hfb-WV-wSn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.37647058820000001" green="0.1176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lVw-OQ-UNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1025" y="-299"/>
-        </scene>
     </scenes>
     <resources>
         <image name="person.circle" catalog="system" width="128" height="121"/>
@@ -163,9 +115,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
