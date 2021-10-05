@@ -19,9 +19,10 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var difficulty: UILabel!
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var fullDescription: UILabel!
-    @IBOutlet weak var enterActivityStepsButton: UIButton!
     @IBOutlet weak var materialStack: UIStackView!
+    @IBOutlet weak var keepInMind: UIStackView!
     @IBOutlet weak var keepInMindText: UILabel!
+    @IBOutlet weak var enterActivityStepsButton: UIButton!
     
     var helper = AnalyticsHelper.init()
     
@@ -42,7 +43,12 @@ class ActivityOverviewViewController: UIViewController {
         image.sd_setImage(with: activity.getImageDatabaseRef())
         name.text = activity.name
         fullDescription.text = activity.introduction
-        keepInMindText.text = activity.caution
+
+        if (activity.caution ?? "").isEmpty {
+            keepInMind.removeFromSuperview()
+        } else {
+            keepInMindText.text = activity.caution
+        }
         duration.text = activity.time
         difficulty.text = activity.difficulty
         age.text = activity.age

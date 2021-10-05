@@ -17,7 +17,8 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var instructions: UILabel!
-    @IBOutlet weak var references: UILabel!
+    @IBOutlet weak var juntuTip: UIStackView!
+    @IBOutlet weak var juntuTipText: UILabel!
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -34,11 +35,15 @@ class ActivityStepViewController: UIViewController {
         guard let imageRef = step?.getImageDatabaseRef() else {
             return
         }
-        
+
         image.sd_setImage(with: imageRef)
         indexLabel.text = "Passo \(indexValue + 1)"
         instructions.text = step?.information
-        references.text = step?.reference
+        if (step?.reference ?? "").isEmpty {
+            juntuTip.removeFromSuperview()
+        } else {
+            juntuTipText.text = step?.reference
+        }
     }
     
 }
