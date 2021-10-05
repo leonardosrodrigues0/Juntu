@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fej-cz-GZT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BVR-9r-fGK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +18,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7Q-cb-FQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="119"/>
+            <point key="canvasLocation" x="2236" y="119"/>
         </scene>
         <!--Activity Step View Controller-->
         <scene sceneID="Q4E-55-P01">
@@ -75,6 +77,7 @@
                             <constraint firstItem="5Xy-l5-d1M" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" constant="20" id="ziD-4H-3s2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="alH-Tg-Xlo"/>
                     <connections>
                         <outlet property="image" destination="jiq-as-X68" id="ZhF-Wd-N2W"/>
                         <outlet property="indexLabel" destination="m1K-Cs-laX" id="rH4-bh-Lrd"/>
@@ -84,7 +87,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-A8-zXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250.7246376811595" y="118.52678571428571"/>
+            <point key="canvasLocation" x="3096" y="119"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s8T-bq-ckx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bv9-GB-1Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="BVR-9r-fGK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tVw-o9-MDS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fej-cz-GZT" kind="relationship" relationship="rootViewController" id="SY1-ao-EZF"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="548" y="119"/>
         </scene>
         <!--Activity Page Control View Controller-->
         <scene sceneID="BAx-M7-dZK">
@@ -95,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f7-cU-eAF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5ua-kj-F5Z"/>
@@ -107,17 +126,30 @@
                             <constraint firstItem="5f7-cU-eAF" firstAttribute="top" secondItem="5ua-kj-F5Z" secondAttribute="top" id="Ouq-d3-5Z7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N0K-SI-hSx"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hPq-0v-o4w">
+                        <barButtonItem key="rightBarButtonItem" title="Camera" image="camera" catalog="system" id="3Pa-tK-VDP">
+                            <color key="tintColor" name="AccentColor"/>
+                            <connections>
+                                <action selector="cameraButtonTapped" destination="fej-cz-GZT" id="sDh-nX-PkT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="5f7-cU-eAF" id="biB-GT-ksd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgE-Ci-J6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568" y="119"/>
+            <point key="canvasLocation" x="1384" y="119"/>
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <namedColor name="AccentColor">
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
