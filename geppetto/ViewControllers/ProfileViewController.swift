@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        momentsView.momentsLabel.text = "Hello"
+        
+        
         favoritesView.favoritesLabel.text = "Nihao"
         historyView.historyLabel.text = "Hallo"
         
@@ -51,4 +52,5 @@ class ProfileViewController: UIViewController {
             historyView.isHidden = false
         }
     }
+    
 }
