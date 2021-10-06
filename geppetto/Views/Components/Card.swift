@@ -62,3 +62,18 @@ class Card: UIView {
         image.clipsToBounds = true
     }
 }
+
+extension UIStackView {
+    
+    /// Inject an array of Card Views into StackView
+    func populateWithCards(_ array: [Card]) {
+        for item in self.arrangedSubviews {
+            item.removeFromSuperview()
+        }
+        
+        for card in array {
+            self.addArrangedSubview(card)
+        }
+    }
+}
+

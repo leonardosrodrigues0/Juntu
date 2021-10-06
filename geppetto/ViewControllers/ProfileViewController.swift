@@ -7,18 +7,45 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, CardNavigationDelegate {
     
+    // MARK: - Favorites Testing Stuff
+    var selectedActivity: Activity?
+    @IBOutlet var favoritesView: Favorites!
+    
+    private func loadActivities() {
+        let constructor = ActivityConstructor.getInstance()
+        constructor.getActivities { activities in
+            self.favoritesView.items = activities
+            self.favoritesView.reloadCards(delegate: self)
+        }
+    }
+    
+    /// Navigate to ActivityOverview
+    func navigate(from card: Card) {
+        selectedActivity = card.activity
+        performSegue(withIdentifier: "goToOverview", sender: self)
+    }
+    
+    /// Prepare for navigate to ActivityOverview, i.e. pass the activity data forward.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToOverview" {
+            guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
+            activityOverviewViewController.activity = selectedActivity
+        }
+    }
+    
+    // MARK: - Properties
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
-    @IBOutlet var favoritesView: Favorites!
     @IBOutlet var historyView: History!
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     let name: String = "Nome mockado rs"
     let image = UIImage(named: "frameprofile")!
     
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,9 +54,8 @@ class ProfileViewController: UIViewController {
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         momentsView.momentsLabel.text = "Hello"
-        favoritesView.favoritesLabel.text = "Nihao"
         historyView.historyLabel.text = "Hallo"
-        
+        loadActivities()
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
