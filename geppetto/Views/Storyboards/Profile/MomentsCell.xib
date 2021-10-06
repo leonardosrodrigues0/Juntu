@@ -17,21 +17,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsF-g1-nIF">
-                        <rect key="frame" x="4" y="36.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBc-3l-8Tb">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="xsF-g1-nIF" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="I18-7F-RPX"/>
-                <constraint firstItem="xsF-g1-nIF" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="m8A-dH-GkL"/>
+                <constraint firstAttribute="bottom" secondItem="OBc-3l-8Tb" secondAttribute="bottom" id="45T-xV-F60"/>
+                <constraint firstItem="OBc-3l-8Tb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="94H-vR-MdV"/>
+                <constraint firstItem="OBc-3l-8Tb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kw4-4O-o6n"/>
+                <constraint firstAttribute="trailing" secondItem="OBc-3l-8Tb" secondAttribute="trailing" id="vTB-cQ-6Qc"/>
             </constraints>
             <connections>
-                <outlet property="labelCell" destination="xsF-g1-nIF" id="nIs-cI-uZI"/>
+                <outlet property="momentsImage" destination="OBc-3l-8Tb" id="qbs-Fa-EdQ"/>
             </connections>
             <point key="canvasLocation" x="139" y="38"/>
         </collectionViewCell>

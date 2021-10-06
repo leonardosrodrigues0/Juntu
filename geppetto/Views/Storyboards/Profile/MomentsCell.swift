@@ -8,8 +8,8 @@
 import UIKit
 
 class MomentsCell: UICollectionViewCell {
-
-    @IBOutlet var labelCell: UILabel!
+    
+    @IBOutlet var momentsImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

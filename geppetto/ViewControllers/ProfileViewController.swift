@@ -27,10 +27,8 @@ class ProfileViewController: UIViewController {
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
-        
         favoritesView.favoritesLabel.text = "Nihao"
         historyView.historyLabel.text = "Hallo"
-        
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {

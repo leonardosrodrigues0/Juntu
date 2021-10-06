@@ -53,7 +53,10 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? MomentsCell else {
             fatalError("can't dequeue CustomCell")
         }
-        cell.labelCell.text = "A"
+        
+        let image = UIImage(named: "frameprofile")!
+        cell.momentsImage.image = image
+        
         return cell
     }
     
