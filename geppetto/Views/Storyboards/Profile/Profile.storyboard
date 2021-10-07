@@ -80,11 +80,22 @@
                         <outlet property="momentsView" destination="aXb-Nc-bQz" id="t0F-IY-gIM"/>
                         <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
+                        <segue destination="mdc-dT-NMj" kind="show" identifier="goToOverview" id="fcW-xq-P7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="D3b-tg-Ocz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="mdc-dT-NMj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pqK-q2-D4Q"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULb-Ou-TrJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="116"/>
         </scene>
         <!--Profile-->
         <scene sceneID="U8O-tJ-8cJ">
