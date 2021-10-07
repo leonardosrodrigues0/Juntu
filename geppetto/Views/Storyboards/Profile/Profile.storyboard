@@ -37,9 +37,9 @@
                                     <constraint firstAttribute="width" secondItem="cnx-Os-672" secondAttribute="height" multiplier="69:25" id="os8-JH-c9M"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXb-Nc-bQz" customClass="Moments" customModule="geppetto" customModuleProvider="target">
+                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXb-Nc-bQz" customClass="Moments" customModule="geppetto" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="309" width="414" height="504"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Old-qK-bbA" customClass="Favorites" customModule="geppetto" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="309" width="414" height="504"/>
@@ -80,11 +80,22 @@
                         <outlet property="momentsView" destination="aXb-Nc-bQz" id="t0F-IY-gIM"/>
                         <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
+                        <segue destination="Coa-Wd-ebg" kind="show" identifier="goToOverview" id="2LA-W3-NRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="MyD-uI-vsO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="Coa-Wd-ebg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KcQ-QO-NGB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="po1-fM-Jfi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="53"/>
         </scene>
         <!--Profile-->
         <scene sceneID="U8O-tJ-8cJ">

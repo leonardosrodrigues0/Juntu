@@ -12,8 +12,6 @@ class Moments: UIView {
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
-//    let paises: [String] = ["BR", "AR", "CH", "BO", "CH"]
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -22,7 +20,6 @@ class Moments: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-        initCollectionView()
     }
     
     private func commonInit() {
@@ -39,14 +36,19 @@ class Moments: UIView {
         let nib = UINib(nibName: "MomentsCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "CustomCell")
         collectionView.dataSource = self
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let width: CGFloat = ((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3)
+            print(width)
+            layout.itemSize = CGSize(width: width, height: width)
+        }
     }
-
 }
 
 extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
