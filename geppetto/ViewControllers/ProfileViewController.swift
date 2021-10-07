@@ -37,9 +37,11 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     private func loadActivities() {
         let constructor = ActivityConstructor.getInstance()
         constructor.getActivities { activities in
-            self.favoritesView.items = activities
+            // Mocked data: use all activities as favorites and history, as there's no logic.
+            // Shuffle to add difference between the views.
+            self.favoritesView.items = activities.shuffled()
             self.favoritesView.reloadCards(delegate: self)
-            self.historyView.items = activities
+            self.historyView.items = activities.shuffled()
             self.historyView.reloadCards(delegate: self)
         }
     }
