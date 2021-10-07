@@ -38,6 +38,8 @@ class Favorites: UIView {
         card.delegate = delegate
         card.updateView()
         stack.addSubview(card) // add card as subview of the horizontal stack
+        let constraint = [card.widthAnchor.constraint(equalTo: stack.widthAnchor)]
+        NSLayoutConstraint.activate(constraint)
         return card
     }
 
