@@ -31,7 +31,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         momentsView.momentsLabel.text = "Hello"
-        historyView.historyLabel.text = "Hallo"
         loadActivities()
     }
     
@@ -40,6 +39,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         constructor.getActivities { activities in
             self.favoritesView.items = activities
             self.favoritesView.reloadCards(delegate: self)
+            self.historyView.items = activities
+            self.historyView.reloadCards(delegate: self)
         }
     }
 

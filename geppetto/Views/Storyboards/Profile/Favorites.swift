@@ -10,8 +10,8 @@ import UIKit
 class Favorites: UIView {
 
     @IBOutlet var favoritesView: UIView!
-    var items: [Activity] = []
     @IBOutlet weak var stack: UIStackView!
+    var items: [Activity] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

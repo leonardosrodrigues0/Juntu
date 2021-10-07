@@ -10,30 +10,50 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="History" customModule="geppetto" customModuleProvider="target">
             <connections>
-                <outlet property="historyLabel" destination="XI1-sW-g25" id="kb6-4N-Hrg"/>
-                <outlet property="historyView" destination="iN0-l3-epB" id="y8K-GA-82w"/>
+                <outlet property="historyView" destination="BmY-49-Y95" id="ijs-eB-WSF"/>
+                <outlet property="stack" destination="sY0-ih-PeQ" id="YgE-dj-Q27"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="BmY-49-Y95">
             <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你们好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI1-sW-g25">
-                    <rect key="frame" x="161.5" y="252" width="91" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuW-Fb-PYg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-ih-PeQ">
+                            <rect key="frame" x="16" y="16" width="382" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u22-OC-6vo">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="sEO-3G-n5R"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="sY0-ih-PeQ" firstAttribute="width" secondItem="mhV-vi-1Iz" secondAttribute="width" constant="-32" id="IMS-NV-b4W"/>
+                        <constraint firstItem="sY0-ih-PeQ" firstAttribute="top" secondItem="6Gy-vk-1ZT" secondAttribute="top" constant="16" id="eai-bK-hOK"/>
+                        <constraint firstItem="sY0-ih-PeQ" firstAttribute="trailing" secondItem="6Gy-vk-1ZT" secondAttribute="trailing" constant="-16" id="nRb-ZT-wE7"/>
+                        <constraint firstItem="sY0-ih-PeQ" firstAttribute="leading" secondItem="6Gy-vk-1ZT" secondAttribute="leading" constant="16" id="sU2-0Z-BNV"/>
+                        <constraint firstItem="sY0-ih-PeQ" firstAttribute="bottom" secondItem="6Gy-vk-1ZT" secondAttribute="bottom" constant="-16" id="w3T-oX-MYk"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="6Gy-vk-1ZT"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="mhV-vi-1Iz"/>
+                </scrollView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="wso-t1-VQW"/>
             <constraints>
-                <constraint firstItem="XI1-sW-g25" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="9gq-YP-WOJ"/>
-                <constraint firstItem="XI1-sW-g25" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ld7-h2-Zqb"/>
+                <constraint firstAttribute="top" secondItem="yuW-Fb-PYg" secondAttribute="top" id="8b3-Vt-sfV"/>
+                <constraint firstAttribute="trailing" secondItem="yuW-Fb-PYg" secondAttribute="trailing" id="SHM-7Y-6Qo"/>
+                <constraint firstAttribute="bottom" secondItem="yuW-Fb-PYg" secondAttribute="bottom" id="prX-OF-ofA"/>
+                <constraint firstItem="yuW-Fb-PYg" firstAttribute="leading" secondItem="BmY-49-Y95" secondAttribute="leading" id="saF-sB-MU4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="132" y="33"/>
+            <point key="canvasLocation" x="131.8840579710145" y="67.633928571428569"/>
         </view>
     </objects>
 </document>
