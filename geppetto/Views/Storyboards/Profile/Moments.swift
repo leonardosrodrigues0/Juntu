@@ -42,7 +42,7 @@ class Moments: UIView {
         collectionView.dataSource = self
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width: CGFloat = floor((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3)
+            let width: CGFloat = floor(((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3))
             layout.itemSize = CGSize(width: width, height: width)
         }
     }
