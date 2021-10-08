@@ -12,6 +12,7 @@ import FirebaseStorage
 class ActivityStepViewController: UIViewController {
 
     // MARK: - Properties
+    var activity: Activity?
     var index: Int? // PageController index.
     var step: ActivityStep?
     @IBOutlet weak var image: UIImageView!
@@ -27,7 +28,7 @@ class ActivityStepViewController: UIViewController {
     }
     
     private func updateOutlets() {
-        guard let indexValue = index else {
+        guard let indexValue = index, let totalSteps = activity?.getSteps().count else {
             print("Error: failed to unwrap index optional at activity step.")
             return
         }
@@ -37,7 +38,7 @@ class ActivityStepViewController: UIViewController {
         }
 
         image.sd_setImage(with: imageRef)
-        indexLabel.text = "Passo \(indexValue + 1)"
+        indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {
             juntuTip.removeFromSuperview()

@@ -40,6 +40,7 @@ class ActivityPageViewController: UIPageViewController {
                 return
             }
 
+            activityStepVC.activity = activity
             activityStepVC.index = i
             activityStepVC.step = allSteps[i]
             pages.append(activityStepVC)
