@@ -22,6 +22,11 @@ class Moments: UIView {
         commonInit()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        initCollectionView()
+    }
+    
     private func commonInit() {
         let bundle = Bundle(for: type(of: self))
         bundle.loadNibNamed("Moments", owner: self, options: nil)
@@ -29,7 +34,6 @@ class Moments: UIView {
 
         momentsView.frame = self.bounds
         momentsView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        initCollectionView()
     }
     
     private func initCollectionView() {
@@ -38,8 +42,7 @@ class Moments: UIView {
         collectionView.dataSource = self
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width: CGFloat = ((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3)
-            print(width)
+            let width: CGFloat = floor((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3)
             layout.itemSize = CGSize(width: width, height: width)
         }
     }
