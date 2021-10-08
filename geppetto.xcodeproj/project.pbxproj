@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */; };
+		313D3071270DC344000871C0 /* MomentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D306F270DC344000871C0 /* MomentsCell.swift */; };
+		313D3072270DC344000871C0 /* MomentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313D3070270DC344000871C0 /* MomentsCell.xib */; };
 		31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA3379270C7B7C0055E2B6 /* Moments.xib */; };
 		31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA337B270C7CC70055E2B6 /* Moments.swift */; };
 		31DA337E270C8E0C0055E2B6 /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337D270C8E0C0055E2B6 /* History.xib */; };
@@ -50,6 +52,8 @@
 		28E3FC289032081DC8A179C1 /* Pods-geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.debug.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.debug.xcconfig"; sourceTree = "<group>"; };
 		2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityConstructor.swift; sourceTree = "<group>"; };
+		313D306F270DC344000871C0 /* MomentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsCell.swift; sourceTree = "<group>"; };
+		313D3070270DC344000871C0 /* MomentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentsCell.xib; sourceTree = "<group>"; };
 		31DA3379270C7B7C0055E2B6 /* Moments.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Moments.xib; sourceTree = "<group>"; };
 		31DA337B270C7CC70055E2B6 /* Moments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
 		31DA337D270C8E0C0055E2B6 /* History.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = History.xib; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				31DA337F270C8E190055E2B6 /* Favorites.xib */,
 				31DA3384270C8F6C0055E2B6 /* History.swift */,
 				31DA3386270C8F7D0055E2B6 /* Favorites.swift */,
+				313D306F270DC344000871C0 /* MomentsCell.swift */,
+				313D3070270DC344000871C0 /* MomentsCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A7E65C3726860E1600570FBD /* Main.storyboard in Resources */,
 				A7BD6971268B3AB50005331F /* Search.storyboard in Resources */,
+				313D3072270DC344000871C0 /* MomentsCell.xib in Resources */,
 				31DA337E270C8E0C0055E2B6 /* History.xib in Resources */,
 				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
 				31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */,
@@ -394,6 +401,7 @@
 				A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
+				313D3071270DC344000871C0 /* MomentsCell.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */,

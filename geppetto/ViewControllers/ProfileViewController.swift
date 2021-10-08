@@ -30,7 +30,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        momentsView.momentsLabel.text = "Hello"
         loadActivities()
     }
     
@@ -51,19 +50,9 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     }
     
     func viewOrganizer(_ segmentIndex: Int) {
-        if segmentIndex == 0 {
-            momentsView.isHidden = false
-            favoritesView.isHidden = true
-            historyView.isHidden = true
-        } else if segmentIndex == 1 {
-            momentsView.isHidden = true
-            favoritesView.isHidden = false
-            historyView.isHidden = true
-        } else {
-            momentsView.isHidden = true
-            favoritesView.isHidden = true
-            historyView.isHidden = false
-        }
+        momentsView.isHidden = segmentIndex != 0
+        favoritesView.isHidden = segmentIndex != 1
+        historyView.isHidden = segmentIndex != 2
     }
     
     // MARK: - CardNavigationDelegate Methods
