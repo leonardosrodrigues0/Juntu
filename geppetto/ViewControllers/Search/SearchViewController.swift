@@ -13,6 +13,7 @@ public class SearchViewController: UIViewController {
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
     
+    // MARK: - Initializers
     public required init?(coder: NSCoder) {
         let storyboard = UIStoryboard(name: "SearchResults", bundle: nil)
         guard let resultsViewController = storyboard.instantiateViewController(withIdentifier: "ResultsController") as? SearchResultsViewController else {
@@ -25,12 +26,7 @@ public class SearchViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
     // MARK: - Methods
-    /// Set options and get data from database for the screen.
     public override func viewDidLoad() {
         super.viewDidLoad()
         setSearchConfig()
