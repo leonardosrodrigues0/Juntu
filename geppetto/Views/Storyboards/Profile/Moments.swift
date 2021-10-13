@@ -12,6 +12,10 @@ class Moments: UIView {
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02", "momentsImage03",
+                            "momentsImage04", "momentsImage05", "momentsImage06", "momentsImage07",
+                            "momentsImage09", "momentsImage09", "momentsImage10", "momentsImage11"]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -51,16 +55,16 @@ class Moments: UIView {
 extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? MomentsCell else {
             fatalError("can't dequeue CustomCell")
         }
         
-        let image = UIImage(named: "frameprofile")!
-        cell.momentsImage.image = image
+        cell.momentsImage.image = UIImage(named: "\(images[indexPath.row])")!
         
         return cell
     }

@@ -19,8 +19,9 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     var selectedActivity: Activity?
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-    let name: String = "Eduardo Dini"
-    let image = UIImage(named: "frameprofile")!
+    let name: String = "Celso Pereira"
+    let images = [UIImage]()
+    let image = UIImage(named: "momentsImage00")!
     
     // MARK: - Methods
     override func viewDidLoad() {
