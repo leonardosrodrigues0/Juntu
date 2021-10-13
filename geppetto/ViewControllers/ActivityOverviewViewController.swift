@@ -51,7 +51,7 @@ class ActivityOverviewViewController: UIViewController {
         }
         duration.text = activity.time
         difficulty.text = activity.difficulty
-        age.text = activity.age
+        age.text = activity.getAgeText()
         self.loadMaterialLabels()
     }
     
