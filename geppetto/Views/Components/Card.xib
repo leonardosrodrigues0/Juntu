@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-Ws-HHg" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="543" height="240"/>
+                    <rect key="frame" x="0.0" y="119" width="543" height="240"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="2d1-p0-1wn"/>
                     </constraints>
@@ -35,24 +35,24 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Css-CC-r2r">
-                    <rect key="frame" x="0.0" y="248" width="543" height="111"/>
+                    <rect key="frame" x="0.0" y="0.0" width="543" height="111"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-fY-YDy" userLabel="Title">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-eU-eom" userLabel="Footnote">
                             <rect key="frame" x="0.0" y="0.0" width="543" height="7"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <color key="textColor" name="AccentColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-fY-YDy" userLabel="Title">
+                            <rect key="frame" x="0.0" y="9" width="543" height="50"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-Tm-Cfk" userLabel="Description">
-                            <rect key="frame" x="0.0" y="9" width="543" height="50"/>
+                            <rect key="frame" x="0.0" y="61" width="543" height="50"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" systemColor="secondaryLabelColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-eU-eom" userLabel="Footnote">
-                            <rect key="frame" x="0.0" y="61" width="543" height="50"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                            <color key="textColor" name="AccentColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -61,10 +61,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="Css-CC-r2r" firstAttribute="top" secondItem="WmG-Ws-HHg" secondAttribute="bottom" constant="8" id="49o-mp-TfG"/>
-                <constraint firstItem="WmG-Ws-HHg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LqW-GR-1iL"/>
+                <constraint firstItem="WmG-Ws-HHg" firstAttribute="top" secondItem="Css-CC-r2r" secondAttribute="bottom" constant="8" id="2qE-ke-RA2"/>
+                <constraint firstItem="WmG-Ws-HHg" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="LqW-GR-1iL"/>
                 <constraint firstAttribute="trailing" secondItem="Css-CC-r2r" secondAttribute="trailing" id="VfI-Yu-4RJ"/>
-                <constraint firstAttribute="bottom" secondItem="Css-CC-r2r" secondAttribute="bottom" id="WCL-Xc-E7W"/>
+                <constraint firstAttribute="top" secondItem="Css-CC-r2r" secondAttribute="top" id="WCL-Xc-E7W"/>
                 <constraint firstItem="WmG-Ws-HHg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YXz-Ur-n9U"/>
                 <constraint firstAttribute="trailing" secondItem="WmG-Ws-HHg" secondAttribute="trailing" id="jOK-Kj-sar"/>
                 <constraint firstItem="Css-CC-r2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mNk-sc-Ci8"/>

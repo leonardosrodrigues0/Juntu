@@ -8,21 +8,17 @@
 import UIKit
 
 /// Control of the PageViewController for a given activity
-class ActivityPageControlViewController: UIViewController {
+class ActivityPageControlViewController: UIViewController, CameraManager {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
-    var currentViewControllerIndex = 0
     var activity: Activity?
-    var dataSource: [ActivityStep] {
-        return self.activity?.getSteps() ?? []
-    }
-    var helper = AnalyticsHelper.init()
+    var helper = AnalyticsHelper()
     
-    // MARK: - Methods
+    // MARK: - Page Control Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        helper = AnalyticsHelper.init()
+        helper = AnalyticsHelper()
         configurePageViewController()
     }
     
@@ -32,15 +28,13 @@ class ActivityPageControlViewController: UIViewController {
             return
         }
         
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
+        if activity != nil {
+            pageViewController.setActivity(activity!)
+        }
         
         addChild(pageViewController)
         pageViewController.didMove(toParent: self)
         contentView.addSubview(pageViewController.view)
-
-        // Remove borders from page view.
-        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         let views: [String: Any] = ["pageView": pageViewController.view!]
         
@@ -61,76 +55,22 @@ class ActivityPageControlViewController: UIViewController {
                 views: views
             )
         )
+    }
+    
+    // MARK: - Camera Usage Methods
+    @IBAction private func cameraButtonTapped() {
+        takePicture()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true)
         
-        guard let startingViewController = detailViewControllerAt(index: currentViewControllerIndex) else {
+        guard let name = activity?.name else {
             return
         }
         
-        pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
-    }
-    
-    func detailViewControllerAt(index: Int) -> ActivityStepViewController? {
-        guard index < dataSource.count && !dataSource.isEmpty else {
-            return nil
-        }
-        
-        guard let activityStepViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActivityStepViewController.self)) as? ActivityStepViewController else {
-            return nil
-        }
-        
-        activityStepViewController.index = index
-        activityStepViewController.step = dataSource[index]
-
-        return activityStepViewController
-    }
-    
-}
-
-extension ActivityPageControlViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return currentViewControllerIndex
-    }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return dataSource.count
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let activityStepViewController = viewController as? ActivityStepViewController
-        
-        guard var currentIndex = activityStepViewController?.index else {
-            return nil
-        }
-        
-        currentViewControllerIndex = currentIndex
-        
-        if currentIndex == 0 {
-            helper.logViewedFinalStep(activity: self.activity!)
-            return nil
-        }
-        
-        currentIndex -= 1
-        
-        return detailViewControllerAt(index: currentIndex)
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let activityStepViewController = viewController as? ActivityStepViewController
-        
-        guard var currentIndex = activityStepViewController?.index else {
-            return nil
-        }
-        
-        currentViewControllerIndex = currentIndex
-        
-        if currentIndex == dataSource.count {
-            return nil
-        }
-        
-        currentIndex += 1
-        
-        return detailViewControllerAt(index: currentIndex)
+        let shareText = "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
+        shareImageAndText(didFinishPickingMediaWithInfo: info, text: shareText)
     }
     
 }

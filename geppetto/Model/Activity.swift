@@ -45,11 +45,15 @@ public struct Activity: Searchable, Codable {
     }
     
     func getDescription() -> String {
-        return age
+        return getAgeText()
     }
     
     func isResultWithSearchString(_ searchString: String) -> Bool {
         return name.lowercased().contains(searchString.lowercased())
+    }
+    
+    func getAgeText() -> String {
+        return "\(age) anos"
     }
     
     func getImageDatabaseRef() -> StorageReference {
