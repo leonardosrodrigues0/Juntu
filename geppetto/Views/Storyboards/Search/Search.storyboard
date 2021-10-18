@@ -4,9 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,20 +18,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8R-Nt-Lpq" customClass="TagCard" customModule="geppetto" customModuleProvider="target">
-                                <rect key="frame" x="16" y="340.5" width="382" height="215"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="g8R-Nt-Lpq" secondAttribute="height" multiplier="16:9" id="UK4-YD-rhk"/>
-                                </constraints>
-                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-gv-qwT">
+                                <rect key="frame" x="20" y="88" width="374" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cce-SV-bzZ">
+                                    <size key="itemSize" width="170" height="119"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="weW-oO-ipk" customClass="TagCardCell" customModule="geppetto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="119"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h6s-Vg-GLu">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akS-aF-QEM" customClass="TagCard" customModule="geppetto" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="119"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="5my-Ob-GsG"/>
+                                                        <constraint firstAttribute="width" secondItem="akS-aF-QEM" secondAttribute="height" multiplier="16:9" id="YnM-U9-kEZ"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="akS-aF-QEM" secondAttribute="trailing" id="A3y-eJ-knY"/>
+                                                <constraint firstAttribute="bottom" secondItem="akS-aF-QEM" secondAttribute="bottom" id="TNp-Fx-kbU"/>
+                                                <constraint firstItem="akS-aF-QEM" firstAttribute="leading" secondItem="h6s-Vg-GLu" secondAttribute="leading" id="x5l-eM-MJ5"/>
+                                                <constraint firstItem="akS-aF-QEM" firstAttribute="top" secondItem="h6s-Vg-GLu" secondAttribute="top" id="yoI-TA-vKU"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="170" height="119"/>
+                                        <connections>
+                                            <outlet property="tagCard" destination="akS-aF-QEM" id="LFr-Sr-ME4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="fnD-wH-xJR"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="P0q-qz-Xm7"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="YYC-ur-lnI"/>
-                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fkK-jA-SmI"/>
-                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="y1v-cW-SIv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SMh-gv-qwT" secondAttribute="trailing" id="TuG-f0-lLb"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="aWw-Jh-rEY"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="eBx-yz-aLX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SMh-gv-qwT" secondAttribute="bottom" id="oAZ-06-4j3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" largeTitleDisplayMode="always" id="olm-6w-sbu"/>
@@ -39,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="116"/>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
         </scene>
         <!--Buscar-->
         <scene sceneID="Tem-D9-ykC">
@@ -62,9 +100,6 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <namedColor name="AccentColor">
-            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
