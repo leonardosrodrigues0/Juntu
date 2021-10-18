@@ -12,9 +12,7 @@ class Moments: UIView {
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
-    let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02", "momentsImage03",
-                            "momentsImage04", "momentsImage05", "momentsImage06", "momentsImage07",
-                            "momentsImage09", "momentsImage09", "momentsImage10", "momentsImage11"]
+    let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
