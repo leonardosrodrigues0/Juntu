@@ -10,6 +10,8 @@
 		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
+		A722C814271E2267005CE246 /* TagCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A722C813271E2267005CE246 /* TagCard.xib */; };
+		A722C816271E22D8005CE246 /* TagCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722C815271E22D8005CE246 /* TagCard.swift */; };
 		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
 		A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A749F7992710AC7A00FB364E /* SearchResults.storyboard */; };
 		A749F79D2710ACB300FB364E /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749F79C2710ACB300FB364E /* SearchResultsViewController.swift */; };
@@ -50,6 +52,8 @@
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A70E8A7626E2469B002EE0F6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A70E8A7726E24ECB002EE0F6 /* juntu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juntu.png; sourceTree = "<group>"; };
+		A722C813271E2267005CE246 /* TagCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCard.xib; sourceTree = "<group>"; };
+		A722C815271E22D8005CE246 /* TagCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCard.swift; sourceTree = "<group>"; };
 		A729CA85269477840000E9D3 /* ActivityOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityOverview.storyboard; sourceTree = "<group>"; };
 		A749F7992710AC7A00FB364E /* SearchResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResults.storyboard; sourceTree = "<group>"; };
 		A749F79C2710ACB300FB364E /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			children = (
 				A7BD6970268B3AB50005331F /* Search.storyboard */,
 				A749F7992710AC7A00FB364E /* SearchResults.storyboard */,
+				A722C813271E2267005CE246 /* TagCard.xib */,
+				A722C815271E22D8005CE246 /* TagCard.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */,
 				A7E65C3726860E1600570FBD /* Main.storyboard in Resources */,
+				A722C814271E2267005CE246 /* TagCard.xib in Resources */,
 				A7BD6971268B3AB50005331F /* Search.storyboard in Resources */,
 				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
 				2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */,
@@ -400,6 +407,7 @@
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
 				A7690E5C26F8C7A50097127B /* CameraManager.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
+				A722C816271E22D8005CE246 /* TagCard.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,

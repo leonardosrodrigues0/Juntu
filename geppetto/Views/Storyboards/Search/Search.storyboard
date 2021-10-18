@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,18 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH SCREEN CARDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-RY-IVH">
-                                <rect key="frame" x="110" y="437.5" width="194.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8R-Nt-Lpq" customClass="TagCard" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="16" y="340.5" width="382" height="215"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g8R-Nt-Lpq" secondAttribute="height" multiplier="16:9" id="UK4-YD-rhk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2dQ-RY-IVH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="1rm-UT-8AT"/>
-                            <constraint firstItem="2dQ-RY-IVH" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="d22-JZ-X9G"/>
+                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="YYC-ur-lnI"/>
+                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fkK-jA-SmI"/>
+                            <constraint firstItem="g8R-Nt-Lpq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="y1v-cW-SIv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" largeTitleDisplayMode="always" id="olm-6w-sbu"/>
@@ -59,6 +62,9 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="AccentColor">
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
