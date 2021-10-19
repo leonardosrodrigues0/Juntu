@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-ri-jMj">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-ri-jMj">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOC-vE-oTx">
@@ -36,6 +36,11 @@
                 <constraint firstItem="NOC-vE-oTx" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="vhl-ab-R9F"/>
             </constraints>
             <size key="customSize" width="427" height="241"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="image" destination="OrW-ri-jMj" id="1Zv-ai-Uyb"/>
                 <outlet property="label" destination="NOC-vE-oTx" id="4ms-zF-x68"/>

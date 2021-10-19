@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-gv-qwT">
-                                <rect key="frame" x="20" y="140" width="374" height="673"/>
+                                <rect key="frame" x="16" y="140" width="382" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cce-SV-bzZ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="cce-SV-bzZ">
                                     <size key="itemSize" width="170" height="119"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -28,18 +28,18 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="fnD-wH-xJR"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="P0q-qz-Xm7"/>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="wen-af-Bdc"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="1Ze-KD-TYj"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="SMh-gv-qwT" secondAttribute="trailing" id="TuG-f0-lLb"/>
-                            <constraint firstItem="SMh-gv-qwT" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="aWw-Jh-rEY"/>
-                            <constraint firstItem="SMh-gv-qwT" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="eBx-yz-aLX"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="SMh-gv-qwT" secondAttribute="bottom" id="oAZ-06-4j3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SMh-gv-qwT" secondAttribute="bottom" id="fsr-pX-umu"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="h5A-87-soy"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="r6A-Nf-3am"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="s9L-Oj-CO1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" largeTitleDisplayMode="always" id="olm-6w-sbu"/>
