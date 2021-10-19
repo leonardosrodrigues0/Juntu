@@ -20,6 +20,7 @@
 		A7690E5C26F8C7A50097127B /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7690E5B26F8C7A50097127B /* CameraManager.swift */; };
 		A7814536271EDD6400F17FE4 /* TagCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814534271EDD6400F17FE4 /* TagCardCell.swift */; };
 		A7814537271EDD6400F17FE4 /* TagCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7814535271EDD6400F17FE4 /* TagCardCell.xib */; };
+		A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814538271EFD9E00F17FE4 /* Tag.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
 		A7BD6976268B41F30005331F /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6974268B41F30005331F /* Discover.storyboard */; };
@@ -63,6 +64,7 @@
 		A77BCE7D269C85A900E612BC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7814534271EDD6400F17FE4 /* TagCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCardCell.swift; sourceTree = "<group>"; };
 		A7814535271EDD6400F17FE4 /* TagCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCardCell.xib; sourceTree = "<group>"; };
+		A7814538271EFD9E00F17FE4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				A7CE1E1B268CB38200180E01 /* Activity.swift */,
 				2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */,
 				A7C66192269340D500E79AC4 /* ActivityStep.swift */,
+				A7814538271EFD9E00F17FE4 /* Tag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,
 				A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */,
+				A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
