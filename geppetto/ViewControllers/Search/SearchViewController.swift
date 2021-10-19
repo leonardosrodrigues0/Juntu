@@ -9,7 +9,7 @@ import UIKit
 
 public class SearchViewController: UIViewController {
     
-    private let tagCellIdentifier = "cell"
+    private let tagCellIdentifier = "TagCardCell"
     private var items = [
         "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
         "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
@@ -21,6 +21,8 @@ public class SearchViewController: UIViewController {
     // MARK: - Properties
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Initializers
     public required init?(coder: NSCoder) {
@@ -48,6 +50,18 @@ public class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
+    
+    private func initCollectionView() {
+        let nib = UINib(nibName: tagCellIdentifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: tagCellIdentifier)
+        collectionView.dataSource = self
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let width: CGFloat = floor(((view.frame.size.width) - CGFloat(10)) / CGFloat(3))
+            layout.itemSize = CGSize(width: width, height: width)
+        }
+    }
+
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -57,7 +71,6 @@ extension SearchViewController: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellIdentifier, for: indexPath) as? TagCardCell
-        cell?.tagCard = TagCard()
         return cell!
     }
 }
