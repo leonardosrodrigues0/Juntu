@@ -13,10 +13,7 @@ public class SearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
-    private var items = [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-        "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"
-    ]
+    private var tags = [Tag]()
     
     private let tagCellIdentifier = "TagCardCell"
     
@@ -54,6 +51,14 @@ public class SearchViewController: UIViewController {
         let nib = UINib(nibName: tagCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: tagCellIdentifier)
         collectionView.dataSource = self
+        
+        // Get tags from database and update collection view:
+        let tagsDatabase = TagsDatabase.shared
+        tagsDatabase.getTags { newTags in
+            self.tags.append(contentsOf: newTags)
+            print(self.tags)
+            self.collectionView.reloadData()
+        }
     }
 
 }
@@ -62,15 +67,18 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     
     /// Return total number of items.
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return tags.count
     }
     
     /// Return the cell for a given index.
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellIdentifier, for: indexPath) as? TagCardCell
-        cell?.label.text = "label altered"
-        cell?.image.image = UIImage(named: "openAir")
-        cell?.backgroundColor = UIColor.accentColor
+        
+        // Set cell tag element:
+        if let tag = tags.get(at: indexPath.row) {
+            cell?.setTag(tag)
+        }
+        
         return cell!
     }
 }

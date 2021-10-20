@@ -5,7 +5,7 @@
 //  Created by Leonardo de Sousa Rodrigues on 19/10/21.
 //
 
-import Foundation
+import FirebaseStorage
 import UIKit
 
 struct Tag {
@@ -17,6 +17,14 @@ struct Tag {
     let color: UIColor
     /// Tag picture's filename.
     let pictureFilename: String
+    
+    /// Return a storage reference to the tag image.
+    func getImageDatabaseRef() -> StorageReference {
+        var path = TagsDatabase.picturesDirectory
+        path += "/\(pictureFilename)"
+        path += TagsDatabase.imagesExtension
+        return Storage.storage().reference().child(path)
+    }
 }
 
 extension Tag: Decodable {
