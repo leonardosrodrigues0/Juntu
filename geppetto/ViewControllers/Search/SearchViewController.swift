@@ -47,6 +47,7 @@ public class SearchViewController: UIViewController {
     }
     
     /// Register `TagCardCell` in collection view.
+    /// Get tags from database and reload collection view data.
     private func initCollectionView() {
         let nib = UINib(nibName: tagCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: tagCellIdentifier)
@@ -75,7 +76,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // Set cell tag element:
         if let tag = tags.get(at: indexPath.row) {
-            cell?.setTag(tag)
+            cell?.cellTag = tag
         }
         
         return cell!

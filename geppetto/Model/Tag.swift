@@ -40,7 +40,7 @@ extension Tag: Decodable {
         let red = try colorValues.decode(CGFloat.self, forKey: .red)
         let green = try colorValues.decode(CGFloat.self, forKey: .green)
         let blue = try colorValues.decode(CGFloat.self, forKey: .blue)
-        color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        color = Self.decodeColorFromRGB(red, green, blue)
         
         // Tag picture:
         pictureFilename = try values.decode(String.self, forKey: .pictureFilename)
@@ -58,5 +58,15 @@ extension Tag: Decodable {
         case red
         case green
         case blue
+    }
+    
+    /// Receives values for RGB from 0 to 255 and return a UIColor.
+    static private func decodeColorFromRGB(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
+        return UIColor(
+            red: red / 255,
+            green: green / 255,
+            blue: blue / 255,
+            alpha: 1.0
+        )
     }
 }
