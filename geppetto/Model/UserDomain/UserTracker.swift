@@ -7,12 +7,14 @@
 
 import Foundation
 
+/// Is the main interface for interacting with the User
+/// Singleton class: use `UserTracker.shared` attribute.
 public class UserTracker {
     
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("User.plist")
     
     // implementacao de singleton
-    public static var tracker: UserTracker = {
+    public static var shared: UserTracker = {
         let instance = UserTracker()
         instance.loadUser()
         
@@ -23,6 +25,8 @@ public class UserTracker {
     
     private init() {}
 
+    // MARK: - Methods for Logging User Activity
+    
     public func logSeenActivity(_ activity: Activity) {
         user?.seeActivity(activity)
         print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
@@ -40,6 +44,8 @@ public class UserTracker {
         print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
     }
+    
+    // MARK: - Data Persistence Methods
     
     private func saveUser() {
         let encoder = PropertyListEncoder()
@@ -64,6 +70,8 @@ public class UserTracker {
         }
     }
     
+    // MARK: - User Creation
+     
     private func createUser() -> User {
         let user = User()
         
