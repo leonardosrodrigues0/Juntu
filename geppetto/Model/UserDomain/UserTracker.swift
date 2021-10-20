@@ -45,6 +45,12 @@ public class UserTracker {
         saveUser()
     }
     
+    // MARK: - Methods for Reading User Activity
+    
+    public func fetchActivityHistory() -> [Activity] {
+        return user?.fetchActivityHistory() ?? [Activity]()
+    }
+    
     // MARK: - Data Persistence Methods
     
     private func saveUser() {
