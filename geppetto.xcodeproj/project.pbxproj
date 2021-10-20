@@ -44,6 +44,9 @@
 		CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD75A5C270DDE2800512B39 /* Colors.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
+		D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DE9271EEFC50010ED65 /* User.swift */; };
+		D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */; };
+		D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DED271EEFF40010ED65 /* UserTracker.swift */; };
 		E5C0843C7C1F22294ABDFC67 /* Pods_geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2482F80FF0D8C7A94B446A4B /* Pods_geppetto.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +96,9 @@
 		CDD75A5C270DDE2800512B39 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
+		D7FF5DE9271EEFC50010ED65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivity.swift; sourceTree = "<group>"; };
+		D7FF5DED271EEFF40010ED65 /* UserTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 		A7BD6979268B56490005331F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7FF5DE8271EEFA20010ED65 /* UserDomain */,
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
 				A7CE1E19268CB33E00180E01 /* Searchable.swift */,
 				A7CE1E1B268CB38200180E01 /* Activity.swift */,
@@ -243,6 +250,16 @@
 				D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		D7FF5DE8271EEFA20010ED65 /* UserDomain */ = {
+			isa = PBXGroup;
+			children = (
+				D7FF5DE9271EEFC50010ED65 /* User.swift */,
+				D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */,
+				D7FF5DED271EEFF40010ED65 /* UserTracker.swift */,
+			);
+			path = UserDomain;
 			sourceTree = "<group>";
 		};
 		E83B045F180CEF165B46D1B0 /* Pods */ = {
@@ -401,6 +418,7 @@
 				CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */,
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
 				31DA3385270C8F6C0055E2B6 /* History.swift in Sources */,
+				D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */,
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,
 				A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
@@ -413,10 +431,12 @@
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
+				D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */,
 				31DA3387270C8F7D0055E2B6 /* Favorites.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
+				D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
 				A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */,
@@ -577,7 +597,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 3W2GZBLUSM;
+				DEVELOPMENT_TEAM = 4FRA3TQ955;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 3W2GZBLUSM;
+				DEVELOPMENT_TEAM = 4FRA3TQ955;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
