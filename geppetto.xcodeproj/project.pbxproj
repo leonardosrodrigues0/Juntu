@@ -21,6 +21,7 @@
 		A7814536271EDD6400F17FE4 /* TagCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814534271EDD6400F17FE4 /* TagCardCell.swift */; };
 		A7814537271EDD6400F17FE4 /* TagCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7814535271EDD6400F17FE4 /* TagCardCell.xib */; };
 		A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814538271EFD9E00F17FE4 /* Tag.swift */; };
+		A781453D271F0D9400F17FE4 /* TagsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781453C271F0D9400F17FE4 /* TagsDatabase.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
 		A7BD6976268B41F30005331F /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6974268B41F30005331F /* Discover.storyboard */; };
@@ -65,6 +66,7 @@
 		A7814534271EDD6400F17FE4 /* TagCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCardCell.swift; sourceTree = "<group>"; };
 		A7814535271EDD6400F17FE4 /* TagCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCardCell.xib; sourceTree = "<group>"; };
 		A7814538271EFD9E00F17FE4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		A781453C271F0D9400F17FE4 /* TagsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsDatabase.swift; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				2FC95C4A2695C71300FCE2CC /* ActivityConstructor.swift */,
 				A7C66192269340D500E79AC4 /* ActivityStep.swift */,
 				A7814538271EFD9E00F17FE4 /* Tag.swift */,
+				A781453C271F0D9400F17FE4 /* TagsDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7814536271EDD6400F17FE4 /* TagCardCell.swift in Sources */,
+				A781453D271F0D9400F17FE4 /* TagsDatabase.swift in Sources */,
 				A7E65C3026860E1600570FBD /* AppDelegate.swift in Sources */,
 				CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */,
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
