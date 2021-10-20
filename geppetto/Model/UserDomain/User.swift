@@ -14,6 +14,8 @@ public class User: Codable {
     private var creationDate = Date()
     private var activity = UserActivity()
     
+    // MARK: - Activity Delegation Methods
+    
     public func seeActivity(_ activity: Activity) {
         self.activity.seeActivity(activity)
     }
@@ -24,5 +26,9 @@ public class User: Codable {
     
     public func toggleSaveActivity(_ activity: Activity) {
         self.activity.toggleSaveActivity(activity)
+    }
+    
+    public func fetchActivityHistory() -> [Activity] {
+        return activity.fetchActivityHistory()
     }
 }
