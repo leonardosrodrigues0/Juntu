@@ -12,10 +12,7 @@ class Moments: UIView {
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
-    
-    let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02", "momentsImage03",
-                            "momentsImage04", "momentsImage05", "momentsImage06", "momentsImage07",
-                            "momentsImage09", "momentsImage09", "momentsImage10", "momentsImage11"]
+    var images = [Data]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +27,10 @@ class Moments: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         initCollectionView()
+    }
+    
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        retrieveImages()
     }
     
     private func commonInit() {
@@ -61,9 +62,13 @@ class Moments: UIView {
         print(documentsPath)
         do {
             let contents = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            print("\n\n\n\n \(contents)")
             for imagePath in contents {
-                let imageData = fm.contents(atPath: imagePath.absoluteString)
-                
+                if let imageData = fm.contents(atPath: imagePath.path) {
+                    images.append(imageData)
+                } else {
+                    print("Algo de errado não está certo")
+                }
             }
             
         } catch {
@@ -84,7 +89,7 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
             fatalError("can't dequeue CustomCell")
         }
         
-        cell.momentsImage.image = UIImage(named: "\(images[indexPath.row])")!
+        cell.momentsImage.image = UIImage(data: images[indexPath.row])
         
         return cell
     }
