@@ -24,7 +24,10 @@ struct TagsDatabase {
     
     // MARK: - Singleton Logic
     /// TagConstructor singleton instance.
-    public static var shared = TagsDatabase()
+    public static var shared: TagsDatabase = {
+        let instance = TagsDatabase()
+        return instance
+    }()
     
     private init() {
         decoder = JSONDecoder()
