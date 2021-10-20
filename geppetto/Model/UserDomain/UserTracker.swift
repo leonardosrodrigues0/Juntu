@@ -39,16 +39,21 @@ public class UserTracker {
         saveUser()
     }
     
-    public func logToggleSavedActivity(_ activity: Activity) {
-        user?.toggleSaveActivity(activity)
+    public func logToggleSavedActivity(_ activity: Activity) -> Bool {
+        let didSave = user?.toggleSaveActivity(activity)
         print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
+        return didSave ?? false
     }
     
     // MARK: - Methods for Reading User Activity
     
     public func fetchActivityHistory() -> [Activity] {
         return user?.fetchActivityHistory() ?? [Activity]()
+    }
+    
+    public func fetchSavedActivities() -> [Activity] {
+        return user?.fetchSavedActivities() ?? [Activity]()
     }
     
     // MARK: - Data Persistence Methods

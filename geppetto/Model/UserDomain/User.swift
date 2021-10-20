@@ -24,11 +24,15 @@ public class User: Codable {
         self.activity.completeActivity(activity)
     }
     
-    public func toggleSaveActivity(_ activity: Activity) {
-        self.activity.toggleSaveActivity(activity)
+    public func toggleSaveActivity(_ activity: Activity) -> Bool {
+        return self.activity.toggleSaveActivity(activity)
     }
     
     public func fetchActivityHistory() -> [Activity] {
         return activity.fetchActivityHistory()
+    }
+    
+    public func fetchSavedActivities() -> [Activity] {
+        return activity.fetchSavedActivities()
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Favorites: UIView {
+class SavedActivities: UIView {
 
     @IBOutlet var favoritesView: UIView!
     @IBOutlet weak var stack: UIStackView!
