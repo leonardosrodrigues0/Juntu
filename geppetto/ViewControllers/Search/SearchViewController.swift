@@ -56,7 +56,6 @@ public class SearchViewController: UIViewController {
         let tagsDatabase = TagsDatabase.shared
         tagsDatabase.getTags { newTags in
             self.tags.append(contentsOf: newTags)
-            print(self.tags)
             self.collectionView.reloadData()
         }
     }
