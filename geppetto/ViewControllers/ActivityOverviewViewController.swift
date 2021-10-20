@@ -32,6 +32,7 @@ class ActivityOverviewViewController: UIViewController {
         super.viewDidLoad()
         updateOutlets()
         helper.logViewedActivity(activity: self.activity!)
+        UserTracker.shared.logSeenActivity(self.activity!)
     }
     
     private func updateOutlets() {

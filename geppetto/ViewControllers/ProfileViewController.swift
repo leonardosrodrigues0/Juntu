@@ -41,13 +41,23 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
             // Shuffle to add difference between the views.
             self.favoritesView.items = activities.shuffled()
             self.favoritesView.reloadCards(delegate: self)
-            self.historyView.items = activities.shuffled()
-            self.historyView.reloadCards(delegate: self)
+            self.updateHistory()
         }
+    }
+    
+    // update info when opening profile tab
+    override func viewDidAppear(_ animated: Bool) {
+        self.updateHistory()
+    }
+    
+    private func updateHistory() {
+        self.historyView.items = UserTracker.shared.fetchActivityHistory()
+        self.historyView.reloadCards(delegate: self)
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
+        updateHistory()
     }
     
     func viewOrganizer(_ segmentIndex: Int) {
