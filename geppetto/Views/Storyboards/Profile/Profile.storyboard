@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5v-Q3-NIc">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,11 +13,11 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-Tc-M96">
-                                <rect key="frame" x="16" y="254" width="382" height="32"/>
+                                <rect key="frame" x="16" y="277.5" width="568" height="32"/>
                                 <segments>
                                     <segment title="Momentos"/>
                                     <segment title="Favoritos"/>
@@ -31,22 +29,22 @@
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cnx-Os-672">
-                                <rect key="frame" x="0.0" y="88" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="217.5"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cnx-Os-672" secondAttribute="height" multiplier="69:25" id="os8-JH-c9M"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXb-Nc-bQz" customClass="Moments" customModule="geppetto" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="301" width="414" height="512"/>
+                                <rect key="frame" x="0.0" y="324.5" width="600" height="226.5"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Old-qK-bbA" customClass="Favorites" customModule="geppetto" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="301" width="414" height="512"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Old-qK-bbA" customClass="SavedActivities" customModule="geppetto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="324.5" width="600" height="226.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uap-BM-IS0" customClass="History" customModule="geppetto" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="301" width="414" height="512"/>
+                                <rect key="frame" x="0.0" y="324.5" width="600" height="226.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -75,11 +73,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="lou-43-4eT"/>
                     <connections>
-                        <outlet property="favoritesView" destination="Old-qK-bbA" id="nrE-od-eHg"/>
                         <outlet property="historyView" destination="uap-BM-IS0" id="hIS-GO-9Fc"/>
                         <outlet property="momentsView" destination="aXb-Nc-bQz" id="t0F-IY-gIM"/>
                         <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
+                        <outlet property="savedActivitiesView" destination="Old-qK-bbA" id="nrE-od-eHg"/>
                         <segue destination="Coa-Wd-ebg" kind="show" identifier="goToOverview" id="2LA-W3-NRL"/>
                     </connections>
                 </viewController>

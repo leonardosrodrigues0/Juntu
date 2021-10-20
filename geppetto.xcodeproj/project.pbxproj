@@ -16,7 +16,7 @@
 		31DA337E270C8E0C0055E2B6 /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337D270C8E0C0055E2B6 /* History.xib */; };
 		31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* Favorites.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
-		31DA3387270C8F7D0055E2B6 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* Favorites.swift */; };
+		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
 		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
 		A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A0BFB268F3D4000F99C7C /* ActivityPageViewController.swift */; };
@@ -63,7 +63,7 @@
 		31DA337D270C8E0C0055E2B6 /* History.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = History.xib; sourceTree = "<group>"; };
 		31DA337F270C8E190055E2B6 /* Favorites.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Favorites.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		31DA3386270C8F7D0055E2B6 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A70E8A7626E2469B002EE0F6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A70E8A7726E24ECB002EE0F6 /* juntu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juntu.png; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				31DA337D270C8E0C0055E2B6 /* History.xib */,
 				31DA337F270C8E190055E2B6 /* Favorites.xib */,
 				31DA3384270C8F6C0055E2B6 /* History.swift */,
-				31DA3386270C8F7D0055E2B6 /* Favorites.swift */,
+				31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */,
 				313D306F270DC344000871C0 /* MomentsCell.swift */,
 				313D3070270DC344000871C0 /* MomentsCell.xib */,
 			);
@@ -432,7 +432,7 @@
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
 				D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */,
-				31DA3387270C8F7D0055E2B6 /* Favorites.swift in Sources */,
+				31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,

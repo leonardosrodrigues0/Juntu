@@ -86,4 +86,11 @@ class ActivityOverviewViewController: UIViewController {
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
     }
+    
+    @IBAction func toggleSaveActivity(_ sender: UIButton) {
+        let didSave = UserTracker.shared.logToggleSavedActivity(self.activity!)
+        let buttonImageString = didSave ? "bookmark.fill" : "bookmark"
+        sender.setImage(UIImage(systemName: buttonImageString), for: .normal)
+    }
+    
 }
