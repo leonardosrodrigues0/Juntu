@@ -174,7 +174,7 @@
 		A7BD6979268B56490005331F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D7FF5DE8271EEFA20010ED65 /* User Domain */,
+				D7FF5DE8271EEFA20010ED65 /* UserDomain */,
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
 				A7CE1E19268CB33E00180E01 /* Searchable.swift */,
 				A7CE1E1B268CB38200180E01 /* Activity.swift */,
@@ -252,14 +252,14 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
-		D7FF5DE8271EEFA20010ED65 /* User Domain */ = {
+		D7FF5DE8271EEFA20010ED65 /* UserDomain */ = {
 			isa = PBXGroup;
 			children = (
 				D7FF5DE9271EEFC50010ED65 /* User.swift */,
 				D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */,
 				D7FF5DED271EEFF40010ED65 /* UserTracker.swift */,
 			);
-			path = "User Domain";
+			path = UserDomain;
 			sourceTree = "<group>";
 		};
 		E83B045F180CEF165B46D1B0 /* Pods */ = {

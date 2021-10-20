@@ -23,11 +23,9 @@ public class UserActivity: Codable {
     
     public func toggleSaveActivity(_ activity: Activity) {
         // find and replace activity
-        for i in  0...savedActivities.count {
-            if savedActivities[i].name == activity.name {
-                savedActivities.remove(at: i)
-                return
-            }
+        if let index = savedActivities.firstIndex(where: { $0.name == activity.name }) {
+            savedActivities.remove(at: index)
+            return
         }
         
         savedActivities.append(activity)
