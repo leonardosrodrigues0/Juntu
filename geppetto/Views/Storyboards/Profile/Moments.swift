@@ -12,6 +12,7 @@ class Moments: UIView {
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    
     let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02", "momentsImage03",
                             "momentsImage04", "momentsImage05", "momentsImage06", "momentsImage07",
                             "momentsImage09", "momentsImage09", "momentsImage10", "momentsImage11"]
@@ -49,6 +50,25 @@ class Moments: UIView {
             let width: CGFloat = floor(((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3))
             layout.itemSize = CGSize(width: width, height: width)
         }
+        
+        retrieveImages()
+    }
+    
+    private func retrieveImages() {
+        let fm = FileManager.default
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        print("\n\n\n\n")
+        print(documentsPath)
+        do {
+            let contents = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            for imagePath in contents {
+                let imageData = fm.contents(atPath: imagePath.absoluteString)
+                
+            }
+            
+        } catch {
+            print("\nDeu erro carai\n")
+        }
     }
 }
 
@@ -68,5 +88,4 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
         
         return cell
     }
-    
 }
