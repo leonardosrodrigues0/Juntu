@@ -104,7 +104,7 @@
                                                                                     <color key="titleColor" name="AccentColor"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="toggleSaveActivity:" destination="F1H-G2-Zap" eventType="touchUpInside" id="D3c-Qi-Iqi"/>
+                                                                                    <action selector="toggleSaveActivityButtonTapped:" destination="F1H-G2-Zap" eventType="touchUpInside" id="Sos-oh-9KS"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
