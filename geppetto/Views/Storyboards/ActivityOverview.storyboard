@@ -252,6 +252,7 @@
                         <outlet property="keepInMindText" destination="bfj-2L-7Rz" id="9fd-nf-YEZ"/>
                         <outlet property="materialStack" destination="hug-Yt-iNJ" id="GQm-6a-yEQ"/>
                         <outlet property="name" destination="l45-P5-0L3" id="iTR-Hl-vJN"/>
+                        <outlet property="savedActivityButton" destination="BwW-Yt-cXJ" id="eko-2O-u7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lod-Ic-JJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
