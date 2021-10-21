@@ -26,8 +26,8 @@ public class SearchViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setSearchConfig()
-        let constructor = ActivityConstructor.getInstance()
-        constructor.getActivities { activities in
+        let database = ActivityConstructor.shared
+        database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.tableView.reloadData()
         }
