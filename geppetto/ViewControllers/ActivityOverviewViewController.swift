@@ -32,7 +32,7 @@ class ActivityOverviewViewController: UIViewController {
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         updateOutlets()
-        helper.logViewedActivity(activity: self.activity!)
+        helper.logViewedActivity(self.activity!)
         UserTracker.shared.logSeenActivity(self.activity!)
     }
     
@@ -96,6 +96,7 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func updateSavedActivityButtonImage() {
+        helper.logSavedActivity(self.activity!)
         let isSaved = UserTracker.shared.fetchIfActivityIsSaved(self.activity!)
         let buttomImageString = isSaved ? "bookmark.fill" : "bookmark"
         savedActivityButton.setImage(UIImage(systemName: buttomImageString), for: .normal)
