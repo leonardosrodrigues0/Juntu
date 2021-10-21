@@ -20,10 +20,10 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Get information from database and reload the cards
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let helper = AnalyticsHelper()
-        let constructor = ActivityConstructor.getInstance()
-
-        constructor.getActivities { activities in
+        let database = ActivityConstructor.shared
+        database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.reloadCards()
             helper.logAppOpen()

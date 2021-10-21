@@ -11,6 +11,7 @@ import FirebaseStorage
 public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
+    let id: String
     let directory: String
     let name: String
     let introduction: String
@@ -57,10 +58,10 @@ public struct Activity: Searchable, Codable {
     }
     
     func getImageDatabaseRef() -> StorageReference {
-        var path = ActivityConstructor.ActivitiesDirectory
+        var path = ActivityConstructor.activitiesStorageDirectory
         path += "/\(directory)/"
-        path += ActivityConstructor.ActivityImageName
-        path += ActivityConstructor.ImagesExtension
+        path += ActivityConstructor.activityImageName
+        path += ActivityConstructor.imagesExtension
         return Storage.storage().reference().child(path)
     }
     

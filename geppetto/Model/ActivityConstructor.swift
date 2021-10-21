@@ -7,96 +7,108 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseStorage
+import Promises
 
 /// Builds Activities from our database information.
-/// Singleton class: use `ActivityConstructor.getInstance()` method.
+/// Singleton class: use `ActivityConstructor.shared` attribute.
 class ActivityConstructor {
     
     // MARK: - Constants
-    static let ActivitiesDirectory = "Activities"
-    static let ActivityImageName = "overview"
-    static let ImagesExtension = ".png"
-    private static let MaxJsonFileSize: Int64 = 1000000
-    private static let JsonFilename = "info.json"
+    static let activitiesStorageDirectory = "Activities"
+    static let activityImageName = "overview"
+    static let imagesExtension = ".png"
+    private static let databaseActivitiesChild = "activities-with-id"
+    private static let activities: [String: Activity]? = nil
     
     // MARK: - Properties
     private let decoder: JSONDecoder
-    private var activities: [Activity]?
+    private var activities: [String: Activity]?
     
     // MARK: - Singleton Logic
-    private static var instance: ActivityConstructor?
-    
-    static func getInstance() -> ActivityConstructor {
-        if let constructor = Self.instance {
-            return constructor
-        } else {
-            Self.instance = ActivityConstructor()
-            return Self.instance!
-        }
-    }
+    public static var shared: ActivityConstructor = {
+        let instance = ActivityConstructor()
+        return instance
+    }()
     
     private init() {
         decoder = JSONDecoder()
     }
     
-    // MARK: - Activity Construction Methods
-    /// Runs completion with a list of all activities.
-    func getActivities(completion: @escaping ([Activity]) -> Void) {
-        if let activities = self.activities {
-            completion(activities)
-        } else {
-            buildAllActivities(completion: completion)
+    // MARK: - Database Queries
+    /// Get all activities from database and return them as dictionary with id as key.
+    func getAllActivitiesAsDictionary() -> Promise<[String: Activity]> {
+        return Promise { fulfill, _ in
+            if self.activities == nil {
+                let query = Database.database().reference()
+                    .child(Self.databaseActivitiesChild)
+                    .queryOrderedByKey()
+                
+                query.getData { _, data in
+                    self.activities = self.buildActivitiesFromDataSnapshot(data: data)
+                    fulfill(self.activities ?? [:])
+                }
+            } else {
+                fulfill(self.activities ?? [:])
+            }
         }
     }
     
-    /// Get a list of activities from database files, build the list and run completion.
-    private func buildAllActivities(completion: @escaping ([Activity]) -> Void) {
-        let storageRef = Storage.storage().reference()
-        let activitiesRef = storageRef.child(Self.ActivitiesDirectory)
-        
-        activitiesRef.listAll(completion: { activities, error in
-            guard error == nil else {
-                print(error!)
-                return
-            }
-            
-            self.buildActivities(completion: completion, activities: activities)
-        })
+    /// Get all activities from database and return them as Array
+    func getAllActivities() -> Promise<[Activity]> {
+        return getAllActivitiesAsDictionary().then { activitiesAsDictionary in
+            self.activitiesDictionaryToArray(activitiesAsDictionary) ?? []
+        }
     }
     
-    /// With the list of activities, build each struct and run completion.
-    private func buildActivities(completion: @escaping ([Activity]) -> Void, activities: StorageListResult) {
-        var activityStructs = [Activity]()
-        let dispatchGroup = DispatchGroup()
-        
-        for activity in activities.prefixes {
-            dispatchGroup.enter()
-            let jsonRef = activity.child(Self.JsonFilename)
-            jsonRef.getData(maxSize: Self.MaxJsonFileSize) { data, error in
-                guard let activityData = data else {
-                    print(error ?? "Error: could not get information for acitivity")
+    /// Get a dictionary of activities filtered by ids. If self.activities is nil, load from firebase
+    func getActivities(ids: [String]) -> Promise<[Activity]> {
+        return getAllActivitiesAsDictionary().then { activitiesAsDictionary in
+            activitiesAsDictionary.filter { ids.contains($0.key) }
+        }.then { filtered in
+            self.activitiesDictionaryToArray(filtered) ?? []
+        }
+    }
+ 
+    /// Get a dictionary of activities filtered by ids. If self.activities is nil, load from firebase
+    func getActivity(id: String) -> Promise<Activity?> {
+        return Promise { fulfill, _ in
+            let query = Database.database().reference()
+                .child(Self.databaseActivitiesChild)
+                .queryOrderedByKey()
+                .queryEqual(toValue: id)
+            
+            query.getData { _, data in
+                let activities = self.activitiesDictionaryToArray(self.buildActivitiesFromDataSnapshot(data: data))
+                
+                // Should reject with Error
+                guard activities != nil && !activities!.isEmpty else {
+                    fulfill(nil)
                     return
                 }
                 
-                if let activityStruct = self.buildActivityStruct(acitivityData: activityData) {
-                    activityStructs.append(activityStruct)
-                }
-                
-                dispatchGroup.leave()
+                fulfill(activities![0])
             }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            self.activities = activityStructs
-            completion(activityStructs)
         }
     }
     
+    // MARK: - Activity Builder Methods
+    /// With the DataSnapshot of the database activities, build a dictionary with each Activity.
+    private func buildActivitiesFromDataSnapshot(data: DataSnapshot) -> [String: Activity]? {
+        if let safeActivities = data.value as? [String: Any] {
+            let activities = safeActivities.mapValues { (activity) -> Activity in
+                let activityData = try? JSONSerialization.data(withJSONObject: activity, options: .prettyPrinted)
+                let activityStruct = self.buildActivityStruct(activityData: activityData!)
+                return activityStruct!
+            }
+            return activities
+        }
+        return nil
+    }
+    
     /// Build an `Activity` from a json `Data`.
-    private func buildActivityStruct(acitivityData: Data) -> Activity? {
+    private func buildActivityStruct(activityData: Data) -> Activity? {
         do {
-            let activity = try decoder.decode(Activity.self, from: acitivityData)
+            let activity = try decoder.decode(Activity.self, from: activityData)
             return activity
         } catch {
             print("Error: failed to decode activity data to struct")
@@ -104,4 +116,11 @@ class ActivityConstructor {
         }
     }
     
+    /// Convert activities dictionary to array
+    private func activitiesDictionaryToArray(_ dictionary: [String: Activity]?) -> [Activity]? {
+        if let safeActivities = dictionary {
+            return Array(safeActivities.values)
+        }
+        return nil
+    }
 }
