@@ -28,7 +28,7 @@ public class UserTracker {
     // MARK: - Methods for Logging User Activity
     
     public func logSeenActivity(_ activity: Activity) {
-        user?.seeActivity(activity.id)
+        user?.seeActivity(activity)
         print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
     }

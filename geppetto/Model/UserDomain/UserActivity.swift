@@ -16,13 +16,13 @@ public class UserActivity: Codable {
     
     // MARK: - Setters
     
-    public func seeActivity(_ activityID: String) {
+    public func seeActivity(_ activity: Activity) {
         // check if activity is in history and bring it to the top of the stack
-        if let index = activityHistory.firstIndex(where: { $0 == activityID }) {
+        if let index = activityHistory.firstIndex(where: { $0 == activity.id }) {
             activityHistory.remove(at: index)
         }
         
-        activityHistory.append(activityID)
+        activityHistory.append(activity.id)
     }
     
     public func completeActivity(_ activity: Activity) {
