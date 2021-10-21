@@ -31,20 +31,20 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        loadActivities()
+        updateViews()
     }
     
-    private func loadActivities() {
-        self.updateSavedActivities()
-        self.updateHistory()
+    private func updateViews() {
+        self.updateSavedActivitiesView()
+        self.updateHistoryView()
     }
     
     // update info when opening profile tab
     override func viewDidAppear(_ animated: Bool) {
-        loadActivities()
+        updateViews()
     }
     
-    private func updateHistory() {
+    private func updateHistoryView() {
         let ids = UserTracker.shared.fetchActivityHistory()
         ActivityConstructor.shared.getActivities(ids: ids).then { activities in
             self.historyView.items = activities
@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         }
     }
     
-    private func updateSavedActivities() {
+    private func updateSavedActivitiesView() {
         let ids = UserTracker.shared.fetchSavedActivities()
         ActivityConstructor.shared.getActivities(ids: ids).then { activities in
             self.savedActivitiesView.items = activities
@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        updateHistory()
+        updateViews()
     }
     
     func viewOrganizer(_ segmentIndex: Int) {

@@ -33,6 +33,7 @@ public class UserActivity: Codable {
         // find and replace activity
         if let index = savedActivities.firstIndex(where: { $0 == activity.id }) {
             savedActivities.remove(at: index)
+            return
         }
 
         savedActivities.append(activity.id)

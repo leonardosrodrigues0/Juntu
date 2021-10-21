@@ -92,11 +92,11 @@ class ActivityOverviewViewController: UIViewController {
     
     @IBAction func toggleSaveActivityButtonTapped(_ sender: UIButton) {
         UserTracker.shared.logToggleSavedActivity(self.activity!)
+        helper.logSavedActivity(self.activity!)
         updateSavedActivityButtonImage()
     }
     
     private func updateSavedActivityButtonImage() {
-        helper.logSavedActivity(self.activity!)
         let isSaved = UserTracker.shared.fetchIfActivityIsSaved(self.activity!)
         let buttomImageString = isSaved ? "bookmark.fill" : "bookmark"
         savedActivityButton.setImage(UIImage(systemName: buttomImageString), for: .normal)
