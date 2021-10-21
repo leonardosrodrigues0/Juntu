@@ -7,11 +7,11 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseStorage
+import Promises
 
 /// Builds tags from our database information.
 /// Singleton class: use `TagsDatabase.shared` to get instance.
-struct TagsDatabase {
+class TagsDatabase {
     
     // MARK: - Constants
     static let picturesDirectory = "TagPictures"
@@ -34,32 +34,33 @@ struct TagsDatabase {
     }
     
     // MARK: - Tag Construction Methods
-    func getTags(completion: @escaping ([Tag]) -> Void) {
+    func getTags() -> Promise<[Tag]> {
         if let tags = self.tags {
-            completion(tags)
+            return Promise { fulfill, _ in
+                fulfill(tags)
+            }
         } else {
-            buildAllTags(completion: completion)
+            return buildAllTags()
         }
     }
     
-    private func buildAllTags(completion: @escaping ([Tag]) -> Void) {
+    private func buildAllTags() -> Promise<[Tag]> {
         let databaseRef = Database.database().reference()
-        databaseRef.child(Self.databaseTagsChild).getData { _, data in
-            let info = data.value as? NSArray
-            self.buildTags(completion: completion, tags: info!)
+        return Promise { fulfill, _ in
+            databaseRef.child(Self.databaseTagsChild).getData { _, data in
+                let info = data.value as? NSArray
+                let tags = self.buildTags(tags: info!)
+                self.tags = tags
+                fulfill(tags)
+            }
         }
     }
     
-    private func buildTags(completion: @escaping ([Tag]) -> Void, tags: NSArray) {
-        let tagStructs = tags.map { (tag) -> Tag in
+    private func buildTags(tags: NSArray) -> [Tag] {
+        return tags.map { (tag) -> Tag in
             let tagData = try? JSONSerialization.data(withJSONObject: tag, options: .prettyPrinted)
             let tagStruct = self.buildTagStruct(tagData: tagData!)
             return tagStruct!
-        }
-        
-        // Dispatch to main thread as it's the only that can create frames.
-        DispatchQueue.main.async {
-            completion(tagStructs)
         }
     }
     
