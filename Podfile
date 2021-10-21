@@ -9,5 +9,6 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
   # Pods for geppetto
+pod 'PromisesSwift'
 
 end

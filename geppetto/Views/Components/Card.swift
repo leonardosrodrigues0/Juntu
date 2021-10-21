@@ -47,7 +47,7 @@ class Card: UIView {
         cardView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    /// Required to be called after the ```activity``` have been set to update the card subviews
+    /// Required to be called after the `activity` have been set to update the card subviews.
     func updateView() {
         guard let activity = activity else {
             print("Error: failed to unwrap activity at Card view")
@@ -57,8 +57,22 @@ class Card: UIView {
         image.sd_setImage(with: activity.getImageDatabaseRef())
         titleLabel.text = activity.name
         descriptionLabel.text = activity.time
-        footnoteLabel.text = activity.age
+        footnoteLabel.text = activity.getAgeText()
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
+    }
+}
+
+extension UIStackView {
+    
+    /// Inject an array of Card Views into StackView
+    func populateWithCards(_ array: [Card]) {
+        for item in self.arrangedSubviews {
+            item.removeFromSuperview()
+        }
+        
+        for card in array {
+            self.addArrangedSubview(card)
+        }
     }
 }

@@ -20,10 +20,10 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Get information from database and reload the cards
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let helper = AnalyticsHelper()
-        let constructor = ActivityConstructor.getInstance()
-
-        constructor.getActivities { activities in
+        let database = ActivityConstructor.shared
+        database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.reloadCards()
             helper.logAppOpen()
@@ -59,20 +59,6 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
         if segue.identifier == "goToOverview" {
             guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
             activityOverviewViewController.activity = selectedActivity
-        }
-    }
-}
-
-extension UIStackView {
-    
-    /// Inject an array of Card Views into StackView
-    fileprivate func populateWithCards(_ array: [Card]) {
-        for item in self.arrangedSubviews {
-            item.removeFromSuperview()
-        }
-        
-        for card in array {
-            self.addArrangedSubview(card)
         }
     }
 }
