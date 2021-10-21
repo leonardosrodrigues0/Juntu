@@ -9,8 +9,8 @@ import Foundation
 
 public class UserActivity: Codable {
 
-    private var savedActivities = [Activity]()
-    private var activityHistory = [Activity]()
+    private var savedActivities = [String]()
+    private var activityHistory = [String]()
     private var completedActivities = [Activity]()
     // private var moments = Moments()
     
