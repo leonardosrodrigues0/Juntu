@@ -51,8 +51,11 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     }
     
     private func updateHistory() {
-        self.historyView.items = UserTracker.shared.fetchActivityHistory()
-        self.historyView.reloadCards(delegate: self)
+        let ids = UserTracker.shared.fetchActivityHistory()
+        ActivityConstructor.shared.getActivities(ids: ids).then { activities in
+            self.historyView.items = activities
+            self.historyView.reloadCards(delegate: self)
+        }
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {

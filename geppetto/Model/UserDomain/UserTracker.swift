@@ -28,7 +28,7 @@ public class UserTracker {
     // MARK: - Methods for Logging User Activity
     
     public func logSeenActivity(_ activity: Activity) {
-        user?.seeActivity(activity)
+        user?.seeActivity(activity.id)
         print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
     }
@@ -47,8 +47,8 @@ public class UserTracker {
     
     // MARK: - Methods for Reading User Activity
     
-    public func fetchActivityHistory() -> [Activity] {
-        return user?.fetchActivityHistory() ?? [Activity]()
+    public func fetchActivityHistory() -> [String] {
+        return user?.fetchActivityHistory() ?? [String]()
     }
     
     // MARK: - Data Persistence Methods
