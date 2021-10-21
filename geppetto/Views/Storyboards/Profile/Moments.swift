@@ -60,9 +60,13 @@ class Moments: UIView {
         let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
         do {
-            let imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
 
+            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
+            print(imagePaths)
+            
             for imagePath in imagePaths {
+                
                 if let imageData = fm.contents(atPath: imagePath.path) {
                     images.append(imageData)
                 } else {
