@@ -57,22 +57,21 @@ class Moments: UIView {
     
     private func retrieveImages() {
         let fm = FileManager.default
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        print("\n\n\n\n")
-        print(documentsPath)
+        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
         do {
-            let contents = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-            print("\n\n\n\n \(contents)")
-            for imagePath in contents {
+            let imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+
+            for imagePath in imagePaths {
                 if let imageData = fm.contents(atPath: imagePath.path) {
                     images.append(imageData)
                 } else {
-                    print("Algo de errado não está certo")
+                    print("Error finding path content.")
                 }
             }
             
         } catch {
-            print("\nDeu erro carai\n")
+            print("Error finding imagePaths: \(error)")
         }
     }
 }
