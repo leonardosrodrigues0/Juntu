@@ -32,7 +32,7 @@ public class User: Codable {
         return activity.fetchActivityHistory()
     }
     
-    public func fetchSavedActivities() -> [Activity] {
+    public func fetchSavedActivities() -> [String] {
         return activity.fetchSavedActivities()
     }
 }

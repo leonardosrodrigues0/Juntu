@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
-    @IBOutlet var favoritesView: Favorites!
+    @IBOutlet var savedActivitiesView: SavedActivities!
     @IBOutlet var historyView: History!
     
     var selectedActivity: Activity?
@@ -35,24 +35,26 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     }
     
     private func loadActivities() {
-        let database = ActivityConstructor.shared
-        database.getAllActivities().then { activities in
-            // Mocked data: use all activities as favorites and history, as there's no logic.
-            // Shuffle to add difference between the views.
-            self.favoritesView.items = activities.shuffled()
-            self.favoritesView.reloadCards(delegate: self)
-            self.updateHistory()
-        }
+        self.updateSavedActivities()
+        self.updateHistory()
     }
     
     // update info when opening profile tab
     override func viewDidAppear(_ animated: Bool) {
-        self.updateHistory()
+        loadActivities()
     }
     
     private func updateHistory() {
         self.historyView.items = UserTracker.shared.fetchActivityHistory()
         self.historyView.reloadCards(delegate: self)
+    }
+    
+    private func updateSavedActivities() {
+        let ids = UserTracker.shared.fetchSavedActivities()
+        ActivityConstructor.shared.getActivities(ids: ids).then { activities in
+            self.savedActivitiesView.items = activities
+            self.savedActivitiesView.reloadCards(delegate: self)
+        }
     }
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
@@ -62,7 +64,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     
     func viewOrganizer(_ segmentIndex: Int) {
         momentsView.isHidden = segmentIndex != 0
-        favoritesView.isHidden = segmentIndex != 1
+        savedActivitiesView.isHidden = segmentIndex != 1
         historyView.isHidden = segmentIndex != 2
     }
     

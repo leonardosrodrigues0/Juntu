@@ -9,7 +9,7 @@ import Foundation
 
 public class UserActivity: Codable {
     private var activityHistory = [Activity]()
-    private var savedActivities = [Activity]()
+    private var savedActivities = [String]()
     private var completedActivities = [Activity]()
     // private var moments = Moments()
     
@@ -30,12 +30,12 @@ public class UserActivity: Codable {
     
     public func toggleSaveActivity(_ activity: Activity) -> Bool {
         // find and replace activity
-        if let index = savedActivities.firstIndex(where: { $0.name == activity.name }) {
+        if let index = savedActivities.firstIndex(where: { $0 == activity.id }) {
             savedActivities.remove(at: index)
             return false
         }
 
-        savedActivities.append(activity)
+        savedActivities.append(activity.id)
         return true
     }
     
@@ -45,7 +45,7 @@ public class UserActivity: Codable {
         return activityHistory.reversed()
     }
     
-    public func fetchSavedActivities() -> [Activity] {
+    public func fetchSavedActivities() -> [String] {
         return savedActivities.reversed()
     }
 }

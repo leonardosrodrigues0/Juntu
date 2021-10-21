@@ -52,8 +52,8 @@ public class UserTracker {
         return user?.fetchActivityHistory() ?? [Activity]()
     }
     
-    public func fetchSavedActivities() -> [Activity] {
-        return user?.fetchSavedActivities() ?? [Activity]()
+    public func fetchSavedActivities() -> [String] {
+        return user?.fetchSavedActivities() ?? []
     }
     
     // MARK: - Data Persistence Methods
