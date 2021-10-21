@@ -34,6 +34,7 @@ class TagsDatabase {
     }
     
     // MARK: - Tag Construction Methods
+    /// Return a promise to all tags in database.
     func getTags() -> Promise<[Tag]> {
         if let tags = self.tags {
             return Promise { fulfill, _ in
@@ -44,18 +45,20 @@ class TagsDatabase {
         }
     }
     
+    /// Build all tags in database and return promise.
+    /// Update `self.tags` with built tags.
     private func buildAllTags() -> Promise<[Tag]> {
         let databaseRef = Database.database().reference()
         return Promise { fulfill, _ in
             databaseRef.child(Self.databaseTagsChild).getData { _, data in
                 let info = data.value as? NSArray
-                let tags = self.buildTags(tags: info!)
-                self.tags = tags
-                fulfill(tags)
+                self.tags = self.buildTags(tags: info!)
+                fulfill(self.tags!) // Safety: self.tags was just updated.
             }
         }
     }
     
+    /// Build tags from the database data.
     private func buildTags(tags: NSArray) -> [Tag] {
         return tags.map { (tag) -> Tag in
             let tagData = try? JSONSerialization.data(withJSONObject: tag, options: .prettyPrinted)
@@ -64,6 +67,7 @@ class TagsDatabase {
         }
     }
     
+    /// Decode tag struct from its data.
     private func buildTagStruct(tagData: Data) -> Tag? {
         do {
             let tag = try decoder.decode(Tag.self, from: tagData)
