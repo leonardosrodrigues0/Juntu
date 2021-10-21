@@ -29,15 +29,13 @@ public class UserActivity: Codable {
         completedActivities.append(activity)
     }
     
-    public func toggleSaveActivity(_ activity: Activity) -> Bool {
+    public func toggleSaveActivity(_ activity: Activity) {
         // find and replace activity
         if let index = savedActivities.firstIndex(where: { $0 == activity.id }) {
             savedActivities.remove(at: index)
-            return false
         }
 
         savedActivities.append(activity.id)
-        return true
     }
     
     // MARK: - Getters
@@ -48,5 +46,12 @@ public class UserActivity: Codable {
     
     public func fetchSavedActivities() -> [String] {
         return savedActivities.reversed()
+    }
+    
+    public func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
+        if savedActivities.firstIndex(where: { $0 == activity.id }) != nil {
+            return true
+        }
+        return false
     }
 }
