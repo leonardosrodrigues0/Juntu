@@ -23,7 +23,7 @@ extension UIColor {
     
     /// System colors described as strings.
     /// Used to create colors from strings.
-    enum SystemColor: String {
+    enum SystemColor: String, CaseIterable {
         case systemRed
         case systemOrange
         case systemYellow

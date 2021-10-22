@@ -20,6 +20,7 @@ public struct Activity: Searchable, Codable {
     let difficulty: String
     let time: String
     let materials: [String]
+    let tags: [Tag]?
     
     // Steps are created when decoding database information.
     // At first call, they're updated with the activity directory and index.

@@ -27,8 +27,16 @@ struct Tag {
     }
 }
 
-extension Tag: Decodable {
+extension Tag: Codable {
     
+    /// Coding keys for the `Tag` struct.
+    enum CodingKeys: String, CodingKey {
+        case name
+        case color
+        case pictureFilename
+    }
+    
+    // MARK: - Decodable
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -43,10 +51,15 @@ extension Tag: Decodable {
         pictureFilename = try values.decode(String.self, forKey: .pictureFilename)
     }
     
-    /// Coding keys for the `Tag` struct.
-    enum CodingKeys: String, CodingKey {
-        case name
-        case color
-        case pictureFilename
+    // MARK: - Encodable
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        
+        // Get the SystemColor string that corresponds to `color`.
+        let test = UIColor.SystemColor.allCases.filter { self.color == $0.create }
+        try container.encode(test.first?.rawValue, forKey: .color)
+        
+        try container.encode(pictureFilename, forKey: .pictureFilename)
     }
 }
