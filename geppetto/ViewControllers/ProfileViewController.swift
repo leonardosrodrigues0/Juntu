@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     }
     
     private func updateTitle() {
-        let title = UserTracker.shared.getUserName()
         self.navigationItem.title = UserTracker.shared.getUserName()
     }
     
