@@ -29,9 +29,6 @@ class Moments: UIView {
         initCollectionView()
     }
     
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        retrieveImages()
-    }
     
     private func commonInit() {
         let bundle = Bundle(for: type(of: self))
@@ -63,7 +60,6 @@ class Moments: UIView {
             var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
 
             imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
-            print(imagePaths)
             
             for imagePath in imagePaths {
                 
