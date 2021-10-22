@@ -14,6 +14,7 @@ public class SearchViewController: UIViewController {
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
     private var tags = [Tag]()
+    private var selectedTagCell: Tag?
     
     private let tagCellIdentifier = "TagCardCell"
     
@@ -60,7 +61,14 @@ public class SearchViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-
+    
+    /// Prepare for navigate to Tag
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTag" {
+            guard let tagViewController = segue.destination as? TagViewController else { return }
+            tagViewController.viewTag = selectedTagCell
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -80,6 +88,14 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         }
         
         return cell!
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let tag = tags.get(at: indexPath.row) {
+            selectedTagCell = tag
+        }
+        
+        performSegue(withIdentifier: "goToTag", sender: self)
     }
 }
 
