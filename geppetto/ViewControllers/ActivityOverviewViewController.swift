@@ -23,6 +23,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var keepInMind: UIStackView!
     @IBOutlet weak var keepInMindText: UILabel!
     @IBOutlet weak var enterActivityStepsButton: UIButton!
+    @IBOutlet weak var savedActivityButton: UIButton!
     
     var helper = AnalyticsHelper.init()
     
@@ -31,7 +32,7 @@ class ActivityOverviewViewController: UIViewController {
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         updateOutlets()
-        helper.logViewedActivity(activity: self.activity!)
+        helper.logViewedActivity(self.activity!)
         UserTracker.shared.logSeenActivity(self.activity!)
     }
     
@@ -54,6 +55,8 @@ class ActivityOverviewViewController: UIViewController {
         difficulty.text = activity.difficulty
         age.text = activity.getAgeText()
         self.loadMaterialLabels()
+        
+        updateSavedActivityButtonImage()
     }
     
     /// Load materials and set them in the vertical stack
@@ -85,5 +88,17 @@ class ActivityOverviewViewController: UIViewController {
         activityPageControlViewController?.activity = activity
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
+    }
+    
+    @IBAction func toggleSaveActivityButtonTapped(_ sender: UIButton) {
+        UserTracker.shared.logToggleSavedActivity(self.activity!)
+        helper.logSavedActivity(self.activity!)
+        updateSavedActivityButtonImage()
+    }
+    
+    private func updateSavedActivityButtonImage() {
+        let isSaved = UserTracker.shared.fetchIfActivityIsSaved(self.activity!)
+        let buttomImageString = isSaved ? "bookmark.fill" : "bookmark"
+        savedActivityButton.setImage(UIImage(systemName: buttomImageString), for: .normal)
     }
 }

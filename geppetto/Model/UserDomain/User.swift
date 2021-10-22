@@ -16,8 +16,8 @@ public class User: Codable {
     
     // MARK: - Activity Delegation Methods
     
-    public func seeActivity(_ activityID: String) {
-        self.activity.seeActivity(activityID)
+    public func seeActivity(_ activity: Activity) {
+        self.activity.seeActivity(activity)
     }
     
     public func completeActivity(_ activity: Activity) {
@@ -30,5 +30,13 @@ public class User: Codable {
     
     public func fetchActivityHistory() -> [String] {
         return activity.fetchActivityHistory()
+    }
+    
+    public func fetchSavedActivities() -> [String] {
+        return activity.fetchSavedActivities()
+    }
+    
+    public func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
+        return self.activity.fetchIfActivityIsSaved(activity)
     }
 }
