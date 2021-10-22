@@ -81,6 +81,7 @@
                         <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
                         <segue destination="Coa-Wd-ebg" kind="show" identifier="goToOverview" id="2LA-W3-NRL"/>
+                        <segue destination="zFb-fx-ea3" kind="show" identifier="goToFullscreen" id="YvS-OI-G3y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,6 +97,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="po1-fM-Jfi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="762" y="53"/>
+        </scene>
+        <!--FullscreenImage-->
+        <scene sceneID="9uh-0o-vsN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FullscreenImage" id="zFb-fx-ea3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Mo8-k2-8C2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sar-1G-kPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="189"/>
         </scene>
         <!--Profile-->
         <scene sceneID="U8O-tJ-8cJ">

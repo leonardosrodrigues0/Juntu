@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol FullscreenImageNavigationDelegate: AnyObject {
+    func navigate(image: Data)
+}
+
 class Moments: UIView {
     
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
     var images = [Data]()
+    weak var delegate: FullscreenImageNavigationDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,5 +96,14 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.momentsImage.image = UIImage(data: images[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("aa cliquei na \(indexPath.row)")
+        
+        let imageData = images[indexPath.row]
+        delegate?.navigate(image: imageData)
+        
     }
 }
