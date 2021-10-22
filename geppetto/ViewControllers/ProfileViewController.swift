@@ -19,8 +19,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     var selectedActivity: Activity?
     var selectedImage: Data?
     
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-    let name: String = "Celso Pereira"
+    var editProfileButton: UIBarButtonItem?
+    
     let images = [UIImage]()
     let image = UIImage(named: "momentsImage00")!
     
@@ -28,13 +28,32 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = name
-        self.navigationItem.rightBarButtonItems = [addButton]
+        editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.pressed(_:)))
+        
+        self.navigationItem.rightBarButtonItems = [editProfileButton!]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
         momentsView.delegate = self
         updateViews()
+
+    }
+    
+    @objc func pressed(_ sender: UIBarButtonItem!) {
+        if sender == editProfileButton {
+            triggerEditUserNameAlert()
+        }
+    }
+    
+    private func updateTitle() {
+        let title = UserTracker.shared.getUserName()
+        self.navigationItem.title = UserTracker.shared.getUserName()
+    }
+    
+    private func updateViews() {
+        self.updateTitle()
+        self.updateSavedActivitiesView()
+        self.updateHistoryView()
     }
     
     // update info when opening profile tab
@@ -102,5 +121,25 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
             fullscreenImageViewController.imageData = selectedImage
         }
+    }
+    
+    private func triggerEditUserNameAlert() {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Como você gostaria que te chamemos?", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new Category"
+            textField = alertTextField
+        }
+        
+        let action = UIAlertAction(title: "Renomear", style: .default) { _ in
+            // what happens once user clicks add item button in ui alert
+            UserTracker.shared.editUserName(newName: textField.text!)
+            self.updateTitle()
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

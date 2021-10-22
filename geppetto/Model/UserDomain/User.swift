@@ -9,7 +9,7 @@ import Foundation
 
 public class User: Codable {
     private var id = UUID()
-    private var name: String = "none"
+    var name: String?
     private var profilePicture: String = "none"
     private var creationDate = Date()
     private var activity = UserActivity()

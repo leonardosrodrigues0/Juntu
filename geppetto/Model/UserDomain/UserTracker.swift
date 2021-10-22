@@ -93,4 +93,25 @@ public class UserTracker {
         
         return user
     }
+    
+    // MARK: - Methods for Editing User Profile
+    
+    func wasUserCreated() -> Bool {
+        return user?.name! != nil
+    }
+    
+    func editUserName(newName: String) {
+        user?.name = newName
+        saveUser()
+    }
+    
+    func editUserProfilePicture() {
+        
+    }
+    
+    // MARK: - Methods fo Reading User Profile
+    
+    func getUserName() -> String {
+        return user?.name! ?? "No name Set"
+    }
 }
