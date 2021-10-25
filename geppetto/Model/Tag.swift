@@ -8,9 +8,11 @@
 import FirebaseStorage
 import UIKit
 
-struct Tag {
+struct Tag: Codable {
     
     // MARK: - Properties
+    /// Tag id.
+    let id: String
     /// Tag descriptive name.
     let name: String
     /// Tag color.
@@ -25,12 +27,10 @@ struct Tag {
         path += TagsDatabase.imagesExtension
         return Storage.storage().reference().child(path)
     }
-}
-
-extension Tag: Codable {
     
     /// Coding keys for the `Tag` struct.
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case color
         case pictureFilename
@@ -39,6 +39,9 @@ extension Tag: Codable {
     // MARK: - Decodable
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // Tag id:
+        id = try values.decode(String.self, forKey: .id)
         
         // Tag name:
         name = try values.decode(String.self, forKey: .name)

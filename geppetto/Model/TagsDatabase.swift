@@ -34,8 +34,26 @@ class TagsDatabase {
     }
     
     // MARK: - Tag Construction Methods
+    func getTags(withIds ids: [String]) -> Promise<[Tag]> {
+        return Promise { fulfill, _ in
+            self.getAllTags().then { allTags in
+                let filteredTags = allTags.filter { ids.contains($0.id) }
+                fulfill(filteredTags)
+            }
+        }
+    }
+    
+    func getTag(withId id: String) -> Promise<Tag> {
+        return Promise { fulfill, _ in
+            self.getAllTags().then { allTags in
+                let tag = allTags.filter { $0.id == id }
+                fulfill(tag.first!)
+            }
+        }
+    }
+    
     /// Return a promise to all tags in database.
-    func getTags() -> Promise<[Tag]> {
+    func getAllTags() -> Promise<[Tag]> {
         if let tags = self.tags {
             return Promise { fulfill, _ in
                 fulfill(tags)

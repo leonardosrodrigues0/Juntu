@@ -56,7 +56,7 @@ public class SearchViewController: UIViewController {
         
         // Get tags from database and update collection view:
         let tagsDatabase = TagsDatabase.shared
-        tagsDatabase.getTags().then { newTags in
+        tagsDatabase.getAllTags().then { newTags in
             self.tags.append(contentsOf: newTags)
             self.collectionView.reloadData()
         }
