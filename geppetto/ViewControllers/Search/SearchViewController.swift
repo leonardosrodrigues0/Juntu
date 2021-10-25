@@ -65,6 +65,8 @@ public class SearchViewController: UIViewController {
     /// Prepare for navigate to Tag
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTag" {
+            // Get the first child of navigation controller,
+            // which is supposed to be TagViewController.
             guard let tagViewController = segue.destination as? TagViewController else { return }
             tagViewController.viewTag = selectedTagCell
         }

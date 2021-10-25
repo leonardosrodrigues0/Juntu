@@ -7,6 +7,7 @@
 
 import FirebaseStorage
 import UIKit
+import Promises
 
 struct Tag: Codable {
     
@@ -26,6 +27,10 @@ struct Tag: Codable {
         path += "/\(pictureFilename)"
         path += TagsDatabase.imagesExtension
         return Storage.storage().reference().child(path)
+    }
+    
+    func getTagActivities() -> Promise<[Activity]> {
+        ActivityConstructor.shared.getActivities { $0.tags?.contains(self.id) ?? false }
     }
     
     /// Coding keys for the `Tag` struct.
