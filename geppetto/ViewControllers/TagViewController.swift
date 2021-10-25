@@ -71,7 +71,7 @@ extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegat
             selectedActivity = activity
         }
         
-        performSegue(withIdentifier: "goToTag", sender: self)
+        performSegue(withIdentifier: "goToOverview", sender: self)
     }
 }
 
