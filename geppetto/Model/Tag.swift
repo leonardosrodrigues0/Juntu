@@ -53,7 +53,7 @@ struct Tag: Codable {
         
         // Tag color:
         let colorName = try values.decode(String.self, forKey: .color)
-        color = UIColor.systemColor(withName: colorName) ?? UIColor.accentColor
+        color = UIColor.systemColor(withName: colorName) ?? .accentColor
         
         // Tag picture:
         pictureFilename = try values.decode(String.self, forKey: .pictureFilename)
