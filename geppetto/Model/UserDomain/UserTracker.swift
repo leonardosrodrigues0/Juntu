@@ -112,6 +112,6 @@ public class UserTracker {
     // MARK: - Methods fo Reading User Profile
     
     func getUserName() -> String {
-        return user?.name ?? "No Name Set"
+        return user?.name ?? ""
     }
 }

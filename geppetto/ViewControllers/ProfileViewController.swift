@@ -67,6 +67,10 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     
     private func updateTitle() {
         self.navigationItem.title = UserTracker.shared.getUserName()
+        
+        if self.navigationItem.title!.isEmpty {
+            triggerEditUserNameAlert()
+        }
     }
     
     private func updateViews() {
@@ -138,13 +142,22 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
             textField = alertTextField
         }
         
-        let action = UIAlertAction(title: "Renomear", style: .default) { _ in
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default) { _ in
+            
+        }
+        
+        let renameAction = UIAlertAction(title: "Renomear", style: .default) { _ in
             // what happens once user clicks add item button in ui alert
             UserTracker.shared.editUserName(newName: textField.text!)
             self.updateTitle()
         }
         
-        alert.addAction(action)
+        // do not let user cancel rename in first run
+        if !self.navigationItem.title!.isEmpty {
+            alert.addAction(cancelAction)
+        }
+        
+        alert.addAction(renameAction)
         present(alert, animated: true, completion: nil)
     }
 }
