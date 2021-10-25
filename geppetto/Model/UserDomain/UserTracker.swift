@@ -14,7 +14,7 @@ public class UserTracker {
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("User.plist")
     
     // implementacao de singleton
-    public static var shared: UserTracker = {
+    static var shared: UserTracker = {
         let instance = UserTracker()
         instance.loadUser()
         
@@ -27,19 +27,19 @@ public class UserTracker {
 
     // MARK: - Methods for Logging User Activity
     
-    public func logSeenActivity(_ activity: Activity) {
+    func logSeenActivity(_ activity: Activity) {
         user?.seeActivity(activity)
         print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
     }
     
-    public func logCompletedActivity(_ activity: Activity) {
+    func logCompletedActivity(_ activity: Activity) {
         user?.completeActivity(activity)
         print("Logging completed activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
     }
     
-    public func logToggleSavedActivity(_ activity: Activity) {
+    func logToggleSavedActivity(_ activity: Activity) {
         user?.toggleSaveActivity(activity)
         print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
         saveUser()
@@ -47,15 +47,15 @@ public class UserTracker {
     
     // MARK: - Methods for Reading User Activity
     
-    public func fetchActivityHistory() -> [String] {
+    func fetchActivityHistory() -> [String] {
         return user?.fetchActivityHistory() ?? [String]()
     }
     
-    public func fetchSavedActivities() -> [String] {
+    func fetchSavedActivities() -> [String] {
         return user?.fetchSavedActivities() ?? []
     }
     
-    public func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
+    func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
         return user?.fetchIfActivityIsSaved(activity) ?? false
     }
     
@@ -97,7 +97,7 @@ public class UserTracker {
     // MARK: - Methods for Editing User Profile
     
     func wasUserCreated() -> Bool {
-        return user?.name! != nil
+        return user?.name != nil
     }
     
     func editUserName(newName: String) {
@@ -112,6 +112,6 @@ public class UserTracker {
     // MARK: - Methods fo Reading User Profile
     
     func getUserName() -> String {
-        return user?.name! ?? "No name Set"
+        return user?.name ?? "No Name Set"
     }
 }

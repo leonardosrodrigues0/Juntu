@@ -24,13 +24,13 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     let images = [UIImage]()
     let image = UIImage(named: "momentsImage00")!
     
-    // MARK: - Methods
+    // MARK: - Startup
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.pressed(_:)))
+        editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.editProfileButtonPressed(_:)))
         
-        self.navigationItem.rightBarButtonItems = [editProfileButton!]
+        navigationItem.rightBarButtonItems = [editProfileButton!]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
@@ -39,14 +39,24 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
 
     }
     
-    @objc func pressed(_ sender: UIBarButtonItem!) {
-        if sender == editProfileButton {
-            triggerEditUserNameAlert()
-        }
+    // MARK: - Segmented Control
+    
+    @IBAction private func segmentedControlChanged(_ sender: Any) {
+        viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
+        updateViews()
     }
     
-    private func updateTitle() {
-        self.navigationItem.title = UserTracker.shared.getUserName()
+    private func viewOrganizer(_ segmentIndex: Int) {
+        momentsView.isHidden = segmentIndex != 0
+        savedActivitiesView.isHidden = segmentIndex != 1
+        historyView.isHidden = segmentIndex != 2
+    }
+    
+    // MARK: - View Update  Methods
+    
+    // update info when opening profile tab
+    override func viewDidAppear(_ animated: Bool) {
+        updateViews()
     }
     
     private func updateViews() {
@@ -55,9 +65,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         self.updateHistoryView()
     }
     
-    // update info when opening profile tab
-    override func viewDidAppear(_ animated: Bool) {
-        updateViews()
+    private func updateTitle() {
+        self.navigationItem.title = UserTracker.shared.getUserName()
     }
     
     private func updateViews() {
@@ -81,17 +90,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
             self.savedActivitiesView.items = activities
             self.savedActivitiesView.reloadCards(delegate: self)
         }
-    }
-
-    @IBAction func segmentedControlChanged(_ sender: Any) {
-        viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
-        updateViews()
-    }
-    
-    func viewOrganizer(_ segmentIndex: Int) {
-        momentsView.isHidden = segmentIndex != 0
-        savedActivitiesView.isHidden = segmentIndex != 1
-        historyView.isHidden = segmentIndex != 2
     }
     
     // MARK: - CardNavigationDelegate Methods
@@ -119,6 +117,14 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         if segue.identifier == "goToFullscreen" {
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
             fullscreenImageViewController.imageData = selectedImage
+        }
+    }
+    
+    // MARK: - Profile Editing Methods
+    
+    @objc private func editProfileButtonPressed(_ sender: UIBarButtonItem!) {
+        if sender == editProfileButton {
+            triggerEditUserNameAlert()
         }
     }
     
