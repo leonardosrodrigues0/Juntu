@@ -37,6 +37,11 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         loadActivities()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        momentsView.retrieveImages()
+        momentsView.collectionView.reloadData()
+    }
+    
     private func loadActivities() {
         let constructor = ActivityConstructor.getInstance()
         constructor.getActivities { activities in

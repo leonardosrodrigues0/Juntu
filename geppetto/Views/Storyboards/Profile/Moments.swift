@@ -34,7 +34,6 @@ class Moments: UIView {
         initCollectionView()
     }
     
-    
     private func commonInit() {
         let bundle = Bundle(for: type(of: self))
         bundle.loadNibNamed("Moments", owner: self, options: nil)
@@ -57,7 +56,9 @@ class Moments: UIView {
         retrieveImages()
     }
     
-    private func retrieveImages() {
+    func retrieveImages() {
+        images = [Data]()
+        
         let fm = FileManager.default
         let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
@@ -99,8 +100,6 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print("aa cliquei na \(indexPath.row)")
         
         let imageData = images[indexPath.row]
         delegate?.navigate(image: imageData)
