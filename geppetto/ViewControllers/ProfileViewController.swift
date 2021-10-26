@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, CardNavigationDelegate {
-    
+class ProfileViewController: UIViewController, CardNavigationDelegate, FullscreenImageNavigationDelegate {
+
     // MARK: - Properties
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
     @IBOutlet var historyView: History!
     
     var selectedActivity: Activity?
+    var selectedImage: Data?
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     let name: String = "Celso Pereira"
@@ -31,17 +32,21 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         self.navigationItem.rightBarButtonItems = [addButton]
         profileImage.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
+        
+        momentsView.delegate = self
+        updateViews()
+    }
+    
+    // update info when opening profile tab
+    override func viewDidAppear(_ animated: Bool) {
         updateViews()
     }
     
     private func updateViews() {
         self.updateSavedActivitiesView()
         self.updateHistoryView()
-    }
-    
-    // update info when opening profile tab
-    override func viewDidAppear(_ animated: Bool) {
-        updateViews()
+        momentsView.retrieveImages()
+        momentsView.collectionView.reloadData()
     }
     
     private func updateHistoryView() {
@@ -78,11 +83,24 @@ class ProfileViewController: UIViewController, CardNavigationDelegate {
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     
-    /// Prepare for navigate to ActivityOverview, i.e. pass the activity data forward.
+    // MARK: - FullscreenImageNavigationDelegate Methods
+    /// Navigate to FullscreenImage
+    func navigate(image: Data) {
+        selectedImage = image
+        performSegue(withIdentifier: "goToFullscreen", sender: self)
+    }
+    
+    // MARK: - Pass data foward in navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "goToOverview" {
             guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
             activityOverviewViewController.activity = selectedActivity
+        }
+        
+        if segue.identifier == "goToFullscreen" {
+            guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
+            fullscreenImageViewController.imageData = selectedImage
         }
     }
 }

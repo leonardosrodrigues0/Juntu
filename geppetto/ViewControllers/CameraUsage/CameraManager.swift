@@ -39,6 +39,8 @@ extension CameraManager {
         }
         
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
+        // here you add image to filesystem
+        saveOnFileSystem(image: watermarkedImage)
         shareImageAndText(image: watermarkedImage, text: text)
     }
     
@@ -89,5 +91,19 @@ extension CameraManager {
 
         // Present the share view controller
         present(activityViewController, animated: true)
+    }
+    
+    private func saveOnFileSystem(image: UIImage) {
+        if let data = image.pngData() {
+            let date = Date()
+            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let url = documents.appendingPathComponent("\(date).png")
+            
+            do {
+                try data.write(to: url)
+            } catch {
+                print("Unable to Write Data to Disk \(error)")
+            }
+        }
     }
 }

@@ -7,14 +7,17 @@
 
 import UIKit
 
+protocol FullscreenImageNavigationDelegate: AnyObject {
+    func navigate(image: Data)
+}
+
 class Moments: UIView {
     
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
-    let images: [String] = ["momentsImage00", "momentsImage01", "momentsImage02", "momentsImage03",
-                            "momentsImage04", "momentsImage05", "momentsImage06", "momentsImage07",
-                            "momentsImage09", "momentsImage09", "momentsImage10", "momentsImage11"]
+    var images = [Data]()
+    weak var delegate: FullscreenImageNavigationDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,6 +52,33 @@ class Moments: UIView {
             let width: CGFloat = floor(((momentsView.frame.size.width) - CGFloat(10)) / CGFloat(3))
             layout.itemSize = CGSize(width: width, height: width)
         }
+        
+        retrieveImages()
+    }
+    
+    func retrieveImages() {
+        images = [Data]()
+        
+        let fm = FileManager.default
+        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+        do {
+            var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+
+            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
+            
+            for imagePath in imagePaths {
+                
+                if let imageData = fm.contents(atPath: imagePath.path) {
+                    images.append(imageData)
+                } else {
+                    print("Error finding path content.")
+                }
+            }
+            
+        } catch {
+            print("Error finding imagePaths: \(error)")
+        }
     }
 }
 
@@ -64,9 +94,15 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
             fatalError("can't dequeue CustomCell")
         }
         
-        cell.momentsImage.image = UIImage(named: "\(images[indexPath.row])")!
+        cell.momentsImage.image = UIImage(data: images[indexPath.row])
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let imageData = images[indexPath.row]
+        delegate?.navigate(image: imageData)
+        
+    }
 }

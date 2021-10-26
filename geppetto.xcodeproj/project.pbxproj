@@ -16,6 +16,8 @@
 		31DA337E270C8E0C0055E2B6 /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337D270C8E0C0055E2B6 /* History.xib */; };
 		31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* Favorites.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
+		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
+		3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
 		A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722F0BE2727318300F92E53 /* ActivityCardCell.swift */; };
@@ -74,6 +76,8 @@
 		31DA337D270C8E0C0055E2B6 /* History.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = History.xib; sourceTree = "<group>"; };
 		31DA337F270C8E190055E2B6 /* Favorites.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Favorites.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
+		3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A70E8A7626E2469B002EE0F6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */,
 				313D306F270DC344000871C0 /* MomentsCell.swift */,
 				313D3070270DC344000871C0 /* MomentsCell.xib */,
+				3FD547062722F77C00363C65 /* FullscreenImage.storyboard */,
+				3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */,
+				3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */,
 				A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */,
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
 				31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */,
@@ -472,6 +479,7 @@
 				A7E65C3026860E1600570FBD /* AppDelegate.swift in Sources */,
 				CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */,
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
+				3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */,
 				31DA3385270C8F6C0055E2B6 /* History.swift in Sources */,
 				A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */,
 				D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */,
@@ -657,7 +665,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 3W2GZBLUSM;
+				DEVELOPMENT_TEAM = DV562Y5Y34;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -680,7 +688,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 3W2GZBLUSM;
+				DEVELOPMENT_TEAM = DV562Y5Y34;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
