@@ -103,9 +103,6 @@ extension CameraManager {
             
             do {
                 try data.write(to: url)
-//                UserDefaults.standard.set(url, forKey: "\(date).png")
-                //TODO: deletar print
-                print("\n\n\n Data written")
             } catch {
                 print("Unable to Write Data to Disk \(error)")
             }
