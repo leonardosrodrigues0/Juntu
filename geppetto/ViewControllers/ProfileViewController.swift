@@ -63,6 +63,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         self.updateTitle()
         self.updateSavedActivitiesView()
         self.updateHistoryView()
+        momentsView.retrieveImages()
+        momentsView.collectionView.reloadData()
     }
     
     private func updateTitle() {
@@ -71,13 +73,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         if self.navigationItem.title!.isEmpty {
             triggerEditUserNameAlert()
         }
-    }
-    
-    private func updateViews() {
-        self.updateSavedActivitiesView()
-        self.updateHistoryView()
-        momentsView.retrieveImages()
-        momentsView.collectionView.reloadData()
     }
     
     private func updateHistoryView() {
@@ -138,7 +133,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         let alert = UIAlertController(title: "Como você gostaria que te chamemos?", message: "", preferredStyle: .alert)
         
         alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create new Category"
+            alertTextField.placeholder = "Digite o seu Apelido"
             textField = alertTextField
         }
         
