@@ -36,7 +36,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         profileImageView.addGestureRecognizer(tapGesture)
         profileImageView.isUserInteractionEnabled = true
         
-        profileImageView.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
         momentsView.delegate = self
@@ -69,6 +68,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         self.updateHistoryView()
         momentsView.retrieveImages()
         momentsView.collectionView.reloadData()
+        profileImageView.image = UserTracker.shared.getSavedImage()
     }
     
     private func updateTitle() {
@@ -133,8 +133,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     
     @objc private func profilePictureClicked(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
-        if let imageView = gesture.view as? UIImageView {
-           showImagePickerController()
+        if (gesture.view as? UIImageView) != nil {
+            showImagePickerController()
         }
     }
     
@@ -167,6 +167,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     }
 }
 
+// MARK: - ImagePicker
+
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
@@ -178,13 +180,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             profileImageView.image = editedImage
+            
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImageView.image = originalImage
         }
+        
+        UserTracker.shared.saveImage(image: profileImageView.image!)
                 
         dismiss(animated: true, completion: nil)
     }
