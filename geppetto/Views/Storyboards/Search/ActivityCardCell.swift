@@ -16,7 +16,6 @@ class ActivityCardCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var ratingCountLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var tagLabel: DesignableLabel!
     
     var cellActivity: Activity? {
         didSet {
@@ -32,10 +31,6 @@ class ActivityCardCell: UICollectionViewCell {
         ratingLabel.text = "4,6"
         ratingCountLabel.text = "(5 avaliações)"
         descriptionLabel.text = cellActivity?.introduction
-        TagsDatabase.shared.getTag(withId: (cellActivity?.tags?.first)!).then { tag in
-            self.tagLabel.text = tag.name
-            self.tagLabel.tintColor = tag.color
-        }
     }
     
     override func awakeFromNib() {
