@@ -7,10 +7,13 @@
 
 import FirebaseStorage
 import UIKit
+import Promises
 
-struct Tag {
+struct Tag: Codable {
     
     // MARK: - Properties
+    /// Tag id.
+    let id: String
     /// Tag descriptive name.
     let name: String
     /// Tag color.
@@ -25,28 +28,46 @@ struct Tag {
         path += TagsDatabase.imagesExtension
         return Storage.storage().reference().child(path)
     }
-}
-
-extension Tag: Decodable {
     
+    func getTagActivities() -> Promise<[Activity]> {
+        ActivityConstructor.shared.getActivities { $0.tags?.contains(self.id) ?? false }
+    }
+    
+    /// Coding keys for the `Tag` struct.
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case color
+        case pictureFilename
+    }
+    
+    // MARK: - Decodable
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // Tag id:
+        id = try values.decode(String.self, forKey: .id)
         
         // Tag name:
         name = try values.decode(String.self, forKey: .name)
         
         // Tag color:
         let colorName = try values.decode(String.self, forKey: .color)
-        color = UIColor.systemColor(withName: colorName) ?? UIColor.accentColor
+        color = UIColor.systemColor(withName: colorName) ?? .accentColor
         
         // Tag picture:
         pictureFilename = try values.decode(String.self, forKey: .pictureFilename)
     }
     
-    /// Coding keys for the `Tag` struct.
-    enum CodingKeys: String, CodingKey {
-        case name
-        case color
-        case pictureFilename
+    // MARK: - Encodable
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        
+        // Get the SystemColor string that corresponds to `color`.
+        let test = UIColor.SystemColor.allCases.filter { self.color == $0.create }
+        try container.encode(test.first?.rawValue, forKey: .color)
+        
+        try container.encode(pictureFilename, forKey: .pictureFilename)
     }
 }

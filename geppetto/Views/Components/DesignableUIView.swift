@@ -24,10 +24,51 @@ class DesignableButton: UIButton {
 
 @IBDesignable
 class DesignableLabel: UILabel {
+    
+    @IBInspectable var topInset: CGFloat = 0
+    @IBInspectable var bottomInset: CGFloat = 0
+    @IBInspectable var leftInset: CGFloat = 0
+    @IBInspectable var rightInset: CGFloat = 0
+
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.height += topInset + bottomInset
+        contentSize.width += leftInset + rightInset
+        return contentSize
+    }
+    
 }
 
 @IBDesignable
 class DesignableImageView: UIImageView {
+    
+    private var _gradientColor: UIColor?
+    
+    @IBInspectable
+    var gradientColor: UIColor {
+        get {
+            return _gradientColor ?? .clear
+        }
+        set {
+            _gradientColor = newValue
+            addGradientLayerInBackground(colors: [.clear, _gradientColor ?? .clear])
+        }
+    }
+    
+    /// Add a vertical gradient in front of the image.
+    /// - Parameter colors: colors to use in the gradient (e.g. `[.clear, .black]`)
+    fileprivate func addGradientLayerInBackground(colors: [UIColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colors.map { $0.cgColor }
+        self.layer.insertSublayer(gradient, at: 0)
+    }
+    
 }
 
 extension UIView {

@@ -60,17 +60,26 @@ class ActivityConstructor {
         }
     }
     
-    /// Get a array of activities filtered and ordered by ids. If self.activities is nil, load from firebase
+    /// Get an array of activities filtered and ordered by ids. If self.activities is nil, load from firebase
     func getActivities(ids: [String]) -> Promise<[Activity]> {
-        return getAllActivitiesAsDictionary().then { activitiesAsDictionary in
-            activitiesAsDictionary.filter { ids.contains($0.key) }
-        }.then { filtered in
-            self.activitiesDictionaryToArray(filtered) ?? []
-        }.then { activitiesArray in
-            self.sorted(activities: activitiesArray, byIds: ids)
+        return getActivities(where: { ids.contains($0.id) }).then { activities in
+            self.sorted(activities: activities, byIds: ids)
         }
     }
     
+    /// Get activities filtered.
+    /// - Parameter filter: function that indicates if the activity should be in the return.
+    func getActivities(where filter: @escaping (Activity) -> Bool) -> Promise<[Activity]> {
+        return getAllActivitiesAsDictionary().then { activitiesAsDictionary in
+            // Create array from dictionary:
+            self.activitiesDictionaryToArray(activitiesAsDictionary) ?? []
+        }.then { activitiesAsArray in
+            // Filter array using the parameter:
+            activitiesAsArray.filter(filter)
+        }
+    }
+    
+    /// Return the list of activities sorted by the order of their id in `ids`.
     private func sorted(activities: [Activity], byIds ids: [String]) -> [Activity] {
         activities.sorted { ids.firstIndex(of: $0.id) ?? -1 < ids.firstIndex(of: $1.id) ?? -1 }
     }

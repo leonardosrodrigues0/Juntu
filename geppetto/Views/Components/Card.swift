@@ -56,7 +56,7 @@ class Card: UIView {
 
         image.sd_setImage(with: activity.getImageDatabaseRef())
         titleLabel.text = activity.name
-        descriptionLabel.text = activity.time
+        descriptionLabel.text = activity.introduction
         footnoteLabel.text = activity.getAgeText()
         image.layer.cornerRadius = 10
         image.clipsToBounds = true

@@ -14,6 +14,7 @@ public class SearchViewController: UIViewController {
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
     private var tags = [Tag]()
+    private var selectedTagCell: Tag?
     
     private let tagCellIdentifier = "TagCardCell"
     
@@ -53,14 +54,22 @@ public class SearchViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: tagCellIdentifier)
         collectionView.dataSource = self
         
-        // Get tags from database and update collection view:
-        let tagsDatabase = TagsDatabase.shared
-        tagsDatabase.getTags().then { newTags in
-            self.tags.append(contentsOf: newTags)
+        // Get tags that have at least one activity.
+        TagsDatabase.shared.getNonEmptyTags().then { tags in
+            self.tags = tags
             self.collectionView.reloadData()
         }
     }
-
+    
+    /// Prepare for navigate to Tag
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTag" {
+            // Get the first child of navigation controller,
+            // which is supposed to be TagViewController.
+            guard let tagViewController = segue.destination as? TagViewController else { return }
+            tagViewController.viewTag = selectedTagCell
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -80,6 +89,14 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         }
         
         return cell!
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let tag = tags.get(at: indexPath.row) {
+            selectedTagCell = tag
+        }
+        
+        performSegue(withIdentifier: "goToTag", sender: self)
     }
 }
 
