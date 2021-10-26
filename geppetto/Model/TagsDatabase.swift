@@ -66,6 +66,36 @@ class TagsDatabase {
         }
     }
     
+    /// Get a Promise to a dictionary with tagID as key and a tuple (tag, activities) as value.
+    /// key: tag identifier (tagID)
+    /// tag: owner of this tagID
+    /// activities:  list of Activities that have this tag as one of their tags.
+    private func getTagsAndActivitiesGroupedByTagId() -> Promise<[String: (tag: Tag, activities: [Activity])]> {
+        var activitiesGroupByTag: [String: (tag: Tag, activities: [Activity])] = [:]
+        var tagIds: [String] = []
+        return getAllTags().then { allTags in
+            tagIds = allTags.map { $0.id }
+            return all(allTags.map { $0.getTagActivities() })
+            .then { tagActivities in
+                for i in 0..<tagIds.count {
+                    let activities = tagActivities[i]
+                    let tag = allTags[i]
+                    let id = tagIds[i]
+                    activitiesGroupByTag[id] = (tag: tag, activities: activities)
+                }
+                return Promise(activitiesGroupByTag)
+            }
+        }
+    }
+    
+    /// Get a Promise to all Tags that contain at least one Activity
+    func getNonEmptyTags() -> Promise<[Tag]> {
+        return getTagsAndActivitiesGroupedByTagId().then { dictionaries in
+            dictionaries.filter { !$0.value.activities.isEmpty }
+            .map { $0.value.tag }
+        }
+    }
+    
     /// Build all tags in database and return promise.
     /// Update `self.tags` with built tags.
     private func buildAllTags() -> Promise<[Tag]> {

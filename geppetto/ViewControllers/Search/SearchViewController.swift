@@ -54,16 +54,10 @@ public class SearchViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: tagCellIdentifier)
         collectionView.dataSource = self
         
-        // Get tags and filter whether they have activities or not.
-        TagsDatabase.shared.getAllTags().then { allTags in
-            for tag in allTags {
-                tag.getTagActivities().then { tagActivities in
-                    if !tagActivities.isEmpty {
-                        self.tags.append(tag)
-                        self.collectionView.reloadData()
-                    }
-                }
-            }
+        // Get tags that have at least one activity.
+        TagsDatabase.shared.getNonEmptyTags().then { tags in
+            self.tags = tags
+            self.collectionView.reloadData()
         }
     }
     
