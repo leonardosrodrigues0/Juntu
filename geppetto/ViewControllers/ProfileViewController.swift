@@ -8,9 +8,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController, CardNavigationDelegate, FullscreenImageNavigationDelegate {
-
+    
     // MARK: - Properties
-    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
     @IBOutlet var savedActivitiesView: SavedActivities!
@@ -31,12 +31,16 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.editProfileButtonPressed(_:)))
         
         navigationItem.rightBarButtonItems = [editProfileButton!]
-        profileImage.image = image
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profilePictureClicked(gesture:)))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
+        
+        profileImageView.image = image
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
         momentsView.delegate = self
         updateViews()
-
     }
     
     // MARK: - Segmented Control
@@ -127,6 +131,13 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         }
     }
     
+    @objc private func profilePictureClicked(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if let imageView = gesture.view as? UIImageView {
+           showImagePickerController()
+        }
+    }
+    
     private func triggerEditUserNameAlert() {
         var textField = UITextField()
         
@@ -137,10 +148,6 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
             textField = alertTextField
         }
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .default) { _ in
-            
-        }
-        
         let renameAction = UIAlertAction(title: "Renomear", style: .default) { _ in
             // what happens once user clicks add item button in ui alert
             UserTracker.shared.editUserName(newName: textField.text!)
@@ -149,10 +156,36 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         
         // do not let user cancel rename in first run
         if !self.navigationItem.title!.isEmpty {
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .default) { _ in
+                
+            }
             alert.addAction(cancelAction)
         }
         
         alert.addAction(renameAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func showImagePickerController() {
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImageView.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImageView.image = originalImage
+        }
+                
+        dismiss(animated: true, completion: nil)
     }
 }
