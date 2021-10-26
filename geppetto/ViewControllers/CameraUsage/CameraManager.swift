@@ -41,8 +41,6 @@ extension CameraManager {
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
         // here you add image to filesystem
         saveOnFileSystem(image: watermarkedImage)
-        //TODO: deletar print
-        print("\nPicture description: \(watermarkedImage.description)")
         shareImageAndText(image: watermarkedImage, text: text)
     }
     
