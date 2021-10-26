@@ -7,30 +7,35 @@
 
 import UIKit
 
-class TagViewController: UIViewController, CardNavigationDelegate {
+class TagViewController: UIViewController {
     
     // MARK: - Properties
-    @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewTag: Tag?
-    var items: [Activity] = []
+    var activities: [Activity] = []
     var selectedActivity: Activity?
+    
+    private let activityCellIdentifier = "ActivityCardCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = viewTag?.name
         self.navigationItem.largeTitleDisplayMode = .never
         self.view.tintColor = viewTag?.color
-        viewTag?.getTagActivities().then { activities in
-            self.items.append(contentsOf: activities)
-            self.reloadCards(delegate: self)
-        }
+        initCollectionView()
     }
     
-    // MARK: - CardNavigationDelegate Methods
-    /// Navigate to ActivityOverview
-    func navigate(from card: Card) {
-        selectedActivity = card.activity
-        performSegue(withIdentifier: "goToOverview", sender: self)
+    /// Register `TagCardCell` in collection view.
+    /// Get tags from database and reload collection view data.
+    private func initCollectionView() {
+        let nib = UINib(nibName: activityCellIdentifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: activityCellIdentifier)
+        collectionView.dataSource = self
+        
+        viewTag?.getTagActivities().then { activities in
+            self.activities.append(contentsOf: activities)
+            self.collectionView.reloadData()
+        }
     }
     
     /// Prepare for navigate to ActivityOverview, i.e. pass the activity data forward.
@@ -40,22 +45,48 @@ class TagViewController: UIViewController, CardNavigationDelegate {
             activityOverviewViewController.activity = selectedActivity
         }
     }
+}
+
+extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    /// Reload cards in view with items array
-    func reloadCards(delegate: CardNavigationDelegate) {
-        let cards = items.map { createCard($0, delegate: self) }
-        stack.populateWithCards(cards)
+    /// Return total number of items.
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return activities.count
     }
     
-    /// Instantiate the Card Views with data from activity
-    private func createCard(_ activity: Activity, delegate: CardNavigationDelegate) -> Card {
-        let card = Card()
-        card.activity = activity
-        card.delegate = delegate
-        card.updateView()
-        stack.addSubview(card) // add card as subview of the horizontal stack
-        let constraint = [card.widthAnchor.constraint(equalTo: stack.widthAnchor)]
-        NSLayoutConstraint.activate(constraint)
-        return card
+    /// Return the cell for a given index.
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: activityCellIdentifier, for: indexPath) as? ActivityCardCell
+        
+        // Set cell tag element:
+        if let activity = activities.get(at: indexPath.row) {
+            cell?.cellActivity = activity
+        }
+        
+        return cell!
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let activity = activities.get(at: indexPath.row) {
+            selectedActivity = activity
+        }
+        
+        performSegue(withIdentifier: "goToOverview", sender: self)
+    }
+}
+
+extension TagViewController: UICollectionViewDelegateFlowLayout {
+
+    /// Return the item size for collection view.
+    /// Use aspect ratio of 16:9 for two columns of items.
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Space between cells: (defined only here)
+        let horizontalSpacing = CGFloat(10)
+        // Space between cells and safe area (horizontally): (defined in the storyboard)
+        let contentInsets = CGFloat(16) // defined in the storyboard
+        // Width must be (totalWidth - 2 * contentInsets - horizontalSpacing) / 2
+        let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
+        let height = width * (20 / 9)
+        return CGSize(width: width, height: height)
     }
 }
