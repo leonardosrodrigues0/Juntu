@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Favorites: UIView {
+class SavedActivities: UIView {
 
     @IBOutlet var favoritesView: UIView!
     @IBOutlet weak var stack: UIStackView!
@@ -27,8 +27,8 @@ class Favorites: UIView {
     
     /// Reload cards in view with items array
     func reloadCards(delegate: CardNavigationDelegate) {
-        let cards = items.map { createCard($0, delegate: delegate) } // create all cards for each activity
-        stack.populateWithCards(cards) // append all cards into the horizontal stack of first section
+        let cards = items.map { createCard($0, delegate: delegate) }
+        stack.populateWithCards(cards)
     }
     
     /// Instantiate the Card Views with data from activity
