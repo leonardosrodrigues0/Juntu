@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     var editProfileButton: UIBarButtonItem?
     
     let images = [UIImage]()
-    let image = UIImage(named: "momentsImage00")!
+    let placeholderProfilePicture = UIImage(named: "placeholderProfilePicture")!
     
     // MARK: - Startup
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         self.updateHistoryView()
         momentsView.retrieveImages()
         momentsView.collectionView.reloadData()
-        profileImageView.image = UserTracker.shared.getProfilePicture()
+        profileImageView.image = UserTracker.shared.getProfilePicture() ?? self.placeholderProfilePicture
     }
     
     private func updateTitle() {
