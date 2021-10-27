@@ -8,10 +8,6 @@
 import UIKit
 import FirebaseStorageUI
 
-protocol CardNavigationDelegate: AnyObject {
-    func navigate(from card: Card)
-}
-
 /// Card view for discover screen
 class Card: UIView {
     
@@ -23,11 +19,13 @@ class Card: UIView {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var footnoteLabel: UILabel!
     
-    weak var delegate: CardNavigationDelegate?
+    weak var delegate: ActivityNavigationDelegate?
     
     // MARK: - Methods
     @IBAction func navigateToDetail(_ sender: UITapGestureRecognizer) {
-        delegate?.navigate(from: self)
+        if let activity = self.activity {
+            delegate?.navigate(to: activity)
+        }
     }
     
     override init(frame: CGRect) {
