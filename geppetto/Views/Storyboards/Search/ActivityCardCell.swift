@@ -28,8 +28,10 @@ class ActivityCardCell: UICollectionViewCell {
         ageLabel.text = cellActivity?.getAgeText()
         durationLabel.text = cellActivity?.time
         titleLabel.text = cellActivity?.name
-        ratingLabel.text = "4,6"
-        ratingCountLabel.text = "(5 avaliações)"
+        let rating: Double = 5
+        ratingLabel.text = String(format: "%.1f", rating)
+        let votes: Int = 2
+        ratingCountLabel.text = "(\(votes) avaliações)"
         descriptionLabel.text = cellActivity?.introduction
     }
     
