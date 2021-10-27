@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         self.updateHistoryView()
         momentsView.retrieveImages()
         momentsView.collectionView.reloadData()
-        profileImageView.image = UserTracker.shared.getSavedImage()
+        profileImageView.image = UserTracker.shared.getProfilePicture()
     }
     
     private func updateTitle() {
@@ -189,7 +189,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             profileImageView.image = originalImage
         }
         
-        UserTracker.shared.saveImage(image: profileImageView.image!)
+        UserTracker.shared.editUserProfilePicture(newImage: profileImageView.image!)
                 
         dismiss(animated: true, completion: nil)
     }

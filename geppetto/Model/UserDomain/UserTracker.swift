@@ -12,41 +12,56 @@ import UIKit
 /// Singleton class: use `UserTracker.shared` attribute.
 public class UserTracker {
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("User.plist")
+    let dataPlistFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("User.plist")
     
-    let profilePictureFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("UserProfilePicture.png")
-    
+    var profilePictureFilePath: URL
     let profilePictureName = "UserProfilePicture.png"
+    
+    var profilePictureFolderDatapath: URL = { () -> URL in
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let docURL = URL(string: documentsDirectory)!
+        let folderDataPath = docURL.appendingPathComponent("ProfilePicture")
+        if !FileManager.default.fileExists(atPath: folderDataPath.path) {
+            do {
+                try FileManager.default.createDirectory(atPath: folderDataPath.path, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return folderDataPath
+    }()
     
     // implementacao de singleton
     static var shared: UserTracker = {
         let instance = UserTracker()
         instance.loadUser()
-        
         return instance
     }()
     
     private var user: User?
     
-    private init() {}
+    private init() {
+        self.profilePictureFilePath = self.profilePictureFolderDatapath.appendingPathComponent(self.profilePictureName)
+    }
     
     // MARK: - Methods for Logging User Activity
     
     func logSeenActivity(_ activity: Activity) {
         user?.seeActivity(activity)
-        print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
+        print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     
     func logCompletedActivity(_ activity: Activity) {
         user?.completeActivity(activity)
-        print("Logging completed activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
+        print("Logging completed activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     
     func logToggleSavedActivity(_ activity: Activity) {
         user?.toggleSaveActivity(activity)
-        print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataFilePath))")
+        print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     
@@ -70,14 +85,14 @@ public class UserTracker {
         let encoder = PropertyListEncoder()
         do {
             let data = try encoder.encode(self.user)
-            try data.write(to: self.dataFilePath!)
+            try data.write(to: self.dataPlistFilePath!)
         } catch {
             print("Error encoding User \n \(error)")
         }
     }
     
     private func loadUser() {
-        if let data = try? Data(contentsOf: dataFilePath!) {
+        if let data = try? Data(contentsOf: dataPlistFilePath!) {
             let decoder = PropertyListDecoder()
             do {
                 self.user = try decoder.decode(User.self, from: data)
@@ -89,13 +104,13 @@ public class UserTracker {
         }
     }
     
-    private func saveProfileImage(image: UIImage) {
-        if let data = image.pngData() {
-            do {
-                try data.write(to: self.profilePictureFilePath!)
-            } catch {
-                print("Unable to Write Image to Disk \(error)")
-            }
+    private func saveImage(image: UIImage) {
+        let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
+        do {
+            print("jararaca dado deu certo")
+            try data!.write(to: URL(fileURLWithPath: profilePictureFilePath.path))
+        } catch {
+            print("jararaca fedida \(error.localizedDescription)")
         }
     }
     
@@ -103,9 +118,7 @@ public class UserTracker {
     
     private func createUser() -> User {
         let user = User()
-        
         saveUser()
-        
         return user
     }
     
@@ -121,48 +134,16 @@ public class UserTracker {
     }
     
     func editUserProfilePicture(newImage: UIImage) {
-        
+        saveImage(image: newImage)
     }
     
-    // MARK: - Methods fo Reading User Profile
+    // MARK: - Methods for Reading User Profile
     
     func getUserName() -> String {
         return user?.name ?? ""
     }
     
-    func loadProfilePicture() -> UIImage {
-        let fm = FileManager.default
-        
-        if let imageData =  profilePictureFilePath {
-            return UIImage(contentsOfFile: (profilePictureFilePath?.appendingPathComponent(profilePictureName).path)!) ??  UIImage(named: "momentsImage00")!
-        } else {
-            print("Error finding path content.")
-        }
-        
-        return  UIImage(named: "momentsImage00")!
+    func getProfilePicture() -> UIImage? {
+        return UIImage(contentsOfFile: profilePictureFilePath.path)
     }
-    
-    func saveImage(image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
-            return false
-        }
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-            return false
-        }
-        do {
-            try data.write(to: directory.appendingPathComponent(profilePictureName)!)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
-    
-    func getSavedImage() -> UIImage? {
-        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(profilePictureName).path)
-        }
-        return nil
-    }
-    
 }
