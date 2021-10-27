@@ -107,10 +107,9 @@ public class UserTracker {
     private func saveImage(image: UIImage) {
         let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
         do {
-            print("jararaca dado deu certo")
             try data!.write(to: URL(fileURLWithPath: profilePictureFilePath.path))
         } catch {
-            print("jararaca fedida \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
     }
     

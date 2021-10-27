@@ -146,10 +146,15 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         }
     }
     
+    fileprivate func addCancelAction(_ alert: UIAlertController) {
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        alert.addAction(cancelAction)
+    }
+    
     private func triggerEditUserNameAlert() {
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Como você gostaria que te chamemos?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Qual é o seu nome?", message: "", preferredStyle: .alert)
         
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Digite o seu Apelido"
@@ -170,10 +175,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         
         // do not let user cancel rename in first run
         if !self.navigationItem.title!.isEmpty {
-            let cancelAction = UIAlertAction(title: "Cancelar", style: .default) { _ in
-                
-            }
-            alert.addAction(cancelAction)
+            addCancelAction(alert)
         }
         
         alert.addAction(renameAction)
@@ -181,13 +183,14 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     }
     
     private func triggerEditProfilePictureAlert() {
-        let alert = UIAlertController(title: "Escolha uma foto para te representar!", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Se quiser, escolha uma foto para te representar", message: "", preferredStyle: .alert)
         
-        let addPictureAction = UIAlertAction(title: "Escolher", style: .default) { _ in
+        let addPictureAction = UIAlertAction(title: "Abrir Fotos", style: .default) { _ in
             // what happens once user clicks add item button in ui alert
             self.showImagePickerController()
         }
         
+        addCancelAction(alert)
         alert.addAction(addPictureAction)
         present(alert, animated: true, completion: nil)
     }
