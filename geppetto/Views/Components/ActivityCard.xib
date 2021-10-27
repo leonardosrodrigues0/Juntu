@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="ageLabel" destination="ltV-yL-C9e" id="YWq-3l-a0M"/>
                 <outlet property="descriptionLabel" destination="noe-ud-IBq" id="dZD-yv-kKF"/>
-                <outlet property="dificultyLabel" destination="EfC-sb-0c2" id="84p-3e-6Sb"/>
+                <outlet property="difficultyLabel" destination="EfC-sb-0c2" id="Myg-FH-naV"/>
                 <outlet property="durationLabel" destination="MZ4-Bg-aqW" id="w5W-tt-qVp"/>
                 <outlet property="image" destination="nid-Vh-aAK" id="LbL-yP-fyQ"/>
                 <outlet property="ratingLabel" destination="ZLa-Wf-QSV" id="7yO-8g-LWn"/>

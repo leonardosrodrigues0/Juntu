@@ -27,7 +27,7 @@ class ActivityCard: UIView {
     
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var dificultyLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,7 +64,7 @@ class ActivityCard: UIView {
         
         descriptionLabel.text = activity.introduction
         ageLabel.text = activity.getAgeText()
-        dificultyLabel.text = activity.difficulty
+        difficultyLabel.text = activity.difficulty
         durationLabel.text = activity.time
     }
     
