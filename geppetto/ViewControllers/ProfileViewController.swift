@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, CardNavigationDelegate, FullscreenImageNavigationDelegate {
+class ProfileViewController: UIViewController, ActivityNavigationDelegate, FullscreenImageNavigationDelegate {
 
     // MARK: - Properties
     @IBOutlet var profileImage: UIImageView!
@@ -78,8 +78,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     
     // MARK: - CardNavigationDelegate Methods
     /// Navigate to ActivityOverview
-    func navigate(from card: Card) {
-        selectedActivity = card.activity
+    func navigate(to activity: Activity) {
+        selectedActivity = activity
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     

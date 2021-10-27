@@ -47,6 +47,7 @@
                     <connections>
                         <outlet property="collectionView" destination="SMh-gv-qwT" id="LEH-Yc-CPm"/>
                         <segue destination="7Wn-5S-jTw" kind="show" identifier="goToTag" id="Rrd-RJ-Mhw"/>
+                        <segue destination="boe-NY-vyG" kind="show" identifier="goToActivityOverview" id="vZ2-7a-nlW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -61,7 +62,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDj-Fo-Iof" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="116"/>
+            <point key="canvasLocation" x="690" y="66"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="9Pu-9m-N2c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="boe-NY-vyG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iNx-nh-V4p"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WH1-rH-P5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="175"/>
         </scene>
         <!--Buscar-->
         <scene sceneID="Tem-D9-ykC">

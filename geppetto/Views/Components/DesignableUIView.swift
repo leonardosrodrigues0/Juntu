@@ -42,6 +42,28 @@ class DesignableLabel: UILabel {
         return contentSize
     }
     
+    /// Space between letters
+    @IBInspectable public var kerningSpace: CGFloat {
+        get {
+            var kerning: CGFloat = 0
+            if let attributedText = self.attributedText {
+                let range = NSRange(location: 0, length: attributedText.length)
+                attributedText.enumerateAttribute(.kern, in: range, options: .init(rawValue: 0)) { (value, _, _) in kerning = value as? CGFloat ?? 0
+                }
+            }
+            return kerning
+        }
+
+        set {
+            if let currentAttibutedText = self.attributedText {
+                let attribString = NSMutableAttributedString(attributedString: currentAttibutedText)
+                let range = NSRange(location: 0, length: currentAttibutedText.length)
+                attribString.addAttributes([.kern: newValue], range: range)
+                self.attributedText = attribString
+            }
+        }
+        
+    }
 }
 
 @IBDesignable

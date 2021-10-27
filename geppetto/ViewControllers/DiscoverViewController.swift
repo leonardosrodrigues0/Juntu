@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class DiscoverViewController: UIViewController, CardNavigationDelegate {
+class DiscoverViewController: UIViewController, ActivityNavigationDelegate {
     
     // MARK: - Properties
     var items: [Activity] = []
@@ -49,8 +49,8 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     }
     
     /// Navigate to ActivityOverview
-    func navigate(from card: Card) {
-        selectedActivity = card.activity
+    func navigate(to activity: Activity) {
+        selectedActivity = activity
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     

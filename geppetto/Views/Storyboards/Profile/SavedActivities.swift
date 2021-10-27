@@ -26,13 +26,13 @@ class SavedActivities: UIView {
     }
     
     /// Reload cards in view with items array
-    func reloadCards(delegate: CardNavigationDelegate) {
+    func reloadCards(delegate: ActivityNavigationDelegate) {
         let cards = items.map { createCard($0, delegate: delegate) }
         stack.populateWithCards(cards)
     }
     
     /// Instantiate the Card Views with data from activity
-    private func createCard(_ activity: Activity, delegate: CardNavigationDelegate) -> Card {
+    private func createCard(_ activity: Activity, delegate: ActivityNavigationDelegate) -> Card {
         let card = Card()
         card.activity = activity
         card.delegate = delegate

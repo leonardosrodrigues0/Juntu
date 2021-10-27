@@ -14,15 +14,25 @@ class SearchResultsViewController: UIViewController {
 
     var items: [Searchable] = []
     var filteredItems: [Searchable] = []
+    weak var activityNavigationDelegate: ActivityNavigationDelegate?
+    
+    private let cellIdentifier = "ActivityCardTableViewCell"
 
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        initTableView()
         let database = ActivityConstructor.shared
         database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.tableView.reloadData()
         }
+    }
+    
+    private func initTableView() {
+        let nib = UINib(nibName: cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        tableView.delegate = self
     }
 
     /// Deselect row when returning to view.
@@ -33,20 +43,17 @@ class SearchResultsViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-
-    /// Prepare activity screen for navigation.
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            segue.identifier == "ActivitySegue",
-            let indexPath = tableView.indexPathForSelectedRow,
-            let activityOverviewViewController = segue.destination as? ActivityOverviewViewController
-        else {
-            return
-        }
-
-        // Get activity in position and set for view
-        if let activity = filteredItems[indexPath.row] as? Activity {
-            activityOverviewViewController.activity = activity
+    
+    /// Instantiate the Card Views with data from activity
+    private func updateCardActivity(card: ActivityCard, with activity: Activity) {
+        card.activity = activity
+        card.delegate = activityNavigationDelegate
+        card.updateView()
+        
+        if let tagId = activity.tags?.first {
+            TagsDatabase.shared.getTag(withId: tagId).then { tag in
+                card.setTag(tag)
+            }
         }
     }
 }
@@ -67,16 +74,27 @@ extension SearchResultsViewController: UISearchResultsUpdating {
 }
 
 extension SearchResultsViewController: UITableViewDataSource {
-
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredItems.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ActivityCardTableViewCell
         let item = filteredItems[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.getDescription()
-        return cell
+
+        let card = cell?.card
+        let activity = item as? Activity
+        if card != nil && activity != nil {
+            updateCardActivity(card: card!, with: activity!)
+        }
+        return cell!
+    }
+}
+
+extension SearchResultsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let activity = filteredItems.get(at: indexPath.row) as? Activity {
+            self.activityNavigationDelegate?.navigate(to: activity)
+        }
     }
 }
