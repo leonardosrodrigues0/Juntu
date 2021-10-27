@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        historyView.activityNavigationDelegate = self
+        
         setupProfileEditing()
         enableProfilePictureInteraction()
         
@@ -90,7 +92,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     private func updateHistoryView() {
         let ids = UserTracker.shared.fetchActivityHistory()
         ActivityConstructor.shared.getActivities(ids: ids).then { activities in
-            self.historyView.items = activities
+            self.historyView.activityList = activities
             self.historyView.reloadCards(delegate: self)
         }
     }
