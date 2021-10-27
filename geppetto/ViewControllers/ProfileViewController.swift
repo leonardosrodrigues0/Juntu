@@ -150,8 +150,14 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         
         let renameAction = UIAlertAction(title: "Renomear", style: .default) { _ in
             // what happens once user clicks add item button in ui alert
+            let firstRun = self.navigationItem.title!.isEmpty
+        
             UserTracker.shared.editUserName(newName: textField.text!)
             self.updateTitle()
+            
+            if firstRun {
+                self.triggerEditProfilePictureAlert()
+            }
         }
         
         // do not let user cancel rename in first run
@@ -163,6 +169,18 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         }
         
         alert.addAction(renameAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func triggerEditProfilePictureAlert() {
+        let alert = UIAlertController(title: "Escolha uma foto para te representar!", message: "", preferredStyle: .alert)
+        
+        let addPictureAction = UIAlertAction(title: "Escolher", style: .default) { _ in
+            // what happens once user clicks add item button in ui alert
+            self.showImagePickerController()
+        }
+        
+        alert.addAction(addPictureAction)
         present(alert, animated: true, completion: nil)
     }
 }
