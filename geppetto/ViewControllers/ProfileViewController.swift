@@ -96,9 +96,7 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
         if segue.identifier == "goToOverview" {
             guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
             activityOverviewViewController.activity = selectedActivity
-        }
-        
-        if segue.identifier == "goToFullscreen" {
+        } else if segue.identifier == "goToFullscreen" {
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
             fullscreenImageViewController.imageData = selectedImage
         }
