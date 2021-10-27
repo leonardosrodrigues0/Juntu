@@ -26,13 +26,13 @@ class History: UIView {
     }
     
     /// Reload cards in view with items array
-    func reloadCards(delegate: CardNavigationDelegate) {
+    func reloadCards(delegate: ActivityNavigationDelegate) {
         let cards = items.map { createCard($0, delegate: delegate) } // create all cards for each activity
         stack.populateWithCards(cards) // append all cards into the horizontal stack of first section
     }
     
     /// Instantiate the Card Views with data from activity
-    private func createCard(_ activity: Activity, delegate: CardNavigationDelegate) -> Card {
+    private func createCard(_ activity: Activity, delegate: ActivityNavigationDelegate) -> Card {
         let card = Card()
         card.activity = activity
         card.delegate = delegate
