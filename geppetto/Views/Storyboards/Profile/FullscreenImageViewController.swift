@@ -20,7 +20,6 @@ class FullscreenImageViewController: UIViewController {
         }
     }
     
-
     /*
     // MARK: - Navigation
 
