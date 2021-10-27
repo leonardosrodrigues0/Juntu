@@ -25,21 +25,29 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     let placeholderProfilePicture = UIImage(named: "placeholderProfilePicture")!
     
     // MARK: - Startup
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.editProfileButtonPressed(_:)))
-        
-        navigationItem.rightBarButtonItems = [editProfileButton!]
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profilePictureClicked(gesture:)))
-        profileImageView.addGestureRecognizer(tapGesture)
-        profileImageView.isUserInteractionEnabled = true
+        setupProfileEditing()
+        enableProfilePictureInteraction()
         
         viewOrganizer(profileSegmentedControl.selectedSegmentIndex)
         
         momentsView.delegate = self
+        
         updateViews()
+    }
+    
+    fileprivate func enableProfilePictureInteraction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profilePictureClicked(gesture:)))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
+    }
+    
+    fileprivate func setupProfileEditing() {
+        editProfileButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.editProfileButtonPressed(_:)))
+        navigationItem.rightBarButtonItems = [editProfileButton!]
     }
     
     // MARK: - Segmented Control
