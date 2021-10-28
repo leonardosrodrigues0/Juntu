@@ -1,5 +1,5 @@
 //
-//  Favorites.swift
+//  SavedActivities.swift
 //  geppetto
 //
 //  Created by Eduardo Dini on 05/10/21.
@@ -9,7 +9,7 @@ import UIKit
 
 class SavedActivities: UIView {
 
-    @IBOutlet var favoritesView: UIView!
+    @IBOutlet var SavedView: UIView!
     @IBOutlet weak var stack: UIStackView!
     var items: [Activity] = []
     
@@ -19,10 +19,10 @@ class SavedActivities: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("Favorites", owner: self, options: nil)
-        addSubview(favoritesView)
-        favoritesView.frame = self.bounds
-        favoritesView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        Bundle.main.loadNibNamed("SavedActivities", owner: self, options: nil)
+        addSubview(SavedView)
+        SavedView.frame = self.bounds
+        SavedView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     /// Reload cards in view with items array
