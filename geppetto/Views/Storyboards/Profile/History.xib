@@ -20,13 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="rVO-IS-wVU">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-IS-wVU">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="wso-t1-VQW"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rVO-IS-wVU" secondAttribute="bottom" id="GdZ-Ll-5Tk"/>
+                <constraint firstItem="rVO-IS-wVU" firstAttribute="leading" secondItem="BmY-49-Y95" secondAttribute="leading" id="SOS-Xx-G03"/>
+                <constraint firstAttribute="top" secondItem="rVO-IS-wVU" secondAttribute="top" id="h1O-zv-oSa"/>
+                <constraint firstAttribute="trailing" secondItem="rVO-IS-wVU" secondAttribute="trailing" id="srf-Xc-60K"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="67.633928571428569"/>
         </view>
