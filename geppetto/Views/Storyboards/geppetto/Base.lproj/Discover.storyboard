@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-Hq-0WY">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-Hq-0WY">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yx-fCS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="305"/>
@@ -86,9 +86,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RN1-Hq-0WY" firstAttribute="leading" secondItem="UkU-iZ-HdV" secondAttribute="leading" id="411-Xw-9Pa"/>
-                            <constraint firstAttribute="bottom" secondItem="RN1-Hq-0WY" secondAttribute="bottom" id="DDe-Ny-tqu"/>
+                            <constraint firstItem="UkU-iZ-HdV" firstAttribute="bottom" secondItem="RN1-Hq-0WY" secondAttribute="bottom" id="DDe-Ny-tqu"/>
                             <constraint firstItem="RN1-Hq-0WY" firstAttribute="trailing" secondItem="UkU-iZ-HdV" secondAttribute="trailing" id="Hq3-Fq-gNR"/>
-                            <constraint firstItem="RN1-Hq-0WY" firstAttribute="top" secondItem="BzV-zO-Che" secondAttribute="top" id="fhH-Xy-KWQ"/>
+                            <constraint firstItem="RN1-Hq-0WY" firstAttribute="top" secondItem="UkU-iZ-HdV" secondAttribute="top" id="fhH-Xy-KWQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Descubra" largeTitleDisplayMode="always" id="Afs-wN-mj1"/>
