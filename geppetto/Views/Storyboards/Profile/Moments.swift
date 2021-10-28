@@ -68,11 +68,12 @@ class Moments: UIView {
             imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
             
             for imagePath in imagePaths {
-                
-                if let imageData = fm.contents(atPath: imagePath.path) {
-                    images.append(imageData)
-                } else {
-                    print("Error finding path content.")
+                if imagePath.path.hasSuffix("png") {
+                    if let imageData = fm.contents(atPath: imagePath.path) {
+                        images.append(imageData)
+                    } else {
+                        print("Error finding path content.")
+                    }
                 }
             }
             
