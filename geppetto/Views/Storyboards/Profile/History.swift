@@ -11,9 +11,9 @@ class History: UIView {
     
     @IBOutlet var historyView: UIView!
     @IBOutlet weak var tableViewHistory: UITableView!
-    var activityList: [Activity] = []
     private let cellIdentifier = "ActivityCardTableViewCell"
-    var activityNavigationDelegate : ActivityNavigationDelegate?
+    var activityList: [Activity] = []
+    weak var activityNavigationDelegate: ActivityNavigationDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,9 +69,8 @@ extension History: UITableViewDataSource {
 
 extension History: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let activity = activityList.get(at: indexPath.row){
+        if let activity = activityList.get(at: indexPath.row) {
             self.activityNavigationDelegate?.navigate(to: activity)
         }
     }
 }
-
