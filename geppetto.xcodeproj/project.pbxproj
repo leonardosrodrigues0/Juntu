@@ -14,7 +14,7 @@
 		31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA3379270C7B7C0055E2B6 /* Moments.xib */; };
 		31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA337B270C7CC70055E2B6 /* Moments.swift */; };
 		31DA337E270C8E0C0055E2B6 /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337D270C8E0C0055E2B6 /* History.xib */; };
-		31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* Favorites.xib */; };
+		31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* SavedActivities.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
@@ -80,7 +80,7 @@
 		31DA3379270C7B7C0055E2B6 /* Moments.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Moments.xib; sourceTree = "<group>"; };
 		31DA337B270C7CC70055E2B6 /* Moments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
 		31DA337D270C8E0C0055E2B6 /* History.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = History.xib; sourceTree = "<group>"; };
-		31DA337F270C8E190055E2B6 /* Favorites.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Favorites.xib; sourceTree = "<group>"; };
+		31DA337F270C8E190055E2B6 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				31DA3379270C7B7C0055E2B6 /* Moments.xib */,
 				31DA337B270C7CC70055E2B6 /* Moments.swift */,
 				31DA337D270C8E0C0055E2B6 /* History.xib */,
-				31DA337F270C8E190055E2B6 /* Favorites.xib */,
+				31DA337F270C8E190055E2B6 /* SavedActivities.xib */,
 				31DA3384270C8F6C0055E2B6 /* History.swift */,
 				31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */,
 				313D306F270DC344000871C0 /* MomentsCell.swift */,
@@ -408,7 +408,7 @@
 				3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */,
 				A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */,
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
-				31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */,
+				31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */,
 				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */,
 				A72E1CAE2722FC5400404FC3 /* Tag.storyboard in Resources */,
