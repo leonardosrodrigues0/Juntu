@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-y2-Oxf">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-y2-Oxf">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="VCW-yd-YD5">
                         <size key="itemSize" width="50" height="50"/>
