@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-db-Zcj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-aB-Uiy">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,28 +24,61 @@
                                     <navigationItem id="Oat-dF-0Mf"/>
                                 </items>
                             </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63E-GD-ZbL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <connections>
+                                    <segue destination="och-95-0cP" kind="embed" identifier="childView" id="jsD-9i-vRh"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HaA-aB-Uiy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IOP-jh-J4z"/>
-                            <constraint firstItem="Pbd-db-Zcj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Kvh-8h-lOE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pbd-db-Zcj" secondAttribute="trailing" id="WAV-kY-RXf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="63E-GD-ZbL" secondAttribute="bottom" id="Jz7-aK-1VP"/>
+                            <constraint firstItem="63E-GD-ZbL" firstAttribute="top" secondItem="HaA-aB-Uiy" secondAttribute="bottom" id="SrE-1g-ZCQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="63E-GD-ZbL" secondAttribute="trailing" id="T3u-KF-6kb"/>
                             <constraint firstItem="HaA-aB-Uiy" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hGv-cZ-xab"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pbd-db-Zcj" secondAttribute="bottom" id="rdx-05-OS7"/>
-                            <constraint firstItem="Pbd-db-Zcj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="s7V-RP-H4s"/>
+                            <constraint firstItem="63E-GD-ZbL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qcH-AO-uva"/>
                             <constraint firstItem="HaA-aB-Uiy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="z1E-O6-LqZ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="image" destination="Pbd-db-Zcj" id="SDD-eq-caZ"/>
                         <outlet property="navBar" destination="HaA-aB-Uiy" id="PBk-m3-wuj"/>
                         <outlet property="navItem" destination="Oat-dF-0Mf" id="AmA-Eq-6jZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-16" y="98"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="97.767857142857139"/>
+        </scene>
+        <!--Image Content View Controller-->
+        <scene sceneID="ipy-fH-Wd7">
+            <objects>
+                <viewController id="och-95-0cP" customClass="ImageContentViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IbZ-sa-Git">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-db-Zcj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pbd-db-Zcj" firstAttribute="leading" secondItem="IbZ-sa-Git" secondAttribute="leading" id="0rW-X2-y3d"/>
+                            <constraint firstAttribute="bottom" secondItem="Pbd-db-Zcj" secondAttribute="bottom" id="76t-vM-dPE"/>
+                            <constraint firstAttribute="trailing" secondItem="Pbd-db-Zcj" secondAttribute="trailing" id="BOd-Ve-6iD"/>
+                            <constraint firstItem="Pbd-db-Zcj" firstAttribute="top" secondItem="IbZ-sa-Git" secondAttribute="top" id="fQI-DE-eJ6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="momentImage" destination="Pbd-db-Zcj" id="9nu-mE-wAb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQ2-NA-074" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="-171"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,6 @@ import UIKit
 
 class FullscreenImageViewController: UIViewController {
 
-    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
     var imageData: Data?
@@ -17,20 +16,12 @@ class FullscreenImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadImage()
         setNavigationBarButtons()
         configViewControllerStyle()
     }
     
     // MARK: - Private functions
-    
-    /// Displays the image selected at Moments into UIImageView
-    private func loadImage() {
-        if let data = imageData {
-            image.image = UIImage(data: data)
-        }
-    }
-    
+
     private func configViewControllerStyle() {
         // force dark mode
         overrideUserInterfaceStyle = .dark
@@ -57,7 +48,7 @@ class FullscreenImageViewController: UIViewController {
     }
     
     private func createActionSheet() -> UIAlertController {
-        //create alert
+        // create alert
         let alert = UIAlertController(
             title: nil,
             message: nil,
@@ -105,4 +96,16 @@ class FullscreenImageViewController: UIViewController {
         let actionSheet = createActionSheet()
         present(actionSheet, animated: true)
     }
+
+    // MARK: - Child View Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "childView" {
+            guard let imageContentViewController = segue.destination as? ImageContentViewController else { return }
+            imageContentViewController.imageData = imageData
+        }
+        
+    }
 }
+
+    
