@@ -28,10 +28,10 @@ public struct ActivityStep: Codable {
             return nil
         }
         
-        var path = ActivityConstructor.ActivitiesDirectory
+        var path = ActivityConstructor.activitiesStorageDirectory
         path += "/\(directory)/"
         path += String(format: "%02d", index)
-        path += ActivityConstructor.ImagesExtension
+        path += ActivityConstructor.imagesExtension
         return Storage.storage().reference().child(path)
     }
 }

@@ -14,10 +14,10 @@ protocol Searchable {
     var name: String { get }
     
     // MARK: - Methods
-    /// Description to be shown at seatch
+    /// Description to be shown at search.
     func getDescription() -> String
     
-    /// Must return wheter the object should be a result for a given search
+    /// Must return whether the object should be a result for a given search.
     /// - Parameter searchString: current search bar text
     func isResultWithSearchString(_ searchString: String) -> Bool
 }

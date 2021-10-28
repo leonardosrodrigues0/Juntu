@@ -7,10 +7,12 @@
 
 import Foundation
 import FirebaseStorage
+import Promises
 
 public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
+    let id: String
     let directory: String
     let name: String
     let introduction: String
@@ -19,29 +21,12 @@ public struct Activity: Searchable, Codable {
     let difficulty: String
     let time: String
     let materials: [String]
-    
-    // Steps are created when decoding database information.
-    // At first call, they're updated with the activity directory and index.
-    private var steps: [ActivityStep]
-    private var didUpdateSteps: Bool?
+    let tags: [String]?
+    private(set) var steps: [ActivityStep]
     
     // MARK: - Methods
-    /// Update steps if needed and return them.
     mutating func getSteps() -> [ActivityStep] {
-        if let update = didUpdateSteps, update {
-            return steps
-        } else {
-            updateSteps()
-            didUpdateSteps = true
-            return steps
-        }
-    }
-    
-    /// Add activity directory and index to steps.
-    mutating private func updateSteps() {
-        for index in 0 ..< steps.count {
-            steps[index].updateStep(directory: directory, index: index + 1)
-        }
+        return steps
     }
     
     func getDescription() -> String {
@@ -57,11 +42,40 @@ public struct Activity: Searchable, Codable {
     }
     
     func getImageDatabaseRef() -> StorageReference {
-        var path = ActivityConstructor.ActivitiesDirectory
+        var path = ActivityConstructor.activitiesStorageDirectory
         path += "/\(directory)/"
-        path += ActivityConstructor.ActivityImageName
-        path += ActivityConstructor.ImagesExtension
+        path += ActivityConstructor.activityImageName
+        path += ActivityConstructor.imagesExtension
         return Storage.storage().reference().child(path)
     }
     
+    /// Add activity directory and index to steps. Used at initialization.
+    mutating private func updateSteps() {
+        for index in 0 ..< steps.count {
+            steps[index].updateStep(directory: directory, index: index + 1)
+        }
+    }
+    
+    // MARK: - Decodable
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        // Decode basic properties:
+        id = try values.decode(String.self, forKey: .id)
+        directory = try values.decode(String.self, forKey: .directory)
+        name = try values.decode(String.self, forKey: .name)
+        introduction = try values.decode(String.self, forKey: .introduction)
+        caution = try? values.decode(String.self, forKey: .caution)
+        age = try values.decode(String.self, forKey: .age)
+        difficulty = try values.decode(String.self, forKey: .difficulty)
+        time = try values.decode(String.self, forKey: .time)
+        materials = try values.decode([String].self, forKey: .materials)
+
+        // Decode tags:
+        tags = try? values.decode([String].self, forKey: .tags)
+
+        // Decode and update steps:
+        steps = try values.decode([ActivityStep].self, forKey: .steps)
+        updateSteps()
+    }
 }

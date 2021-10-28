@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class DiscoverViewController: UIViewController, CardNavigationDelegate {
+class DiscoverViewController: UIViewController, ActivityNavigationDelegate {
     
     // MARK: - Properties
     var items: [Activity] = []
@@ -20,10 +20,10 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     /// Get information from database and reload the cards
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let helper = AnalyticsHelper()
-        let constructor = ActivityConstructor.getInstance()
-
-        constructor.getActivities { activities in
+        let database = ActivityConstructor.shared
+        database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.reloadCards()
             helper.logAppOpen()
@@ -49,8 +49,8 @@ class DiscoverViewController: UIViewController, CardNavigationDelegate {
     }
     
     /// Navigate to ActivityOverview
-    func navigate(from card: Card) {
-        selectedActivity = card.activity
+    func navigate(to activity: Activity) {
+        selectedActivity = activity
         performSegue(withIdentifier: "goToOverview", sender: self)
     }
     

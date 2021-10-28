@@ -30,11 +30,15 @@ public class AnalyticsHelper {
         ])
     }
     
-    public func logViewedActivity(activity: Activity) {
+    public func logViewedActivity(_ activity: Activity) {
         Analytics.logEvent("activity_viewed", parameters: [
             "load_time": endTimer(),
             "activity": activity.name
         ])
+    }
+    
+    public func logSavedActivity(_ activity: Activity) {
+        Analytics.logEvent("activity_saved", parameters: ["activity": activity.name])
     }
     
     public func logViewedFinalStep(activity: Activity) {

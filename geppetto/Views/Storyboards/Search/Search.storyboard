@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8W-tF-0ZK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Buscar-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="SearchViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-gv-qwT">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="cce-SV-bzZ">
+                                    <size key="itemSize" width="170" height="119"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="wen-af-Bdc"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="1Ze-KD-TYj"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SMh-gv-qwT" secondAttribute="bottom" id="fsr-pX-umu"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="h5A-87-soy"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="r6A-Nf-3am"/>
+                            <constraint firstItem="SMh-gv-qwT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="s9L-Oj-CO1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Buscar" largeTitleDisplayMode="always" id="olm-6w-sbu"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="SMh-gv-qwT" id="LEH-Yc-CPm"/>
+                        <segue destination="7Wn-5S-jTw" kind="show" identifier="goToTag" id="Rrd-RJ-Mhw"/>
+                        <segue destination="boe-NY-vyG" kind="show" identifier="goToActivityOverview" id="vZ2-7a-nlW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+        <!--Tag-->
+        <scene sceneID="gvI-TJ-TrJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tag" id="7Wn-5S-jTw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="plf-8p-Tn1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDj-Fo-Iof" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="66"/>
+        </scene>
+        <!--ActivityOverview-->
+        <scene sceneID="9Pu-9m-N2c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityOverview" id="boe-NY-vyG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iNx-nh-V4p"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WH1-rH-P5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="175"/>
+        </scene>
+        <!--Buscar-->
+        <scene sceneID="Tem-D9-ykC">
+            <objects>
+                <navigationController id="n8W-tF-0ZK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="ed2-R3-AaO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="kPD-3f-GzX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="2ob-go-0t9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOE-eP-hyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

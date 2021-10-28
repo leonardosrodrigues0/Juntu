@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedActivities" customModule="geppetto" customModuleProvider="target">
+            <connections>
+                <outlet property="SavedView" destination="iN0-l3-epB" id="DTe-vQ-vBC"/>
+                <outlet property="stack" destination="Uot-KP-Ohk" id="yNp-hN-oFz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-5Z-FOL">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Uot-KP-Ohk">
+                            <rect key="frame" x="16" y="16" width="382" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP2-et-r0S">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="MFn-u3-AvI"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Uot-KP-Ohk" firstAttribute="top" secondItem="kzC-Zm-02H" secondAttribute="top" constant="16" id="1vL-pN-uIL"/>
+                        <constraint firstItem="Uot-KP-Ohk" firstAttribute="width" secondItem="F95-zj-LeE" secondAttribute="width" constant="-32" id="Z2R-3S-LAQ"/>
+                        <constraint firstItem="Uot-KP-Ohk" firstAttribute="trailing" secondItem="kzC-Zm-02H" secondAttribute="trailing" constant="-16" id="Zj7-EE-erP"/>
+                        <constraint firstItem="Uot-KP-Ohk" firstAttribute="leading" secondItem="kzC-Zm-02H" secondAttribute="leading" constant="16" id="aox-F1-DWL"/>
+                        <constraint firstItem="Uot-KP-Ohk" firstAttribute="bottom" secondItem="kzC-Zm-02H" secondAttribute="bottom" constant="-16" id="eQ7-eV-dY7"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="kzC-Zm-02H"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="F95-zj-LeE"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="UX7-5Z-FOL" secondAttribute="top" id="2bN-BJ-SN4"/>
+                <constraint firstItem="UX7-5Z-FOL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4Q1-dT-tia"/>
+                <constraint firstAttribute="bottom" secondItem="UX7-5Z-FOL" secondAttribute="bottom" id="Xgu-fg-Gye"/>
+                <constraint firstAttribute="trailing" secondItem="UX7-5Z-FOL" secondAttribute="trailing" id="w3I-Uu-gQY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="67.633928571428569"/>
+        </view>
+    </objects>
+</document>
