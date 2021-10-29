@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FullscreenImageNavigationDelegate: AnyObject {
-    func navigate(image: Data)
+    func navigate(selectedImageIndex: Int)
 }
 
 class Moments: UIView {
@@ -101,8 +101,7 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let imageData = images[indexPath.row]
-        delegate?.navigate(image: imageData)
+        delegate?.navigate(selectedImageIndex: indexPath.row)
         
     }
 }

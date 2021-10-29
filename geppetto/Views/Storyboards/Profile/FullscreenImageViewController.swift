@@ -11,7 +11,9 @@ class FullscreenImageViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
-    var imageData: Data?
+        
+    var images: [Data] = [Data]()
+    var currentImageIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,11 +103,58 @@ class FullscreenImageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "childView" {
-            guard let imageContentViewController = segue.destination as? ImageContentViewController else { return }
-            imageContentViewController.imageData = imageData
+            guard let pageMomentsViewController = segue.destination as? PageMomentsViewController else { return }
+            
+            pageMomentsViewController.delegate = self
+            pageMomentsViewController.dataSource = self
+            
+            // instantiate moment image content view controller
+            if let initialMomentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController {
+                
+                // define selected image to be presented
+                initialMomentImageContentVC.imageData = images[currentImageIndex]
+                // put created VC in pageVC
+                pageMomentsViewController.setViewControllers([initialMomentImageContentVC], direction: .forward, animated: true, completion: nil)
+                
+            }
         }
         
     }
 }
 
+// MARK: - Page Controller methods
+extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    /// Present a new page with previous image when swipe to right
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        if currentImageIndex == 0 {
+            return nil
+        }
+        currentImageIndex -= 1
+        
+        guard let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController else {
+            return nil
+        }
+        
+        momentImageContentVC.imageData = images[currentImageIndex]
+        
+        return momentImageContentVC
+    }
     
+    /// Present a new page with next image when swipe to left
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        if currentImageIndex >= images.count - 1 {
+            return nil
+        }
+        currentImageIndex += 1
+        
+        guard let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController else {
+            return nil
+        }
+        
+        momentImageContentVC.imageData = images[currentImageIndex]
+        
+        return momentImageContentVC
+    }
+}

@@ -17,11 +17,11 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     @IBOutlet var historyView: History!
     
     var selectedActivity: Activity?
-    var selectedImage: Data?
+    var selectedImageIndex: Int = 0
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     let name: String = "Celso Pereira"
-    let images = [UIImage]()
+    // let images = [UIImage]() // NAO PRECISA
     let image = UIImage(named: "momentsImage00")!
     
     // MARK: - Methods
@@ -85,8 +85,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
     
     // MARK: - FullscreenImageNavigationDelegate Methods
     /// Navigate to FullscreenImage
-    func navigate(image: Data) {
-        selectedImage = image
+    func navigate(selectedImageIndex: Int) {
+        self.selectedImageIndex = selectedImageIndex
         performSegue(withIdentifier: "goToFullscreen", sender: self)
     }
     
@@ -98,7 +98,8 @@ class ProfileViewController: UIViewController, CardNavigationDelegate, Fullscree
             activityOverviewViewController.activity = selectedActivity
         } else if segue.identifier == "goToFullscreen" {
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
-            fullscreenImageViewController.imageData = selectedImage
+            fullscreenImageViewController.images = momentsView.images
+            fullscreenImageViewController.currentImageIndex = selectedImageIndex
         }
     }
 }

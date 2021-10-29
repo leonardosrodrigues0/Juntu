@@ -17,7 +17,8 @@
 		31DA3380270C8E190055E2B6 /* Favorites.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* Favorites.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
-		3F24C10D272AD17700D17590 /* ImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24C10C272AD17700D17590 /* ImageContentViewController.swift */; };
+		3F24C111272AFFC000D17590 /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24C110272AFFC000D17590 /* MomentImageContentViewController.swift */; };
+		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
 		3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
@@ -78,7 +79,8 @@
 		31DA337F270C8E190055E2B6 /* Favorites.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Favorites.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
-		3F24C10C272AD17700D17590 /* ImageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContentViewController.swift; sourceTree = "<group>"; };
+		3F24C110272AFFC000D17590 /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
+		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
 		3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
@@ -155,7 +157,8 @@
 				313D3070270DC344000871C0 /* MomentsCell.xib */,
 				3FD547062722F77C00363C65 /* FullscreenImage.storyboard */,
 				3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */,
-				3F24C10C272AD17700D17590 /* ImageContentViewController.swift */,
+				3F24C110272AFFC000D17590 /* MomentImageContentViewController.swift */,
+				3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				313D3071270DC344000871C0 /* MomentsCell.swift in Sources */,
 				A72E1CB02722FDD900404FC3 /* TagViewController.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
+				3F24C111272AFFC000D17590 /* MomentImageContentViewController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
 				A749F79D2710ACB300FB364E /* SearchResultsViewController.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */,
@@ -501,11 +505,11 @@
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				A748E01C27204C6700DFB868 /* Collection.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
-				3F24C10D272AD17700D17590 /* ImageContentViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
 				D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */,
 				31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
+				3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */,
 				31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */,
