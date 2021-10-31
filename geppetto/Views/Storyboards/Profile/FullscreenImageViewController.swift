@@ -17,8 +17,8 @@ class FullscreenImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setNavigationBarButtons()
+
+        configNavigationBar()
         configViewControllerStyle()
     }
     
@@ -32,7 +32,7 @@ class FullscreenImageViewController: UIViewController {
         navBar.setBackgroundImage(UIImage(), for: .default)
     }
     
-    private func setNavigationBarButtons() {
+    private func configNavigationBar() {
         // define close button in navbar
         navItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .close,
@@ -47,6 +47,8 @@ class FullscreenImageViewController: UIViewController {
             target: self,
             action: #selector(didTapMoreButton(sender:))
         )
+        
+        updateNavbarTitle()
     }
     
     private func createActionSheet() -> UIAlertController {
@@ -86,7 +88,12 @@ class FullscreenImageViewController: UIViewController {
         return alert
     }
     
-    // MARK: - Actions
+    /// Set title of View according to current image index
+    private func updateNavbarTitle() {
+        navItem.title = "\(currentImageIndex + 1) de \(images.count)"
+    }
+    
+    // MARK: - NavBar Buttons Actions
     
     /// Dismiss this ViewController. Triggered when close button is tapped
     @objc private func didTapCloseButton(sender: UIBarButtonItem) {
@@ -112,7 +119,7 @@ class FullscreenImageViewController: UIViewController {
             if let initialMomentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController {
                 
                 // define selected image to be presented
-                initialMomentImageContentVC.imageData = images[currentImageIndex]
+                initialMomentImageContentVC.setup(imageData: images[currentImageIndex], index: currentImageIndex)
                 // put created VC in pageVC
                 pageMomentsViewController.setViewControllers([initialMomentImageContentVC], direction: .forward, animated: true, completion: nil)
                 
@@ -122,39 +129,55 @@ class FullscreenImageViewController: UIViewController {
     }
 }
 
-// MARK: - Page Controller methods
+// MARK: - Page Controller Delegate methods
+
+// https://stackoverflow.com/questions/42031777/call-both-of-after-and-before-method-in-uipageviewcontroller-when-swim-for-forwa
+
 extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    /// Present a new page with previous image when swipe to right
+    /// Pre-load previous page
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        if currentImageIndex == 0 {
+        guard
+            let currentVC = viewController as? MomentImageContentViewController,
+            let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController,
+            currentVC.getIndex() != 0
+        else {
             return nil
         }
-        currentImageIndex -= 1
         
-        guard let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController else {
-            return nil
-        }
-        
-        momentImageContentVC.imageData = images[currentImageIndex]
+        let newIndex = currentVC.getIndex() - 1
+        momentImageContentVC.setup(imageData: images[newIndex], index: newIndex)
         
         return momentImageContentVC
     }
     
-    /// Present a new page with next image when swipe to left
+    /// Pre-load next page
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        if currentImageIndex >= images.count - 1 {
+        guard
+            let currentVC = viewController as? MomentImageContentViewController,
+            let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController,
+            currentVC.getIndex() < images.count - 1
+        else {
             return nil
         }
-        currentImageIndex += 1
-        
-        guard let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController else {
-            return nil
-        }
-        
-        momentImageContentVC.imageData = images[currentImageIndex]
+
+        let newIndex = currentVC.getIndex() + 1
+        momentImageContentVC.setup(imageData: images[newIndex], index: newIndex)
         
         return momentImageContentVC
+    }
+    
+    /// Sync `currentImageIndex` to the actual index. Used to update title in navbar
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        guard
+            completed,
+            let currentVC = pageViewController.viewControllers?.first as? MomentImageContentViewController
+        else {
+            return
+        }
+        
+        self.currentImageIndex = currentVC.getIndex()
+        updateNavbarTitle()
     }
 }
