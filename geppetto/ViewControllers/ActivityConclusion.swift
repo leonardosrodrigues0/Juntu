@@ -40,7 +40,7 @@ class ActivityConclusion: UIViewController {
     }
     
     @IBAction private func concludeButtonTapped() {
-        UserTracker.shared.logSeenActivity(self.activity!)
+        UserTracker.shared.logCompletedActivity(self.activity!)
     }
     
     @IBAction func starTapped(_ sender: Any) {
