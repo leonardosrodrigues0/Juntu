@@ -244,6 +244,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="image" destination="kKc-ts-Pgh" id="qOe-d6-0CK"/>
                         <outlet property="rating" destination="hGY-JN-TP3" id="zbk-Dm-FmS"/>
                         <outlet property="ratingLabel" destination="Ayp-KW-cEu" id="fn7-Lc-Kk7"/>
                     </connections>

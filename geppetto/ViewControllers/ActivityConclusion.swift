@@ -11,6 +11,7 @@ import UIKit
 class ActivityConclusion: UIViewController {
     @IBOutlet weak var rating: UIStackView!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     var activity: Activity?
     var stars: [UIButton] = []
@@ -24,9 +25,18 @@ class ActivityConclusion: UIViewController {
                 stars.append(safeSubview)
             }
         }
-        
+        setupImageView()
         updateStarImages(clicked: -1)
         updateRatingLabel(clicked: -1)
+    }
+    
+    /// setup to use activity last step's image`
+    private func setupImageView() {
+        let lastStep = activity?.getSteps().last
+        
+        if let conclusionImage = lastStep?.getImageDatabaseRef() {
+            image.sd_setImage(with: conclusionImage)
+        }
     }
     
     @IBAction private func concludeButtonTapped() {
