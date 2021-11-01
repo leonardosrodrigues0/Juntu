@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yeL-6e-flk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="578.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="575.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-ts-Pgh">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
@@ -29,63 +29,143 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4wZ-fy-owM">
-                                        <rect key="frame" x="16" y="272" width="382" height="306.5"/>
+                                        <rect key="frame" x="16" y="272" width="382" height="303.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QBB-M1-1b6">
-                                                <rect key="frame" x="31.5" y="0.0" width="319.5" height="154.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QBB-M1-1b6" userLabel="Rating">
+                                                <rect key="frame" x="16" y="0.0" width="350" height="155.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como foi a atividade?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDO-5R-e1e">
-                                                        <rect key="frame" x="44" y="0.0" width="231.5" height="30"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua avaliação é muito importante para trazermos atividades mais interessantes para você" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-wq-DXT">
-                                                        <rect key="frame" x="0.0" y="46" width="319.5" height="36"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hGY-JN-TP3">
-                                                        <rect key="frame" x="64" y="98" width="191" height="20"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vYy-ZG-QK8" userLabel="Text">
+                                                        <rect key="frame" x="25" y="0.0" width="300" height="76"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cso-pI-Qnh" userLabel="Star">
-                                                                <rect key="frame" x="0.0" y="-3.5" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Sk-3G-eMu" userLabel="Star">
-                                                                <rect key="frame" x="41" y="-3.5" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D9t-GT-jzY" userLabel="Star">
-                                                                <rect key="frame" x="82" y="-3.5" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3lN-ic-x1n" userLabel="Star">
-                                                                <rect key="frame" x="123" y="-3.5" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemGray2Color"/>
-                                                                <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0t3-xa-xZ3" userLabel="Star">
-                                                                <rect key="frame" x="164" y="-3.5" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemGray2Color"/>
-                                                                <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
-                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como foi a atividade?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDO-5R-e1e">
+                                                                <rect key="frame" x="34.5" y="0.0" width="231.5" height="30"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua avaliação é muito importante para trazermos atividades mais interessantes para você" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-wq-DXT">
+                                                                <rect key="frame" x="0.0" y="42" width="300" height="34"/>
+                                                                <gestureRecognizers/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-KW-cEu">
-                                                        <rect key="frame" x="139" y="134" width="41" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cbh-cY-5Eu" userLabel="Rating">
+                                                        <rect key="frame" x="89" y="96" width="172.5" height="59.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="hGY-JN-TP3" userLabel="Stars">
+                                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="31"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bz-4k-e8z" userLabel="Star1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="31"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                                            <attributedString key="attributedTitle">
+                                                                                <fragment content=" ">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <font key="NSFont" metaFont="smallSystem"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="starTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pyC-uk-pER"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAK-K0-7kv" userLabel="Star2">
+                                                                        <rect key="frame" x="30.5" y="0.0" width="50.5" height="31"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                                            <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                                                                            <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="starTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jJS-ul-xoV"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-1q-SlN" userLabel="Star3">
+                                                                        <rect key="frame" x="61" y="0.0" width="50.5" height="31"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                                            <attributedString key="attributedTitle">
+                                                                                <fragment content=" ">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <font key="NSFont" metaFont="smallSystem"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="starTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k2v-pV-d1B"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbH-TN-ba3" userLabel="Star4">
+                                                                        <rect key="frame" x="91.5" y="0.0" width="50.5" height="31"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                                            <attributedString key="attributedTitle">
+                                                                                <fragment content=" ">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <font key="NSFont" metaFont="smallSystem"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="starTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4E6-D9-oSq"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NR-SC-XjK" userLabel="Star5">
+                                                                        <rect key="frame" x="122" y="0.0" width="50.5" height="31"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                                            <attributedString key="attributedTitle">
+                                                                                <fragment content=" ">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <font key="NSFont" metaFont="smallSystem"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="starTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8J0-KQ-tG7"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <gestureRecognizers/>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-KW-cEu">
+                                                                <rect key="frame" x="65.5" y="39" width="41" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-qb-PRJ">
-                                                <rect key="frame" x="0.0" y="204.5" width="382" height="102"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-qb-PRJ" userLabel="Buttons">
+                                                <rect key="frame" x="0.0" y="205.5" width="382" height="98"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-6R-B5Z" customClass="DesignableButton" customModule="geppetto" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="43"/>
@@ -108,9 +188,12 @@
                                                                 <real key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cameraButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KwB-a6-p3A"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7X-kT-8a2" customClass="DesignableButton" customModule="geppetto" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="59" width="382" height="43"/>
+                                                        <rect key="frame" x="0.0" y="55" width="382" height="43"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="43" id="GDg-4n-Xs6"/>
                                                         </constraints>
@@ -123,6 +206,9 @@
                                                                 <real key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="concludeButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FW1-Wq-Bap"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -133,9 +219,12 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="QBB-M1-1b6" secondAttribute="trailing" constant="16" id="2TT-Ab-h5W"/>
                                             <constraint firstAttribute="trailing" secondItem="1oY-qb-PRJ" secondAttribute="trailing" id="9qc-lk-SDh"/>
                                             <constraint firstItem="1oY-qb-PRJ" firstAttribute="leading" secondItem="4wZ-fy-owM" secondAttribute="leading" id="MbJ-Kq-x9T"/>
+                                            <constraint firstItem="QBB-M1-1b6" firstAttribute="leading" secondItem="4wZ-fy-owM" secondAttribute="leading" constant="16" id="upQ-rf-dsE"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -154,10 +243,14 @@
                             <constraint firstItem="yeL-6e-flk" firstAttribute="top" secondItem="mnL-Hj-4N1" secondAttribute="top" id="hva-CX-AuR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="rating" destination="hGY-JN-TP3" id="zbk-Dm-FmS"/>
+                        <outlet property="ratingLabel" destination="Ayp-KW-cEu" id="fn7-Lc-Kk7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="78"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="77.678571428571431"/>
         </scene>
     </scenes>
     <designables>
@@ -171,7 +264,6 @@
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -181,11 +273,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

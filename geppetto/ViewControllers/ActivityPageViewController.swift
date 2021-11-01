@@ -49,6 +49,7 @@ class ActivityPageViewController: UIPageViewController {
         guard let activityConclusionVC = UIStoryboard(name: "ActivityConclusion", bundle: .main).instantiateViewController(withIdentifier: "conclusion") as? ActivityConclusion else {
             return
         }
+        activityConclusionVC.activity = activity
         pages.append(activityConclusionVC)
     }
     private func getActivitySteps() -> [ActivityStep] {
