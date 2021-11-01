@@ -45,6 +45,11 @@ class ActivityPageViewController: UIPageViewController {
             activityStepVC.step = allSteps[i]
             pages.append(activityStepVC)
         }
+        /// Adds conclusion screen
+        guard let activityConclusionVC = UIStoryboard(name: "ActivityConclusion", bundle: .main).instantiateViewController(withIdentifier: "conclusion") as? ActivityConclusion else {
+            return
+        }
+        pages.append(activityConclusionVC)
     }
     private func getActivitySteps() -> [ActivityStep] {
         return self.activity?.getSteps() ?? []

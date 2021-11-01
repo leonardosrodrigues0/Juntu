@@ -55,6 +55,8 @@
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
 		A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */; };
 		CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */; };
+		CD33CAFB27301972006B699F /* ActivityConclusion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33CAFA27301972006B699F /* ActivityConclusion.storyboard */; };
+		CD33CAFD273019B3006B699F /* ActivityConclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33CAFC273019B3006B699F /* ActivityConclusion.swift */; };
 		CDB896A8272B52E70042B322 /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB896A7272B52E70042B322 /* MaterialTableViewCell.swift */; };
 		CDB896AE272B53580042B322 /* MaterialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB896AD272B53580042B322 /* MaterialTableViewCell.xib */; };
 		CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD75A5C270DDE2800512B39 /* Colors.swift */; };
@@ -129,6 +131,8 @@
 		A7E65C3B26860E1700570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7E65C3D26860E1700570FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUILabel.swift; sourceTree = "<group>"; };
+		CD33CAFA27301972006B699F /* ActivityConclusion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityConclusion.storyboard; sourceTree = "<group>"; };
+		CD33CAFC273019B3006B699F /* ActivityConclusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityConclusion.swift; sourceTree = "<group>"; };
 		CDB896A7272B52E70042B322 /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		CDB896AD272B53580042B322 /* MaterialTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaterialTableViewCell.xib; sourceTree = "<group>"; };
 		CDD75A5C270DDE2800512B39 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
 				A7BD697E268B5A010005331F /* ProfileViewController.swift */,
 				A72E1CAF2722FDD900404FC3 /* TagViewController.swift */,
+				CD33CAFC273019B3006B699F /* ActivityConclusion.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				A7DF158E268E0AE30004C616 /* ActivityStep.storyboard */,
 				A729CA85269477840000E9D3 /* ActivityOverview.storyboard */,
 				A72E1CAD2722FC5400404FC3 /* Tag.storyboard */,
+				CD33CAFA27301972006B699F /* ActivityConclusion.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				CDB896AE272B53580042B322 /* MaterialTableViewCell.xib in Resources */,
 				A722F0C12727318300F92E53 /* ActivityCardCell.xib in Resources */,
 				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
+				CD33CAFB27301972006B699F /* ActivityConclusion.storyboard in Resources */,
 				31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */,
 				2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */,
 				A7BD6976268B41F30005331F /* Discover.storyboard in Resources */,
@@ -527,6 +534,7 @@
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
 				A749F79D2710ACB300FB364E /* SearchResultsViewController.swift in Sources */,
+				CD33CAFD273019B3006B699F /* ActivityConclusion.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivityConstructor.swift in Sources */,
 				CDD9051327285A8C00FF9B82 /* ActivityNavigationDelegate.swift in Sources */,
 				A7C1324E270C9A44000254CF /* CameraManager.swift in Sources */,
