@@ -15,11 +15,17 @@ class FullscreenImageViewController: UIViewController {
     var images: [Data] = [Data]()
     var currentImageIndex: Int = 0
     
+    // used in `swipeToDismiss` to keep track of user interaction
+    private var viewTranslation = CGPoint(x: 0, y: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configNavigationBar()
         configViewControllerStyle()
+        
+        // add pull-down gesture to dismiss modal
+        view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(swipeToDismiss(sender:))))
     }
     
     // MARK: - Private functions
@@ -93,7 +99,28 @@ class FullscreenImageViewController: UIViewController {
         navItem.title = "\(currentImageIndex + 1) de \(images.count)"
     }
     
-    // MARK: - NavBar Buttons Actions
+    // MARK: - Actions
+    
+    /// Dismiss this View Controller when user swipe down
+    @objc private func swipeToDismiss(sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .changed:
+            viewTranslation = sender.translation(in: view)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.transform = CGAffineTransform(translationX: 0, y: self.viewTranslation.y)
+            })
+        case .ended:
+            if viewTranslation.y < 200 {
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.view.transform = .identity
+                })
+            } else {
+                dismiss(animated: true)
+            }
+        default:
+            break
+        }
+    }
     
     /// Dismiss this ViewController. Triggered when close button is tapped
     @objc private func didTapCloseButton(sender: UIBarButtonItem) {
@@ -130,9 +157,6 @@ class FullscreenImageViewController: UIViewController {
 }
 
 // MARK: - Page Controller Delegate methods
-
-// https://stackoverflow.com/questions/42031777/call-both-of-after-and-before-method-in-uipageviewcontroller-when-swim-for-forwa
-
 extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     /// Pre-load previous page
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

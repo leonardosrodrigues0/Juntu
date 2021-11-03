@@ -33,6 +33,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="HaA-aB-Uiy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IOP-jh-J4z"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="63E-GD-ZbL" secondAttribute="bottom" id="Jz7-aK-1VP"/>
