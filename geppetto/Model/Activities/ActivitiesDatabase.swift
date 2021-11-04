@@ -1,5 +1,5 @@
 //
-//  ActivityFirebase.swift
+//  ActivitiesDatabase.swift
 //  geppetto
 //
 //  Created by Matheus Vicente on 07/07/21.
@@ -10,8 +10,8 @@ import FirebaseDatabase
 import Promises
 
 /// Builds Activities from our database information.
-/// Singleton class: use `ActivityConstructor.shared` attribute.
-class ActivityConstructor {
+/// Singleton class: use `ActivitiesDatabase.shared` attribute.
+class ActivitiesDatabase {
     
     // MARK: - Constants
     static let activitiesStorageDirectory = "Activities"
@@ -25,8 +25,8 @@ class ActivityConstructor {
     private var activities: [String: Activity]?
     
     // MARK: - Singleton Logic
-    public static var shared: ActivityConstructor = {
-        let instance = ActivityConstructor()
+    public static var shared: ActivitiesDatabase = {
+        let instance = ActivitiesDatabase()
         return instance
     }()
     

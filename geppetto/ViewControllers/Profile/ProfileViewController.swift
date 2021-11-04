@@ -91,7 +91,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     
     private func updateHistoryView() {
         let ids = UserTracker.shared.fetchActivityHistory()
-        ActivityConstructor.shared.getActivities(ids: ids).then { activities in
+        ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.historyView.activityList = activities
             self.historyView.reloadCards(delegate: self)
         }
@@ -99,7 +99,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     
     private func updateSavedActivitiesView() {
         let ids = UserTracker.shared.fetchSavedActivities()
-        ActivityConstructor.shared.getActivities(ids: ids).then { activities in
+        ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.savedActivitiesView.items = activities
             self.savedActivitiesView.reloadCards(delegate: self)
         }

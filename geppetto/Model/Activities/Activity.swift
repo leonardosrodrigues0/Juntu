@@ -52,10 +52,10 @@ public struct Activity: Searchable, Codable {
     }
     
     func getImageDatabaseRef() -> StorageReference {
-        var path = ActivityConstructor.activitiesStorageDirectory
+        var path = ActivitiesDatabase.activitiesStorageDirectory
         path += "/\(directory)/"
-        path += ActivityConstructor.activityImageName
-        path += ActivityConstructor.imagesExtension
+        path += ActivitiesDatabase.activityImageName
+        path += ActivitiesDatabase.imagesExtension
         return Storage.storage().reference().child(path)
     }
     

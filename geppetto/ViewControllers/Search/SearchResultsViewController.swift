@@ -22,7 +22,7 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
-        let database = ActivityConstructor.shared
+        let database = ActivitiesDatabase.shared
         database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.tableView.reloadData()

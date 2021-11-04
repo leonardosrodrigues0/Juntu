@@ -30,7 +30,7 @@ struct Tag: Codable {
     }
     
     func getTagActivities() -> Promise<[Activity]> {
-        ActivityConstructor.shared.getActivities { $0.tags?.contains(self.id) ?? false }
+        ActivitiesDatabase.shared.getActivities { $0.tags?.contains(self.id) ?? false }
     }
     
     /// Coding keys for the `Tag` struct.

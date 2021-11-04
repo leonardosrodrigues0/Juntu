@@ -22,7 +22,7 @@ class DiscoverViewController: UIViewController, ActivityNavigationDelegate {
         super.viewDidLoad()
         
         let helper = AnalyticsHelper()
-        let database = ActivityConstructor.shared
+        let database = ActivitiesDatabase.shared
         database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.reloadCards()
