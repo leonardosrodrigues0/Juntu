@@ -56,6 +56,7 @@ class Moments: UIView {
         retrieveImages()
     }
     
+    // recupera imagens da pasta de pictures dentro da documents
     func retrieveImages() {
         images = [Data]()
         
