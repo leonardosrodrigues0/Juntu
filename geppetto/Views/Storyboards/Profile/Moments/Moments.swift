@@ -60,7 +60,7 @@ class Moments: UIView {
         images = [Data]()
         
         let fm = FileManager.default
-        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("pictures")
 
         do {
             var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)

@@ -94,13 +94,41 @@ extension CameraManager {
     }
     
     private func saveOnFileSystem(image: UIImage) {
-        if let data = image.pngData() {
-            let date = Date()
-            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let url = documents.appendingPathComponent("\(date).png")
-            
+        
+        let fm = FileManager.default
+        let picturesFolder: URL = getDocumentsDirectory().appendingPathComponent("pictures")
+        var isdirectory: ObjCBool = true
+        
+        if fm.fileExists(atPath: picturesFolder.path, isDirectory: &isdirectory) {
+            if isdirectory.boolValue {
+                // file exists and is a directory
+                print("Directory exists")
+                saveImage(image: image, picturesFolder: picturesFolder)
+            }
+        } else {
+            // directory does not exist
             do {
-                try data.write(to: url)
+                print("Directory does not exist")
+                try fm.createDirectory(at: picturesFolder, withIntermediateDirectories: false, attributes: nil)
+                print("Directory created")
+                saveImage(image: image, picturesFolder: picturesFolder)
+            } catch {
+                print("Unable to create new directory to Disk: \(error)")
+            }
+        }
+
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
+    private func saveImage(image: UIImage, picturesFolder: URL) {
+        if let data = image.pngData() {
+            let filePath = picturesFolder.appendingPathComponent("\(Date()).png")
+            do {
+                try data.write(to: filePath)
+                print("Imagesaved")
             } catch {
                 print("Unable to Write Data to Disk \(error)")
             }
