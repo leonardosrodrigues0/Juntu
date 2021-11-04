@@ -6,25 +6,85 @@
 //
 
 import UIKit
+import AVKit
 
 /// Allow a UIViewController to use the camera.
 protocol CameraManager: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
-    
-    func takePicture()
 }
 
 extension CameraManager {
-    
-    /// Default implementation for a simple camera usage.
-    func takePicture() {
-        let pickerController = UIImagePickerController()
-        pickerController.sourceType = .camera
-        pickerController.delegate = self
-        present(pickerController, animated: true)
+
+    // MARK: - Camera Access Handler
+
+    func tryTakePicture() {
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+
+        switch cameraAuthorizationStatus {
+        case .notDetermined:
+            requestCameraAccess()
+        case .restricted:
+            presentCameraAccessNeededAlert()
+        case .denied:
+            presentCameraAccessNeededAlert()
+        case .authorized:
+            takePicture()
+        default : return
+        }
     }
-    
+
+    private func requestCameraAccess() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: {accessGranted in
+            if accessGranted {
+                self.takePicture()
+            }
+        })
+    }
+
+    private func presentCameraAccessNeededAlert() {
+        DispatchQueue.main.async {
+            let alert = self.createCameraAccessNeededAlert()
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    private func createCameraAccessNeededAlert() -> UIAlertController {
+        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+
+        let alert = UIAlertController(
+            title: "Necessário acesso à Câmera",
+            message: "Para poder tirar fotos dentro do app, precisamos da sua permissão.",
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Vá aos Ajustes", style: .cancel, handler: { _ -> Void in
+            UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+        }))
+
+        return alert
+    }
+
+    // MARK: - Picture taking
+
+    /// Default implementation for a simple camera usage,
+    private func takePicture() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            DispatchQueue.main.async {
+                let pickerController = UIImagePickerController()
+                pickerController.sourceType = .camera
+                pickerController.delegate = self
+                self.present(pickerController, animated: true)
+            }
+        } else {
+            print("Camera not Available")
+        }
+
+    }
+
+    // MARK: - picture editing and sharing
+
     /// Share an image with a Juntu watermark and an associated text.
     /// Built to be called inside `imagePickerController` method at the UIViewController.
     func shareImageAndText(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any], text: String) {
@@ -92,6 +152,8 @@ extension CameraManager {
         // Present the share view controller
         present(activityViewController, animated: true)
     }
+
+    // MARK: - picture saving
     
     private func saveOnFileSystem(image: UIImage) {
         if let data = image.pngData() {

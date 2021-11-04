@@ -8,7 +8,7 @@
 import UIKit
 
 /// Control of the PageViewController for a given activity
-class ActivityPageControlViewController: UIViewController, CameraManager {
+class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var contentView: UIView!
@@ -56,10 +56,13 @@ class ActivityPageControlViewController: UIViewController, CameraManager {
             )
         )
     }
+}
+
+extension ActivityPageControlViewController: CameraManager {
     
     // MARK: - Camera Usage Methods
     @IBAction private func cameraButtonTapped() {
-        takePicture()
+        tryTakePicture()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
