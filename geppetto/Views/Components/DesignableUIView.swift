@@ -42,31 +42,71 @@ class DesignableLabel: UILabel {
         return contentSize
     }
     
+    /// Space between letters
+    @IBInspectable public var kerningSpace: CGFloat {
+        get {
+            var kerning: CGFloat = 0
+            if let attributedText = self.attributedText {
+                let range = NSRange(location: 0, length: attributedText.length)
+                attributedText.enumerateAttribute(.kern, in: range, options: .init(rawValue: 0)) { (value, _, _) in kerning = value as? CGFloat ?? 0
+                }
+            }
+            return kerning
+        }
+
+        set {
+            if let currentAttibutedText = self.attributedText {
+                let attribString = NSMutableAttributedString(attributedString: currentAttibutedText)
+                let range = NSRange(location: 0, length: currentAttibutedText.length)
+                attribString.addAttributes([.kern: newValue], range: range)
+                self.attributedText = attribString
+            }
+        }
+        
+    }
 }
 
 @IBDesignable
 class DesignableImageView: UIImageView {
     
-    private var _gradientColor: UIColor?
+    private var _bottomGradientColor: UIColor?
+    private var _topGradientColor: UIColor?
     
     @IBInspectable
-    var gradientColor: UIColor {
+    var bottomGradientColor: UIColor {
         get {
-            return _gradientColor ?? .clear
+            return _bottomGradientColor ?? .clear
         }
         set {
-            _gradientColor = newValue
-            addGradientLayerInBackground(colors: [.clear, _gradientColor ?? .clear])
+            _bottomGradientColor = newValue
+            addGradientLayerInBackground(colors: [.clear, _bottomGradientColor ?? .clear])
+        }
+    }
+    
+    @IBInspectable
+    var topGradientColor: UIColor {
+        get {
+            return _topGradientColor ?? .clear
+        }
+        set {
+            _topGradientColor = newValue
+            addGradientLayerInBackground(colors: [.clear, _topGradientColor ?? .clear], up: false)
         }
     }
     
     /// Add a vertical gradient in front of the image.
     /// - Parameter colors: colors to use in the gradient (e.g. `[.clear, .black]`)
-    fileprivate func addGradientLayerInBackground(colors: [UIColor]) {
+    fileprivate func addGradientLayerInBackground(colors: [UIColor], up: Bool = true) {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = colors.map { $0.cgColor }
-        self.layer.insertSublayer(gradient, at: 0)
+        
+        if !up {
+            gradient.startPoint = CGPoint(x: 0, y: 1)
+            gradient.endPoint = CGPoint.zero
+        }
+
+        self.layer.insertSublayer(gradient, at: 1)
     }
     
 }

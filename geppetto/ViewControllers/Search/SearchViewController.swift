@@ -15,6 +15,7 @@ public class SearchViewController: UIViewController {
     var searchController: UISearchController
     private var tags = [Tag]()
     private var selectedTagCell: Tag?
+    private var selectedActivity: Activity?
     
     private let tagCellIdentifier = "TagCardCell"
     
@@ -29,6 +30,8 @@ public class SearchViewController: UIViewController {
         searchController = UISearchController(searchResultsController: resultsController)
         
         super.init(coder: coder)
+        
+        resultsController.activityNavigationDelegate = self
     }
     
     // MARK: - Methods
@@ -44,6 +47,7 @@ public class SearchViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Buscar"
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     
@@ -68,6 +72,10 @@ public class SearchViewController: UIViewController {
             // which is supposed to be TagViewController.
             guard let tagViewController = segue.destination as? TagViewController else { return }
             tagViewController.viewTag = selectedTagCell
+        }
+        if segue.identifier == "goToActivityOverview" {
+            guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
+            activityOverviewViewController.activity = selectedActivity
         }
     }
 }
@@ -113,5 +121,12 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
         let height = width * (9 / 16)
         return CGSize(width: width, height: height)
+    }
+}
+
+extension SearchViewController: ActivityNavigationDelegate {
+    func navigate(to activity: Activity) {
+        selectedActivity = activity
+        performSegue(withIdentifier: "goToActivityOverview", sender: self)
     }
 }

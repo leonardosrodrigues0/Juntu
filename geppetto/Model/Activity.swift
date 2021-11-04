@@ -17,12 +17,22 @@ public struct Activity: Searchable, Codable {
     let name: String
     let introduction: String
     let caution: String?
-    let age: String
+    let minAge: Int
+    let maxAge: Int
     let difficulty: String
     let time: String
     let materials: [String]
     let tags: [String]?
     private(set) var steps: [ActivityStep]
+    var minMaxAge: String {
+        return "\(minAge)~\(maxAge)"
+    }
+    var cleanTime: String {
+        var cleanTime = time.replacingOccurrences(of: " min", with: "")
+        cleanTime = cleanTime.replacingOccurrences(of: " h", with: "")
+        cleanTime = cleanTime.replacingOccurrences(of: " a ", with: "~")
+        return cleanTime
+    }
     
     // MARK: - Methods
     mutating func getSteps() -> [ActivityStep] {
@@ -38,7 +48,7 @@ public struct Activity: Searchable, Codable {
     }
     
     func getAgeText() -> String {
-        return "\(age) anos"
+        return "\(minMaxAge) anos"
     }
     
     func getImageDatabaseRef() -> StorageReference {
@@ -66,7 +76,9 @@ public struct Activity: Searchable, Codable {
         name = try values.decode(String.self, forKey: .name)
         introduction = try values.decode(String.self, forKey: .introduction)
         caution = try? values.decode(String.self, forKey: .caution)
-        age = try values.decode(String.self, forKey: .age)
+        minAge = try values.decode(Int.self, forKey: .minAge)
+        maxAge = try values.decode(Int.self, forKey: .maxAge)
+        
         difficulty = try values.decode(String.self, forKey: .difficulty)
         time = try values.decode(String.self, forKey: .time)
         materials = try values.decode([String].self, forKey: .materials)

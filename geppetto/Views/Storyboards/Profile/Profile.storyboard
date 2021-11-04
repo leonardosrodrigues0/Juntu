@@ -22,7 +22,7 @@
                                 <rect key="frame" x="16" y="254" width="382" height="32"/>
                                 <segments>
                                     <segment title="Momentos"/>
-                                    <segment title="Favoritos"/>
+                                    <segment title="Salvos"/>
                                     <segment title="Histórico"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="AccentColor"/>
@@ -77,7 +77,7 @@
                     <connections>
                         <outlet property="historyView" destination="uap-BM-IS0" id="hIS-GO-9Fc"/>
                         <outlet property="momentsView" destination="aXb-Nc-bQz" id="t0F-IY-gIM"/>
-                        <outlet property="profileImage" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
+                        <outlet property="profileImageView" destination="cnx-Os-672" id="IOO-Ta-ewv"/>
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
                         <outlet property="savedActivitiesView" destination="Old-qK-bbA" id="nrE-od-eHg"/>
                         <segue destination="Coa-Wd-ebg" kind="show" identifier="goToOverview" id="2LA-W3-NRL"/>
