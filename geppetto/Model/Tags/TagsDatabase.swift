@@ -102,9 +102,12 @@ class TagsDatabase {
         let databaseRef = Database.database().reference()
         return Promise { fulfill, _ in
             databaseRef.child(Self.databaseTagsChild).getData { _, data in
-                let info = data.value as? NSArray
-                self.tags = self.buildTags(tags: info!)
-                fulfill(self.tags!) // Safety: self.tags was just updated.
+                if let info = data.value as? NSArray {
+                    self.tags = self.buildTags(tags: info)
+                    fulfill(self.tags!) // Safety: self.tags was just updated.
+                } else {
+                    print("Error getting info from database when building tags")
+                }
             }
         }
     }
