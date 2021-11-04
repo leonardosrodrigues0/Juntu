@@ -17,6 +17,8 @@
 		31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* SavedActivities.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
+		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
+		3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
 		3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */; };
 		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
@@ -86,6 +88,8 @@
 		31DA337F270C8E190055E2B6 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
+		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
+		3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
 		3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
 		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		31DA3376270C7A670055E2B6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */,
 				A7BD6972268B3AC70005331F /* Profile.storyboard */,
 				31DA3379270C7B7C0055E2B6 /* Moments.xib */,
 				31DA337B270C7CC70055E2B6 /* Moments.swift */,
@@ -171,6 +176,7 @@
 				313D3070270DC344000871C0 /* MomentsCell.xib */,
 				3FD547062722F77C00363C65 /* FullscreenImage.storyboard */,
 				3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */,
+				3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,
 				A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */,
 				A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */,
+				3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
 				CDB896A8272B52E70042B322 /* MaterialTableViewCell.swift in Sources */,
@@ -537,6 +544,7 @@
 				D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */,
 				31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
+				3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */,
 				31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */,
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */,

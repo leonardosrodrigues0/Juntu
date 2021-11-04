@@ -81,7 +81,7 @@
                         <outlet property="profileSegmentedControl" destination="IUf-Tc-M96" id="byo-Rv-Rtn"/>
                         <outlet property="savedActivitiesView" destination="Old-qK-bbA" id="nrE-od-eHg"/>
                         <segue destination="Coa-Wd-ebg" kind="show" identifier="goToOverview" id="2LA-W3-NRL"/>
-                        <segue destination="zFb-fx-ea3" kind="show" identifier="goToFullscreen" id="YvS-OI-G3y"/>
+                        <segue destination="zFb-fx-ea3" kind="presentation" identifier="goToFullscreen" modalPresentationStyle="fullScreen" id="YvS-OI-G3y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

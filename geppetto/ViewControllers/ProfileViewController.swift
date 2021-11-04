@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     @IBOutlet var historyView: History!
     
     var selectedActivity: Activity?
-    var selectedImage: Data?
+    var selectedImageIndex: Int = 0
     
     var editProfileButton: UIBarButtonItem?
     
@@ -114,8 +114,8 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     
     // MARK: - FullscreenImageNavigationDelegate Methods
     /// Navigate to FullscreenImage
-    func navigate(image: Data) {
-        selectedImage = image
+    func navigate(selectedImageIndex: Int) {
+        self.selectedImageIndex = selectedImageIndex
         performSegue(withIdentifier: "goToFullscreen", sender: self)
     }
     
@@ -125,11 +125,10 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         if segue.identifier == "goToOverview" {
             guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
             activityOverviewViewController.activity = selectedActivity
-        }
-        
-        if segue.identifier == "goToFullscreen" {
+        } else if segue.identifier == "goToFullscreen" {
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
-            fullscreenImageViewController.imageData = selectedImage
+            fullscreenImageViewController.images = momentsView.images
+            fullscreenImageViewController.currentImageIndex = selectedImageIndex
         }
     }
     
