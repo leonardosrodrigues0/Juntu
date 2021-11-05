@@ -45,7 +45,8 @@ public class SearchViewController: UIViewController {
     private func setSearchConfig() {
         searchController.searchResultsUpdater = resultsController
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
+        searchController.searchBar.placeholder = "Buscar brincadeiras"
+        searchController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -59,7 +60,9 @@ public class SearchViewController: UIViewController {
         collectionView.dataSource = self
         
         // Get tags that have at least one activity.
+        let loadingHandler = LoadingHandler(parentView: view)
         TagsDatabase.shared.getNonEmptyTags().then { tags in
+            loadingHandler.stop()
             self.tags = tags
             self.collectionView.reloadData()
         }
