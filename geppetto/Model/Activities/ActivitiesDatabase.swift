@@ -38,18 +38,18 @@ class ActivitiesDatabase {
     /// Get all activities from database and return them as dictionary with id as key.
     func getAllActivitiesAsDictionary() -> Promise<[String: Activity]> {
         return Promise { fulfill, _ in
-            if self.activities == nil {
-                let query = Database.database().reference()
-                    .child(Self.databaseActivitiesChild)
-                    .queryOrderedByKey()
-                
+            let activityDatabaseRef = Database.database().reference(withPath: "activities-with-id")
+            activityDatabaseRef.keepSynced(true)
+
+            let query = activityDatabaseRef
+                .queryOrderedByKey()
+            query.observe(.childAdded) { _ in
                 query.getData { _, data in
                     self.activities = self.buildActivitiesFromDataSnapshot(data: data)
                     fulfill(self.activities ?? [:])
                 }
-            } else {
-                fulfill(self.activities ?? [:])
             }
+
         }
     }
     
@@ -83,7 +83,7 @@ class ActivitiesDatabase {
     private func sorted(activities: [Activity], byIds ids: [String]) -> [Activity] {
         activities.sorted { ids.firstIndex(of: $0.id) ?? -1 < ids.firstIndex(of: $1.id) ?? -1 }
     }
- 
+
     /// Get a dictionary of activities filtered by ids. If self.activities is nil, load from firebase
     func getActivity(id: String) -> Promise<Activity?> {
         return Promise { fulfill, _ in
@@ -91,16 +91,16 @@ class ActivitiesDatabase {
                 .child(Self.databaseActivitiesChild)
                 .queryOrderedByKey()
                 .queryEqual(toValue: id)
-            
+
             query.getData { _, data in
                 let activities = self.activitiesDictionaryToArray(self.buildActivitiesFromDataSnapshot(data: data))
-                
+
                 // Should reject with Error
                 guard activities != nil && !activities!.isEmpty else {
                     fulfill(nil)
                     return
                 }
-                
+
                 fulfill(activities![0])
             }
         }
