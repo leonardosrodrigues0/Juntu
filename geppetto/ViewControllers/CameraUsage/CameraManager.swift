@@ -93,14 +93,45 @@ extension CameraManager {
         present(activityViewController, animated: true)
     }
     
+    // lógica para salvar imagens tiradas na pasta de pictures dentro de documents
     private func saveOnFileSystem(image: UIImage) {
-        if let data = image.pngData() {
-            let date = Date()
-            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let url = documents.appendingPathComponent("\(date).png")
-            
+        
+        let fm = FileManager.default
+        let picturesFolder: URL = getDocumentsDirectory().appendingPathComponent("pictures")
+        var isdirectory: ObjCBool = true
+        
+        /// esse trecho checa se existe a pasta
+        /// se existir, a funcao salva a imagem direto
+        /// se nao existir, a funcao cria o novo diretorio e salva a imagem
+        if fm.fileExists(atPath: picturesFolder.path, isDirectory: &isdirectory) {
+            if isdirectory.boolValue {
+                /// file exists and is a directory
+                saveImage(image: image, picturesFolder: picturesFolder)
+            }
+        } else {
+            /// directory does not exist
             do {
-                try data.write(to: url)
+                try fm.createDirectory(at: picturesFolder, withIntermediateDirectories: false, attributes: nil)
+                saveImage(image: image, picturesFolder: picturesFolder)
+            } catch {
+                print("Unable to create new directory to Disk: \(error)")
+            }
+        }
+
+    }
+    
+    // funcao simples que retorna a URL da pasta de documents do app
+    private func getDocumentsDirectory() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
+    // salva a imagem recebida como parametro no endereco recebido como parametro
+    private func saveImage(image: UIImage, picturesFolder: URL) {
+        if let data = image.pngData() {
+            let filePath = picturesFolder.appendingPathComponent("\(Date()).png")
+            do {
+                try data.write(to: filePath)
+                print("Imagesaved")
             } catch {
                 print("Unable to Write Data to Disk \(error)")
             }

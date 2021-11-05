@@ -56,11 +56,12 @@ class Moments: UIView {
         retrieveImages()
     }
     
+    // recupera imagens da pasta de pictures dentro da documents
     func retrieveImages() {
         images = [Data]()
         
         let fm = FileManager.default
-        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("pictures")
 
         do {
             var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
