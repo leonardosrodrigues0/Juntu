@@ -17,6 +17,7 @@
 		31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* SavedActivities.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
+		3F55FCD327395CB600146221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F55FCD227395CB600146221 /* LaunchScreen.storyboard */; };
 		3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C478E27341F5100F899AC /* LoadingHandler.swift */; };
 		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
 		3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */; };
@@ -56,7 +57,6 @@
 		A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C3126860E1600570FBD /* SceneDelegate.swift */; };
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
-		A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */; };
 		CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */; };
 		CDB896A8272B52E70042B322 /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB896A7272B52E70042B322 /* MaterialTableViewCell.swift */; };
 		CDB896AE272B53580042B322 /* MaterialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB896AD272B53580042B322 /* MaterialTableViewCell.xib */; };
@@ -89,6 +89,7 @@
 		31DA337F270C8E190055E2B6 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
+		3F55FCD227395CB600146221 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7C478E27341F5100F899AC /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
 		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
 		3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		A7E65C3126860E1600570FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A7E65C3626860E1600570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7E65C3826860E1700570FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A7E65C3B26860E1700570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7E65C3D26860E1700570FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUILabel.swift; sourceTree = "<group>"; };
 		CDB896A7272B52E70042B322 /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
@@ -353,10 +353,10 @@
 				A760C32C2733FDF40029E57B /* Activities */,
 				A749F7982710AC0100FB364E /* Search */,
 				31DA3376270C7A670055E2B6 /* Profile */,
-				A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */,
 				A7E65C3526860E1600570FBD /* Main.storyboard */,
 				A7BD6974268B41F30005331F /* Discover.storyboard */,
 				A72E1CAD2722FC5400404FC3 /* Tag.storyboard */,
+				3F55FCD227395CB600146221 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -504,13 +504,13 @@
 			files = (
 				A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */,
 				3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */,
-				A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */,
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
 				31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */,
 				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */,
 				A72E1CAE2722FC5400404FC3 /* Tag.storyboard in Resources */,
 				CDD9050D272851FE00FF9B82 /* ActivityCardTableViewCell.xib in Resources */,
+				3F55FCD327395CB600146221 /* LaunchScreen.storyboard in Resources */,
 				A7E65C3726860E1600570FBD /* Main.storyboard in Resources */,
 				A7814537271EDD6400F17FE4 /* TagCardCell.xib in Resources */,
 				A7BD6971268B3AB50005331F /* Search.storyboard in Resources */,
@@ -656,14 +656,6 @@
 				A7E65C3626860E1600570FBD /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7E65C3B26860E1700570FBD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
