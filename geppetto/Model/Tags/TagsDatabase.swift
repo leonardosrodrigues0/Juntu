@@ -76,15 +76,15 @@ class TagsDatabase {
         return getAllTags().then { allTags in
             tagIds = allTags.map { $0.id }
             return all(allTags.map { $0.getTagActivities() })
-            .then { tagActivities in
-                for i in 0..<tagIds.count {
-                    let activities = tagActivities[i]
-                    let tag = allTags[i]
-                    let id = tagIds[i]
-                    activitiesGroupByTag[id] = (tag: tag, activities: activities)
+                .then { tagActivities in
+                    for i in 0..<tagIds.count {
+                        let activities = tagActivities[i]
+                        let tag = allTags[i]
+                        let id = tagIds[i]
+                        activitiesGroupByTag[id] = (tag: tag, activities: activities)
+                    }
+                    return Promise(activitiesGroupByTag)
                 }
-                return Promise(activitiesGroupByTag)
-            }
         }
     }
     
@@ -99,28 +99,29 @@ class TagsDatabase {
     /// Build all tags in database and return promise.
     /// Update `self.tags` with built tags.
     private func buildAllTags() -> Promise<[Tag]> {
-        let databaseRef = Database.database().reference()
+        
         return Promise { fulfill, _ in
-            databaseRef.child(Self.databaseTagsChild).getData { _, data in
-                if let info = data.value as? NSArray {
-                    self.tags = self.buildTags(tags: info)
+            let databaseRef = Database.database().reference(withPath: TagsDatabase.databaseTagsChild)
+            databaseRef.keepSynced(true)
+
+            databaseRef.observe(.childAdded) { _ in
+                databaseRef.getData { _, data in
+                    let newData = data.value as? NSArray
+                    self.tags = self.buildTags(from: newData!)
                     fulfill(self.tags!) // Safety: self.tags was just updated.
-                } else {
-                    print("Error getting info from database when building tags")
                 }
             }
-        }
-    }
-    
+        }}
+
     /// Build tags from the database data.
-    private func buildTags(tags: NSArray) -> [Tag] {
-        return tags.map { (tag) -> Tag in
+    private func buildTags(from dataArray: NSArray) -> [Tag] {
+        return dataArray.map { (tag) -> Tag in
             let tagData = try? JSONSerialization.data(withJSONObject: tag, options: .prettyPrinted)
             let tagStruct = self.buildTagStruct(tagData: tagData!)
             return tagStruct!
         }
     }
-    
+
     /// Decode tag struct from its data.
     private func buildTagStruct(tagData: Data) -> Tag? {
         do {

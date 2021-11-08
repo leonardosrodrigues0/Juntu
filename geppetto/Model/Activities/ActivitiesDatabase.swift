@@ -38,14 +38,14 @@ class ActivitiesDatabase {
     /// Get all activities from database and return them as dictionary with id as key.
     func getAllActivitiesAsDictionary() -> Promise<[String: Activity]> {
         return Promise { fulfill, _ in
-            let activityDatabaseRef = Database.database().reference(withPath: "activities-with-id")
+            let activityDatabaseRef = Database.database().reference(withPath: ActivitiesDatabase.databaseActivitiesChild)
             activityDatabaseRef.keepSynced(true)
 
             let query = activityDatabaseRef
                 .queryOrderedByKey()
             query.observe(.childAdded) { _ in
                 query.getData { _, data in
-                    self.activities = self.buildActivitiesFromDataSnapshot(data: data)
+                    self.activities = self.buildActivitiesFromDataSnapshot(data)
                     fulfill(self.activities ?? [:])
                 }
             }
@@ -93,7 +93,7 @@ class ActivitiesDatabase {
                 .queryEqual(toValue: id)
 
             query.getData { _, data in
-                let activities = self.activitiesDictionaryToArray(self.buildActivitiesFromDataSnapshot(data: data))
+                let activities = self.activitiesDictionaryToArray(self.buildActivitiesFromDataSnapshot(data))
 
                 // Should reject with Error
                 guard activities != nil && !activities!.isEmpty else {
@@ -108,14 +108,16 @@ class ActivitiesDatabase {
     
     // MARK: - Activity Builder Methods
     /// With the DataSnapshot of the database activities, build a dictionary with each Activity.
-    private func buildActivitiesFromDataSnapshot(data: DataSnapshot) -> [String: Activity]? {
+    private func buildActivitiesFromDataSnapshot(_ data: DataSnapshot) -> [String: Activity]? {
         if let safeActivities = data.value as? [String: Any] {
-            let activities = safeActivities.mapValues { (activity) -> Activity in
+            let activities = safeActivities.mapValues { (activity) -> Activity? in
                 let activityData = try? JSONSerialization.data(withJSONObject: activity, options: .prettyPrinted)
-                let activityStruct = self.buildActivityStruct(activityData: activityData!)
-                return activityStruct!
+                if let activityStruct = self.buildActivityStruct(activityData: activityData!) {
+                    return activityStruct
+                }
+                return nil
             }
-            return activities
+            return activities as? [String: Activity]
         }
         return nil
     }
