@@ -86,7 +86,9 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
         let contentInsets = CGFloat(16) // defined in the storyboard
         // Width must be (totalWidth - 2 * contentInsets - horizontalSpacing) / 2
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
-        let height = width * (20 / 9)
+        // Height must be equal to image height (2:3 ratio defined in the cell xib)
+        // plus a constant related to labels' height and spacing (defined by trial and error)
+        let height = width * (3 / 2) + 120
         return CGSize(width: width, height: height)
     }
 }

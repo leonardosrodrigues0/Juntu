@@ -19,13 +19,13 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="543" height="359"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-Ws-HHg" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="119" width="543" height="240"/>
+                    <rect key="frame" x="0.0" y="189.5" width="414" height="310.5"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="240" id="2d1-p0-1wn"/>
+                        <constraint firstAttribute="width" secondItem="WmG-Ws-HHg" secondAttribute="height" multiplier="4:3" id="pUZ-76-cIr"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -34,22 +34,22 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Css-CC-r2r">
-                    <rect key="frame" x="0.0" y="0.0" width="543" height="111"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="181.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-eU-eom" userLabel="Footnote">
-                            <rect key="frame" x="0.0" y="0.0" width="543" height="7"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <color key="textColor" systemColor="tintColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-fY-YDy" userLabel="Title">
-                            <rect key="frame" x="0.0" y="9" width="543" height="50"/>
+                            <rect key="frame" x="0.0" y="66" width="414" height="50"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-Tm-Cfk" userLabel="Description">
-                            <rect key="frame" x="0.0" y="61" width="543" height="50"/>
+                            <rect key="frame" x="0.0" y="131.5" width="414" height="50"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" systemColor="secondaryLabelColor"/>
                             <nil key="highlightedColor"/>
@@ -57,22 +57,21 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="WmG-Ws-HHg" firstAttribute="top" secondItem="Css-CC-r2r" secondAttribute="bottom" constant="8" id="2qE-ke-RA2"/>
                 <constraint firstItem="WmG-Ws-HHg" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="LqW-GR-1iL"/>
-                <constraint firstAttribute="trailing" secondItem="Css-CC-r2r" secondAttribute="trailing" id="VfI-Yu-4RJ"/>
+                <constraint firstItem="Css-CC-r2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MmD-My-o5G"/>
                 <constraint firstAttribute="top" secondItem="Css-CC-r2r" secondAttribute="top" id="WCL-Xc-E7W"/>
+                <constraint firstAttribute="trailing" secondItem="Css-CC-r2r" secondAttribute="trailing" id="WRB-di-FQ3"/>
                 <constraint firstItem="WmG-Ws-HHg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YXz-Ur-n9U"/>
                 <constraint firstAttribute="trailing" secondItem="WmG-Ws-HHg" secondAttribute="trailing" id="jOK-Kj-sar"/>
-                <constraint firstItem="Css-CC-r2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mNk-sc-Ci8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="OvX-LL-odi" appends="YES" id="E8A-gV-mOU"/>
             </connections>
-            <point key="canvasLocation" x="421.01449275362324" y="39.84375"/>
+            <point key="canvasLocation" x="420.28985507246381" y="101.11607142857143"/>
         </view>
         <tapGestureRecognizer id="OvX-LL-odi">
             <connections>
@@ -83,9 +82,6 @@
     <resources>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
