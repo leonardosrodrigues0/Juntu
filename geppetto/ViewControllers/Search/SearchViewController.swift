@@ -18,6 +18,8 @@ public class SearchViewController: UIViewController {
     private var selectedActivity: Activity?
     
     private let tagCellIdentifier = "TagCardCell"
+    /// Ratio between cell's labels font size and search view width.
+    let relativeTagFontConstant: CGFloat = 0.052
     
     // MARK: - Initializers
     public required init?(coder: NSCoder) {
@@ -94,6 +96,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         // Set cell tag element:
         if let tag = tags.get(at: indexPath.row) {
             cell?.cellTag = tag
+            cell?.label.font = cell?.label.font.withSize(self.view.frame.width * relativeTagFontConstant)
         }
         
         return cell!

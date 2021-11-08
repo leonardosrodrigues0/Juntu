@@ -77,7 +77,9 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="4Qb-Im-sgh"/>
                                             <constraint firstItem="mQ4-5i-ZBr" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="AmR-lj-zjy"/>
+                                            <constraint firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="JGv-KU-TGI"/>
                                             <constraint firstAttribute="trailing" secondItem="mQ4-5i-ZBr" secondAttribute="trailing" constant="16" id="N3h-vi-URn"/>
                                             <constraint firstItem="Cul-IZ-Ops" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="Qky-G4-clH"/>
                                             <constraint firstAttribute="trailing" secondItem="Cul-IZ-Ops" secondAttribute="trailing" constant="16" id="kqT-CH-Qkh"/>
