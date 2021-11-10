@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: - Make this view controller as PageViewControllerDelegate and PageViewControllerDataSource
 class PageMomentsViewController: UIPageViewController {
 
     override func viewDidLoad() {

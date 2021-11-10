@@ -15,7 +15,6 @@ class LoadingHandler {
     private weak var activityIndicator: UIActivityIndicatorView!
     private weak var label: UILabel!
     
-    
     /// Present the loading indicator in the parent view. Call this initializer before Internet request
     public init(parentView: UIView) {
         self.parentView = parentView
