@@ -32,7 +32,7 @@ internal class HighlightedActivitiesController: UIViewController {
         
         let loadingHandler = LoadingHandler(parentView: collectionView)
         let database = ActivitiesDatabase.shared
-        database.getAllActivities().then { activities in
+        database.getHighlightedActivities().then { activities in
             self.activities = activities
             self.collectionView.reloadData()
             loadingHandler.stop()
