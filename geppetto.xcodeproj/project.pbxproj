@@ -17,6 +17,8 @@
 		31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* SavedActivities.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
 		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
+		3F36292D273C02F4001BC20D /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36292C273C02F4001BC20D /* UIFont+Weight.swift */; };
+		3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36292E273C0340001BC20D /* WeightLabel.swift */; };
 		3F55FCD327395CB600146221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F55FCD227395CB600146221 /* LaunchScreen.storyboard */; };
 		3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C478E27341F5100F899AC /* LoadingHandler.swift */; };
 		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
@@ -57,11 +59,10 @@
 		A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C3126860E1600570FBD /* SceneDelegate.swift */; };
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
-		CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */; };
-		A7E65C3C26860E1700570FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3A26860E1700570FBD /* LaunchScreen.storyboard */; };
 		CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD12734EC5F00818453 /* MadeForYouActivitiesController.swift */; };
 		CD07BFD62734F48900818453 /* ActivityCardPhotoBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */; };
-		CD07BFD82734F49500818453 /* ActivityCardPhotoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */; };		CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */; };
+		CD07BFD82734F49500818453 /* ActivityCardPhotoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */; };
+		CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */; };
 		CD0F882827340BC50039CC24 /* DiscoverTagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F882727340BC50039CC24 /* DiscoverTagUILabel.swift */; };
 		CD97CC282738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97CC272738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift */; };
 		CD97CC2A273A911700DBAF74 /* HighlightedActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97CC29273A911700DBAF74 /* HighlightedActivitiesController.swift */; };
@@ -74,7 +75,7 @@
 		CDD9050D272851FE00FF9B82 /* ActivityCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD9050A272851FE00FF9B82 /* ActivityCardTableViewCell.xib */; };
 		CDD9050E272851FE00FF9B82 /* ActivityCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD9050B272851FE00FF9B82 /* ActivityCard.xib */; };
 		CDD9050F272851FE00FF9B82 /* ActivityCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9050C272851FE00FF9B82 /* ActivityCardTableViewCell.swift */; };
-		CDD905112728521F00FF9B82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD905102728521F00FF9B82 /* UIViewExtension.swift */; };
+		CDD905112728521F00FF9B82 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD905102728521F00FF9B82 /* UIView+Nib.swift */; };
 		CDD9051327285A8C00FF9B82 /* ActivityNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9051227285A8C00FF9B82 /* ActivityNavigationDelegate.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
@@ -98,6 +99,8 @@
 		31DA337F270C8E190055E2B6 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
+		3F36292C273C02F4001BC20D /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
+		3F36292E273C0340001BC20D /* WeightLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLabel.swift; sourceTree = "<group>"; };
 		3F55FCD227395CB600146221 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7C478E27341F5100F899AC /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
 		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +162,7 @@
 		CDD9050A272851FE00FF9B82 /* ActivityCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCardTableViewCell.xib; sourceTree = "<group>"; };
 		CDD9050B272851FE00FF9B82 /* ActivityCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCard.xib; sourceTree = "<group>"; };
 		CDD9050C272851FE00FF9B82 /* ActivityCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCardTableViewCell.swift; sourceTree = "<group>"; };
-		CDD905102728521F00FF9B82 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CDD905102728521F00FF9B82 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		CDD9051227285A8C00FF9B82 /* ActivityNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityNavigationDelegate.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
@@ -189,6 +192,16 @@
 				A7BD6972268B3AC70005331F /* Profile.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		3FD43987273C1D71002A962D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDD905102728521F00FF9B82 /* UIView+Nib.swift */,
+				3F36292C273C02F4001BC20D /* UIFont+Weight.swift */,
+				CDD75A5C270DDE2800512B39 /* Colors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5D706B5379199927FF786DA6 /* Frameworks */ = {
@@ -314,9 +327,8 @@
 		A760C32D2733FE330029E57B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CDD905102728521F00FF9B82 /* UIViewExtension.swift */,
-				CDD75A5C270DDE2800512B39 /* Colors.swift */,
 				3F7C478E27341F5100F899AC /* LoadingHandler.swift */,
+				3F36292E273C0340001BC20D /* WeightLabel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -347,6 +359,7 @@
 		A7BD6978268B54D30005331F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3FD43987273C1D71002A962D /* Extensions */,
 				A760C32D2733FE330029E57B /* Utilities */,
 				A7BD6981268B5C150005331F /* Components */,
 				A7BD6980268B5C090005331F /* Storyboards */,
@@ -641,7 +654,9 @@
 				A7E65C3026860E1600570FBD /* AppDelegate.swift in Sources */,
 				CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */,
 				CD97CC2A273A911700DBAF74 /* HighlightedActivitiesController.swift in Sources */,
+				3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */,
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
+				3F36292D273C02F4001BC20D /* UIFont+Weight.swift in Sources */,
 				CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */,
 				CD97CC2E273AA53900DBAF74 /* DiscoverTagsController.swift in Sources */,
 				3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */,
@@ -684,7 +699,7 @@
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
 				A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */,
-				CDD905112728521F00FF9B82 /* UIViewExtension.swift in Sources */,
+				CDD905112728521F00FF9B82 /* UIView+Nib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
