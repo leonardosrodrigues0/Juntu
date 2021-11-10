@@ -18,6 +18,7 @@ class ActivitiesDatabase {
     static let activityImageName = "overview"
     static let imagesExtension = ".png"
     private static let databaseActivitiesChild = "activities-with-id"
+    private static let databaseHighlightedActivitiesChild = "highlighted-activities"
     private static let activities: [String: Activity]? = nil
     
     // MARK: - Properties
@@ -76,6 +77,32 @@ class ActivitiesDatabase {
         }.then { activitiesAsArray in
             // Filter array using the parameter:
             activitiesAsArray.filter(filter)
+        }
+    }
+    
+    /// Get all highlighted activities IDs
+    func getHighlightedActivityIDs() -> Promise<[String]> {
+        return Promise { fulfill, _ in
+            let highlightedDatabaseRef = Database.database().reference(withPath: ActivitiesDatabase.databaseHighlightedActivitiesChild)
+            highlightedDatabaseRef.keepSynced(true)
+
+            let query = highlightedDatabaseRef.queryOrderedByKey()
+            query.observe(.childAdded) { _ in
+                query.getData { _, data in
+                    if let highlightedIds = data.value as? [String] {
+                        fulfill(highlightedIds)
+                    } else {
+                        fulfill([])
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Get all highlighted activities
+    func getHighlightedActivities() -> Promise<[Activity]> {
+        getHighlightedActivityIDs().then { highlightedIds in
+            return self.getActivities(ids: highlightedIds)
         }
     }
     
