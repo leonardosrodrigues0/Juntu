@@ -69,9 +69,13 @@ class DesignableLabel: UILabel {
 @IBDesignable
 class DesignableImageView: UIImageView {
     
-    private var _bottomGradientColor: UIColor?
-    private var _topGradientColor: UIColor?
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        boundGradiendsToImageFrame()
+    }
     
+    private var _bottomGradientColor: UIColor?
+    private var bottomGradient: CALayer?
     @IBInspectable
     var bottomGradientColor: UIColor {
         get {
@@ -79,9 +83,13 @@ class DesignableImageView: UIImageView {
         }
         set {
             _bottomGradientColor = newValue
-            addGradientLayerInBackground(colors: [.clear, _bottomGradientColor ?? .clear])
+            bottomGradient = addGradientLayerInBackground(currentGradient: bottomGradient, colors: [.clear, _bottomGradientColor ?? .clear])
+            boundGradiendsToImageFrame()
         }
     }
+    
+    private var _topGradientColor: UIColor?
+    private var topGradient: CALayer?
     
     @IBInspectable
     var topGradientColor: UIColor {
@@ -90,23 +98,36 @@ class DesignableImageView: UIImageView {
         }
         set {
             _topGradientColor = newValue
-            addGradientLayerInBackground(colors: [.clear, _topGradientColor ?? .clear], up: false)
+            topGradient = addGradientLayerInBackground(currentGradient: topGradient, colors: [.clear, _topGradientColor ?? .clear], up: false)
+            boundGradiendsToImageFrame()
         }
+    }
+    
+    private func boundGradiendsToImageFrame() {
+        bottomGradient?.frame = self.bounds
+        topGradient?.frame = self.bounds
     }
     
     /// Add a vertical gradient in front of the image.
     /// - Parameter colors: colors to use in the gradient (e.g. `[.clear, .black]`)
-    fileprivate func addGradientLayerInBackground(colors: [UIColor], up: Bool = true) {
+    /// - Parameter currentGradient: layer that should be replaced, in case it has been setted before`
+    /// - Parameter up: boolean to indicates if the gradient goes up
+    fileprivate func addGradientLayerInBackground(currentGradient: CALayer?, colors: [UIColor], up: Bool = true) -> CALayer? {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = colors.map { $0.cgColor }
         
         if !up {
             gradient.startPoint = CGPoint(x: 0, y: 1)
-            gradient.endPoint = CGPoint.zero
+            gradient.endPoint = CGPoint(x: 0, y: 0)
+        } 
+        
+        if currentGradient != nil {
+            self.layer.replaceSublayer(currentGradient!, with: gradient)
+        } else {
+            self.layer.insertSublayer(gradient, at: 1)
         }
-
-        self.layer.insertSublayer(gradient, at: 1)
+        return gradient
     }
     
 }
