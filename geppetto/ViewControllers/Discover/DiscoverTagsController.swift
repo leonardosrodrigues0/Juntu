@@ -31,7 +31,7 @@ internal class DiscoverTagsController: UIViewController {
     private func createTagLabel(_ tag: Tag) -> DiscoverTagUILabel {
         let aTagLabel = DiscoverTagUILabel()
         aTagLabel.thisTag = tag
-        aTagLabel.tagNavigationDelagate = tagNavigationDelagate
+        aTagLabel.tagNavigationDelegate = tagNavigationDelegate
         
         return aTagLabel
     }

@@ -16,7 +16,8 @@ class ClickableTagUILabel: TagUILabel {
             self.tagColor = thisTag?.color ?? .label
         }
     }
-    var tagNavigationDelagate: TagNavigationDelegate?
+    
+    weak var tagNavigationDelegate: TagNavigationDelegate?
     
     override func initializeLabel() {
         super.initializeLabel()
@@ -30,7 +31,7 @@ class ClickableTagUILabel: TagUILabel {
     // Action called when a Tag is tapped.
     @objc private func tagSelectionAction(_ sender: UITapGestureRecognizer) {
         if let tag = self.thisTag {
-            self.tagNavigationDelagate?.navigate(to: tag)
+            self.tagNavigationDelegate?.navigate(to: tag)
         }
     }
 }

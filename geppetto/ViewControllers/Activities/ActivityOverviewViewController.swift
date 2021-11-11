@@ -152,7 +152,7 @@ class ActivityOverviewViewController: UIViewController {
     private func creatTagLabel(_ tag: Tag) -> ClickableTagUILabel {
         let clickableTag = ClickableTagUILabel()
         clickableTag.thisTag = tag
-        clickableTag.tagNavigationDelagate = self
+        clickableTag.tagNavigationDelegate = self
         return clickableTag
     }
 
