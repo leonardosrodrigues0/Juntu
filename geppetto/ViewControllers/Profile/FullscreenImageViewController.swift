@@ -1,14 +1,9 @@
-//
-//  FullscreenImageViewController.swift
-//  geppetto
-//
-//  Created by Gabriel Muelas on 22/10/21.
-//
-
 import UIKit
 
 class FullscreenImageViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
         
@@ -17,6 +12,8 @@ class FullscreenImageViewController: UIViewController {
     
     // used in `swipeToDismiss` to keep track of user interaction
     private var viewTranslation = CGPoint(x: 0, y: 0)
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +25,7 @@ class FullscreenImageViewController: UIViewController {
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(swipeToDismiss(sender:))))
     }
     
-    // MARK: - Private functions
+    // MARK: - Private Methods
 
     private func configViewControllerStyle() {
         // force dark mode
@@ -54,7 +51,7 @@ class FullscreenImageViewController: UIViewController {
             action: #selector(didTapMoreButton(sender:))
         )
         
-        updateNavbarTitle()
+        updateNavBarTitle()
     }
     
     private func createActionSheet() -> UIAlertController {
@@ -95,7 +92,7 @@ class FullscreenImageViewController: UIViewController {
     }
     
     /// Set title of View according to current image index
-    private func updateNavbarTitle() {
+    private func updateNavBarTitle() {
         navItem.title = "\(currentImageIndex + 1) de \(images.count)"
     }
     
@@ -134,8 +131,8 @@ class FullscreenImageViewController: UIViewController {
     }
 
     // MARK: - Child View Controller
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "childView" {
             guard let pageMomentsViewController = segue.destination as? PageMomentsViewController else { return }
             
@@ -143,8 +140,9 @@ class FullscreenImageViewController: UIViewController {
             pageMomentsViewController.dataSource = self
             
             // instantiate moment image content view controller
-            if let initialMomentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController {
-                
+            if let initialMomentImageContentVC = storyboard?.instantiateViewController(
+                withIdentifier: "momentImageContent"
+            ) as? MomentImageContentViewController {
                 // define selected image to be presented
                 initialMomentImageContentVC.setup(imageData: images[currentImageIndex], index: currentImageIndex)
                 // put created VC in pageVC
@@ -152,18 +150,20 @@ class FullscreenImageViewController: UIViewController {
                 
             }
         }
-        
     }
 }
 
-// MARK: - Page Controller Delegate methods
+// MARK: - Page Controller Delegate Methods
+
 extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     /// Pre-load previous page
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard
             let currentVC = viewController as? MomentImageContentViewController,
-            let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController,
+            let momentImageContentVC = storyboard?.instantiateViewController(
+                withIdentifier: "momentImageContent"
+            ) as? MomentImageContentViewController,
             currentVC.getIndex() != 0
         else {
             return nil
@@ -179,7 +179,9 @@ extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageVie
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard
             let currentVC = viewController as? MomentImageContentViewController,
-            let momentImageContentVC = storyboard?.instantiateViewController(withIdentifier: "momentImageContent") as? MomentImageContentViewController,
+            let momentImageContentVC = storyboard?.instantiateViewController(
+                withIdentifier: "momentImageContent"
+            ) as? MomentImageContentViewController,
             currentVC.getIndex() < images.count - 1
         else {
             return nil
@@ -192,8 +194,12 @@ extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageVie
     }
     
     /// Sync `currentImageIndex` to the actual index. Used to update title in navbar
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
         guard
             completed,
             let currentVC = pageViewController.viewControllers?.first as? MomentImageContentViewController
@@ -202,6 +208,6 @@ extension FullscreenImageViewController: UIPageViewControllerDelegate, UIPageVie
         }
         
         self.currentImageIndex = currentVC.getIndex()
-        updateNavbarTitle()
+        updateNavBarTitle()
     }
 }

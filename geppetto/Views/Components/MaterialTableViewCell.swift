@@ -1,15 +1,9 @@
-//
-//  ActivityCardTableViewCell.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 22/10/21.
-//
-
 import UIKit
 
 @IBDesignable
 class MaterialTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var checkMarkButton: UIImageView!
     
@@ -23,6 +17,8 @@ class MaterialTableViewCell: UITableViewCell {
             updateCheckView()
         }
     }
+    
+    // MARK: - Methods
     
     private func updateCheckView() {
         var checkedImageName = "square"

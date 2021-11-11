@@ -1,15 +1,9 @@
-//
-//  ProfileViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 29/06/21.
-//
-
 import UIKit
 
 class ProfileViewController: UIViewController, ActivityNavigationDelegate, FullscreenImageNavigationDelegate {
 
     // MARK: - Properties
+    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
@@ -65,9 +59,9 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         historyView.isHidden = segmentIndex != 2
     }
     
-    // MARK: - View Update  Methods
+    // MARK: - View Update Methods
     
-    // update info when opening profile tab
+    // Update info when opening profile tab
     override func viewDidAppear(_ animated: Bool) {
         updateViews()
     }
@@ -106,6 +100,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     }
     
     // MARK: - CardNavigationDelegate Methods
+    
     /// Navigate to ActivityOverview
     func navigate(to activity: Activity) {
         selectedActivity = activity
@@ -113,13 +108,15 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     }
     
     // MARK: - FullscreenImageNavigationDelegate Methods
+    
     /// Navigate to FullscreenImage
     func navigate(selectedImageIndex: Int) {
         self.selectedImageIndex = selectedImageIndex
         performSegue(withIdentifier: "goToFullscreen", sender: self)
     }
     
-    // MARK: - Pass data foward in navigation
+    // MARK: - Pass data forward in navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToOverview" {
@@ -141,7 +138,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     }
     
     @objc private func profilePictureClicked(gesture: UIGestureRecognizer) {
-        // if the tapped view is a UIImageView then set it to imageview
+        // if the tapped view is a UIImageView then set it to imageView
         if (gesture.view as? UIImageView) != nil {
             showImagePickerController()
         }

@@ -1,19 +1,16 @@
-//
-//  LoadingDelegate.swift
-//  geppetto
-//
-//  Created by Gabriel Muelas on 04/11/21.
-//
-
 import Foundation
 import UIKit
 
-/// An utilitie that present a loading indicator in views that require Internet requests
+/// Utility that present a loading indicator in views that require Internet requests.
 class LoadingHandler {
-    private var parentView: UIView
     
+    // MARK: - Properties
+    
+    private var parentView: UIView
     private weak var activityIndicator: UIActivityIndicatorView!
     private weak var label: UILabel!
+    
+    // MARK: - Initializers
     
     /// Present the loading indicator in the parent view. Call this initializer before Internet request
     public init(parentView: UIView) {
@@ -23,6 +20,8 @@ class LoadingHandler {
         
         start()
     }
+    
+    // MARK: - Methods
     
     private func createIndicatorView(parentView view: UIView) -> (indicator: UIActivityIndicatorView, label: UILabel) {
         let stack = UIStackView()

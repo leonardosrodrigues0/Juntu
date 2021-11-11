@@ -1,10 +1,3 @@
-//
-//  TagsDatabase.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 19/10/21.
-//
-
 import Foundation
 import FirebaseDatabase
 import Promises
@@ -14,26 +7,27 @@ import Promises
 class TagsDatabase {
     
     // MARK: - Constants
+    
     static let picturesDirectory = "TagPictures"
     static let imagesExtension = ".png"
     private static let databaseTagsChild = "tags"
     
     // MARK: - Properties
+    
     private let decoder: JSONDecoder
     private var tags: [Tag]?
     
-    // MARK: - Singleton Logic
     /// TagsDatabase singleton instance.
-    public static var shared: TagsDatabase = {
-        let instance = TagsDatabase()
-        return instance
-    }()
+    public static var shared = TagsDatabase()
+    
+    // MARK: - Initializers
     
     private init() {
         decoder = JSONDecoder()
     }
     
     // MARK: - Tag Construction Methods
+    
     func getTags(withIds ids: [String]) -> Promise<[Tag]> {
         getTags { ids.contains($0.id) }
     }
@@ -77,10 +71,10 @@ class TagsDatabase {
             tagIds = allTags.map { $0.id }
             return all(allTags.map { $0.getTagActivities() })
                 .then { tagActivities in
-                    for i in 0..<tagIds.count {
-                        let activities = tagActivities[i]
-                        let tag = allTags[i]
-                        let id = tagIds[i]
+                    for index in 0..<tagIds.count {
+                        let activities = tagActivities[index]
+                        let tag = allTags[index]
+                        let id = tagIds[index]
                         activitiesGroupByTag[id] = (tag: tag, activities: activities)
                     }
                     return Promise(activitiesGroupByTag)

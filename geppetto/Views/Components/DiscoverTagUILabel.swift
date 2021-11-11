@@ -1,15 +1,10 @@
-//
-//  DiscoverTagUILabel.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 05/11/21.
-//
-
 import Foundation
 import UIKit
 
 @IBDesignable
 class DiscoverTagUILabel: ClickableTagUILabel {
+    
+    // MARK: - Methods
     
     override func initializeLabel() {
         super.initializeLabel()

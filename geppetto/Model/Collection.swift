@@ -1,10 +1,3 @@
-//
-//  Collection.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 20/10/21.
-//
-
 public extension Collection {
     /// Optional access in the collection.
     ///

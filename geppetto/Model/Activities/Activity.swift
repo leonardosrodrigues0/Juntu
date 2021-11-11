@@ -1,10 +1,3 @@
-//
-//  Activity.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 30/06/21.
-//
-
 import Foundation
 import FirebaseStorage
 import Promises
@@ -12,6 +5,7 @@ import Promises
 public struct Activity: Searchable, Codable {
     
     // MARK: - Properties
+    
     let id: String
     let directory: String
     let name: String
@@ -24,9 +18,11 @@ public struct Activity: Searchable, Codable {
     let materials: [String]
     let tags: [String]?
     private(set) var steps: [ActivityStep]
+    
     var minMaxAge: String {
         return "\(minAge)~\(maxAge)"
     }
+    
     var cleanTime: String {
         var cleanTime = time.replacingOccurrences(of: " min", with: "")
         cleanTime = cleanTime.replacingOccurrences(of: " h", with: "")
@@ -35,6 +31,7 @@ public struct Activity: Searchable, Codable {
     }
     
     // MARK: - Methods
+    
     mutating func getSteps() -> [ActivityStep] {
         return steps
     }
@@ -67,6 +64,7 @@ public struct Activity: Searchable, Codable {
     }
     
     // MARK: - Decodable
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 

@@ -1,10 +1,3 @@
-//
-//  CameraViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 20/09/21.
-//
-
 import UIKit
 import AVKit
 
@@ -66,9 +59,9 @@ extension CameraManager {
         return alert
     }
 
-    // MARK: - Picture taking
+    // MARK: - Picture Taking
 
-    /// Default implementation for a simple camera usage,
+    /// Default implementation for a simple camera usage.
     private func takePicture() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             DispatchQueue.main.async {
@@ -83,7 +76,7 @@ extension CameraManager {
 
     }
 
-    // MARK: - picture editing and sharing
+    // MARK: - Picture Editing and Sharing
 
     /// Share an image with a Juntu watermark and an associated text.
     /// Built to be called inside `imagePickerController` method at the UIViewController.
@@ -99,7 +92,7 @@ extension CameraManager {
         }
         
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
-        // here you add image to filesystem
+        // Add image to filesystem
         saveOnFileSystem(image: watermarkedImage)
         shareImageAndText(image: watermarkedImage, text: text)
     }
@@ -124,7 +117,7 @@ extension CameraManager {
         
         watermarkImage.draw(in: watermarkRect)
 
-        // Get result.
+        // Get result
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result!
@@ -153,25 +146,21 @@ extension CameraManager {
         present(activityViewController, animated: true)
     }
 
-    // MARK: - picture saving
+    // MARK: - Picture Saving
     
-    // lógica para salvar imagens tiradas na pasta de pictures dentro de documents
+    /// Save image as a file. If documents directory does not exist, create it.
     private func saveOnFileSystem(image: UIImage) {
-        
         let fm = FileManager.default
         let picturesFolder: URL = getDocumentsDirectory().appendingPathComponent("pictures")
-        var isdirectory: ObjCBool = true
+        var isDirectory: ObjCBool = true
         
-        /// esse trecho checa se existe a pasta
-        /// se existir, a funcao salva a imagem direto
-        /// se nao existir, a funcao cria o novo diretorio e salva a imagem
-        if fm.fileExists(atPath: picturesFolder.path, isDirectory: &isdirectory) {
-            if isdirectory.boolValue {
-                /// file exists and is a directory
+        if fm.fileExists(atPath: picturesFolder.path, isDirectory: &isDirectory) {
+            if isDirectory.boolValue {
+                // file exists and is a directory
                 saveImage(image: image, picturesFolder: picturesFolder)
             }
         } else {
-            /// directory does not exist
+            // directory does not exist
             do {
                 try fm.createDirectory(at: picturesFolder, withIntermediateDirectories: false, attributes: nil)
                 saveImage(image: image, picturesFolder: picturesFolder)
@@ -182,18 +171,18 @@ extension CameraManager {
 
     }
     
-    // funcao simples que retorna a URL da pasta de documents do app
+    /// Returns app's document directory URL.
     private func getDocumentsDirectory() -> URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
-    // salva a imagem recebida como parametro no endereco recebido como parametro
+    /// Save image at the given directory.
     private func saveImage(image: UIImage, picturesFolder: URL) {
         if let data = image.pngData() {
             let filePath = picturesFolder.appendingPathComponent("\(Date()).png")
             do {
                 try data.write(to: filePath)
-                print("Imagesaved")
+                print("Image saved")
             } catch {
                 print("Unable to Write Data to Disk \(error)")
             }

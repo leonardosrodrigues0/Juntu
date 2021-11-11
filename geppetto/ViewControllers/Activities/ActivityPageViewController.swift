@@ -1,14 +1,10 @@
-//
-//  ActivityPageViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 02/07/21.
-//
-
 import UIKit
 
 /// Custom PageViewController for activity steps
 class ActivityPageViewController: UIPageViewController {
+    
+    // MARK: - Properties
+    
     var activity: Activity?
     var pages = [UIViewController]()
     let initialPageIndex = 0
@@ -16,6 +12,8 @@ class ActivityPageViewController: UIPageViewController {
     let pageControl = UIPageControl()
     
     var helper = AnalyticsHelper()
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +33,16 @@ class ActivityPageViewController: UIPageViewController {
         let allSteps = getActivitySteps()
         
         pages = [UIViewController]()
-        for i in 0..<allSteps.count {
-            guard let activityStepVC = storyboard?.instantiateViewController(withIdentifier: String(describing: ActivityStepViewController.self)) as? ActivityStepViewController else {
+        for index in 0..<allSteps.count {
+            guard let activityStepVC = storyboard?.instantiateViewController(
+                withIdentifier: String(describing: ActivityStepViewController.self)
+            ) as? ActivityStepViewController else {
                 return
             }
 
             activityStepVC.activity = activity
-            activityStepVC.index = i
-            activityStepVC.step = allSteps[i]
+            activityStepVC.index = index
+            activityStepVC.step = allSteps[index]
             pages.append(activityStepVC)
         }
     }
@@ -75,6 +75,7 @@ class ActivityPageViewController: UIPageViewController {
 }
 
 extension ActivityPageViewController {
+    
     func setup() {
         dataSource = self
         delegate = self
@@ -98,6 +99,7 @@ extension ActivityPageViewController {
         // When pageControl value changes (direct click on pageControl), it calls pageControlSelectionAction
         pageControl.addTarget(self, action: #selector(self.pageControlSelectionAction(_:)), for: .valueChanged)
     }
+    
     @objc func pageControlSelectionAction(_ sender: UIPageControl) {
         let page: Int? = sender.currentPage
         
@@ -151,8 +153,13 @@ extension ActivityPageViewController: UIPageViewControllerDataSource {
 extension ActivityPageViewController: UIPageViewControllerDelegate {
     
     // How we keep our pageControl in sync with viewControllers
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        // IMPORTANT: without DispatchQueue.main.async, it cann crash if you swipe too fast
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        // IMPORTANT: without DispatchQueue.main.async, it can crash if you swipe too fast
         DispatchQueue.main.async {
             guard let viewControllers = pageViewController.viewControllers else { return }
             guard let currentIndex = self.pages.firstIndex(of: viewControllers[0]) else { return }

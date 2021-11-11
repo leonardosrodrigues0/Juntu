@@ -1,21 +1,16 @@
-//
-//  ActivityPageControlViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 02/07/21.
-//
-
 import UIKit
 
 /// Control of the PageViewController for a given activity
 class ActivityPageControlViewController: UIViewController {
     
     // MARK: - Properties
+    
     @IBOutlet weak var contentView: UIView!
     var activity: Activity?
     var helper = AnalyticsHelper()
     
-    // MARK: - Page Control Methods
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         helper = AnalyticsHelper()
@@ -24,7 +19,9 @@ class ActivityPageControlViewController: UIViewController {
     
     /// Set options for pages
     func configurePageViewController() {
-        guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActivityPageViewController.self)) as? ActivityPageViewController else {
+        guard let pageViewController = storyboard?.instantiateViewController(
+            withIdentifier: String(describing: ActivityPageViewController.self)
+        ) as? ActivityPageViewController else {
             return
         }
         
@@ -60,7 +57,6 @@ class ActivityPageControlViewController: UIViewController {
 
 extension ActivityPageControlViewController: CameraManager {
     
-    // MARK: - Camera Usage Methods
     @IBAction private func cameraButtonTapped() {
         tryTakePicture()
     }
