@@ -1,9 +1,3 @@
-//
-//  FontWeights.swift
-//  geppetto
-//
-//  Created by Gabriel Muelas on 10/11/21.
-//
 //  Define font weight of UILabel
 //  Use: In Interface Builder > Identity Inspector set the class of UILabel to one of below custom class
 //  Disclaimer: This classes are built to use only in Storyboards, not in code
