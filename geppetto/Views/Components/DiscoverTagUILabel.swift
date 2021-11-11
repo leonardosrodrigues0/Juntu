@@ -9,7 +9,7 @@ class DiscoverTagUILabel: ClickableTagUILabel {
     override func initializeLabel() {
         super.initializeLabel()
         
-        self.font = UIFont.preferredFont(forTextStyle: .headline)
+        self.font = UIFont.preferredFont(forTextStyle: .headline).withWeight(.semibold)
         self.textAlignment = .center
         self.numberOfLines = 1
         
