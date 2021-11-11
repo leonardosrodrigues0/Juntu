@@ -13,6 +13,9 @@ class ActivityOverviewViewController: UIViewController {
     
     // MARK: - Properties
     var activity: Activity?
+    private var tags: [Tag] = []
+    private var selectedTagCell: Tag?
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var duration: UILabel!
@@ -50,8 +53,14 @@ class ActivityOverviewViewController: UIViewController {
         updateOutlets()
         setupSaveButton()
         
+        clearTags()
+        
         helper.logViewedActivity(self.activity!)
         UserTracker.shared.logSeenActivity(self.activity!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateSavedActivityButtonImage()
     }
     
     private func initTableView() {
@@ -132,20 +141,24 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func loadAndCreateTags() {
-        if let tagId = self.activity?.tags?.first {
-            TagsDatabase.shared.getTag(withId: tagId).then { tag in
-                self.createTagLabel(name: tag.name, color: tag.color)
-            }.then { _ in
-                self.createTagLabel(name: "...", color: .secondaryLabel)
-            }
+        guard self.activity?.tags != nil else { return }
+        
+        TagsDatabase.shared.getTags(withIds: self.activity?.tags ?? []).then { tags in
+            self.tags.append(contentsOf: tags)
+            self.populateTagScroll()
         }
     }
     
-    private func createTagLabel(name: String, color: UIColor) {
-        let aTagLabel = TagUILabel()
-        aTagLabel.text = name
-        aTagLabel.tagColor = color
-        tagsStack.addArrangedSubview(aTagLabel)
+    private func populateTagScroll() {
+        let tags = tags.map { creatTagLabel($0) }
+        tagsStack.populateWithViews(tags)
+    }
+
+    private func creatTagLabel(_ tag: Tag) -> ClickableTagUILabel {
+        let clickableTag = ClickableTagUILabel()
+        clickableTag.thisTag = tag
+        clickableTag.tagNavigationDelagate = self
+        return clickableTag
     }
 
     // MARK: - Actions
@@ -168,6 +181,14 @@ class ActivityOverviewViewController: UIViewController {
         let buttomImageString = isSaved ? "bookmark.fill" : "bookmark"
         toggleSaveButton?.image = UIImage(systemName: buttomImageString)
     }
+    
+    /// Prepare Navigation to ActivityOverview or TagActivities
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTag" {
+            guard let tagViewController = segue.destination as? TagViewController else { return }
+            tagViewController.viewTag = selectedTagCell
+        }
+    }
 }
 
 extension ActivityOverviewViewController: UITableViewDataSource {
@@ -182,4 +203,24 @@ extension ActivityOverviewViewController: UITableViewDataSource {
         return cell!
     }
     
+}
+
+extension ActivityOverviewViewController: TagNavigationDelegate {
+    func navigate(to tag: Tag) {
+        selectedTagCell = tag
+        performSegue(withIdentifier: "goToTag", sender: self)
+    }
+}
+
+fileprivate extension UIStackView {
+    /// Inject an array of UIView into StackView
+    func populateWithViews(_ array: [UIView]) {
+        for item in self.arrangedSubviews {
+            item.removeFromSuperview()
+        }
+        
+        for view in array {
+            self.addArrangedSubview(view)
+        }
+    }
 }
