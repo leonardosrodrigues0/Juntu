@@ -14,7 +14,7 @@ class DiscoverTagUILabel: TagUILabel {
     private var _tagColor: UIColor = .label
     
     override func initializeLabel() {
-        self.font = UIFont.preferredFont(forTextStyle: .headline)
+        self.font = UIFont.preferredFont(forTextStyle: .headline).withWeight(.semibold)
         self.textAlignment = .center
         self.numberOfLines = 1
         
