@@ -40,80 +40,65 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-TK-KJZ" userLabel="Main Info">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="318"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-Ds-5CK">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="217.5" height="30"/>
+                                                                    <scrollView multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-sO-6Ky">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coordenação motora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxu-d0-Ie6" userLabel="Category" customClass="DesignableLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
-                                                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                                                <color key="textColor" systemColor="systemYellowColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="kerningSpace">
-                                                                                        <real key="value" value="1"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="15"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                        <real key="value" value="1"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                        <color key="value" systemColor="systemYellowColor"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                                                                        <real key="value" value="12"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                                                                        <real key="value" value="12"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="topInset">
-                                                                                        <real key="value" value="4"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
-                                                                                        <real key="value" value="4"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </label>
-                                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6W-de-xpw" userLabel="Category" customClass="DesignableLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="177.5" y="0.0" width="40" height="30"/>
-                                                                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="kerningSpace">
-                                                                                        <real key="value" value="1"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="15"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                        <real key="value" value="1"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                        <color key="value" systemColor="secondaryLabelColor"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                                                                        <real key="value" value="12"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                                                                        <real key="value" value="12"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="topInset">
-                                                                                        <real key="value" value="6"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
-                                                                                        <real key="value" value="6"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </label>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-Uq-aPz">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="30"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coordenação motora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRY-C1-bxM" userLabel="Category" customClass="TagUILabel" customModule="geppetto" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="2" width="186.5" height="26"/>
+                                                                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="kerningSpace">
+                                                                                                <real key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="13"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                <real key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                                <color key="value" systemColor="systemYellowColor"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                                                                <real key="value" value="12"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                                                                <real key="value" value="12"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                                                                <real key="value" value="4"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                                                                <real key="value" value="4"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="tagColor">
+                                                                                                <color key="value" systemColor="systemYellowColor"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
                                                                         </subviews>
-                                                                    </stackView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l45-P5-0L3" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="46" width="67.5" height="33.5"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" secondItem="oTo-Uq-aPz" secondAttribute="height" id="CTz-kO-z14"/>
+                                                                            <constraint firstItem="oTo-Uq-aPz" firstAttribute="top" secondItem="ddG-sO-6Ky" secondAttribute="top" id="GbH-ru-c15"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="NT4-FS-aHH"/>
+                                                                            <constraint firstItem="oTo-Uq-aPz" firstAttribute="leading" secondItem="ddG-sO-6Ky" secondAttribute="leading" id="U0k-pK-uG2"/>
+                                                                            <constraint firstItem="oTo-Uq-aPz" firstAttribute="bottom" secondItem="ddG-sO-6Ky" secondAttribute="bottom" id="mjK-YW-WtE"/>
+                                                                            <constraint firstItem="oTo-Uq-aPz" firstAttribute="trailing" secondItem="ddG-sO-6Ky" secondAttribute="trailing" id="yes-aD-RmT"/>
+                                                                        </constraints>
+                                                                        <viewLayoutGuide key="contentLayoutGuide" id="8yc-Zb-vbe"/>
+                                                                        <viewLayoutGuide key="frameLayoutGuide" id="PFk-tg-zPB"/>
+                                                                    </scrollView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l45-P5-0L3">
+                                                                        <rect key="frame" x="0.0" y="46" width="83" height="38.5"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -321,8 +306,10 @@
                                                                     <constraint firstAttribute="trailing" secondItem="znL-kT-26G" secondAttribute="trailing" id="Fx0-at-ZWZ"/>
                                                                     <constraint firstItem="Bcs-Ht-KoQ" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="HbF-qc-qns"/>
                                                                     <constraint firstItem="znL-kT-26G" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="LNF-59-GZs"/>
+                                                                    <constraint firstItem="ddG-sO-6Ky" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="NV5-oA-4qN"/>
                                                                     <constraint firstAttribute="trailing" secondItem="SfA-eM-F41" secondAttribute="trailing" id="WvN-fd-ehw"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Bcs-Ht-KoQ" secondAttribute="trailing" id="cKt-7O-SNn"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ddG-sO-6Ky" secondAttribute="trailing" id="tR9-7w-pCF"/>
                                                                 </constraints>
                                                             </stackView>
                                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2U-OC-QKB" userLabel="Separator">
@@ -437,24 +424,32 @@
                         <outlet property="name" destination="l45-P5-0L3" id="iTR-Hl-vJN"/>
                         <outlet property="ratingLabel" destination="dqU-Dj-k9b" id="1bX-o0-Ppe"/>
                         <outlet property="tableHeightConstraint" destination="cPH-pA-UP5" id="kmE-j6-wcu"/>
-                        <outlet property="tagsStack" destination="Q5G-Ds-5CK" id="3xF-ag-7MF"/>
+                        <outlet property="tagsStack" destination="oTo-Uq-aPz" id="7Bf-3a-tid"/>
                         <outlet property="votesLabel" destination="4qB-uj-5qK" id="H8L-UF-ORL"/>
+                        <segue destination="eSk-Iy-hxK" kind="show" identifier="goToTag" id="VnZ-OB-oZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lod-Ic-JJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-339.13043478260875" y="118.52678571428571"/>
         </scene>
+        <!--Tag-->
+        <scene sceneID="qgt-qq-x08">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tag" id="eSk-Iy-hxK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LIR-85-Cvd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbZ-3h-cSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="87"/>
+        </scene>
     </scenes>
     <designables>
-        <designable name="A6W-de-xpw">
-            <size key="intrinsicContentSize" width="40" height="30"/>
-        </designable>
         <designable name="SfA-eM-F41">
             <size key="intrinsicContentSize" width="140" height="45"/>
         </designable>
-        <designable name="zxu-d0-Ie6">
-            <size key="intrinsicContentSize" width="169.5" height="24"/>
+        <designable name="rRY-C1-bxM">
+            <size key="intrinsicContentSize" width="186.5" height="26"/>
         </designable>
     </designables>
     <resources>

@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class DiscoverTagUILabel: TagUILabel {
-    var thisTag: Tag?
-    private var _tagColor: UIColor = .label
+class DiscoverTagUILabel: ClickableTagUILabel {
     
     override func initializeLabel() {
+        super.initializeLabel()
+        
         self.font = UIFont.preferredFont(forTextStyle: .headline).withWeight(.semibold)
         self.textAlignment = .center
         self.numberOfLines = 1
@@ -29,7 +29,6 @@ class DiscoverTagUILabel: TagUILabel {
         self.cornerRadius = 16
         
         self.clipsToBounds = true
-        self.isUserInteractionEnabled = true
     }
     
     override func setLabelColor(to color: UIColor) {
