@@ -33,20 +33,10 @@ internal class DiscoverTagsController: UIViewController {
     
     private func creatTagLabel(_ tag: Tag) -> DiscoverTagUILabel {
         let aTagLabel = DiscoverTagUILabel()
-        aTagLabel.text = tag.name
-        aTagLabel.tagColor = tag.color
         aTagLabel.thisTag = tag
+        aTagLabel.tagNavigationDelagate = tagNavigationDelagate
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tagSelectionAction(_:)))
-        aTagLabel.addGestureRecognizer(tap)
         return aTagLabel
-    }
-
-    // Action called when a Tag is tapped.
-    @objc private func tagSelectionAction(_ sender: UITapGestureRecognizer) {
-        if let tappedTag = sender.view as? DiscoverTagUILabel, let tag = tappedTag.thisTag {
-            tagNavigationDelagate?.navigate(to: tag)
-        }
     }
 }
 
