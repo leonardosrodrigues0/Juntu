@@ -1,10 +1,3 @@
-//
-//  ActivityViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 05/07/21.
-//
-
 import UIKit
 import FirebaseStorageUI
 
@@ -12,6 +5,7 @@ import FirebaseStorageUI
 class ActivityOverviewViewController: UIViewController {
     
     // MARK: - Properties
+    
     var activity: Activity?
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
@@ -45,6 +39,7 @@ class ActivityOverviewViewController: UIViewController {
     var helper = AnalyticsHelper.init()
     
     // MARK: - Methods
+    
     override func viewDidLoad() {
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
@@ -162,9 +157,13 @@ class ActivityOverviewViewController: UIViewController {
     }
 
     // MARK: - Actions
+    
     @IBAction private func enterActivityButtonTapped() {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControlViewController = storyboard.instantiateViewController(withIdentifier: String(describing: ActivityPageControlViewController.self)) as? ActivityPageControlViewController
+        let activityPageControlViewController = storyboard.instantiateViewController(
+            withIdentifier: String(describing: ActivityPageControlViewController.self)
+        ) as? ActivityPageControlViewController
+        
         activityPageControlViewController?.activity = activity
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
@@ -178,8 +177,8 @@ class ActivityOverviewViewController: UIViewController {
     
     private func updateSavedActivityButtonImage() {
         let isSaved = UserTracker.shared.fetchIfActivityIsSaved(self.activity!)
-        let buttomImageString = isSaved ? "bookmark.fill" : "bookmark"
-        toggleSaveButton?.image = UIImage(systemName: buttomImageString)
+        let buttonImageString = isSaved ? "bookmark.fill" : "bookmark"
+        toggleSaveButton?.image = UIImage(systemName: buttonImageString)
     }
     
     /// Prepare Navigation to ActivityOverview or TagActivities
@@ -192,6 +191,7 @@ class ActivityOverviewViewController: UIViewController {
 }
 
 extension ActivityOverviewViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return materials.count
     }

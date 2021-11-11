@@ -1,21 +1,17 @@
-//
-//  TagViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 22/10/21.
-//
-
 import UIKit
 
 class TagViewController: UIViewController {
     
     // MARK: - Properties
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var viewTag: Tag?
     var activities: [Activity] = []
     var selectedActivity: Activity?
     
     private let activityCellIdentifier = "ActivityCardCell"
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +75,11 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
 
     /// Return the item size for collection view.
     /// Use aspect ratio of 16:9 for two columns of items.
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         // Space between cells: (defined only here)
         let horizontalSpacing = CGFloat(10)
         // Space between cells and safe area (horizontally): (defined in the storyboard)

@@ -1,18 +1,19 @@
-//
-//  AnalyticsEvents.swift
-//  geppetto
-//
-//  Created by Erick Manaroulas Felipe on 20/09/21.
-//
-
 import Foundation
 import Firebase
 
 public class AnalyticsHelper {
+    
+    // MARK: - Properties
+    
     var startTimer: Double
+    
+    // MARK: - Initializers
+    
     init() {
         startTimer = CFAbsoluteTimeGetCurrent()
     }
+    
+    // MARK: - Methods
     
     private func endTimer() -> Double {
         return CFAbsoluteTimeGetCurrent() - startTimer

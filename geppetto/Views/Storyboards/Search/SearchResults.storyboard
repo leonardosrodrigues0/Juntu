@@ -69,16 +69,6 @@
             </objects>
             <point key="canvasLocation" x="122" y="106"/>
         </scene>
-        <!--ActivityOverview-->
-        <scene sceneID="5D8-Ke-4fY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ActivityOverview" id="yg0-ih-a1J" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Ybk-Jm-yjR"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="db0-AK-YPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="738" y="106"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -1,10 +1,3 @@
-//
-//  UserTracker.swift
-//  geppetto
-//
-//  Created by Erick Manaroulas Felipe on 19/10/21.
-//
-
 import Foundation
 import UIKit
 
@@ -12,12 +5,17 @@ import UIKit
 /// Singleton class: use `UserTracker.shared` attribute.
 public class UserTracker {
     
-    let dataPlistFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("User.plist")
+    // MARK: - Properties
+    
+    let dataPlistFilePath = FileManager.default.urls(
+        for: .documentDirectory,
+        in: .userDomainMask
+    ).first?.appendingPathComponent("User.plist")
     
     var profilePictureFilePath: URL
     let profilePictureName = "UserProfilePicture.png"
     
-    var profilePictureFolderDatapath: URL = { () -> URL in
+    var profilePictureFolderDataPath: URL = { () -> URL in
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let docURL = URL(string: documentsDirectory)!
@@ -32,7 +30,7 @@ public class UserTracker {
         return folderDataPath
     }()
     
-    // implementacao de singleton
+    /// Singleton instance.
     static var shared: UserTracker = {
         let instance = UserTracker()
         instance.loadUser()
@@ -41,27 +39,29 @@ public class UserTracker {
     
     private var user: User?
     
+    // MARK: - Initializers
+    
     private init() {
-        self.profilePictureFilePath = self.profilePictureFolderDatapath.appendingPathComponent(self.profilePictureName)
+        self.profilePictureFilePath = self.profilePictureFolderDataPath.appendingPathComponent(self.profilePictureName)
     }
     
     // MARK: - Methods for Logging User Activity
     
     func logSeenActivity(_ activity: Activity) {
         user?.seeActivity(activity)
-        print("Logging seen activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
+        print("Logging seen activity: \(activity.name) on data path \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     
     func logCompletedActivity(_ activity: Activity) {
         user?.completeActivity(activity)
-        print("Logging completed activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
+        print("Logging completed activity: \(activity.name) on data path \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     
     func logToggleSavedActivity(_ activity: Activity) {
         user?.toggleSaveActivity(activity)
-        print("Logging saved activity: \(activity.name) on datapath \(String(describing: dataPlistFilePath))")
+        print("Logging saved activity: \(activity.name) on data path \(String(describing: dataPlistFilePath))")
         saveUser()
     }
     

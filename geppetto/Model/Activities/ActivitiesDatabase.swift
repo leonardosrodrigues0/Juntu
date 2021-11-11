@@ -1,10 +1,3 @@
-//
-//  ActivitiesDatabase.swift
-//  geppetto
-//
-//  Created by Matheus Vicente on 07/07/21.
-//
-
 import Foundation
 import FirebaseDatabase
 import Promises
@@ -14,6 +7,7 @@ import Promises
 class ActivitiesDatabase {
     
     // MARK: - Constants
+    
     static let activitiesStorageDirectory = "Activities"
     static let activityImageName = "overview"
     static let imagesExtension = ".png"
@@ -22,20 +16,21 @@ class ActivitiesDatabase {
     private static let activities: [String: Activity]? = nil
     
     // MARK: - Properties
+    
     private let decoder: JSONDecoder
     private var activities: [String: Activity]?
     
-    // MARK: - Singleton Logic
-    public static var shared: ActivitiesDatabase = {
-        let instance = ActivitiesDatabase()
-        return instance
-    }()
+    /// ActivitiesDatabase singleton instance.
+    public static var shared = ActivitiesDatabase()
+    
+    // MARK: - Initializers
     
     private init() {
         decoder = JSONDecoder()
     }
     
     // MARK: - Database Queries
+    
     /// Get all activities from database and return them as dictionary with id as key.
     func getAllActivitiesAsDictionary() -> Promise<[String: Activity]> {
         return Promise { fulfill, _ in
@@ -54,14 +49,14 @@ class ActivitiesDatabase {
         }
     }
     
-    /// Get all activities from database and return them as Array
+    /// Get all activities from database and return them as Array.
     func getAllActivities() -> Promise<[Activity]> {
         return getAllActivitiesAsDictionary().then { activitiesAsDictionary in
             self.activitiesDictionaryToArray(activitiesAsDictionary) ?? []
         }
     }
     
-    /// Get an array of activities filtered and ordered by ids. If self.activities is nil, load from firebase
+    /// Get an array of activities filtered and ordered by ids. If self.activities is nil, load from firebase.
     func getActivities(ids: [String]) -> Promise<[Activity]> {
         return getActivities(where: { ids.contains($0.id) }).then { activities in
             self.sorted(activities: activities, byIds: ids)
@@ -80,7 +75,7 @@ class ActivitiesDatabase {
         }
     }
     
-    /// Get all highlighted activities IDs
+    /// Get all highlighted activities IDs.
     func getHighlightedActivityIDs() -> Promise<[String]> {
         return Promise { fulfill, _ in
             let highlightedDatabaseRef = Database.database().reference(withPath: ActivitiesDatabase.databaseHighlightedActivitiesChild)
@@ -99,7 +94,7 @@ class ActivitiesDatabase {
         }
     }
     
-    /// Get all highlighted activities
+    /// Get all highlighted activities.
     func getHighlightedActivities() -> Promise<[Activity]> {
         getHighlightedActivityIDs().then { highlightedIds in
             return self.getActivities(ids: highlightedIds)
@@ -111,7 +106,7 @@ class ActivitiesDatabase {
         activities.sorted { ids.firstIndex(of: $0.id) ?? -1 < ids.firstIndex(of: $1.id) ?? -1 }
     }
 
-    /// Get a dictionary of activities filtered by ids. If self.activities is nil, load from firebase
+    /// Get a dictionary of activities filtered by ids. If self.activities is nil, load from firebase.
     func getActivity(id: String) -> Promise<Activity?> {
         return Promise { fulfill, _ in
             let query = Database.database().reference()
@@ -134,6 +129,7 @@ class ActivitiesDatabase {
     }
     
     // MARK: - Activity Builder Methods
+    
     /// With the DataSnapshot of the database activities, build a dictionary with each Activity.
     private func buildActivitiesFromDataSnapshot(_ data: DataSnapshot) -> [String: Activity]? {
         if let safeActivities = data.value as? [String: Any] {
@@ -160,7 +156,7 @@ class ActivitiesDatabase {
         }
     }
     
-    /// Convert activities dictionary to array
+    /// Convert activities dictionary to array.
     private func activitiesDictionaryToArray(_ dictionary: [String: Activity]?) -> [Activity]? {
         if let safeActivities = dictionary {
             return Array(safeActivities.values)

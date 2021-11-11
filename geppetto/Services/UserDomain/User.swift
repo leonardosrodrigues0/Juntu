@@ -1,13 +1,9 @@
-//
-//  User.swift
-//  geppetto
-//
-//  Created by Erick Manaroulas Felipe on 19/10/21.
-//
-
 import Foundation
 
 public class User: Codable {
+    
+    // MARK: - Properties
+    
     private var id = UUID()
     var name: String?
     private var profilePicture: String = "none"

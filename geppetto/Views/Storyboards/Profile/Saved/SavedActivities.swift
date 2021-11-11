@@ -1,28 +1,27 @@
-//
-//  SavedActivities.swift
-//  geppetto
-//
-//  Created by Eduardo Dini on 05/10/21.
-//
-
 import UIKit
 
 class SavedActivities: UIView {
+    
+    // MARK: - Properties
 
-    @IBOutlet var SavedView: UIView!
+    @IBOutlet var savedView: UIView!
     @IBOutlet weak var stack: UIStackView!
     var items: [Activity] = []
+    
+    // MARK: - Initializers
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
     
+    // MARK: - Methods
+    
     private func commonInit() {
         Bundle.main.loadNibNamed("SavedActivities", owner: self, options: nil)
-        addSubview(SavedView)
-        SavedView.frame = self.bounds
-        SavedView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(savedView)
+        savedView.frame = self.bounds
+        savedView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     /// Reload cards in view with items array

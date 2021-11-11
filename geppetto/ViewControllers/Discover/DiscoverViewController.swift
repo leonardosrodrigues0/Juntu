@@ -1,15 +1,9 @@
-//
-//  DiscoverViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 29/06/21.
-//
-
 import UIKit
 
 class DiscoverViewController: UIViewController {
     
     // MARK: - Properties
+    
     private var selectedTagCell: Tag?
     private var selectedActivity: Activity?
     
@@ -28,6 +22,7 @@ class DiscoverViewController: UIViewController {
     @IBOutlet weak var madeForYouCardHeight: NSLayoutConstraint!
     
     // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +38,7 @@ class DiscoverViewController: UIViewController {
     private func setupTagsController() {
         discoverTagsController.tagsStack = tagsStack
         discoverTagsController.tagsScrollView = tagsScrollView
-        discoverTagsController.tagNavigationDelagate = self
+        discoverTagsController.tagNavigationDelegate = self
         
         discoverTagsController.setup()
     }
@@ -51,16 +46,16 @@ class DiscoverViewController: UIViewController {
     private func setupHighlightedController() {
         highlightedController.collectionView = highlightedCollection
         highlightedController.pageControl = highlightedPageControl
-        highlightedController.cardHeightConstrait = highlightedCardHeight
-        highlightedController.activityNavigationDelagate = self
+        highlightedController.cardHeightConstraint = highlightedCardHeight
+        highlightedController.activityNavigationDelegate = self
         
         highlightedController.setup()
     }
     
     private func setupMadeForYouController() {
         madeForYouController.collectionView = madeForYouCollection
-        madeForYouController.cardHeightConstrait = madeForYouCardHeight
-        madeForYouController.activityNavigationDelagate = self
+        madeForYouController.cardHeightConstraint = madeForYouCardHeight
+        madeForYouController.activityNavigationDelegate = self
         
         madeForYouController.setup()
     }

@@ -1,10 +1,3 @@
-//
-//  Tag.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 19/10/21.
-//
-
 import FirebaseStorage
 import UIKit
 import Promises
@@ -12,6 +5,7 @@ import Promises
 struct Tag: Codable {
     
     // MARK: - Properties
+    
     /// Tag id.
     let id: String
     /// Tag descriptive name.
@@ -20,6 +14,8 @@ struct Tag: Codable {
     let color: UIColor
     /// Tag picture's filename.
     let pictureFilename: String
+    
+    // MARK: - Methods
     
     /// Return a storage reference to the tag image.
     func getImageDatabaseRef() -> StorageReference {
@@ -33,6 +29,8 @@ struct Tag: Codable {
         ActivitiesDatabase.shared.getActivities { $0.tags?.contains(self.id) ?? false }
     }
     
+    // MARK: - Codable
+    
     /// Coding keys for the `Tag` struct.
     enum CodingKeys: String, CodingKey {
         case id
@@ -41,7 +39,6 @@ struct Tag: Codable {
         case pictureFilename
     }
     
-    // MARK: - Decodable
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -59,7 +56,6 @@ struct Tag: Codable {
         pictureFilename = try values.decode(String.self, forKey: .pictureFilename)
     }
     
-    // MARK: - Encodable
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)

@@ -1,15 +1,9 @@
-//
-//  SearchViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 29/06/21.
-//
-
 import UIKit
 
 public class SearchViewController: UIViewController {
     
     // MARK: - Properties
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var resultsController: SearchResultsViewController
     var searchController: UISearchController
@@ -22,9 +16,12 @@ public class SearchViewController: UIViewController {
     let relativeTagFontConstant: CGFloat = 0.052
     
     // MARK: - Initializers
+    
     public required init?(coder: NSCoder) {
         let storyboard = UIStoryboard(name: "SearchResults", bundle: nil)
-        guard let resultsViewController = storyboard.instantiateViewController(withIdentifier: "ResultsController") as? SearchResultsViewController else {
+        guard let resultsViewController = storyboard.instantiateViewController(
+            withIdentifier: "ResultsController"
+        ) as? SearchResultsViewController else {
             return nil
         }
         
@@ -37,6 +34,7 @@ public class SearchViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setSearchConfig()
@@ -118,7 +116,11 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
     /// Return the item size for collection view.
     /// Use aspect ratio of 16:9 for two columns of items.
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         // Space between cells: (defined only here)
         let horizontalSpacing = CGFloat(10)
         // Space between cells and safe area (horizontally): (defined in the storyboard)

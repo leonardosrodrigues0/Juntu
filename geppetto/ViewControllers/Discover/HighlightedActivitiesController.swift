@@ -1,23 +1,20 @@
-//
-//  HighlightedActivitiesController.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 09/11/21.
-//
-
 import Foundation
 import UIKit
 
 internal class HighlightedActivitiesController: UIViewController {
     
+    // MARK: - Properties
+    
     weak var collectionView: UICollectionView!
     weak var pageControl: UIPageControl!
-    weak var cardHeightConstrait: NSLayoutConstraint!
-    weak var activityNavigationDelagate: ActivityNavigationDelegate!
+    weak var cardHeightConstraint: NSLayoutConstraint!
+    weak var activityNavigationDelegate: ActivityNavigationDelegate!
     
     private var activities: [Activity] = []
     private var zoomFactor: CGFloat = 0.075
     private let highlightedCellIdentifier = "ActivityCardPhotoBackground"
+    
+    // MARK: - Methods
     
     func setup() {
         let flowLayout = ZoomAndSnapFlowLayout(zoomFactor: zoomFactor)
@@ -46,6 +43,7 @@ internal class HighlightedActivitiesController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension HighlightedActivitiesController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         pageControl.numberOfPages = activities.count
@@ -71,23 +69,29 @@ extension HighlightedActivitiesController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
+
 extension HighlightedActivitiesController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let activity = activities.get(at: indexPath.row) {
-            activityNavigationDelagate?.navigate(to: activity)
+            activityNavigationDelegate?.navigate(to: activity)
         }
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
+
 extension HighlightedActivitiesController: UICollectionViewDelegateFlowLayout {
-    /// Also updates the collectionView height constrait
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    /// Also updates the collectionView height constraint.
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let horizontalInsets = CGFloat(16)
         let itemWidth: CGFloat = floor((collectionView.frame.size.width - 2 * horizontalInsets)) / (1 + zoomFactor)
         let itemHeight = itemWidth * (400 / 340)
                     
-        cardHeightConstrait?.constant = CGFloat(itemHeight * (1 + zoomFactor))
+        cardHeightConstraint?.constant = CGFloat(itemHeight * (1 + zoomFactor))
         
         return CGSize(width: itemWidth, height: itemHeight)
     }

@@ -182,7 +182,7 @@
             <connections>
                 <outlet property="ageLabel" destination="7kv-xG-Ob3" id="MD5-rB-hFx"/>
                 <outlet property="descriptionLabel" destination="QWM-FF-oWZ" id="foW-2Q-WFp"/>
-                <outlet property="dificultyLabel" destination="LY9-oO-7k6" id="RqT-V4-uvP"/>
+                <outlet property="difficultyLabel" destination="LY9-oO-7k6" id="0Mj-Fe-8lL"/>
                 <outlet property="durationLabel" destination="hWq-tx-rhO" id="2ZC-N9-FGn"/>
                 <outlet property="image" destination="tg5-tn-2aC" id="qA4-rl-5mY"/>
                 <outlet property="mainTagLabel" destination="knf-ei-lO2" id="uJu-7X-ZuB"/>

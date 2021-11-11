@@ -1,17 +1,14 @@
-//
-//  ZoomAndSnapFlowLayout.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 07/11/21.
-//
-
 import Foundation
 import UIKit
 
 class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
+    // MARK: - Properties
+    
     var activeDistance: CGFloat = 250
     var zoomFactor: CGFloat = 0.1
+    
+    // MARK: - Initializers
     
     init(zoomFactor: CGFloat) {
         super.init()
@@ -25,6 +22,8 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     override func prepare() {
         super.prepare()

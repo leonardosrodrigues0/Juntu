@@ -1,13 +1,8 @@
-//
-//  ActivityCardPhotoBackground.swift
-//  geppetto
-//
-//  Created by Renato Noronha Maximo on 04/11/21.
-//
-
 import UIKit
 
 class ActivityCardPhotoBackground: UICollectionViewCell {
+    
+    // MARK: - Properties
 
     @IBOutlet weak var image: DesignableImageView!
     @IBOutlet weak var mainTagLabel: DesignableLabel!
@@ -17,7 +12,7 @@ class ActivityCardPhotoBackground: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var dificultyLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
     
     var cellActivity: Activity? {
         didSet {
@@ -36,6 +31,8 @@ class ActivityCardPhotoBackground: UICollectionViewCell {
         }
     }
     
+    // MARK: - Methods
+    
     private func updateOutlets() {
         image.sd_setImage(with: (cellActivity?.getImageDatabaseRef())!)
         titleLabel.text = cellActivity?.name
@@ -48,7 +45,7 @@ class ActivityCardPhotoBackground: UICollectionViewCell {
         
         ageLabel.text = cellActivity?.getAgeText()
         durationLabel.text = cellActivity?.time
-        dificultyLabel.text = cellActivity?.difficulty
+        difficultyLabel.text = cellActivity?.difficulty
     }
     
     override func awakeFromNib() {

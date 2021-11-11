@@ -1,10 +1,3 @@
-//
-//  ActivityStepsViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 02/07/21.
-//
-
 import UIKit
 import FirebaseStorage
 
@@ -12,6 +5,7 @@ import FirebaseStorage
 class ActivityStepViewController: UIViewController {
 
     // MARK: - Properties
+    
     var activity: Activity?
     var index: Int? // PageController index.
     var step: ActivityStep?
@@ -22,6 +16,7 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var juntuTipText: UILabel!
     
     // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateOutlets()

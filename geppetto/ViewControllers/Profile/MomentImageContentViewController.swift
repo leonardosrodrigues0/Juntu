@@ -1,17 +1,14 @@
-//
-//  MomentImageContentViewController.swift
-//  geppetto
-//
-//  Created by Gabriel Muelas on 28/10/21.
-//
-
 import UIKit
 
 class MomentImageContentViewController: UIViewController {
+    
+    // MARK: - Properties
 
     @IBOutlet weak var imageView: UIImageView!
     private var imageData: Data?
     private var index: Int = 0
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,14 +1,9 @@
-//
-//  ActivityCard.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 24/10/21.
-//
-
 import UIKit
 
 @IBDesignable
 class ActivityCard: UIView {
+    
+    // MARK: - Properties
 
     let nibName: String = "ActivityCard"
     
@@ -29,6 +24,8 @@ class ActivityCard: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
@@ -38,6 +35,8 @@ class ActivityCard: UIView {
         super.init(coder: coder)
         self.configureView()
     }
+    
+    // MARK: - Methods
     
     private func configureView() {
         guard let view = self.loadViewFromNib(nibName: nibName) else { return }

@@ -1,10 +1,3 @@
-//
-//  TagCardCell.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 19/10/21.
-//
-
 import UIKit
 import FirebaseStorage
 
@@ -12,10 +5,12 @@ import FirebaseStorage
 class TagCardCell: UICollectionViewCell {
     
     // MARK: - Constants
+    
     private static let colorOpacity = 0.3
     private static let blackOpacity = 0.3
     
     // MARK: - Properties
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var colorView: UIView!

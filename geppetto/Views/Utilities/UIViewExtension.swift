@@ -1,10 +1,3 @@
-//
-//  UIViewExtension.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 24/10/21.
-//
-
 import Foundation
 import UIKit
 

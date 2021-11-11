@@ -1,13 +1,8 @@
-//
-//  History.swift
-//  geppetto
-//
-//  Created by Eduardo Dini on 05/10/21.
-//
-
 import UIKit
 
 class History: UIView {
+    
+    // MARK: - Properties
     
     @IBOutlet var historyView: UIView!
     @IBOutlet weak var tableViewHistory: UITableView!
@@ -15,10 +10,14 @@ class History: UIView {
     var activityList: [Activity] = []
     weak var activityNavigationDelegate: ActivityNavigationDelegate?
     
+    // MARK: - Initializers
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
+    
+    // MARK: - Methods
         
     private func commonInit() {
         Bundle.main.loadNibNamed("History", owner: self, options: nil)

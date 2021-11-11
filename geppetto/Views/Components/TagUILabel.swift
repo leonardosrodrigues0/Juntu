@@ -1,15 +1,11 @@
-//
-//  TagUILabel.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 28/10/21.
-//
-
 import Foundation
 import UIKit
 
 @IBDesignable
 class TagUILabel: DesignableLabel {
+    
+    // MARK: - Properties
+    
     private var _tagColor: UIColor = .label
     
     @IBInspectable
@@ -23,6 +19,8 @@ class TagUILabel: DesignableLabel {
         }
     }
     
+    // MARK: - Initializers
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initializeLabel()
@@ -32,6 +30,8 @@ class TagUILabel: DesignableLabel {
         super.init(frame: frame)
         initializeLabel()
     }
+    
+    // MARK: - Methods
 
     func initializeLabel() {
         self.font = UIFont.preferredFont(forTextStyle: .subheadline)

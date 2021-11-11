@@ -1,10 +1,3 @@
-//
-//  Moments.swift
-//  geppetto
-//
-//  Created by Eduardo Dini on 05/10/21.
-//
-
 import UIKit
 
 protocol FullscreenImageNavigationDelegate: AnyObject {
@@ -13,11 +6,15 @@ protocol FullscreenImageNavigationDelegate: AnyObject {
 
 class Moments: UIView {
     
+    // MARK: - Properties
+    
     @IBOutlet var momentsView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
     var images = [Data]()
     weak var delegate: FullscreenImageNavigationDelegate?
+    
+    // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +25,8 @@ class Moments: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
+    
+    // MARK: - Methods
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -56,7 +55,7 @@ class Moments: UIView {
         retrieveImages()
     }
     
-    // recupera imagens da pasta de pictures dentro da documents
+    /// Retrieve images from pictures directory in documents.
     func retrieveImages() {
         images = [Data]()
         
