@@ -1,10 +1,3 @@
-//
-//  ClickableTagUILabel.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 10/11/21.
-//
-
 import Foundation
 import UIKit
 
