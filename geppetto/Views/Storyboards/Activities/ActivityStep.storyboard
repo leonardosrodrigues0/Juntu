@@ -28,13 +28,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMR-2H-fVB" userLabel="BannerViewContainer" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="94" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yI9-Pg-vY2"/>
-                                </constraints>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-cB-fgX">
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <subviews>
@@ -109,13 +102,9 @@
                         <viewLayoutGuide key="safeArea" id="8FI-3E-imV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uMR-2H-fVB" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="4oD-D4-3WA"/>
                             <constraint firstItem="lUU-cB-fgX" firstAttribute="trailing" secondItem="8FI-3E-imV" secondAttribute="trailing" id="Ebz-13-d51"/>
                             <constraint firstItem="lUU-cB-fgX" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="HRr-db-JHW"/>
-                            <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="uMR-2H-fVB" secondAttribute="top" id="Q6F-hI-Ij8"/>
                             <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="lUU-cB-fgX" secondAttribute="bottom" id="nEy-uf-NYJ"/>
-                            <constraint firstItem="uMR-2H-fVB" firstAttribute="trailing" secondItem="8FI-3E-imV" secondAttribute="trailing" id="taw-83-ZEV"/>
-                            <constraint firstItem="uMR-2H-fVB" firstAttribute="top" secondItem="lUU-cB-fgX" secondAttribute="top" id="tru-7Z-2Pu"/>
                             <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" constant="50" id="zDG-0k-c5t"/>
                         </constraints>
                     </view>
