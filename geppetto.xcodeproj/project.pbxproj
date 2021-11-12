@@ -78,6 +78,8 @@
 		CDD905112728521F00FF9B82 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD905102728521F00FF9B82 /* UIView+Nib.swift */; };
 		CDD9051327285A8C00FF9B82 /* ActivityNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9051227285A8C00FF9B82 /* ActivityNavigationDelegate.swift */; };
 		CDE41844273C233800505BA9 /* ClickableTagUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41843273C233800505BA9 /* ClickableTagUILabel.swift */; };
+		CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */; };
+		CDE41848273D403500505BA9 /* SimilarActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
 		D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DE9271EEFC50010ED65 /* User.swift */; };
@@ -166,6 +168,8 @@
 		CDD905102728521F00FF9B82 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		CDD9051227285A8C00FF9B82 /* ActivityNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityNavigationDelegate.swift; sourceTree = "<group>"; };
 		CDE41843273C233800505BA9 /* ClickableTagUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickableTagUILabel.swift; sourceTree = "<group>"; };
+		CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewController.swift; sourceTree = "<group>"; };
+		CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarActivitiesController.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		D7FF5DE9271EEFC50010ED65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				A74A0BFF268F599D00F99C7C /* ActivityPageControlViewController.swift */,
 				A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */,
 				CDD9051227285A8C00FF9B82 /* ActivityNavigationDelegate.swift */,
+				CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				A766327B270744620024F879 /* CameraUsage */,
 				A760C3272733FD210029E57B /* Activities */,
 				A760C32B2733FD9D0029E57B /* Profile */,
+				CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */,
 				A72E1CAF2722FDD900404FC3 /* TagViewController.swift */,
 				CD97CC2B273AA37700DBAF74 /* TagNavigationDelegate.swift */,
 			);
@@ -664,6 +670,7 @@
 				CD97CC2E273AA53900DBAF74 /* DiscoverTagsController.swift in Sources */,
 				3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */,
 				31DA3385270C8F6C0055E2B6 /* History.swift in Sources */,
+				CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */,
 				CD0F882827340BC50039CC24 /* DiscoverTagUILabel.swift in Sources */,
 				A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */,
 				D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */,
@@ -699,6 +706,7 @@
 				A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */,
 				CD07BFD82734F49500818453 /* ActivityCardPhotoBackground.swift in Sources */,
 				3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */,
+				CDE41848273D403500505BA9 /* SimilarActivitiesController.swift in Sources */,
 				D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */,
 				A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */,
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
