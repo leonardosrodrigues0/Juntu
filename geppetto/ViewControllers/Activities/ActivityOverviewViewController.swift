@@ -154,11 +154,11 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func populateTagScroll() {
-        let tags = tags.map { creatTagLabel($0) }
+        let tags = tags.map { createTagLabel($0) }
         tagsStack.populateWithViews(tags)
     }
 
-    private func creatTagLabel(_ tag: Tag) -> ClickableTagUILabel {
+    private func createTagLabel(_ tag: Tag) -> ClickableTagUILabel {
         let clickableTag = ClickableTagUILabel()
         clickableTag.thisTag = tag
         clickableTag.tagNavigationDelegate = self
@@ -167,8 +167,8 @@ class ActivityOverviewViewController: UIViewController {
     
     private func setupSimilarActivitiesController() {
         similarActivitiesController.collectionView = similarCollection
-        similarActivitiesController.cardHeightConstrait = similarCardHeight
-        similarActivitiesController.activityNavigationDelagate = self
+        similarActivitiesController.cardHeightConstraint = similarCardHeight
+        similarActivitiesController.activityNavigationDelegate = self
         similarActivitiesController.similarTo = self.activity
         similarActivitiesController.delegate = self
         

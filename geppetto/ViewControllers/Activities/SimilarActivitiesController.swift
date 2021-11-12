@@ -29,13 +29,13 @@ internal class SimilarActivitiesController: ActivitiesCollectionViewController {
     func orderBySimilarity(_ activities: [Activity]) -> [Activity] {
         if let similarTags = similarTo.tags {
             let filtered = activities.filter { $0.id != similarTo.id && $0.tags?.contains(where: similarTags.contains) ?? false }
-            return filtered.sorted(by: sorterActivitiesByTagsInCommom)
+            return filtered.sorted(by: sorterActivitiesByTagsInCommon)
         }
         return activities
     }
     
     /// Sort activities by the amount of tags in common - alls tags have the same importance
-    private func sorterActivitiesByTagsInCommom(this: Activity, that: Activity) -> Bool {
+    private func sorterActivitiesByTagsInCommon(this: Activity, that: Activity) -> Bool {
         if let similarTags = similarTo.tags {
             let thisTagsInCommon = this.tags?.filter(similarTags.contains).count ?? 0
             let thatTagsInCommon = that.tags?.filter(similarTags.contains).count ?? 0
