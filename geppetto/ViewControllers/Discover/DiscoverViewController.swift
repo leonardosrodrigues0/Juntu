@@ -1,4 +1,5 @@
 import UIKit
+import Promises
 
 class DiscoverViewController: UIViewController {
     
@@ -27,37 +28,41 @@ class DiscoverViewController: UIViewController {
         super.viewDidLoad()
         
         let helper = AnalyticsHelper()
+        let loadingHandler = LoadingHandler(parentView: self.view)
         
-        setupTagsController()
-        setupHighlightedController()
-        setupMadeForYouController()
-        
+        all(
+            setupTagsController(),
+            setupHighlightedController(),
+            setupMadeForYouController()
+        ).then { _ in
+            loadingHandler.stop()
+        }
         helper.logAppOpen()
     }
     
-    private func setupTagsController() {
+    private func setupTagsController() -> Promise<[Tag]> {
         discoverTagsController.tagsStack = tagsStack
         discoverTagsController.tagsScrollView = tagsScrollView
         discoverTagsController.tagNavigationDelegate = self
         
-        discoverTagsController.setup()
+        return discoverTagsController.setup()
     }
     
-    private func setupHighlightedController() {
+    private func setupHighlightedController() -> Promise<[Activity]> {
         highlightedController.collectionView = highlightedCollection
         highlightedController.pageControl = highlightedPageControl
         highlightedController.cardHeightConstraint = highlightedCardHeight
         highlightedController.activityNavigationDelegate = self
         
-        highlightedController.setup()
+        return highlightedController.setup()
     }
     
-    private func setupMadeForYouController() {
+    private func setupMadeForYouController() -> Promise <[Activity]> {
         madeForYouController.collectionView = madeForYouCollection
         madeForYouController.cardHeightConstraint = madeForYouCardHeight
         madeForYouController.activityNavigationDelegate = self
         
-        madeForYouController.setup()
+        return madeForYouController.setup()
     }
     
     /// Prepare Navigation to ActivityOverview or TagActivities
