@@ -21,27 +21,27 @@ class AdManager: NSObject {
     }
 
     /// Adds a banner to selected view and returns a reference to it
-    func addBannerViewToView(_ view: UIView, with controller: UIViewController) -> GADBannerView {
+    func addBannerViewToTopOfView(_ controller: UIViewController) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         bannerView.rootViewController = controller
-        view.addSubview(bannerView)
-        view.addConstraints(
+        
+        controller.view.addSubview(bannerView)
+        controller.view.addConstraints(
             [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
+                                attribute: .top,
                                 relatedBy: .equal,
-                                toItem: view,
+                                toItem: controller.view,
                                 attribute: .top,
                                 multiplier: 1,
                                 constant: 0),
              NSLayoutConstraint(item: bannerView,
                                 attribute: .centerX,
                                 relatedBy: .equal,
-                                toItem: view,
+                                toItem: controller.view,
                                 attribute: .centerX,
                                 multiplier: 1,
                                 constant: 0)
             ])
-        return bannerView
     }
 }
 

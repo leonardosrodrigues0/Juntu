@@ -22,6 +22,11 @@ class ActivityPageViewController: UIPageViewController {
         layout()
         helper = AnalyticsHelper()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        let adManager = AdManager()
+        adManager.addBannerViewToTopOfView(self)
+    }
     
     func setActivity(_ activity: Activity) {
         self.activity = activity
