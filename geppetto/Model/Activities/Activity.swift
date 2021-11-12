@@ -32,7 +32,7 @@ public struct Activity: Searchable, Codable {
     
     // MARK: - Methods
     
-    mutating func getSteps() -> [ActivityStep] {
+    func getSteps() -> [ActivityStep] {
         return steps
     }
     
