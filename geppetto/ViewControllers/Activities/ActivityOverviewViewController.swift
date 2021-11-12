@@ -7,6 +7,8 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Properties
     
     var activity: Activity?
+    private var selectedActivity: Activity?
+    
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
     
@@ -31,6 +33,11 @@ class ActivityOverviewViewController: UIViewController {
     
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
+    private let similarActivitiesController = SimilarActivitiesController()
+    @IBOutlet weak var similarActivitiesStack: UIStackView!
+    @IBOutlet weak var similarCollection: UICollectionView!
+    @IBOutlet weak var similarCardHeight: NSLayoutConstraint!
+    
     var toggleSaveButton: UIBarButtonItem?
     
     private let cellIdentifier = "MaterialTableViewCell"
@@ -49,6 +56,8 @@ class ActivityOverviewViewController: UIViewController {
         setupSaveButton()
         
         clearTags()
+        
+        setupSimilarActivitiesController()
         
         helper.logViewedActivity(self.activity!)
         UserTracker.shared.logSeenActivity(self.activity!)
@@ -155,6 +164,16 @@ class ActivityOverviewViewController: UIViewController {
         clickableTag.tagNavigationDelegate = self
         return clickableTag
     }
+    
+    private func setupSimilarActivitiesController() {
+        similarActivitiesController.collectionView = similarCollection
+        similarActivitiesController.cardHeightConstrait = similarCardHeight
+        similarActivitiesController.activityNavigationDelagate = self
+        similarActivitiesController.similarTo = self.activity
+        similarActivitiesController.delegate = self
+        
+        similarActivitiesController.setup()
+    }
 
     // MARK: - Actions
     
@@ -183,7 +202,10 @@ class ActivityOverviewViewController: UIViewController {
     
     /// Prepare Navigation to ActivityOverview or TagActivities
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToTag" {
+        if segue.identifier == "goToOverview" {
+            guard let activityOverviewViewController = segue.destination as? ActivityOverviewViewController else { return }
+            activityOverviewViewController.activity = selectedActivity
+        } else if segue.identifier == "goToTag" {
             guard let tagViewController = segue.destination as? TagViewController else { return }
             tagViewController.viewTag = selectedTagCell
         }
@@ -205,11 +227,28 @@ extension ActivityOverviewViewController: UITableViewDataSource {
     
 }
 
+extension ActivityOverviewViewController: ActivityNavigationDelegate {
+    func navigate(to activity: Activity) {
+        selectedActivity = activity
+        performSegue(withIdentifier: "goToOverview", sender: self)
+    }
+}
+
 extension ActivityOverviewViewController: TagNavigationDelegate {
     func navigate(to tag: Tag) {
         selectedTagCell = tag
         performSegue(withIdentifier: "goToTag", sender: self)
     }
+}
+
+extension ActivityOverviewViewController: SimilarActivitiesDelegate {
+    func similarActivities(_ controller: SimilarActivitiesController, didEndLoad: Bool) {
+        print("didEndLoad")
+        if controller.activities.isEmpty {
+            similarActivitiesStack.removeFromSuperview()
+        }
+    }
+    
 }
 
 fileprivate extension UIStackView {

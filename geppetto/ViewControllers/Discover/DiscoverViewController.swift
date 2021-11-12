@@ -54,8 +54,8 @@ class DiscoverViewController: UIViewController {
     
     private func setupMadeForYouController() {
         madeForYouController.collectionView = madeForYouCollection
-        madeForYouController.cardHeightConstraint = madeForYouCardHeight
-        madeForYouController.activityNavigationDelegate = self
+        madeForYouController.cardHeightConstrait = madeForYouCardHeight
+        madeForYouController.activityNavigationDelagate = self
         
         madeForYouController.setup()
     }

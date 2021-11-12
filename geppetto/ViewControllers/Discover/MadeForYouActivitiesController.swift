@@ -1,25 +1,8 @@
 import Foundation
 import UIKit
 
-internal class MadeForYouActivitiesController: UIViewController {
-    
-    // MARK: - Properties
-    
-    private let activityCellIdentifier = "ActivityCardCell"
-    private var activities: [Activity] = []
-    weak var collectionView: UICollectionView!
-    weak var cardHeightConstraint: NSLayoutConstraint!
-    weak var activityNavigationDelegate: ActivityNavigationDelegate!
-    
-    // MARK: - Methods
-    
-    func setup() {
-        let nib = UINib(nibName: activityCellIdentifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: activityCellIdentifier)
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+internal class MadeForYouActivitiesController: ActivitiesCollectionViewController {
+    override func loadActivitiesPromise() {
         let loadingHandler = LoadingHandler(parentView: collectionView)
         let database = ActivitiesDatabase.shared
         database.getAllActivities().then { activities in
@@ -27,48 +10,5 @@ internal class MadeForYouActivitiesController: UIViewController {
             self.collectionView.reloadData()
             loadingHandler.stop()
         }
-    }
-}
-
-// MARK: - Made For You Collection
-
-extension MadeForYouActivitiesController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return activities.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: activityCellIdentifier, for: indexPath) as? ActivityCardCell
-        
-        if let activity = activities.get(at: indexPath.row) {
-            cell?.cellActivity = activity
-            cell?.image.bottomGradientColor = UIColor.black.withAlphaComponent(0.75)
-        }
-        
-        return cell!
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let activity = activities.get(at: indexPath.row) {
-            activityNavigationDelegate?.navigate(to: activity)
-        }
-    }
-}
-
-extension MadeForYouActivitiesController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let horizontalSpacing = CGFloat(10)
-        let contentInsets = CGFloat(16)
-        let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
-        let height = width * (20 / 9)
-        
-        cardHeightConstraint.constant = CGFloat(height)
-        
-        return CGSize(width: width, height: height)
     }
 }
