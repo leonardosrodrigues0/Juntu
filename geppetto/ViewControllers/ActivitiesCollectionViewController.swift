@@ -8,8 +8,8 @@ class ActivitiesCollectionViewController: UIViewController {
     private let activityCellIdentifier = "ActivityCardCell"
     public var activities: [Activity] = []
     weak var collectionView: UICollectionView!
-    weak var cardHeightConstrait: NSLayoutConstraint!
-    weak var activityNavigationDelagate: ActivityNavigationDelegate!
+    weak var cardHeightConstraint: NSLayoutConstraint!
+    weak var activityNavigationDelegate: ActivityNavigationDelegate!
     
     // MARK: - Methods
     
@@ -56,7 +56,7 @@ extension ActivitiesCollectionViewController: UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let activity = activities.get(at: indexPath.row) {
-            activityNavigationDelagate?.navigate(to: activity)
+            activityNavigationDelegate?.navigate(to: activity)
         }
     }
 }
@@ -70,7 +70,7 @@ extension ActivitiesCollectionViewController: UICollectionViewDelegateFlowLayout
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
         let height = width * (20 / 9)
         
-        cardHeightConstrait.constant = CGFloat(height)
+        cardHeightConstraint.constant = CGFloat(height)
         
         return CGSize(width: width, height: height)
     }
