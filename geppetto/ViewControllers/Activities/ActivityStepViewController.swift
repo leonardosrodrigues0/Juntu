@@ -14,12 +14,19 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var juntuTip: UIStackView!
     @IBOutlet weak var juntuTipText: UILabel!
+    @IBOutlet weak var bannerViewContainer: UIView!
     
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateOutlets()
+        let adManager = AdManager()
+        let banner = adManager.addBannerViewToView(bannerViewContainer, with: self)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     
     private func updateOutlets() {

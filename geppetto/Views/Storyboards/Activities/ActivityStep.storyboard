@@ -28,86 +28,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-cB-fgX">
-                                <rect key="frame" x="0.0" y="44" width="414" height="786"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oci-E5-6pr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OhK-h6-JGe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="454.5"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-cB-fgX">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="783.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-as-X68">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OhK-h6-JGe">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="454.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-as-X68">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="jiq-as-X68" secondAttribute="height" multiplier="4:3" id="HaW-CF-juw"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-5i-ZBr" userLabel="Main Info">
+                                                        <rect key="frame" x="16" y="326.5" width="382" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owt-NS-DQT">
+                                                                <rect key="frame" x="0.0" y="31" width="72.5" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-IZ-Ops">
+                                                        <rect key="frame" x="16" y="390.5" width="382" height="64"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diquinha da Juntu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xy-l5-d1M" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="8" width="153" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="juntuTipText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-Vv-hhh">
+                                                                <rect key="frame" x="0.0" y="39" width="77.5" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="8"/>
+                                                    </stackView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="jiq-as-X68" secondAttribute="height" multiplier="4:3" id="HaW-CF-juw"/>
+                                                    <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="4Qb-Im-sgh"/>
+                                                    <constraint firstItem="mQ4-5i-ZBr" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="AmR-lj-zjy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="JGv-KU-TGI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mQ4-5i-ZBr" secondAttribute="trailing" constant="16" id="N3h-vi-URn"/>
+                                                    <constraint firstItem="Cul-IZ-Ops" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="Qky-G4-clH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Cul-IZ-Ops" secondAttribute="trailing" constant="16" id="kqT-CH-Qkh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Cul-IZ-Ops" secondAttribute="bottom" id="pZy-07-5KX"/>
                                                 </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-5i-ZBr" userLabel="Main Info">
-                                                <rect key="frame" x="16" y="326.5" width="382" height="48"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="23"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owt-NS-DQT">
-                                                        <rect key="frame" x="0.0" y="31" width="72.5" height="17"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-IZ-Ops">
-                                                <rect key="frame" x="16" y="390.5" width="382" height="64"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diquinha da Juntu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xy-l5-d1M" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="8" width="153" height="23"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="juntuTipText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-Vv-hhh">
-                                                        <rect key="frame" x="0.0" y="39" width="77.5" height="17"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="8"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="4Qb-Im-sgh"/>
-                                            <constraint firstItem="mQ4-5i-ZBr" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="AmR-lj-zjy"/>
-                                            <constraint firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="JGv-KU-TGI"/>
-                                            <constraint firstAttribute="trailing" secondItem="mQ4-5i-ZBr" secondAttribute="trailing" constant="16" id="N3h-vi-URn"/>
-                                            <constraint firstItem="Cul-IZ-Ops" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="Qky-G4-clH"/>
-                                            <constraint firstAttribute="trailing" secondItem="Cul-IZ-Ops" secondAttribute="trailing" constant="16" id="kqT-CH-Qkh"/>
+                                            <constraint firstItem="EeP-f5-Gnh" firstAttribute="top" secondItem="OhK-h6-JGe" secondAttribute="top" id="37q-DH-8Dh"/>
+                                            <constraint firstItem="EeP-f5-Gnh" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="9UP-F2-8xs"/>
+                                            <constraint firstItem="goK-Gk-kOs" firstAttribute="width" secondItem="OhK-h6-JGe" secondAttribute="width" id="PFU-4V-7Vv"/>
+                                            <constraint firstItem="OhK-h6-JGe" firstAttribute="bottom" secondItem="EeP-f5-Gnh" secondAttribute="bottom" id="men-q3-iti"/>
+                                            <constraint firstItem="OhK-h6-JGe" firstAttribute="bottom" secondItem="EeP-f5-Gnh" secondAttribute="bottom" id="qnh-RW-FJa"/>
+                                            <constraint firstItem="OhK-h6-JGe" firstAttribute="trailing" secondItem="EeP-f5-Gnh" secondAttribute="trailing" id="yp7-Mn-S4c"/>
                                         </constraints>
-                                    </stackView>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="EeP-f5-Gnh"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="goK-Gk-kOs"/>
+                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMR-2H-fVB" userLabel="BannerViewContainer">
+                                        <rect key="frame" x="0.0" y="783.5" width="414" height="78.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="EeP-f5-Gnh" firstAttribute="top" secondItem="OhK-h6-JGe" secondAttribute="top" id="37q-DH-8Dh"/>
-                                    <constraint firstItem="EeP-f5-Gnh" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="9UP-F2-8xs"/>
-                                    <constraint firstItem="goK-Gk-kOs" firstAttribute="width" secondItem="OhK-h6-JGe" secondAttribute="width" id="PFU-4V-7Vv"/>
-                                    <constraint firstItem="OhK-h6-JGe" firstAttribute="bottom" secondItem="EeP-f5-Gnh" secondAttribute="bottom" id="men-q3-iti"/>
-                                    <constraint firstItem="OhK-h6-JGe" firstAttribute="trailing" secondItem="EeP-f5-Gnh" secondAttribute="trailing" id="yp7-Mn-S4c"/>
+                                    <constraint firstAttribute="trailing" secondItem="lUU-cB-fgX" secondAttribute="trailing" id="5F1-kt-6CO"/>
+                                    <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="Oci-E5-6pr" secondAttribute="top" id="BTj-cg-JL0"/>
+                                    <constraint firstItem="lUU-cB-fgX" firstAttribute="leading" secondItem="Oci-E5-6pr" secondAttribute="leading" id="FHO-xS-AmT"/>
+                                    <constraint firstItem="uMR-2H-fVB" firstAttribute="top" secondItem="lUU-cB-fgX" secondAttribute="bottom" id="izL-rJ-AHu"/>
+                                    <constraint firstItem="uMR-2H-fVB" firstAttribute="height" secondItem="lUU-cB-fgX" secondAttribute="height" multiplier="0.1" id="naP-qa-6pR"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="EeP-f5-Gnh"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="goK-Gk-kOs"/>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8FI-3E-imV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="lUU-cB-fgX" secondAttribute="bottom" constant="32" id="1Eo-bl-CHV"/>
-                            <constraint firstItem="lUU-cB-fgX" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="3Cy-ao-u3W"/>
-                            <constraint firstItem="8FI-3E-imV" firstAttribute="trailing" secondItem="lUU-cB-fgX" secondAttribute="trailing" id="I3F-Oe-BCm"/>
-                            <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" id="sPi-vh-SXR"/>
+                            <constraint firstAttribute="trailing" secondItem="Oci-E5-6pr" secondAttribute="trailing" id="Bsc-wT-y92"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="Oci-E5-6pr" secondAttribute="bottom" id="D8b-bm-G87"/>
+                            <constraint firstItem="Oci-E5-6pr" firstAttribute="top" secondItem="36T-Um-fAm" secondAttribute="top" id="EP8-jR-RT7"/>
+                            <constraint firstAttribute="trailing" secondItem="Oci-E5-6pr" secondAttribute="trailing" id="Els-dy-qhy"/>
+                            <constraint firstItem="Oci-E5-6pr" firstAttribute="top" secondItem="36T-Um-fAm" secondAttribute="top" id="ivt-GT-Vwg"/>
+                            <constraint firstItem="Oci-E5-6pr" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="mAp-KY-idA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="alH-Tg-Xlo"/>
                     <connections>
+                        <outlet property="bannerViewContainer" destination="uMR-2H-fVB" id="FSM-Jh-LV5"/>
                         <outlet property="image" destination="jiq-as-X68" id="ZhF-Wd-N2W"/>
                         <outlet property="indexLabel" destination="m1K-Cs-laX" id="rH4-bh-Lrd"/>
                         <outlet property="instructions" destination="Owt-NS-DQT" id="Zpo-Ye-H3z"/>
