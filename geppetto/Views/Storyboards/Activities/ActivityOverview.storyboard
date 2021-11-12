@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <accessibilityOverrides dynamicTypePreference="5"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2p-EQ-uKY" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1515.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1513.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-yt-3v0">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1499.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1497.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="47u-7P-1ot" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -35,21 +35,21 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ynC-SX-lX8" userLabel="Details">
-                                                        <rect key="frame" x="16" y="327.5" width="382" height="323"/>
+                                                        <rect key="frame" x="16" y="327.5" width="382" height="321"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-TK-KJZ" userLabel="Main Info">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="323"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="321"/>
                                                                 <subviews>
                                                                     <scrollView multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-sO-6Ky">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-Uq-aPz">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coordenação motora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRY-C1-bxM" userLabel="Category" customClass="TagUILabel" customModule="geppetto" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="2" width="186.5" height="26"/>
+                                                                                        <rect key="frame" x="0.0" y="3" width="169.5" height="24"/>
                                                                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
@@ -96,20 +96,20 @@
                                                                         <viewLayoutGuide key="contentLayoutGuide" id="8yc-Zb-vbe"/>
                                                                         <viewLayoutGuide key="frameLayoutGuide" id="PFk-tg-zPB"/>
                                                                     </scrollView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l45-P5-0L3">
-                                                                        <rect key="frame" x="0.0" y="46" width="83" height="38.5"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l45-P5-0L3" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="46" width="67.5" height="33.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fullDescription" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcs-Ht-KoQ">
-                                                                        <rect key="frame" x="0.0" y="100.5" width="382" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="95.5" width="382" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="right" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-an-mHF" userLabel="Rating">
-                                                                        <rect key="frame" x="0.0" y="137" width="132" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="132" width="132" height="20"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUv-ms-je5">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20"/>
@@ -135,22 +135,22 @@
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="znL-kT-26G" userLabel="Squares">
-                                                                        <rect key="frame" x="0.0" y="173" width="382" height="89"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="znL-kT-26G" userLabel="Squares">
+                                                                        <rect key="frame" x="0.0" y="168" width="382" height="92"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-BE-MsT" customClass="DesignableView" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="8" y="0.0" width="81" height="81"/>
+                                                                                <rect key="frame" x="8" y="0.0" width="84" height="84"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1d0-LR-GJ8">
-                                                                                        <rect key="frame" x="8" y="20.5" width="65" height="40.5"/>
+                                                                                        <rect key="frame" x="8" y="22" width="68" height="40.5"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xmo-kf-uAV" customClass="MediumLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="20.5"/>
+                                                                                                <rect key="frame" x="1" y="0.0" width="66" height="20.5"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nível" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-mS-8O4">
-                                                                                                <rect key="frame" x="18.5" y="24.5" width="28" height="16"/>
+                                                                                                <rect key="frame" x="20" y="24.5" width="28" height="16"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -158,7 +158,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="backgroundColor" name="infoSquareColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="s8a-BE-MsT" secondAttribute="height" multiplier="1:1" id="HWB-FA-5u0"/>
                                                                                     <constraint firstItem="1d0-LR-GJ8" firstAttribute="centerX" secondItem="s8a-BE-MsT" secondAttribute="centerX" id="SKc-PN-zNl"/>
@@ -172,18 +172,18 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExA-6I-F2T" customClass="DesignableView" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="103" y="0.0" width="81" height="81"/>
+                                                                                <rect key="frame" x="102" y="0.0" width="84" height="84"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-vk-6ig">
-                                                                                        <rect key="frame" x="8" y="20.5" width="65" height="40.5"/>
+                                                                                        <rect key="frame" x="8" y="22" width="68" height="40.5"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-pc-7j9" customClass="MediumLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                                <rect key="frame" x="18.5" y="0.0" width="28.5" height="20.5"/>
+                                                                                                <rect key="frame" x="20" y="0.0" width="28.5" height="20.5"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoG-Ob-fhT">
-                                                                                                <rect key="frame" x="18" y="24.5" width="29" height="16"/>
+                                                                                                <rect key="frame" x="19.5" y="24.5" width="29" height="16"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -191,7 +191,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="backgroundColor" name="infoSquareColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="ExA-6I-F2T" secondAttribute="height" multiplier="1:1" id="2Zh-NP-Ps3"/>
                                                                                     <constraint firstItem="zDP-vk-6ig" firstAttribute="centerY" secondItem="ExA-6I-F2T" secondAttribute="centerY" id="f2p-uk-qMz"/>
@@ -205,18 +205,18 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCo-uv-6J1" customClass="DesignableView" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="198" y="0.0" width="81" height="81"/>
+                                                                                <rect key="frame" x="196" y="0.0" width="84" height="84"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SNu-3J-KzS">
-                                                                                        <rect key="frame" x="8" y="20.5" width="65" height="40.5"/>
+                                                                                        <rect key="frame" x="8" y="22" width="68" height="40.5"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-YQ-e9f" customClass="MediumLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                                <rect key="frame" x="1" y="0.0" width="63.5" height="20.5"/>
+                                                                                                <rect key="frame" x="2.5" y="0.0" width="63.5" height="20.5"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkh-7a-LRx">
-                                                                                                <rect key="frame" x="21.5" y="24.5" width="22" height="16"/>
+                                                                                                <rect key="frame" x="23" y="24.5" width="22" height="16"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="backgroundColor" name="infoSquareColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="SNu-3J-KzS" firstAttribute="centerY" secondItem="wCo-uv-6J1" secondAttribute="centerY" id="Jfp-Ct-fUA"/>
                                                                                     <constraint firstItem="SNu-3J-KzS" firstAttribute="centerX" secondItem="wCo-uv-6J1" secondAttribute="centerX" id="dtJ-BO-uXc"/>
@@ -238,18 +238,18 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVG-zf-zCb" customClass="DesignableView" customModule="geppetto" customModuleProvider="target">
-                                                                                <rect key="frame" x="293" y="0.0" width="81" height="81"/>
+                                                                                <rect key="frame" x="290" y="0.0" width="84" height="84"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3L2-cH-nMi">
-                                                                                        <rect key="frame" x="8" y="20.5" width="65" height="40.5"/>
+                                                                                        <rect key="frame" x="8" y="22" width="68" height="40.5"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juntu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5V3-db-bm0" customClass="MediumLabel" customModule="geppetto" customModuleProvider="target">
-                                                                                                <rect key="frame" x="11" y="0.0" width="43" height="20.5"/>
+                                                                                                <rect key="frame" x="12.5" y="0.0" width="43" height="20.5"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="autor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHr-EZ-GPb" userLabel="Juntu">
-                                                                                                <rect key="frame" x="16.5" y="24.5" width="32" height="16"/>
+                                                                                                <rect key="frame" x="18" y="24.5" width="32" height="16"/>
                                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -257,7 +257,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="backgroundColor" name="infoSquareColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="3L2-cH-nMi" firstAttribute="leading" secondItem="pVG-zf-zCb" secondAttribute="leading" constant="8" id="53b-Ez-BaY"/>
                                                                                     <constraint firstItem="3L2-cH-nMi" firstAttribute="centerY" secondItem="pVG-zf-zCb" secondAttribute="centerY" id="HhJ-Wy-HDc"/>
@@ -281,7 +281,7 @@
                                                                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="8" bottom="8" trailing="8"/>
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-eM-F41" customClass="DesignableButton" customModule="geppetto" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="278" width="382" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="276" width="382" height="45"/>
                                                                         <color key="backgroundColor" name="AccentColor"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -305,7 +305,7 @@
                                                                     <constraint firstItem="SfA-eM-F41" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="C6f-qM-cjX"/>
                                                                     <constraint firstAttribute="trailing" secondItem="znL-kT-26G" secondAttribute="trailing" id="Fx0-at-ZWZ"/>
                                                                     <constraint firstItem="Bcs-Ht-KoQ" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="HbF-qc-qns"/>
-                                                                    <constraint firstItem="znL-kT-26G" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="LNF-59-GZs"/>
+                                                                    <constraint firstItem="znL-kT-26G" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="I0X-PF-QT6"/>
                                                                     <constraint firstItem="ddG-sO-6Ky" firstAttribute="leading" secondItem="wEv-TK-KJZ" secondAttribute="leading" id="NV5-oA-4qN"/>
                                                                     <constraint firstAttribute="trailing" secondItem="SfA-eM-F41" secondAttribute="trailing" id="WvN-fd-ehw"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Bcs-Ht-KoQ" secondAttribute="trailing" id="cKt-7O-SNn"/>
@@ -315,7 +315,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vf5-9z-cP1">
-                                                        <rect key="frame" x="0.0" y="667.5" width="414" height="95"/>
+                                                        <rect key="frame" x="0.0" y="665.5" width="414" height="95"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQI-hA-8d3" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -336,7 +336,7 @@
                                                                     <constraint firstItem="Nko-Qt-0Ti" firstAttribute="leading" secondItem="aQI-hA-8d3" secondAttribute="leading" id="dxL-6d-dCn"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diquinha da Juntu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-BW-HAC">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diquinha da Juntu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-BW-HAC" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="40" width="382" height="26.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                 <nil key="textColor"/>
@@ -359,7 +359,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPz-fA-Y48" userLabel="Materials">
-                                                        <rect key="frame" x="0.0" y="779.5" width="414" height="224.5"/>
+                                                        <rect key="frame" x="0.0" y="777.5" width="414" height="224.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaH-wG-3Pa" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -403,7 +403,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5FH-5p-dLR">
-                                                        <rect key="frame" x="0.0" y="1021" width="414" height="478.5"/>
+                                                        <rect key="frame" x="0.0" y="1019" width="414" height="478.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Bj-JR-Z36" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -550,13 +550,16 @@
             <size key="intrinsicContentSize" width="140" height="45"/>
         </designable>
         <designable name="rRY-C1-bxM">
-            <size key="intrinsicContentSize" width="186.5" height="26"/>
+            <size key="intrinsicContentSize" width="169.5" height="24"/>
         </designable>
     </designables>
     <resources>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="infoSquareColor">
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
