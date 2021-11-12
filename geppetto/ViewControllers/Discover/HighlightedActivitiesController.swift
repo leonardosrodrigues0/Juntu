@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Promises
 
 internal class HighlightedActivitiesController: UIViewController {
     
@@ -16,7 +17,7 @@ internal class HighlightedActivitiesController: UIViewController {
     
     // MARK: - Methods
     
-    func setup() {
+    func setup() -> Promise<[Activity]> {
         let flowLayout = ZoomAndSnapFlowLayout(zoomFactor: zoomFactor)
         
         let nib = UINib(nibName: highlightedCellIdentifier, bundle: nil)
@@ -27,18 +28,16 @@ internal class HighlightedActivitiesController: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.collectionViewLayout = flowLayout
         
-        let loadingHandler = LoadingHandler(parentView: collectionView)
-        let database = ActivitiesDatabase.shared
-        database.getHighlightedActivities().then { activities in
-            self.activities = activities
-            self.collectionView.reloadData()
-            loadingHandler.stop()
-        }
-        
         pageControl.currentPageIndicatorTintColor = .accentColor
         pageControl.pageIndicatorTintColor = .pageTintColor
         pageControl.numberOfPages = self.activities.count
         pageControl.currentPage = 0
+        
+        let database = ActivitiesDatabase.shared
+        return database.getHighlightedActivities().then { activities in
+            self.activities = activities
+            self.collectionView.reloadData()
+        }
     }
 }
 

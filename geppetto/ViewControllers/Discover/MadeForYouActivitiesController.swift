@@ -1,14 +1,13 @@
 import Foundation
 import UIKit
+import Promises
 
 internal class MadeForYouActivitiesController: ActivitiesCollectionViewController {
-    override func loadActivitiesPromise() {
-        let loadingHandler = LoadingHandler(parentView: collectionView)
+    override func loadActivitiesPromise() -> Promise<[Activity]> {
         let database = ActivitiesDatabase.shared
-        database.getAllActivities().then { activities in
+        return database.getAllActivities().then { activities in
             self.activities = activities
             self.collectionView.reloadData()
-            loadingHandler.stop()
         }
     }
 }
