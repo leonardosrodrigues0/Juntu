@@ -25,7 +25,17 @@ class LoadingHandler {
     // MARK: - Methods
     
     private func toggleSubViewsVisibility() {
-        parentView.subviews.forEach { $0.isHidden = !($0.isHidden) }
+        parentView.subviews.forEach { view in
+            if view.isHidden {
+                view.isHidden = false
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+                    view.alpha = 1
+                })
+            } else {
+                view.alpha = 0
+                view.isHidden = true
+            }
+        }
     }
     
     private func createIndicatorView(parentView view: UIView) -> (indicator: UIActivityIndicatorView, label: UILabel) {
