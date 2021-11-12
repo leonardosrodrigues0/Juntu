@@ -8,6 +8,7 @@ class ActivityOverviewViewController: UIViewController {
     
     var activity: Activity?
     private var selectedActivity: Activity?
+    static var stepsImages = [UIImage?]()
     
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
@@ -90,7 +91,7 @@ class ActivityOverviewViewController: UIViewController {
             print("Error: failed to unwrap activity at overview screen")
             return
         }
-
+        
         image.sd_setImage(with: activity.getImageDatabaseRef())
         name.text = activity.name
         fullDescription.text = activity.introduction
@@ -174,10 +175,30 @@ class ActivityOverviewViewController: UIViewController {
         
         similarActivitiesController.setup()
     }
+    
+    private func downloadStepsImages() {
+        if let activity = activity {
+            for step in activity.getSteps() {
+                let storageRef = step.getImageDatabaseRef()
+                storageRef?.getData(maxSize: 4 * 1024 * 1024, completion: { (data, error) in
+                    if let error = error {
+                        print("Got an error fetching data: \(error.localizedDescription)")
+                        return
+                    }
+                    if let data = data {
+                        ActivityOverviewViewController.stepsImages.append(UIImage(data: data) ?? nil)
+                        print("Data retrieved")
+                    }
+                })
+                
+            }
+        }
+    }
 
     // MARK: - Actions
     
     @IBAction private func enterActivityButtonTapped() {
+        downloadStepsImages()
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
         let activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)
