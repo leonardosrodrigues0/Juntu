@@ -13,21 +13,32 @@ public struct Activity: Searchable, Codable {
     let caution: String?
     let minAge: Int
     let maxAge: Int
+    let minTime: Int
+    let maxTime: Int?
+    let timeUnit: TimeUnit
     let difficulty: String
-    let time: String
     let materials: [String]
     let tags: [String]?
     private(set) var steps: [ActivityStep]
     
     var minMaxAge: String {
-        return "\(minAge)~\(maxAge)"
+        return "\(minAge) a \(maxAge)"
     }
     
-    var cleanTime: String {
-        var cleanTime = time.replacingOccurrences(of: " min", with: "")
-        cleanTime = cleanTime.replacingOccurrences(of: " h", with: "")
-        cleanTime = cleanTime.replacingOccurrences(of: " a ", with: "~")
-        return cleanTime
+    var fullAgeText: String {
+        return "\(minMaxAge) anos"
+    }
+    
+    var minMaxTime: String {
+        if let maxTime = maxTime {
+            return "\(minTime) a \(maxTime)"
+        } else {
+            return "\(minTime)"
+        }
+    }
+    
+    var fullTimeText: String {
+        return "\(minMaxTime) \(timeUnit.rawValue)"
     }
     
     // MARK: - Methods
@@ -37,15 +48,11 @@ public struct Activity: Searchable, Codable {
     }
     
     func getDescription() -> String {
-        return getAgeText()
+        return fullAgeText
     }
     
     func isResultWithSearchString(_ searchString: String) -> Bool {
         return name.lowercased().contains(searchString.lowercased())
-    }
-    
-    func getAgeText() -> String {
-        return "\(minMaxAge) anos"
     }
     
     func getImageDatabaseRef() -> StorageReference {
@@ -78,7 +85,11 @@ public struct Activity: Searchable, Codable {
         maxAge = try values.decode(Int.self, forKey: .maxAge)
         
         difficulty = try values.decode(String.self, forKey: .difficulty)
-        time = try values.decode(String.self, forKey: .time)
+        minTime = try values.decode(Int.self, forKey: .minTime)
+        maxTime = try? values.decode(Int.self, forKey: .maxTime)
+        timeUnit = TimeUnit(
+            rawValue: try values.decode(String.self, forKey: .timeUnit)
+        ) ?? TimeUnit.minutes
         materials = try values.decode([String].self, forKey: .materials)
 
         // Decode tags:

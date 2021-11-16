@@ -105,8 +105,8 @@ class ActivityOverviewViewController: UIViewController {
         } else {
             keepInMindText.text = activity.caution
         }
-        duration.text = activity.cleanTime
-        durationUnity.text = "min"
+        duration.text = activity.minMaxTime
+        durationUnity.text = activity.timeUnit.rawValue
         difficulty.text = activity.difficulty
         age.text = activity.minMaxAge
         
