@@ -22,6 +22,7 @@
 		3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36292E273C0340001BC20D /* WeightLabel.swift */; };
 		3F55FCD327395CB600146221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F55FCD227395CB600146221 /* LaunchScreen.storyboard */; };
 		3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C478E27341F5100F899AC /* LoadingHandler.swift */; };
+		3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F801DAA2743E80C007B6497 /* UIImage+Color.swift */; };
 		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
 		3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
@@ -108,6 +109,7 @@
 		3F36292E273C0340001BC20D /* WeightLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLabel.swift; sourceTree = "<group>"; };
 		3F55FCD227395CB600146221 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7C478E27341F5100F899AC /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
+		3F801DAA2743E80C007B6497 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
 		3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				CDD905102728521F00FF9B82 /* UIView+Nib.swift */,
 				3F36292C273C02F4001BC20D /* UIFont+Weight.swift */,
 				CDD75A5C270DDE2800512B39 /* Colors.swift */,
+				3F801DAA2743E80C007B6497 /* UIImage+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				CDD9050F272851FE00FF9B82 /* ActivityCardTableViewCell.swift in Sources */,
 				A7E65C3026860E1600570FBD /* AppDelegate.swift in Sources */,
 				CDD75A5D270DDE2800512B39 /* Colors.swift in Sources */,
+				3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */,
 				CD97CC2A273A911700DBAF74 /* HighlightedActivitiesController.swift in Sources */,
 				3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */,
 				A7BD6987268B5DED0005331F /* Card.swift in Sources */,

@@ -32,7 +32,8 @@ class ActivityStepViewController: UIViewController {
             return
         }
 
-        image.sd_setImage(with: imageRef)
+        let placeholderImage = UIImage(color: .systemGray4, size: image.frame.size)
+        image.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {
