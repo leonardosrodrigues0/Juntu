@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F381B932739466600EA18AA /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F381B922739466600EA18AA /* EditProfileViewController.swift */; };
 		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivitiesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */; };
 		313D3071270DC344000871C0 /* MomentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D306F270DC344000871C0 /* MomentsCell.swift */; };
@@ -92,6 +93,7 @@
 		1D97AA0C085D5E011BEDC899 /* Pods-geppetto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.release.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.release.xcconfig"; sourceTree = "<group>"; };
 		2482F80FF0D8C7A94B446A4B /* Pods_geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E3FC289032081DC8A179C1 /* Pods-geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.debug.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.debug.xcconfig"; sourceTree = "<group>"; };
+		2F381B922739466600EA18AA /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDatabase.swift; sourceTree = "<group>"; };
 		313D306F270DC344000871C0 /* MomentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsCell.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */,
 				3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */,
 				A7BD697E268B5A010005331F /* ProfileViewController.swift */,
+				2F381B922739466600EA18AA /* EditProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				CD97CC2C273AA37700DBAF74 /* TagNavigationDelegate.swift in Sources */,
 				CDD9051327285A8C00FF9B82 /* ActivityNavigationDelegate.swift in Sources */,
 				A7C1324E270C9A44000254CF /* CameraManager.swift in Sources */,
+				2F381B932739466600EA18AA /* EditProfileViewController.swift in Sources */,
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
 				CDE41844273C233800505BA9 /* ClickableTagUILabel.swift in Sources */,
 				A748E01C27204C6700DFB868 /* Collection.swift in Sources */,
