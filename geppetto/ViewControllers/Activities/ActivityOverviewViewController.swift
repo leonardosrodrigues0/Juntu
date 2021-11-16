@@ -49,6 +49,8 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Methods
     
     override func viewDidLoad() {
+        
+        downloadStepsImages()
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         
@@ -177,6 +179,7 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     private func downloadStepsImages() {
+        ActivityOverviewViewController.stepsImages.removeAll()
         if let activity = activity {
             for step in activity.getSteps() {
                 let storageRef = step.getImageDatabaseRef()
@@ -190,7 +193,6 @@ class ActivityOverviewViewController: UIViewController {
                         print("Data retrieved")
                     }
                 })
-                
             }
         }
     }
@@ -198,7 +200,6 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func enterActivityButtonTapped() {
-        downloadStepsImages()
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
         let activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)

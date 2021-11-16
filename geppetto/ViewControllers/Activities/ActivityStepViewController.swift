@@ -16,7 +16,6 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var juntuTipText: UILabel!
     
     // MARK: - Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateOutlets()
@@ -32,7 +31,7 @@ class ActivityStepViewController: UIViewController {
             return
         }
 
-        image.sd_setImage(with: imageRef)
+        image.image = ActivityOverviewViewController.stepsImages[indexValue]!
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {
