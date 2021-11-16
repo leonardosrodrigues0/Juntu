@@ -44,52 +44,52 @@ class FullscreenImageViewController: UIViewController {
         )
         
         // define more button in navbar
-        navItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "ellipsis"),
-            style: .plain,
-            target: self,
-            action: #selector(didTapMoreButton(sender:))
-        )
+//        navItem.rightBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "ellipsis"),
+//            style: .plain,
+//            target: self,
+//            action: #selector(didTapMoreButton(sender:))
+//        )
         
         updateNavBarTitle()
     }
     
-    private func createActionSheet() -> UIAlertController {
-        // create alert
-        let alert = UIAlertController(
-            title: nil,
-            message: nil,
-            preferredStyle: .actionSheet
-        )
-        
-        // create actions
-        let shareAction = UIAlertAction(title: "Compartilhar", style: .default) {_ in
-            print("Compartilhar")
-        }
-        
-        let useAsProfileImageAction = UIAlertAction(title: "Usar como foto do perfil", style: .default) {_ in
-            print("Usar como foto do perfil")
-        }
-        
-        let goToActivityAction = UIAlertAction(title: "Ir para atividade", style: .default) {_ in
-            print("Ir para atividade")
-        }
-        
-        let deletePhotoAction = UIAlertAction(title: "Apagar foto", style: .destructive) {_ in
-            print("Apagar foto")
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        
-        // add actions to alert
-        alert.addAction(shareAction)
-        alert.addAction(useAsProfileImageAction)
-        alert.addAction(goToActivityAction)
-        alert.addAction(deletePhotoAction)
-        alert.addAction(cancelAction)
-        
-        return alert
-    }
+//    private func createActionSheet() -> UIAlertController {
+//        // create alert
+//        let alert = UIAlertController(
+//            title: nil,
+//            message: nil,
+//            preferredStyle: .actionSheet
+//        )
+//
+//        // create actions
+//        let shareAction = UIAlertAction(title: "Compartilhar", style: .default) {_ in
+//            print("Compartilhar")
+//        }
+//
+//        let useAsProfileImageAction = UIAlertAction(title: "Usar como foto do perfil", style: .default) {_ in
+//            print("Usar como foto do perfil")
+//        }
+//
+//        let goToActivityAction = UIAlertAction(title: "Ir para atividade", style: .default) {_ in
+//            print("Ir para atividade")
+//        }
+//
+//        let deletePhotoAction = UIAlertAction(title: "Apagar foto", style: .destructive) {_ in
+//            print("Apagar foto")
+//        }
+//
+//        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+//
+//        // add actions to alert
+//        alert.addAction(shareAction)
+//        alert.addAction(useAsProfileImageAction)
+//        alert.addAction(goToActivityAction)
+//        alert.addAction(deletePhotoAction)
+//        alert.addAction(cancelAction)
+//
+//        return alert
+//    }
     
     /// Set title of View according to current image index
     private func updateNavBarTitle() {
@@ -125,10 +125,10 @@ class FullscreenImageViewController: UIViewController {
     }
     
     /// Show action sheet when more button is tapped
-    @objc private func didTapMoreButton(sender: UIBarButtonItem) {
-        let actionSheet = createActionSheet()
-        present(actionSheet, animated: true)
-    }
+//    @objc private func didTapMoreButton(sender: UIBarButtonItem) {
+//        let actionSheet = createActionSheet()
+//        present(actionSheet, animated: true)
+//    }
 
     // MARK: - Child View Controller
     
