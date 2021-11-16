@@ -8,7 +8,8 @@ class ActivityOverviewViewController: UIViewController {
     
     var activity: Activity?
     private var selectedActivity: Activity?
-    static var stepsImages = [UIImage?]()
+    static var stepsImages: [String: UIImage] = [:]
+    var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
@@ -189,7 +190,17 @@ class ActivityOverviewViewController: UIViewController {
                         return
                     }
                     if let data = data {
-                        ActivityOverviewViewController.stepsImages.append(UIImage(data: data) ?? nil)
+                        if let pages = self.activityPageControlViewController?.pageViewController?.pages {
+                            print("pages.count: \(pages.count) \n step.stepIndex: \(step.stepIndex!)")
+                            if pages.count >= step.stepIndex! {
+                                if let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController {
+                                    stepVC.image?.image = UIImage(data: data)
+                                    print("Entrou")
+                                }
+                            }
+                        }
+                            
+                        ActivityOverviewViewController.stepsImages[String(describing: step.stepIndex!)] = UIImage(data: data)
                         print("Data retrieved")
                     }
                 })
@@ -201,7 +212,7 @@ class ActivityOverviewViewController: UIViewController {
     
     @IBAction private func enterActivityButtonTapped() {
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControlViewController = storyboard.instantiateViewController(
+        activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)
         ) as? ActivityPageControlViewController
         

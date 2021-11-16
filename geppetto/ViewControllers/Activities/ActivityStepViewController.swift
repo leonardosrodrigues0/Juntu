@@ -26,12 +26,9 @@ class ActivityStepViewController: UIViewController {
             print("Error: failed to unwrap index optional at activity step.")
             return
         }
-        
-        guard let imageRef = step?.getImageDatabaseRef() else {
-            return
-        }
 
-        image.image = ActivityOverviewViewController.stepsImages[indexValue]!
+        print("Data retrieve: ", String(indexValue))
+        image.image = ActivityOverviewViewController.stepsImages[String(indexValue + 1)]
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {

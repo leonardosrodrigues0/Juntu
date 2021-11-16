@@ -9,6 +9,8 @@ class ActivityPageControlViewController: UIViewController {
     var activity: Activity?
     var helper = AnalyticsHelper()
     
+    var pageViewController: ActivityPageViewController?
+    
     // MARK: - Methods
     
     override func viewDidLoad() {
@@ -24,6 +26,8 @@ class ActivityPageControlViewController: UIViewController {
         ) as? ActivityPageViewController else {
             return
         }
+        
+        self.pageViewController = pageViewController
         
         if activity != nil {
             pageViewController.setActivity(activity!)
