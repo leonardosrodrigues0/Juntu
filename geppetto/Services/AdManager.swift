@@ -12,6 +12,9 @@ import UIKit
 class AdManager: NSObject {
     var bannerView: GADBannerView!
     let testAdUnitID = "ca-app-pub-3940256099942544/2934735716"
+    
+    static private let verticalMargins: CGFloat = 10
+    static let height: CGFloat = 50 + 2 * verticalMargins
 
     override init() {
         super.init()
@@ -45,6 +48,22 @@ class AdManager: NSObject {
                                 multiplier: 1,
                                 constant: 0)
             ])
+    }
+    
+    /// Adds a banner to selected view, or main view
+    func addBannerViewToBottomOfView(to view: UIView? = nil, _ controller: UIViewController) {
+
+        let usedView = (view != nil ? view : controller.view)!
+
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.rootViewController = controller
+        
+        usedView.addSubview(bannerView)
+        
+        NSLayoutConstraint.activate([
+            bannerView.centerXAnchor.constraint(equalTo: usedView.centerXAnchor),
+            bannerView.bottomAnchor.constraint(equalTo: usedView.bottomAnchor, constant: -AdManager.verticalMargins/2)
+        ])
     }
 }
 

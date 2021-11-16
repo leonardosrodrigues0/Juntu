@@ -14,11 +14,14 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var juntuTip: UIStackView!
     @IBOutlet weak var juntuTipText: UILabel!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateOutlets()
+        /// This 20 comes from pageControl height
+        scrollViewBottomConstraint.constant = AdManager.height + 20
     }
     
     private func updateOutlets() {

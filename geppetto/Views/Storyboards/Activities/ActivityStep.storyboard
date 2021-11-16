@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-cB-fgX">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OhK-h6-JGe">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="454.5"/>
@@ -104,8 +104,8 @@
                         <constraints>
                             <constraint firstItem="lUU-cB-fgX" firstAttribute="trailing" secondItem="8FI-3E-imV" secondAttribute="trailing" id="Ebz-13-d51"/>
                             <constraint firstItem="lUU-cB-fgX" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="HRr-db-JHW"/>
-                            <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="lUU-cB-fgX" secondAttribute="bottom" id="nEy-uf-NYJ"/>
-                            <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" constant="50" id="zDG-0k-c5t"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="lUU-cB-fgX" secondAttribute="bottom" constant="70" id="nEy-uf-NYJ"/>
+                            <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" id="zDG-0k-c5t"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="alH-Tg-Xlo"/>
@@ -115,6 +115,7 @@
                         <outlet property="instructions" destination="Owt-NS-DQT" id="Zpo-Ye-H3z"/>
                         <outlet property="juntuTip" destination="Cul-IZ-Ops" id="aOe-ji-f27"/>
                         <outlet property="juntuTipText" destination="QGe-Vv-hhh" id="Os9-7r-Jev"/>
+                        <outlet property="scrollViewBottomConstraint" destination="nEy-uf-NYJ" id="afS-NB-jcJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-A8-zXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
