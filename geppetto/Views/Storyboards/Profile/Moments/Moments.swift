@@ -101,8 +101,8 @@ extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let helper = AnalyticsHelper()
+        helper.logViewedMomentsImage(at: indexPath.row, collectionSize: images.count)
         delegate?.navigate(selectedImageIndex: indexPath.row)
-        
     }
 }
