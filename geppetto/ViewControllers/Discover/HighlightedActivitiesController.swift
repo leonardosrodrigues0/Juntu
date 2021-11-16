@@ -15,10 +15,13 @@ internal class HighlightedActivitiesController: UIViewController {
     private var zoomFactor: CGFloat = 0.075
     private let highlightedCellIdentifier = "ActivityCardPhotoBackground"
     
+    private let horizontalInsets = CGFloat(16)
+    
     // MARK: - Methods
     
     func setup() -> Promise<[Activity]> {
         let flowLayout = ZoomAndSnapFlowLayout(zoomFactor: zoomFactor)
+        flowLayout.horizontalInsets = horizontalInsets
         
         let nib = UINib(nibName: highlightedCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: highlightedCellIdentifier)
@@ -86,7 +89,6 @@ extension HighlightedActivitiesController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let horizontalInsets = CGFloat(16)
         let itemWidth: CGFloat = floor((collectionView.frame.size.width - 2 * horizontalInsets)) / (1 + zoomFactor)
         let itemHeight = itemWidth * (400 / 340)
                     
@@ -97,7 +99,6 @@ extension HighlightedActivitiesController: UICollectionViewDelegateFlowLayout {
     
     /// Updates pageControl currentPage in the end of scrolling
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let horizontalInsets = CGFloat(16)
         let itemWidth: CGFloat = floor((collectionView.frame.size.width - 2 * horizontalInsets)) / (1 + zoomFactor)
         pageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(itemWidth + horizontalInsets)
     }
