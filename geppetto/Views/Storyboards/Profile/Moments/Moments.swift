@@ -57,29 +57,8 @@ class Moments: UIView {
     
     /// Retrieve images from pictures directory in documents.
     func retrieveImages() {
-        images = [Data]()
-        
-        let fm = FileManager.default
-        let documentsPath = fm.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("pictures")
-
-        do {
-            var imagePaths = try fm.contentsOfDirectory(at: documentsPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-
-            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
-            
-            for imagePath in imagePaths {
-                if imagePath.path.hasSuffix("png") {
-                    if let imageData = fm.contents(atPath: imagePath.path) {
-                        images.append(imageData)
-                    } else {
-                        print("Error finding path content.")
-                    }
-                }
-            }
-            
-        } catch {
-            print("Error finding imagePaths: \(error)")
-        }
+        images = UserTracker.shared.getAllMomentsPictures()
+        collectionView.reloadData()
     }
 }
 

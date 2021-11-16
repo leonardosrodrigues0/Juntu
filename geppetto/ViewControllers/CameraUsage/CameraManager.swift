@@ -3,8 +3,6 @@ import AVKit
 
 /// Allow a UIViewController to use the camera.
 protocol CameraManager: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
 }
 
 extension CameraManager {
@@ -92,8 +90,8 @@ extension CameraManager {
         }
         
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
-        // Add image to filesystem
-        saveOnFileSystem(image: watermarkedImage)
+        // here you add image to filesystem
+        UserTracker.shared.savePicture(watermarkedImage)
         shareImageAndText(image: watermarkedImage, text: text)
     }
     
@@ -145,47 +143,5 @@ extension CameraManager {
         // Present the share view controller
         present(activityViewController, animated: true)
     }
-
-    // MARK: - Picture Saving
     
-    /// Save image as a file. If documents directory does not exist, create it.
-    private func saveOnFileSystem(image: UIImage) {
-        let fm = FileManager.default
-        let picturesFolder: URL = getDocumentsDirectory().appendingPathComponent("pictures")
-        var isDirectory: ObjCBool = true
-        
-        if fm.fileExists(atPath: picturesFolder.path, isDirectory: &isDirectory) {
-            if isDirectory.boolValue {
-                // file exists and is a directory
-                saveImage(image: image, picturesFolder: picturesFolder)
-            }
-        } else {
-            // directory does not exist
-            do {
-                try fm.createDirectory(at: picturesFolder, withIntermediateDirectories: false, attributes: nil)
-                saveImage(image: image, picturesFolder: picturesFolder)
-            } catch {
-                print("Unable to create new directory to Disk: \(error)")
-            }
-        }
-
-    }
-    
-    /// Returns app's document directory URL.
-    private func getDocumentsDirectory() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    }
-    
-    /// Save image at the given directory.
-    private func saveImage(image: UIImage, picturesFolder: URL) {
-        if let data = image.pngData() {
-            let filePath = picturesFolder.appendingPathComponent("\(Date()).png")
-            do {
-                try data.write(to: filePath)
-                print("Image saved")
-            } catch {
-                print("Unable to Write Data to Disk \(error)")
-            }
-        }
-    }
 }

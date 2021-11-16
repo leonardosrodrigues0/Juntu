@@ -5,30 +5,38 @@ import UIKit
 /// Singleton class: use `UserTracker.shared` attribute.
 public class UserTracker {
     
-    // MARK: - Properties
+    // MARK: - Static attributes and Methods for Data Persistence
     
-    let dataPlistFilePath = FileManager.default.urls(
-        for: .documentDirectory,
-        in: .userDomainMask
-    ).first?.appendingPathComponent("User.plist")
+    static private let documentsDirectory: URL? = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    static private let profilePictureFolderName = "ProfilePicture"
+    static private let picturesFolderName = "Pictures"
+    static private let profilePictureName = "UserProfilePicture.png"
+    static private let profilePictureFolderDataPath = getFolderDataPath(profilePictureFolderName)
+    static private let picturesFolderDataPath = getFolderDataPath(picturesFolderName)
     
-    var profilePictureFilePath: URL
-    let profilePictureName = "UserProfilePicture.png"
-    
-    var profilePictureFolderDataPath: URL = { () -> URL in
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        let docURL = URL(string: documentsDirectory)!
-        let folderDataPath = docURL.appendingPathComponent("ProfilePicture")
+    static private func getFolderDataPath(_ folderName: String) -> URL {
+        let folderDataPath = UserTracker.documentsDirectory!.appendingPathComponent(folderName)
         if !FileManager.default.fileExists(atPath: folderDataPath.path) {
             do {
                 try FileManager.default.createDirectory(atPath: folderDataPath.path, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                print(error.localizedDescription)
+                print("Unable to create new directory to Disk: \(error.localizedDescription)")
             }
         }
         return folderDataPath
-    }()
+    }
+    
+    // MARK: - Properties for Data Persistence
+    
+    private let dataPlistFilePath = documentsDirectory?.appendingPathComponent("User.plist")
+    private let profilePictureFilePath = profilePictureFolderDataPath.appendingPathComponent(profilePictureName)
+    private var newSavedPictureFilePath: URL {
+        UserTracker.picturesFolderDataPath.appendingPathComponent("\(Date()).png")
+    }
+    
+    private var user: User?
+    
+    // MARK: - Initializers
     
     /// Singleton instance.
     static var shared: UserTracker = {
@@ -36,14 +44,6 @@ public class UserTracker {
         instance.loadUser()
         return instance
     }()
-    
-    private var user: User?
-    
-    // MARK: - Initializers
-    
-    private init() {
-        self.profilePictureFilePath = self.profilePictureFolderDataPath.appendingPathComponent(self.profilePictureName)
-    }
     
     // MARK: - Methods for Logging User Activity
     
@@ -104,12 +104,13 @@ public class UserTracker {
         }
     }
     
-    private func saveImage(image: UIImage) {
+    private func saveImage(_ image: UIImage, at pathURL: URL) {
         let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
         do {
-            try data!.write(to: URL(fileURLWithPath: profilePictureFilePath.path))
+            try data!.write(to: URL(fileURLWithPath: pathURL.path))
+            print("Logging saved image on datapath  \(pathURL.path)")
         } catch {
-            print(error.localizedDescription)
+            print("Unable to Write Data to Disk \(error.localizedDescription)")
         }
     }
     
@@ -133,7 +134,44 @@ public class UserTracker {
     }
     
     func editUserProfilePicture(newImage: UIImage) {
-        saveImage(image: newImage)
+        saveImage(newImage, at: profilePictureFilePath)
+    }
+    
+    // MARK: - Methods for handling Moments
+    
+    func savePicture(_ image: UIImage) {
+        saveImage(image, at: newSavedPictureFilePath)
+    }
+    
+    func getAllMomentsPictures() -> [Data] {
+        var images = [Data]()
+        
+        let fm = FileManager.default
+        
+        do {
+            var imagePaths = try fm.contentsOfDirectory(
+                at: UserTracker.picturesFolderDataPath,
+                includingPropertiesForKeys: nil,
+                options: .skipsHiddenFiles
+            )
+            
+            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
+            
+            for imagePath in imagePaths {
+                if imagePath.path.hasSuffix("png") {
+                    if let imageData = fm.contents(atPath: imagePath.path) {
+                        images.append(imageData)
+                    } else {
+                        print("Error finding path content.")
+                    }
+                }
+            }
+            
+        } catch {
+            print("Error finding imagePaths: \(error)")
+        }
+        
+        return images
     }
     
     // MARK: - Methods for Reading User Profile
