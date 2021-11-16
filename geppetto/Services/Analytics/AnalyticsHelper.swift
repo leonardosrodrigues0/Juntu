@@ -1,55 +1,73 @@
 import Foundation
 import Firebase
 
-public class AnalyticsHelper {
+class AnalyticsHelper {
     
     // MARK: - Properties
     
-    var startTimer: Double
+    private var startTime: Double
     
     // MARK: - Initializers
     
     init() {
-        startTimer = CFAbsoluteTimeGetCurrent()
+        startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    // MARK: - Methods
+    // MARK: - Auxiliary Methods
     
-    private func endTimer() -> Double {
-        return CFAbsoluteTimeGetCurrent() - startTimer
-
+    func getTimeFromStart() -> Double {
+        return CFAbsoluteTimeGetCurrent() - startTime
     }
     
-    public func logAppOpen() {
-        Analytics.logEvent("app_open", parameters: ["load_timer": endTimer()])
+    func resetTimer() {
+        startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    public func logDiveInPressed(activity: Activity) {
+    // MARK: - Analytics Events
+    
+    func logAppOpen() {
+        Analytics.logEvent("app_open", parameters: [
+            "load_time": getTimeFromStart()
+        ])
+    }
+    
+    func logDiveInPressed(activity: Activity) {
         Analytics.logEvent("dive_in_pressed", parameters: [
-            "screen_view_time": endTimer(),
+            "screen_view_time": getTimeFromStart(),
             "activity": activity.name
         ])
     }
     
-    public func logViewedActivity(_ activity: Activity) {
+    func logViewedActivity(_ activity: Activity) {
         Analytics.logEvent("activity_viewed", parameters: [
-            "load_time": endTimer(),
+            "load_time": getTimeFromStart(),
             "activity": activity.name
         ])
     }
     
-    public func logSavedActivity(_ activity: Activity) {
-        Analytics.logEvent("activity_saved", parameters: ["activity": activity.name])
+    func logSavedActivity(_ activity: Activity) {
+        Analytics.logEvent("activity_saved", parameters: [
+            "activity": activity.name
+        ])
     }
     
-    public func logViewedFinalStep(activity: Activity) {
+    func logViewedFinalStep(activity: Activity) {
         Analytics.logEvent("viewed_final_step", parameters: [
-            "screen_view_time": endTimer(),
+            "screen_view_time": getTimeFromStart(),
             "activity": activity.name
         ])
     }
     
-    public func resetTimer() {
-        startTimer = CFAbsoluteTimeGetCurrent()
+    func logEditedProfile() {
+        Analytics.logEvent("edited_profile", parameters: [
+            "time_spent": getTimeFromStart()
+        ])
+    }
+    
+    func logViewedMomentsImage(at index: Int, collectionSize: Int) {
+        Analytics.logEvent("view_moments_image", parameters: [
+            "image_index": index,
+            "collection_size": collectionSize
+        ])
     }
 }
