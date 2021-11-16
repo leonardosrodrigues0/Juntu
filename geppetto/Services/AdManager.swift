@@ -32,22 +32,11 @@ class AdManager: NSObject {
         bannerView.rootViewController = controller
         
         usedView.addSubview(bannerView)
-        usedView.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .top,
-                                relatedBy: .equal,
-                                toItem: usedView,
-                                attribute: .top,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: usedView,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
+
+        NSLayoutConstraint.activate([
+            bannerView.centerXAnchor.constraint(equalTo: usedView.centerXAnchor),
+            bannerView.topAnchor.constraint(equalTo: usedView.topAnchor, constant: +AdManager.verticalMargins/2)
+        ])
     }
     
     /// Adds a banner to selected view, or main view
