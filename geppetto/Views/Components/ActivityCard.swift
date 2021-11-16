@@ -62,9 +62,9 @@ class ActivityCard: UIView {
         votesLabel.text = "(\(votes) avaliações)"
         
         descriptionLabel.text = activity.introduction
-        ageLabel.text = activity.getAgeText()
+        ageLabel.text = activity.fullAgeText
         difficultyLabel.text = activity.difficulty
-        durationLabel.text = activity.time
+        durationLabel.text = activity.fullTimeText
     }
     
     func setTag(_ tag: Tag) {

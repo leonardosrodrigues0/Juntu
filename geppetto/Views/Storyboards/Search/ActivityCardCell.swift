@@ -22,8 +22,8 @@ class ActivityCardCell: UICollectionViewCell {
     
     private func updateOutlets() {
         image.sd_setImage(with: (cellActivity?.getImageDatabaseRef())!)
-        ageLabel.text = cellActivity?.getAgeText()
-        durationLabel.text = cellActivity?.time
+        ageLabel.text = cellActivity?.fullAgeText
+        durationLabel.text = cellActivity?.fullTimeText
         titleLabel.text = cellActivity?.name
         let rating: Double = 5
         ratingLabel.text = String(format: "%.1f", rating)

@@ -11,7 +11,7 @@ class ActivitiesDatabase {
     static let activitiesStorageDirectory = "Activities"
     static let activityImageName = "overview"
     static let imagesExtension = ".png"
-    private static let databaseActivitiesChild = "activities-with-id"
+    private static let databaseActivitiesChild = "activities"
     private static let databaseHighlightedActivitiesChild = "highlighted-activities"
     private static let activities: [String: Activity]? = nil
     
