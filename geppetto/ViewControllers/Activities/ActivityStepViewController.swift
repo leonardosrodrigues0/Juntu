@@ -22,6 +22,7 @@ class ActivityStepViewController: UIViewController {
     }
     
     private func updateOutlets() {
+        
         guard let indexValue = index, let totalSteps = activity?.getSteps().count else {
             print("Error: failed to unwrap index optional at activity step.")
             return

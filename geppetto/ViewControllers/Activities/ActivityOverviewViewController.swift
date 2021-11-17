@@ -179,6 +179,11 @@ class ActivityOverviewViewController: UIViewController {
         similarActivitiesController.setup()
     }
     
+    // sempre que a função é chamada o dicionário de imagens é esvaziado, os steps das atividades
+    // são acessados e as imagens são baixadas a partir de sua referência e atribuídas a imagem
+    // do step direto pelo stepVC e adicionadas ao dicionário - em activityStepViewController a imagem
+    // também é atribuída a imagem
+    
     private func downloadStepsImages() {
         ActivityOverviewViewController.stepsImages.removeAll()
         if let activity = activity {
