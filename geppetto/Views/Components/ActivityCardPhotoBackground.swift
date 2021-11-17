@@ -43,8 +43,8 @@ class ActivityCardPhotoBackground: UICollectionViewCell {
         ratingCountLabel.text = "(\(votes) avaliações)"
         descriptionLabel.text = cellActivity?.introduction
         
-        ageLabel.text = cellActivity?.getAgeText()
-        durationLabel.text = cellActivity?.time
+        ageLabel.text = cellActivity?.fullAgeText
+        durationLabel.text = cellActivity?.fullTimeText
         difficultyLabel.text = cellActivity?.difficulty
     }
     

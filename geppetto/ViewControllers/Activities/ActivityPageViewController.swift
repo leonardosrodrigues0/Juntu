@@ -22,6 +22,11 @@ class ActivityPageViewController: UIPageViewController {
         layout()
         helper = AnalyticsHelper()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        let adManager = AdManager()
+        adManager.addBannerViewToBottomOfView(self)
+    }
     
     func setActivity(_ activity: Activity) {
         self.activity = activity
@@ -118,7 +123,7 @@ extension ActivityPageViewController {
         NSLayoutConstraint.activate([
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 1)
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -AdManager.height)
         ])
     }
 }

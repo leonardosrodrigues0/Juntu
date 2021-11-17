@@ -55,6 +55,9 @@ PODS:
     - SDWebImage (~> 5.6)
   - FirebaseUI/Storage (12.0.2):
     - FirebaseStorageUI (~> 12.0)
+  - Google-Mobile-Ads-SDK (8.12.0):
+    - GoogleAppMeasurement (< 9.0, >= 7.0)
+    - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleAppMeasurement (8.9.1):
     - GoogleAppMeasurement/AdIdSupport (= 8.9.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
@@ -79,6 +82,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUserMessagingPlatform (2.0.0)
   - GoogleUtilities/AppDelegateSwizzler (7.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -117,6 +121,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI/Storage
+  - Google-Mobile-Ads-SDK
   - PromisesSwift
 
 SPEC REPOS:
@@ -130,8 +135,10 @@ SPEC REPOS:
     - FirebaseStorage
     - FirebaseStorageUI
     - FirebaseUI
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
@@ -150,8 +157,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 452c98c31ccb40b819764bf3039426c4388d9939
   FirebaseStorageUI: 9f5b32264e77dc073dec45f00c5b3a77e5ca901e
   FirebaseUI: b04b32ead3a6dcd5a50829e14b8f3f6d044d5d62
+  Google-Mobile-Ads-SDK: fb31b6ef68ef352b551ee29585cd9ceb07230cd0
   GoogleAppMeasurement: 837649ad3987936c232f6717c5680216f6243d24
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
@@ -160,6 +169,6 @@ SPEC CHECKSUMS:
   PromisesSwift: e0b2a6433469efb0b83a2b84c62a2abab8e5e5d4
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: 0b69442da45c61611890584e8fb6aca2406b8d9a
+PODFILE CHECKSUM: 72fe92c9cc91a31c733542384a08d8de0ea8bdf7
 
 COCOAPODS: 1.11.2

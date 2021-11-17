@@ -1,4 +1,5 @@
 import Foundation
+import Promises
 import UIKit
 
 protocol SimilarActivitiesDelegate: AnyObject {
@@ -14,10 +15,10 @@ internal class SimilarActivitiesController: ActivitiesCollectionViewController {
     
     // MARK: - Methods
     
-    override func loadActivitiesPromise() {
+    override func loadActivitiesPromise() -> Promise<[Activity]> {
         let loadingHandler = LoadingHandler(parentView: collectionView)
         let database = ActivitiesDatabase.shared
-        database.getAllActivities().then { activities in
+        return database.getAllActivities().then { activities in
             let similarActivities = self.orderBySimilarity(activities)
             self.activities = similarActivities
             self.collectionView.reloadData()

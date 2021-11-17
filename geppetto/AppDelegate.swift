@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pageControl = UIPageControl.appearance()
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .lightGray
+
+        // pedir permissões antes!!!
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         return true
     }

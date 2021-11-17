@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Promises
 
 class ActivitiesCollectionViewController: UIViewController {
     
@@ -13,24 +14,22 @@ class ActivitiesCollectionViewController: UIViewController {
     
     // MARK: - Methods
     
-    func setup() {
+    func setup() -> Promise<[Activity]> {
         let nib = UINib(nibName: activityCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: activityCellIdentifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        loadActivitiesPromise()
+        return loadActivitiesPromise()
     }
     
     /// Override this method to load the activities you want to display
-    func loadActivitiesPromise() {
-        let loadingHandler = LoadingHandler(parentView: collectionView)
+    func loadActivitiesPromise() -> Promise<[Activity]> {
         let database = ActivitiesDatabase.shared
-        database.getAllActivities().then { activities in
+        return database.getAllActivities().then { activities in
             self.activities = activities
             self.collectionView.reloadData()
-            loadingHandler.stop()
         }
     }
 }

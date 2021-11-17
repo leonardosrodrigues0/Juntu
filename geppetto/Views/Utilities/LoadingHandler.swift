@@ -9,19 +9,34 @@ class LoadingHandler {
     private var parentView: UIView
     private weak var activityIndicator: UIActivityIndicatorView!
     private weak var label: UILabel!
-    
+        
     // MARK: - Initializers
     
     /// Present the loading indicator in the parent view. Call this initializer before Internet request
     public init(parentView: UIView) {
         self.parentView = parentView
         
+        toggleSubViewsVisibility()
         (self.activityIndicator, self.label) = createIndicatorView(parentView: parentView)
         
         start()
     }
     
     // MARK: - Methods
+    
+    private func toggleSubViewsVisibility() {
+        parentView.subviews.forEach { view in
+            if view.isHidden {
+                view.isHidden = false
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+                    view.alpha = 1
+                })
+            } else {
+                view.alpha = 0
+                view.isHidden = true
+            }
+        }
+    }
     
     private func createIndicatorView(parentView view: UIView) -> (indicator: UIActivityIndicatorView, label: UILabel) {
         let stack = UIStackView()
@@ -57,6 +72,7 @@ class LoadingHandler {
     
     /// Hide the loading indicator. Called when Internet request returns
     public func stop() {
+        toggleSubViewsVisibility()
         activityIndicator?.stopAnimating()
         label.isHidden = true
     }

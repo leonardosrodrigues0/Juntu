@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Promises
 
 internal class DiscoverTagsController: UIViewController {
     
@@ -12,14 +13,11 @@ internal class DiscoverTagsController: UIViewController {
 
     // MARK: - Methods
     
-    func setup() {
-        let loadingHandler = LoadingHandler(parentView: tagsScrollView
-        )
+    func setup() -> Promise <[Tag]> {
         let tagDatabase = TagsDatabase.shared
-        tagDatabase.getNonEmptyTags().then { tags in
+        return tagDatabase.getNonEmptyTags().then { tags in
             self.tags.append(contentsOf: tags)
             self.populateTagScroll()
-            loadingHandler.stop()
         }
     }
     
