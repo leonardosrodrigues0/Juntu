@@ -85,6 +85,7 @@
 		CDE41848273D403500505BA9 /* SimilarActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
+		D76F4A6A273E8F1800C58DAC /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F4A69273E8F1800C58DAC /* AdManager.swift */; };
 		D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DE9271EEFC50010ED65 /* User.swift */; };
 		D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */; };
 		D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DED271EEFF40010ED65 /* UserTracker.swift */; };
@@ -178,6 +179,7 @@
 		CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarActivitiesController.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
+		D76F4A69273E8F1800C58DAC /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
 		D7FF5DE9271EEFC50010ED65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7FF5DEB271EEFE00010ED65 /* UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivity.swift; sourceTree = "<group>"; };
 		D7FF5DED271EEFF40010ED65 /* UserTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTracker.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				D7FF5DE8271EEFA20010ED65 /* UserDomain */,
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
+				D76F4A69273E8F1800C58DAC /* AdManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				A7C1324E270C9A44000254CF /* CameraManager.swift in Sources */,
 				2F381B932739466600EA18AA /* EditProfileViewController.swift in Sources */,
 				A74A0C00268F599D00F99C7C /* ActivityPageControlViewController.swift in Sources */,
+				D76F4A6A273E8F1800C58DAC /* AdManager.swift in Sources */,
 				CDE41844273C233800505BA9 /* ClickableTagUILabel.swift in Sources */,
 				A748E01C27204C6700DFB868 /* Collection.swift in Sources */,
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
