@@ -27,7 +27,6 @@ class ActivityStepViewController: UIViewController {
             return
         }
 
-        print("Data retrieve: ", String(indexValue))
         image.image = ActivityOverviewViewController.stepsImages[String(indexValue + 1)]
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information

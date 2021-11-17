@@ -9,6 +9,7 @@ class ActivityOverviewViewController: UIViewController {
     var activity: Activity?
     private var selectedActivity: Activity?
     static var stepsImages: [String: UIImage] = [:]
+    var isDataStored: Bool = false
     var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
@@ -50,8 +51,7 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Methods
     
     override func viewDidLoad() {
-        
-        downloadStepsImages()
+
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         
@@ -191,17 +191,12 @@ class ActivityOverviewViewController: UIViewController {
                     }
                     if let data = data {
                         if let pages = self.activityPageControlViewController?.pageViewController?.pages {
-                            print("pages.count: \(pages.count) \n step.stepIndex: \(step.stepIndex!)")
-                            if pages.count >= step.stepIndex! {
-                                if let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController {
-                                    stepVC.image?.image = UIImage(data: data)
-                                    print("Entrou")
-                                }
+                            if let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController {
+                                stepVC.image?.image = UIImage(data: data)
                             }
                         }
-                            
                         ActivityOverviewViewController.stepsImages[String(describing: step.stepIndex!)] = UIImage(data: data)
-                        print("Data retrieved")
+                        self.isDataStored = true
                     }
                 })
             }
@@ -211,6 +206,11 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func enterActivityButtonTapped() {
+        
+        if !isDataStored {
+            downloadStepsImages()
+        }
+        
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
         activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)
