@@ -9,7 +9,7 @@ class ActivityOverviewViewController: UIViewController {
     var activity: Activity?
     private var selectedActivity: Activity?
     static var stepsImages: [String: UIImage] = [:]
-    var isDataStored: Bool = false
+    private var isDataStored: Bool = false
     var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
@@ -179,11 +179,10 @@ class ActivityOverviewViewController: UIViewController {
         similarActivitiesController.setup()
     }
     
-    // sempre que a função é chamada o dicionário de imagens é esvaziado, os steps das atividades
-    // são acessados e as imagens são baixadas a partir de sua referência e atribuídas a imagem
-    // do step direto pelo stepVC e adicionadas ao dicionário - em activityStepViewController a imagem
-    // também é atribuída a imagem
-    
+    /// sempre que a função é chamada o dicionário de imagens é esvaziado, os steps das atividades
+    /// são acessados e as imagens são baixadas a partir de sua referência e atribuídas a imagem
+    /// do step direto pelo stepVC e adicionadas ao dicionário - em activityStepViewController a imagem
+    /// também é atribuída a imagem
     private func downloadStepsImages() {
         ActivityOverviewViewController.stepsImages.removeAll()
         if let activity = activity {
@@ -194,17 +193,16 @@ class ActivityOverviewViewController: UIViewController {
                         print("Got an error fetching data: \(error.localizedDescription)")
                         return
                     }
-                    if let data = data {
-                        if let pages = self.activityPageControlViewController?.pageViewController?.pages {
-                            if let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController {
-                                stepVC.image?.image = UIImage(data: data)
-                            }
-                        }
-                        ActivityOverviewViewController.stepsImages[String(describing: step.stepIndex!)] = UIImage(data: data)
-                        self.isDataStored = true
+                    if
+                        let data = data,
+                        let pages = self.activityPageControlViewController?.pageViewController?.pages,
+                        let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController {
+                            stepVC.image?.image = UIImage(data: data)
+                            ActivityOverviewViewController.stepsImages[String(describing: step.stepIndex!)] = UIImage(data: data)
                     }
                 })
             }
+            self.isDataStored = true
         }
     }
 

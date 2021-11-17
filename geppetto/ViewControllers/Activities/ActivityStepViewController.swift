@@ -16,9 +16,15 @@ class ActivityStepViewController: UIViewController {
     @IBOutlet weak var juntuTipText: UILabel!
     
     // MARK: - Methods
+    
     override func viewDidLoad() {
+        setBackgroundColor()
         super.viewDidLoad()
         updateOutlets()
+    }
+    
+    private func setBackgroundColor() {
+        image.backgroundColor = .systemGray4
     }
     
     private func updateOutlets() {
