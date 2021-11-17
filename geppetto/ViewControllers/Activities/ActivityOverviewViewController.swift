@@ -10,7 +10,7 @@ class ActivityOverviewViewController: UIViewController {
     private var selectedActivity: Activity?
     static var stepsImages: [String: UIImage] = [:]
     private var isDataStored: Bool = false
-    var activityPageControlViewController: ActivityPageControlViewController?
+    private var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
