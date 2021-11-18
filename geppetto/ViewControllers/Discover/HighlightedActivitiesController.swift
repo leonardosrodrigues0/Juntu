@@ -22,7 +22,7 @@ internal class HighlightedActivitiesController: UIViewController {
     func setup() -> Promise<[Activity]> {
         let flowLayout = ZoomAndSnapFlowLayout(zoomFactor: zoomFactor)
         flowLayout.horizontalInsets = horizontalInsets
-        flowLayout.pageControl = pageControl
+        flowLayout.delegate = self
         
         let nib = UINib(nibName: highlightedCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: highlightedCellIdentifier)
@@ -102,5 +102,13 @@ extension HighlightedActivitiesController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let itemWidth: CGFloat = floor((collectionView.frame.size.width - 2 * horizontalInsets)) / (1 + zoomFactor)
         pageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(itemWidth + horizontalInsets)
+    }
+}
+
+// MARK: - ZoomAndSnapFlowLayoutDelegate
+
+extension HighlightedActivitiesController: ZoomAndSnapFlowLayoutDelegate {
+    func zoomAndSnap(zoomAndSnapFlowLayout: ZoomAndSnapFlowLayout, currentPageDidUpdate: Bool, currentPage: Int) {
+        pageControl.currentPage = currentPage
     }
 }

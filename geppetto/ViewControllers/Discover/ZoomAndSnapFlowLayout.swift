@@ -1,6 +1,17 @@
 import Foundation
 import UIKit
 
+// MARK: - Delegate Protocol
+
+protocol ZoomAndSnapFlowLayoutDelegate: AnyObject {
+    func zoomAndSnap(zoomAndSnapFlowLayout: ZoomAndSnapFlowLayout, currentPageDidUpdate: Bool, currentPage: Int)
+}
+
+/// Adds default implementation to make all protocol methods optional
+extension ZoomAndSnapFlowLayoutDelegate {
+    func zoomAndSnap(zoomAndSnapFlowLayout: ZoomAndSnapFlowLayout, currentPageDidUpdate: Bool, currentPage: Int) {}
+}
+
 // UICollectionViewFlowLayout that adds Zoom and Snap effects.
 // Moves at most a single cell and always center it. The centered cell will be zoomed.
 class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
@@ -11,7 +22,7 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     var zoomFactor: CGFloat = 0.1
     var currentItemIdx: Int = 0
     var horizontalInsets: CGFloat = 0
-    weak var pageControl: UIPageControl?
+    weak var delegate: ZoomAndSnapFlowLayoutDelegate?
     
     // MARK: - Initializers
     
@@ -86,7 +97,7 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
             currentItemIdx = getItemIdxBasedOnPosition(of: proposedContentOffset)
         }
         
-        pageControl?.currentPage = currentItemIdx
+        delegate?.zoomAndSnap(zoomAndSnapFlowLayout: self, currentPageDidUpdate: true, currentPage: currentItemIdx)
         
         let xOffset = getCurrentItemContentOffsetX()
         return CGPoint(x: xOffset, y: proposedContentOffset.y)
