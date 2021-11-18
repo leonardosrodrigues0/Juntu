@@ -22,6 +22,7 @@ internal class HighlightedActivitiesController: UIViewController {
     func setup() -> Promise<[Activity]> {
         let flowLayout = ZoomAndSnapFlowLayout(zoomFactor: zoomFactor)
         flowLayout.horizontalInsets = horizontalInsets
+        flowLayout.pageControl = pageControl
         
         let nib = UINib(nibName: highlightedCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: highlightedCellIdentifier)

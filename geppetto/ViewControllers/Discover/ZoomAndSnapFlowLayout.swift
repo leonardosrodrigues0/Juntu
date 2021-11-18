@@ -11,6 +11,7 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     var zoomFactor: CGFloat = 0.1
     var currentItemIdx: Int = 0
     var horizontalInsets: CGFloat = 0
+    weak var pageControl: UIPageControl?
     
     // MARK: - Initializers
     
@@ -84,6 +85,8 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
         } else {
             currentItemIdx = getItemIdxBasedOnPosition(of: proposedContentOffset)
         }
+        
+        pageControl?.currentPage = currentItemIdx
         
         let xOffset = getCurrentItemContentOffsetX()
         return CGPoint(x: xOffset, y: proposedContentOffset.y)
