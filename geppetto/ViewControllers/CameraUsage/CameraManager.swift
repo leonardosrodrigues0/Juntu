@@ -1,30 +1,81 @@
-//
-//  CameraViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 20/09/21.
-//
-
 import UIKit
+import AVKit
 
 /// Allow a UIViewController to use the camera.
 protocol CameraManager: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
-    
-    func takePicture()
 }
 
 extension CameraManager {
-    
-    /// Default implementation for a simple camera usage.
-    func takePicture() {
-        let pickerController = UIImagePickerController()
-        pickerController.sourceType = .camera
-        pickerController.delegate = self
-        present(pickerController, animated: true)
+
+    // MARK: - Camera Access Handler
+
+    func tryTakePicture() {
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+
+        switch cameraAuthorizationStatus {
+        case .notDetermined:
+            requestCameraAccess()
+        case .restricted:
+            presentCameraAccessNeededAlert()
+        case .denied:
+            presentCameraAccessNeededAlert()
+        case .authorized:
+            takePicture()
+        default : return
+        }
     }
-    
+
+    private func requestCameraAccess() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: {accessGranted in
+            if accessGranted {
+                self.takePicture()
+            }
+        })
+    }
+
+    private func presentCameraAccessNeededAlert() {
+        DispatchQueue.main.async {
+            let alert = self.createCameraAccessNeededAlert()
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    private func createCameraAccessNeededAlert() -> UIAlertController {
+        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+
+        let alert = UIAlertController(
+            title: "Necessário acesso à Câmera",
+            message: "Para poder tirar fotos dentro do app, precisamos da sua permissão.",
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Vá aos Ajustes", style: .cancel, handler: { _ -> Void in
+            UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+        }))
+
+        return alert
+    }
+
+    // MARK: - Picture Taking
+
+    /// Default implementation for a simple camera usage.
+    private func takePicture() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            DispatchQueue.main.async {
+                let pickerController = UIImagePickerController()
+                pickerController.sourceType = .camera
+                pickerController.delegate = self
+                self.present(pickerController, animated: true)
+            }
+        } else {
+            print("Camera not Available")
+        }
+
+    }
+
+    // MARK: - Picture Editing and Sharing
+
     /// Share an image with a Juntu watermark and an associated text.
     /// Built to be called inside `imagePickerController` method at the UIViewController.
     func shareImageAndText(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any], text: String) {
@@ -40,7 +91,7 @@ extension CameraManager {
         
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
         // here you add image to filesystem
-        saveOnFileSystem(image: watermarkedImage)
+        UserTracker.shared.savePicture(watermarkedImage)
         shareImageAndText(image: watermarkedImage, text: text)
     }
     
@@ -64,7 +115,7 @@ extension CameraManager {
         
         watermarkImage.draw(in: watermarkRect)
 
-        // Get result.
+        // Get result
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result!
@@ -93,17 +144,4 @@ extension CameraManager {
         present(activityViewController, animated: true)
     }
     
-    private func saveOnFileSystem(image: UIImage) {
-        if let data = image.pngData() {
-            let date = Date()
-            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let url = documents.appendingPathComponent("\(date).png")
-            
-            do {
-                try data.write(to: url)
-            } catch {
-                print("Unable to Write Data to Disk \(error)")
-            }
-        }
-    }
 }

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BVR-9r-fGK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity Page View Controller-->
+        <scene sceneID="2v9-OP-EkD">
+            <objects>
+                <pageViewController storyboardIdentifier="ActivityPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FH5-K3-uih" customClass="ActivityPageViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wYf-gV-lQk"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w7Q-cb-FQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2236" y="119"/>
+        </scene>
+        <!--Activity Step View Controller-->
+        <scene sceneID="Q4E-55-P01">
+            <objects>
+                <viewController storyboardIdentifier="ActivityStepViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="US2-vD-diX" customClass="ActivityStepViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="36T-Um-fAm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-cB-fgX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OhK-h6-JGe">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="454.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-as-X68">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jiq-as-X68" secondAttribute="height" multiplier="4:3" id="HaW-CF-juw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-5i-ZBr" userLabel="Main Info">
+                                                <rect key="frame" x="16" y="326.5" width="382" height="48"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Cs-laX" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owt-NS-DQT">
+                                                        <rect key="frame" x="0.0" y="31" width="72.5" height="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-IZ-Ops">
+                                                <rect key="frame" x="16" y="390.5" width="382" height="64"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diquinha da Juntu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xy-l5-d1M" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="8" width="153" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="juntuTipText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-Vv-hhh">
+                                                        <rect key="frame" x="0.0" y="39" width="77.5" height="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="8"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jiq-as-X68" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="4Qb-Im-sgh"/>
+                                            <constraint firstItem="mQ4-5i-ZBr" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="AmR-lj-zjy"/>
+                                            <constraint firstAttribute="trailing" secondItem="jiq-as-X68" secondAttribute="trailing" id="JGv-KU-TGI"/>
+                                            <constraint firstAttribute="trailing" secondItem="mQ4-5i-ZBr" secondAttribute="trailing" constant="16" id="N3h-vi-URn"/>
+                                            <constraint firstItem="Cul-IZ-Ops" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" constant="16" id="Qky-G4-clH"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cul-IZ-Ops" secondAttribute="trailing" constant="16" id="kqT-CH-Qkh"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cul-IZ-Ops" secondAttribute="bottom" id="pZy-07-5KX"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EeP-f5-Gnh" firstAttribute="top" secondItem="OhK-h6-JGe" secondAttribute="top" id="37q-DH-8Dh"/>
+                                    <constraint firstItem="EeP-f5-Gnh" firstAttribute="leading" secondItem="OhK-h6-JGe" secondAttribute="leading" id="9UP-F2-8xs"/>
+                                    <constraint firstItem="goK-Gk-kOs" firstAttribute="width" secondItem="OhK-h6-JGe" secondAttribute="width" id="PFU-4V-7Vv"/>
+                                    <constraint firstItem="OhK-h6-JGe" firstAttribute="bottom" secondItem="EeP-f5-Gnh" secondAttribute="bottom" id="men-q3-iti"/>
+                                    <constraint firstItem="OhK-h6-JGe" firstAttribute="bottom" secondItem="EeP-f5-Gnh" secondAttribute="bottom" id="qnh-RW-FJa"/>
+                                    <constraint firstItem="OhK-h6-JGe" firstAttribute="trailing" secondItem="EeP-f5-Gnh" secondAttribute="trailing" id="yp7-Mn-S4c"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="EeP-f5-Gnh"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="goK-Gk-kOs"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8FI-3E-imV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lUU-cB-fgX" firstAttribute="trailing" secondItem="8FI-3E-imV" secondAttribute="trailing" id="Ebz-13-d51"/>
+                            <constraint firstItem="lUU-cB-fgX" firstAttribute="leading" secondItem="8FI-3E-imV" secondAttribute="leading" id="HRr-db-JHW"/>
+                            <constraint firstItem="8FI-3E-imV" firstAttribute="bottom" secondItem="lUU-cB-fgX" secondAttribute="bottom" constant="70" id="nEy-uf-NYJ"/>
+                            <constraint firstItem="lUU-cB-fgX" firstAttribute="top" secondItem="8FI-3E-imV" secondAttribute="top" id="zDG-0k-c5t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="alH-Tg-Xlo"/>
+                    <connections>
+                        <outlet property="image" destination="jiq-as-X68" id="ZhF-Wd-N2W"/>
+                        <outlet property="indexLabel" destination="m1K-Cs-laX" id="rH4-bh-Lrd"/>
+                        <outlet property="instructions" destination="Owt-NS-DQT" id="Zpo-Ye-H3z"/>
+                        <outlet property="juntuTip" destination="Cul-IZ-Ops" id="aOe-ji-f27"/>
+                        <outlet property="juntuTipText" destination="QGe-Vv-hhh" id="Os9-7r-Jev"/>
+                        <outlet property="scrollViewBottomConstraint" destination="nEy-uf-NYJ" id="afS-NB-jcJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-A8-zXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3095.6521739130435" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s8T-bq-ckx">
+            <objects>
+                <navigationController id="BVR-9r-fGK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tVw-o9-MDS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fej-cz-GZT" kind="relationship" relationship="rootViewController" id="SY1-ao-EZF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bv9-GB-1Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="119"/>
+        </scene>
+        <!--Activity Page Control View Controller-->
+        <scene sceneID="BAx-M7-dZK">
+            <objects>
+                <viewController storyboardIdentifier="ActivityPageControlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fej-cz-GZT" customClass="ActivityPageControlViewController" customModule="geppetto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j0D-XN-c29">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f7-cU-eAF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5ua-kj-F5Z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5ua-kj-F5Z" firstAttribute="bottom" secondItem="5f7-cU-eAF" secondAttribute="bottom" id="5Wq-l7-dfx"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="leading" secondItem="5ua-kj-F5Z" secondAttribute="leading" id="6e5-y7-YsH"/>
+                            <constraint firstItem="5ua-kj-F5Z" firstAttribute="trailing" secondItem="5f7-cU-eAF" secondAttribute="trailing" id="Fdm-I4-Vs6"/>
+                            <constraint firstItem="5f7-cU-eAF" firstAttribute="top" secondItem="5ua-kj-F5Z" secondAttribute="top" id="Ouq-d3-5Z7"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hPq-0v-o4w">
+                        <barButtonItem key="rightBarButtonItem" title="Camera" image="camera" catalog="system" id="3Pa-tK-VDP">
+                            <color key="tintColor" name="AccentColor"/>
+                            <connections>
+                                <action selector="cameraButtonTapped" destination="fej-cz-GZT" id="sDh-nX-PkT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contentView" destination="5f7-cU-eAF" id="biB-GT-ksd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgE-Ci-J6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384" y="119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <namedColor name="AccentColor">
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

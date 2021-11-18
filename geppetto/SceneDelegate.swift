@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 25/06/21.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

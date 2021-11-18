@@ -1,10 +1,3 @@
-//
-//  DesignableUIView.swift
-//  geppetto
-//
-//  Created by Renato Noronha Máximo on 27/09/21.
-//
-
 // Adds Corner Radius, Border and Shadow properties to a UIView and allows you to preview it in the Interface Builder
 
 // Example of use:
@@ -42,7 +35,7 @@ class DesignableLabel: UILabel {
         return contentSize
     }
     
-    /// Space between letters
+    /// Space between letters.
     @IBInspectable public var kerningSpace: CGFloat {
         get {
             var kerning: CGFloat = 0
@@ -55,11 +48,11 @@ class DesignableLabel: UILabel {
         }
 
         set {
-            if let currentAttibutedText = self.attributedText {
-                let attribString = NSMutableAttributedString(attributedString: currentAttibutedText)
-                let range = NSRange(location: 0, length: currentAttibutedText.length)
-                attribString.addAttributes([.kern: newValue], range: range)
-                self.attributedText = attribString
+            if let currentAttributedText = self.attributedText {
+                let attributedString = NSMutableAttributedString(attributedString: currentAttributedText)
+                let range = NSRange(location: 0, length: currentAttributedText.length)
+                attributedString.addAttributes([.kern: newValue], range: range)
+                self.attributedText = attributedString
             }
         }
         
@@ -69,9 +62,13 @@ class DesignableLabel: UILabel {
 @IBDesignable
 class DesignableImageView: UIImageView {
     
-    private var _bottomGradientColor: UIColor?
-    private var _topGradientColor: UIColor?
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        boundGradientsToImageFrame()
+    }
     
+    private var _bottomGradientColor: UIColor?
+    private var bottomGradient: CALayer?
     @IBInspectable
     var bottomGradientColor: UIColor {
         get {
@@ -79,9 +76,13 @@ class DesignableImageView: UIImageView {
         }
         set {
             _bottomGradientColor = newValue
-            addGradientLayerInBackground(colors: [.clear, _bottomGradientColor ?? .clear])
+            bottomGradient = addGradientLayerInBackground(currentGradient: bottomGradient, colors: [.clear, _bottomGradientColor ?? .clear])
+            boundGradientsToImageFrame()
         }
     }
+    
+    private var _topGradientColor: UIColor?
+    private var topGradient: CALayer?
     
     @IBInspectable
     var topGradientColor: UIColor {
@@ -90,23 +91,36 @@ class DesignableImageView: UIImageView {
         }
         set {
             _topGradientColor = newValue
-            addGradientLayerInBackground(colors: [.clear, _topGradientColor ?? .clear], up: false)
+            topGradient = addGradientLayerInBackground(currentGradient: topGradient, colors: [.clear, _topGradientColor ?? .clear], up: false)
+            boundGradientsToImageFrame()
         }
+    }
+    
+    private func boundGradientsToImageFrame() {
+        bottomGradient?.frame = self.bounds
+        topGradient?.frame = self.bounds
     }
     
     /// Add a vertical gradient in front of the image.
     /// - Parameter colors: colors to use in the gradient (e.g. `[.clear, .black]`)
-    fileprivate func addGradientLayerInBackground(colors: [UIColor], up: Bool = true) {
+    /// - Parameter currentGradient: layer that should be replaced, in case it has been set before`
+    /// - Parameter up: boolean to indicates if the gradient goes up
+    fileprivate func addGradientLayerInBackground(currentGradient: CALayer?, colors: [UIColor], up: Bool = true) -> CALayer? {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = colors.map { $0.cgColor }
         
         if !up {
             gradient.startPoint = CGPoint(x: 0, y: 1)
-            gradient.endPoint = CGPoint.zero
+            gradient.endPoint = CGPoint(x: 0, y: 0)
+        } 
+        
+        if currentGradient != nil {
+            self.layer.replaceSublayer(currentGradient!, with: gradient)
+        } else {
+            self.layer.insertSublayer(gradient, at: 1)
         }
-
-        self.layer.insertSublayer(gradient, at: 1)
+        return gradient
     }
     
 }

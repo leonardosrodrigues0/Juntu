@@ -1,14 +1,9 @@
-//
-//  ActivityCardCell.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 25/10/21.
-//
-
 import UIKit
 
 class ActivityCardCell: UICollectionViewCell {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var image: DesignableImageView!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -23,10 +18,12 @@ class ActivityCardCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Methods
+    
     private func updateOutlets() {
         image.sd_setImage(with: (cellActivity?.getImageDatabaseRef())!)
-        ageLabel.text = cellActivity?.getAgeText()
-        durationLabel.text = cellActivity?.time
+        ageLabel.text = cellActivity?.fullAgeText
+        durationLabel.text = cellActivity?.fullTimeText
         titleLabel.text = cellActivity?.name
         let rating: Double = 5
         ratingLabel.text = String(format: "%.1f", rating)

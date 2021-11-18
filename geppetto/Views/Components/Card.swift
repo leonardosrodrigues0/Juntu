@@ -1,10 +1,3 @@
-//
-//  Card.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 29/06/21.
-//
-
 import UIKit
 import FirebaseStorageUI
 
@@ -12,6 +5,7 @@ import FirebaseStorageUI
 class Card: UIView {
     
     // MARK: - Properties
+    
     var activity: Activity? // Essential data
     @IBOutlet var cardView: Card!
     @IBOutlet weak var image: UIImageView!
@@ -22,6 +16,7 @@ class Card: UIView {
     weak var delegate: ActivityNavigationDelegate?
     
     // MARK: - Methods
+    
     @IBAction func navigateToDetail(_ sender: UITapGestureRecognizer) {
         if let activity = self.activity {
             delegate?.navigate(to: activity)
@@ -55,7 +50,7 @@ class Card: UIView {
         image.sd_setImage(with: activity.getImageDatabaseRef())
         titleLabel.text = activity.name
         descriptionLabel.text = activity.introduction
-        footnoteLabel.text = activity.getAgeText()
+        footnoteLabel.text = activity.fullAgeText
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
     }
@@ -63,7 +58,7 @@ class Card: UIView {
 
 extension UIStackView {
     
-    /// Inject an array of Card Views into StackView
+    /// Inject an array of Card Views into StackView.
     func populateWithCards(_ array: [Card]) {
         for item in self.arrangedSubviews {
             item.removeFromSuperview()

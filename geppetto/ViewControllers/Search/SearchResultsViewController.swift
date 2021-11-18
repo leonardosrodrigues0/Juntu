@@ -1,15 +1,9 @@
-//
-//  SearchResultsViewController.swift
-//  geppetto
-//
-//  Created by Leonardo de Sousa Rodrigues on 08/10/21.
-//
-
 import UIKit
 
 class SearchResultsViewController: UIViewController {
 
     // MARK: - Properties
+    
     @IBOutlet public var tableView: UITableView!
 
     var items: [Searchable] = []
@@ -19,10 +13,11 @@ class SearchResultsViewController: UIViewController {
     private let cellIdentifier = "ActivityCardTableViewCell"
 
     // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
-        let database = ActivityConstructor.shared
+        let database = ActivitiesDatabase.shared
         database.getAllActivities().then { activities in
             self.items.append(contentsOf: activities)
             self.tableView.reloadData()
