@@ -1,31 +1,32 @@
-//
-//  AdManager.swift
-//  geppetto
-//
-//  Created by Erick Manaroulas Felipe on 12/11/21.
-//
-
 import Foundation
 import GoogleMobileAds
 import UIKit
 
 class AdManager: NSObject {
-    var bannerView: GADBannerView!
-    let testAdUnitID = "ca-app-pub-3940256099942544/2934735716"
+    
+    // MARK: - Static Properties
     
     static private let verticalMargins: CGFloat = 10
+    static private let testAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     static let height: CGFloat = 50 + 2 * verticalMargins
+
+    // MARK: - Properties
+    
+    private var bannerView: GADBannerView!
+    
+    // MARK: - Initializers
 
     override init() {
         super.init()
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = testAdUnitID
+        bannerView.adUnitID = Self.testAdUnitID
         bannerView.load(GADRequest())
     }
+    
+    // MARK: - Methods
 
     /// Adds a banner to selected view, or main view
     func addBannerViewToTopOfView(to view: UIView? = nil, _ controller: UIViewController) {
-
         let usedView = (view != nil ? view : controller.view)!
 
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +42,6 @@ class AdManager: NSObject {
     
     /// Adds a banner to selected view, or main view
     func addBannerViewToBottomOfView(to view: UIView? = nil, _ controller: UIViewController) {
-
         let usedView = (view != nil ? view : controller.view)!
 
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +74,7 @@ extension AdManager: GADBannerViewDelegate {
     }
 
     func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillDIsmissScreen")
+        print("bannerViewWillDismissScreen")
     }
 
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {

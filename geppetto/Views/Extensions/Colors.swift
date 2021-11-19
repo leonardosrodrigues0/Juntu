@@ -2,11 +2,11 @@ import UIKit
 
 extension UIColor {
     
-    public class var accentColor: UIColor {
+    class var accentColor: UIColor {
         UIColor(named: "AccentColor") ?? UIColor.white
     }
     
-    public class var pageTintColor: UIColor {
+    class var pageTintColor: UIColor {
         UIColor(named: "pageTintColor") ?? UIColor.white
     }
     

@@ -1,6 +1,6 @@
 import Foundation
 
-public class User: Codable {
+class User: Codable {
     
     // MARK: - Properties
     

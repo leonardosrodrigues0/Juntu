@@ -21,7 +21,7 @@ class ActivitiesDatabase {
     private var activities: [String: Activity]?
     
     /// ActivitiesDatabase singleton instance.
-    public static var shared = ActivitiesDatabase()
+    static var shared = ActivitiesDatabase()
     
     // MARK: - Initializers
     

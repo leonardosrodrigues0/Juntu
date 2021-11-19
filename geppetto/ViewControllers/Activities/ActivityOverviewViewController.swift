@@ -172,7 +172,7 @@ class ActivityOverviewViewController: UIViewController {
         similarActivitiesController.similarTo = self.activity
         similarActivitiesController.delegate = self
         
-        similarActivitiesController.setup()
+        _ = similarActivitiesController.setup()
     }
 
     // MARK: - Actions
@@ -218,7 +218,7 @@ extension ActivityOverviewViewController: UITableViewDataSource {
         return materials.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MaterialTableViewCell
         let item = materials[indexPath.row]
         cell?.name.text = item
