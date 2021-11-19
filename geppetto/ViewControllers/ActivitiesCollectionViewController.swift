@@ -7,7 +7,7 @@ class ActivitiesCollectionViewController: UIViewController {
     // MARK: - Properties
     
     private let activityCellIdentifier = "ActivityCardCell"
-    public var activities: [Activity] = []
+    var activities: [Activity] = []
     weak var collectionView: UICollectionView!
     weak var cardHeightConstraint: NSLayoutConstraint!
     weak var activityNavigationDelegate: ActivityNavigationDelegate!
@@ -63,7 +63,11 @@ extension ActivitiesCollectionViewController: UICollectionViewDataSource, UIColl
 // MARK: - Delegate Flow Layout
 
 extension ActivitiesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let horizontalSpacing = CGFloat(10)
         let contentInsets = CGFloat(16)
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)

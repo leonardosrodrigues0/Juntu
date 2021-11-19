@@ -13,7 +13,7 @@ class LoadingHandler {
     // MARK: - Initializers
     
     /// Present the loading indicator in the parent view. Call this initializer before Internet request
-    public init(parentView: UIView) {
+    init(parentView: UIView) {
         self.parentView = parentView
         
         toggleSubViewsVisibility()
@@ -71,7 +71,7 @@ class LoadingHandler {
     }
     
     /// Hide the loading indicator. Called when Internet request returns
-    public func stop() {
+    func stop() {
         toggleSubViewsVisibility()
         activityIndicator?.stopAnimating()
         label.isHidden = true

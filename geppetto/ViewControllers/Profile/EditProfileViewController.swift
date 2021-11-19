@@ -1,10 +1,3 @@
-//
-//  EditProfileViewController.swift
-//  geppetto
-//
-//  Created by Matheus Vicente on 08/11/21.
-//
-
 import UIKit
 
 class TextFieldCell: UITableViewCell {
@@ -86,7 +79,7 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
         return 2
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
@@ -102,7 +95,7 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
         }
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
           
             let cell = tableView.dequeueReusableCell(withIdentifier: "First name", for: indexPath)
@@ -134,7 +127,7 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    public func showImagePickerController() {
+    func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.delegate = self

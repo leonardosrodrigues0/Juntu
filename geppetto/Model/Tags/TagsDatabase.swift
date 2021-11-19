@@ -18,7 +18,7 @@ class TagsDatabase {
     private var tags: [Tag]?
     
     /// TagsDatabase singleton instance.
-    public static var shared = TagsDatabase()
+    static var shared = TagsDatabase()
     
     // MARK: - Initializers
     

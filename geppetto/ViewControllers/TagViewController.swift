@@ -46,12 +46,12 @@ class TagViewController: UIViewController {
 extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     /// Return total number of items.
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return activities.count
     }
     
     /// Return the cell for a given index.
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: activityCellIdentifier, for: indexPath) as? ActivityCardCell
         
         // Set cell tag element:
@@ -62,7 +62,7 @@ extension TagViewController: UICollectionViewDataSource, UICollectionViewDelegat
         return cell!
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let activity = activities.get(at: indexPath.row) {
             selectedActivity = activity
         }
@@ -75,7 +75,7 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
 
     /// Return the item size for collection view.
     /// Use aspect ratio of 16:9 for two columns of items.
-    public func collectionView(
+    func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
