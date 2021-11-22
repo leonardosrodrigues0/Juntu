@@ -36,7 +36,7 @@ class ActivityStepViewController: UIViewController {
             return
         }
 
-        image.image = ActivityOverviewViewController.stepsImages[String(indexValue + 1)]
+        image.image = ActivityOverviewViewController.stepsImages[indexValue + 1]
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {

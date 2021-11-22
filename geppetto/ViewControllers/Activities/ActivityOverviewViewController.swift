@@ -8,7 +8,7 @@ class ActivityOverviewViewController: UIViewController {
     
     var activity: Activity?
     private var selectedActivity: Activity?
-    static var stepsImages: [String: UIImage] = [:]
+    static var stepsImages: [Int: UIImage] = [:]
     private var isDataStored: Bool = false
     private var activityPageControlViewController: ActivityPageControlViewController?
     
@@ -198,7 +198,7 @@ class ActivityOverviewViewController: UIViewController {
                         let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController
                     {
                         stepVC.image?.image = UIImage(data: data)
-                        ActivityOverviewViewController.stepsImages[String(describing: step.stepIndex!)] = UIImage(data: data)
+                        ActivityOverviewViewController.stepsImages[step.stepIndex!] = UIImage(data: data)
                     }
                 })
             }
