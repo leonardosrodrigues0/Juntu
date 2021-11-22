@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <accessibilityOverrides dynamicTypePreference="5"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2p-EQ-uKY" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1513.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1477.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-yt-3v0">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1497.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1461.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="47u-7P-1ot" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -35,10 +35,10 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ynC-SX-lX8" userLabel="Details">
-                                                        <rect key="frame" x="16" y="327.5" width="382" height="321"/>
+                                                        <rect key="frame" x="16" y="327.5" width="382" height="285"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-TK-KJZ" userLabel="Main Info">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="321"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="285"/>
                                                                 <subviews>
                                                                     <scrollView multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-sO-6Ky">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
@@ -108,35 +108,8 @@
                                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <stackView opaque="NO" contentMode="right" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-an-mHF" userLabel="Rating">
-                                                                        <rect key="frame" x="0.0" y="132" width="132" height="20"/>
-                                                                        <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUv-ms-je5">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20"/>
-                                                                                <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="byG-AX-Ted">
-                                                                                        <rect key="frame" x="0.0" y="-0.5" width="22" height="20"/>
-                                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
-                                                                                    </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="4,6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqU-Dj-k9b" userLabel="Rating">
-                                                                                        <rect key="frame" x="22" y="0.0" width="19.5" height="20"/>
-                                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                                                        <nil key="textColor"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                </subviews>
-                                                                            </stackView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(5 avaliações)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-uj-5qK" userLabel="Votes">
-                                                                                <rect key="frame" x="47.5" y="4" width="84.5" height="16"/>
-                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                    </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="znL-kT-26G" userLabel="Squares">
-                                                                        <rect key="frame" x="0.0" y="168" width="382" height="92"/>
+                                                                        <rect key="frame" x="0.0" y="132" width="382" height="92"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-BE-MsT" customClass="DesignableView" customModule="geppetto" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="84" height="84"/>
@@ -281,7 +254,7 @@
                                                                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="8" bottom="8" trailing="8"/>
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-eM-F41" customClass="DesignableButton" customModule="geppetto" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="276" width="382" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="240" width="382" height="45"/>
                                                                         <color key="backgroundColor" name="AccentColor"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -315,7 +288,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vf5-9z-cP1">
-                                                        <rect key="frame" x="0.0" y="665.5" width="414" height="95"/>
+                                                        <rect key="frame" x="0.0" y="629.5" width="414" height="95"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQI-hA-8d3" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -359,7 +332,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPz-fA-Y48" userLabel="Materials">
-                                                        <rect key="frame" x="0.0" y="777.5" width="414" height="224.5"/>
+                                                        <rect key="frame" x="0.0" y="741.5" width="414" height="224.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaH-wG-3Pa" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -403,7 +376,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5FH-5p-dLR">
-                                                        <rect key="frame" x="0.0" y="1019" width="414" height="478.5"/>
+                                                        <rect key="frame" x="0.0" y="983" width="414" height="478.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Bj-JR-Z36" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -509,13 +482,11 @@
                         <outlet property="keepInMindText" destination="bfj-2L-7Rz" id="9fd-nf-YEZ"/>
                         <outlet property="materialsTableView" destination="v23-ya-Vtj" id="TL0-4v-95d"/>
                         <outlet property="name" destination="l45-P5-0L3" id="iTR-Hl-vJN"/>
-                        <outlet property="ratingLabel" destination="dqU-Dj-k9b" id="1bX-o0-Ppe"/>
                         <outlet property="similarActivitiesStack" destination="5FH-5p-dLR" id="r3q-b6-Pxg"/>
                         <outlet property="similarCardHeight" destination="SWZ-Ac-Ala" id="buh-4P-IK8"/>
                         <outlet property="similarCollection" destination="6Ns-M0-Iph" id="hMq-nF-FZt"/>
                         <outlet property="tableHeightConstraint" destination="cPH-pA-UP5" id="kmE-j6-wcu"/>
                         <outlet property="tagsStack" destination="oTo-Uq-aPz" id="7Bf-3a-tid"/>
-                        <outlet property="votesLabel" destination="4qB-uj-5qK" id="H8L-UF-ORL"/>
                         <segue destination="eSk-Iy-hxK" kind="show" identifier="goToTag" id="VnZ-OB-oZh"/>
                         <segue destination="cVE-jI-Y19" kind="show" identifier="goToOverview" id="xVK-DT-hjs"/>
                     </connections>
@@ -554,12 +525,11 @@
         </designable>
     </designables>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="infoSquareColor">
-            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
