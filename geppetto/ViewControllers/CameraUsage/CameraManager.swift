@@ -3,6 +3,9 @@ import AVKit
 
 /// Allow a UIViewController to use the camera.
 protocol CameraManager: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func tryTakePicture()
+    func confirmImage(with info: [UIImagePickerController.InfoKey: Any], to picker: UIImagePickerController)
+    func getShareText() -> String
 }
 
 extension CameraManager {
@@ -76,25 +79,52 @@ extension CameraManager {
 
     // MARK: - Picture Editing and Sharing
 
-    /// Share an image with a Juntu watermark and an associated text.
-    /// Built to be called inside `imagePickerController` method at the UIViewController.
-    func shareImageAndText(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any], text: String) {
+    func confirmImage(with info: [UIImagePickerController.InfoKey: Any], to picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+
         guard let image = info[.originalImage] as? UIImage else {
             print("No image found while unwrapping ImagePicker info")
             return
         }
-        
+
         guard let juntuImage = UIImage(named: "juntuWatermark") else {
             print("Error: failed to load Juntu image.")
             return
         }
-        
+
         let watermarkedImage = addWatermark(image: image, watermarkImage: juntuImage, proportion: 0.3)
-        // here you add image to filesystem
         UserTracker.shared.savePicture(watermarkedImage)
-        shareImageAndText(image: watermarkedImage, text: text)
+        handleConfirmationFlow(for: watermarkedImage)
     }
-    
+
+    fileprivate func handleConfirmationFlow(for image: UIImage) {
+        let alert = UIAlertController(title: "Sucesso!", message: "Sua foto está salva na aba Momentos", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.showPhotoMenu(for: image)
+        }))
+
+        present(alert, animated: true)
+    }
+
+    private func showPhotoMenu(for image: UIImage) {
+        let alert = UIAlertController(title: nil, message: "Você quer fazer algo a mais com a foto que tirou?", preferredStyle: .actionSheet)
+
+        let actCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(actCancel)
+
+        let actShare = UIAlertAction(title: "Compartilhar", style: .default, handler: { _ in
+            self.shareImageAndText(image)
+        })
+        alert.addAction(actShare)
+
+        let actLibrary = UIAlertAction(title: "Salvar na Biblioteca", style: .default, handler: { _ in
+            self.saveImageToLibrary(image)
+        })
+        alert.addAction(actLibrary)
+
+        present(alert, animated: true, completion: nil)
+    }
+
     /// Add a watermark to an image. The proportion is used as a ratio between the largest mark dimension and the smallest image dimension.
     private func addWatermark(image: UIImage, watermarkImage: UIImage, proportion: CGFloat) -> UIImage {
         // Draw image
@@ -133,15 +163,50 @@ extension CameraManager {
         let wantedMarkDimension = smallImageDimension * proportion
         return wantedMarkDimension / largeMarkDimension
     }
+
+    // MARK: - Add image to Library
+    private func saveImageToLibrary(_ image: UIImage) {
+        let helper = ImagePickerHelper()
+        helper.owner = self
+        helper.saveImageToLibrary(image)
+    }
     
-    private func shareImageAndText(image: UIImage, text: String) {
+    private func shareImageAndText(_ image: UIImage) {
         // Set up activity view controller
-        let shareItems: [Any] = [image, OptionalTextActivityItemSource(text: text)]
+
+        let shareItems: [Any] = [image, OptionalTextActivityItemSource(text: getShareText())]
         let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
 
         // Present the share view controller
         present(activityViewController, animated: true)
     }
-    
+
+    func getShareText() -> String {
+        return ""
+    }
+}
+
+private class ImagePickerHelper: NSObject, UIImagePickerControllerDelegate {
+    var owner: UIViewController?
+
+    // MARK: - Add image to Library
+    @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            showAlertWith(title: "Erro!", message: error.localizedDescription)
+        } else {
+            showAlertWith(title: "Imagem salva!", message: "Your image has been saved to your photos.")
+        }
+    }
+
+    private func showAlertWith(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        owner?.present(ac, animated: true)
+    }
+
+    func saveImageToLibrary(_ image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
 }
