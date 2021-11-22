@@ -1,7 +1,7 @@
 import Foundation
 import FirebaseStorage
 
-public struct ActivityStep: Codable {
+struct ActivityStep: Codable {
     
     // MARK: - Properties
     

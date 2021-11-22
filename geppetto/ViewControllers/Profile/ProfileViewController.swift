@@ -7,8 +7,8 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
-    @IBOutlet var savedActivitiesView: SavedActivities!
     @IBOutlet var historyView: History!
+    @IBOutlet var savedActivitiesView: SavedActivities!
     
     var selectedActivity: Activity?
     var selectedImageIndex: Int = 0
@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         super.viewDidLoad()
         
         historyView.activityNavigationDelegate = self
+        savedActivitiesView.activityNavigationDelegate = self
         
         setupProfileEditing()
         

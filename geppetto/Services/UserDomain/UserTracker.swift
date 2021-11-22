@@ -3,7 +3,7 @@ import UIKit
 
 /// Is the main interface for interacting with the User
 /// Singleton class: use `UserTracker.shared` attribute.
-public class UserTracker {
+class UserTracker {
     
     // MARK: - Static attributes and Methods for Data Persistence
     
@@ -108,7 +108,7 @@ public class UserTracker {
         let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
         do {
             try data!.write(to: URL(fileURLWithPath: pathURL.path))
-            print("Logging saved image on datapath  \(pathURL.path)")
+            print("Logging saved image on data path  \(pathURL.path)")
         } catch {
             print("Unable to Write Data to Disk \(error.localizedDescription)")
         }

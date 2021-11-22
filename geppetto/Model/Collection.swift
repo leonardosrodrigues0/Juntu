@@ -1,4 +1,4 @@
-public extension Collection {
+extension Collection {
     /// Optional access in the collection.
     ///
     /// - Returns: `nil` when invalid index.

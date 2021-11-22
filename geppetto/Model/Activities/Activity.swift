@@ -2,7 +2,7 @@ import Foundation
 import FirebaseStorage
 import Promises
 
-public struct Activity: Searchable, Codable {
+struct Activity: Searchable, Codable {
     
     // MARK: - Properties
     
@@ -72,7 +72,7 @@ public struct Activity: Searchable, Codable {
     
     // MARK: - Decodable
     
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
         // Decode basic properties:
