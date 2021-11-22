@@ -62,14 +62,11 @@ extension ActivityPageControlViewController: CameraManager {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        picker.dismiss(animated: true)
-        
-        guard let name = activity?.name else {
-            return
-        }
-        
-        let shareText = "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
-        shareImageAndText(didFinishPickingMediaWithInfo: info, text: shareText)
+        confirmImage(with: info, to: picker)
+    }
+
+    func getShareText() -> String {
+        return "Estou usando Juntu e fazendo a atividade \(activity?.name ?? " ") com minha criança!"
     }
     
 }

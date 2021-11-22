@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3745339246812074~6162339312</string>
 	<key>SKAdNetworkItems</key>
@@ -30,9 +32,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow camera access to take pictures</string>
+	<string>Permita acesso à camera para poder tirar fotos</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Allow library access to save pictures</string>
+	<string>Permita acesso à biblioteca para poder salvar fotos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>.readWrite</string>
 	<key>UIApplicationSceneManifest</key>
