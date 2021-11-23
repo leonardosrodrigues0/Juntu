@@ -44,7 +44,7 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         
-        let vInsets = CGFloat(20)
+        let vInsets = CGFloat(0)
         let hInsets = CGFloat(32)
         
         self.sectionInset = UIEdgeInsets(top: vInsets, left: hInsets, bottom: vInsets, right: hInsets)

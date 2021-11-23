@@ -92,7 +92,7 @@ extension HighlightedActivitiesController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         let itemWidth: CGFloat = floor((collectionView.frame.size.width - 2 * horizontalInsets)) / (1 + zoomFactor)
         let itemHeight = itemWidth * (400 / 340)
-                    
+        
         cardHeightConstraint?.constant = CGFloat(itemHeight * (1 + zoomFactor))
         
         return CGSize(width: itemWidth, height: itemHeight)

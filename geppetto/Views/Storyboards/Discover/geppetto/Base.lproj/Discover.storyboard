@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHf-tk-AET">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHf-tk-AET">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yx-fCS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
                                         <subviews>
                                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oq-Eu-qyv">
                                                 <rect key="frame" x="16" y="0.0" width="382" height="50"/>
@@ -58,23 +58,23 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-N0-ezy" userLabel="Highlighted Activities">
-                                                <rect key="frame" x="0.0" y="105" width="414" height="426"/>
+                                                <rect key="frame" x="0.0" y="105" width="414" height="476"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z9R-Cg-w6j">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="400" id="DMc-MV-FEj"/>
+                                                            <constraint firstAttribute="height" priority="999" constant="450" id="DMc-MV-FEj"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mp3-fS-kwC">
-                                                            <size key="itemSize" width="340" height="318"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mp3-fS-kwC">
+                                                            <size key="itemSize" width="340" height="450"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells/>
                                                     </collectionView>
                                                     <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pf2-lZ-9WI">
-                                                        <rect key="frame" x="0.0" y="400" width="414" height="26"/>
+                                                        <rect key="frame" x="0.0" y="450" width="414" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="dlT-Q8-PRp"/>
                                                         </constraints>
@@ -84,21 +84,21 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feitas para você" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py4-AI-Zdz" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="547" width="382" height="23"/>
+                                                <rect key="frame" x="16" y="597" width="382" height="23"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dE9-yJ-5cW">
-                                                <rect key="frame" x="0.0" y="586" width="414" height="380"/>
+                                                <rect key="frame" x="0.0" y="636" width="414" height="400"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="380" id="dtj-Qn-vzv"/>
+                                                    <constraint firstAttribute="height" priority="999" constant="400" id="dtj-Qn-vzv"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nOy-JP-6IE">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nOy-JP-6IE">
                                                     <size key="itemSize" width="270" height="318"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>

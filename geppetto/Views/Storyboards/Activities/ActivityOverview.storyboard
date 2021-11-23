@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2p-EQ-uKY" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1477.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1497.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-yt-3v0">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1461.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1481.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="47u-7P-1ot" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -376,7 +376,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5FH-5p-dLR">
-                                                        <rect key="frame" x="0.0" y="983" width="414" height="478.5"/>
+                                                        <rect key="frame" x="0.0" y="983" width="414" height="498.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Bj-JR-Z36" userLabel="Separator">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -404,15 +404,15 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-M0-Iph">
-                                                                <rect key="frame" x="0.0" y="98.5" width="414" height="380"/>
+                                                                <rect key="frame" x="0.0" y="98.5" width="414" height="400"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="380" id="SWZ-Ac-Ala"/>
+                                                                    <constraint firstAttribute="height" constant="400" id="SWZ-Ac-Ala"/>
                                                                 </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gVh-SA-4zq">
-                                                                    <size key="itemSize" width="270" height="318"/>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gVh-SA-4zq">
+                                                                    <size key="itemSize" width="0.0" height="318"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
@@ -491,6 +491,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lod-Ic-JJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <collectionViewFlowLayout scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JfY-0B-RES">
+                    <size key="itemSize" width="270" height="318"/>
+                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                </collectionViewFlowLayout>
             </objects>
             <point key="canvasLocation" x="-339.13043478260875" y="118.52678571428571"/>
         </scene>

@@ -11,6 +11,8 @@ class ActivitiesCollectionViewController: UIViewController {
     weak var collectionView: UICollectionView!
     weak var cardHeightConstraint: NSLayoutConstraint!
     weak var activityNavigationDelegate: ActivityNavigationDelegate!
+    var contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    var horizontalSpacing = CGFloat(10)
     
     // MARK: - Methods
     
@@ -18,10 +20,21 @@ class ActivitiesCollectionViewController: UIViewController {
         let nib = UINib(nibName: activityCellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: activityCellIdentifier)
         
+        setupFlowLayout()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         return loadActivitiesPromise()
+    }
+    
+    func setupFlowLayout() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = contentInset
+        layout.minimumInteritemSpacing = horizontalSpacing
+        layout.minimumLineSpacing = horizontalSpacing
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
     }
     
     /// Override this method to load the activities you want to display
@@ -68,12 +81,10 @@ extension ActivitiesCollectionViewController: UICollectionViewDelegateFlowLayout
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let horizontalSpacing = CGFloat(10)
-        let contentInsets = CGFloat(16)
-        let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
+        let width: CGFloat = floor((collectionView.frame.size.width - contentInset.left - contentInset.right - horizontalSpacing) / 2)
         let height = width * (20 / 9)
         
-        cardHeightConstraint.constant = CGFloat(height)
+        cardHeightConstraint?.constant = CGFloat(height + contentInset.top + contentInset.bottom)
         
         return CGSize(width: width, height: height)
     }
