@@ -12,7 +12,7 @@
 		<string>cstr6suwn9.skadnetwork</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>pt-BR</string>
 	<key>CFBundleDisplayName</key>
 	<string>Juntu</string>
 	<key>CFBundleExecutable</key>
@@ -29,6 +29,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3745339246812074~6162339312</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
@@ -37,6 +39,11 @@
 	<string>Permita acesso à biblioteca para poder salvar fotos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>.readWrite</string>
+	<key>SKAdNetworkItems</key>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>cstr6suwn9.skadnetwork</string>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
