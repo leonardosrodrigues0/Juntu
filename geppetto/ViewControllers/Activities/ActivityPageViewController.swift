@@ -76,7 +76,6 @@ class ActivityPageViewController: UIPageViewController {
             view.bringSubviewToFront(pageControl!)
         }
     }
-    
 }
 
 extension ActivityPageViewController {

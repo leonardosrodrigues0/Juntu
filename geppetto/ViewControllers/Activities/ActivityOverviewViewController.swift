@@ -8,6 +8,9 @@ class ActivityOverviewViewController: UIViewController {
     
     var activity: Activity?
     private var selectedActivity: Activity?
+    static var stepsImages: [Int: UIImage] = [:]
+    private var isDataStored: Bool = false
+    private var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
@@ -44,6 +47,7 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Methods
     
     override func viewDidLoad() {
+
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         
@@ -86,7 +90,7 @@ class ActivityOverviewViewController: UIViewController {
             print("Error: failed to unwrap activity at overview screen")
             return
         }
-
+        
         image.sd_setImage(with: activity.getImageDatabaseRef())
         name.text = activity.name
         fullDescription.text = activity.introduction
@@ -156,12 +160,44 @@ class ActivityOverviewViewController: UIViewController {
         
         _ = similarActivitiesController.setup()
     }
+    
+    /// Empty `stepsImages`. Download images from their storage reference and set it to the step
+    /// image view using its view controller and add them to `stepsImages`.
+    private func downloadStepsImages() {
+        ActivityOverviewViewController.stepsImages.removeAll()
+        if let activity = activity {
+            for step in activity.getSteps() {
+                let storageRef = step.getImageDatabaseRef()
+                storageRef?.getData(maxSize: 4 * 1024 * 1024, completion: { (data, error) in
+                    if let error = error {
+                        print("Got an error fetching data: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    if
+                        let data = data,
+                        let pages = self.activityPageControlViewController?.pageViewController?.pages,
+                        let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController
+                    {
+                        stepVC.image?.image = UIImage(data: data)
+                        ActivityOverviewViewController.stepsImages[step.stepIndex!] = UIImage(data: data)
+                    }
+                })
+            }
+            self.isDataStored = true
+        }
+    }
 
     // MARK: - Actions
     
     @IBAction private func enterActivityButtonTapped() {
+        
+        if !isDataStored {
+            downloadStepsImages()
+        }
+        
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControlViewController = storyboard.instantiateViewController(
+        activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)
         ) as? ActivityPageControlViewController
         
