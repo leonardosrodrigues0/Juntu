@@ -28,8 +28,6 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var savedActivityButton: UIButton!
     
     @IBOutlet weak var tagsStack: UIStackView!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var votesLabel: UILabel!
     
     private let similarActivitiesController = SimilarActivitiesController()
     @IBOutlet weak var similarActivitiesStack: UIStackView!
@@ -92,11 +90,6 @@ class ActivityOverviewViewController: UIViewController {
         image.sd_setImage(with: activity.getImageDatabaseRef())
         name.text = activity.name
         fullDescription.text = activity.introduction
-        
-        let rating: Double = 5
-        let votes: Int = 2
-        ratingLabel.text = String(format: "%.1f", rating)
-        votesLabel.text = "(\(votes) avaliações)"
 
         if (activity.caution ?? "").isEmpty {
             keepInMind.removeFromSuperview()

@@ -15,9 +15,6 @@ class ActivityCard: UIView {
     @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var votesLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var ageLabel: UILabel!
@@ -55,12 +52,6 @@ class ActivityCard: UIView {
         
         image.sd_setImage(with: activity.getImageDatabaseRef())
         titleLabel.text = activity.name
-        
-        let rating: Double = 5
-        let votes: Int = 2
-        ratingLabel.text = String(format: "%.1f", rating)
-        votesLabel.text = "(\(votes) avaliações)"
-        
         descriptionLabel.text = activity.introduction
         ageLabel.text = activity.fullAgeText
         difficultyLabel.text = activity.difficulty

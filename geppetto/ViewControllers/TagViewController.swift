@@ -88,7 +88,7 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
         // Height must be equal to image height (2:3 ratio defined in the cell xib)
         // plus a constant related to labels' height and spacing (defined by trial and error)
-        let height = width * (3 / 2) + 120
+        let height = width * (3 / 2) + 100
         return CGSize(width: width, height: height)
     }
 }
