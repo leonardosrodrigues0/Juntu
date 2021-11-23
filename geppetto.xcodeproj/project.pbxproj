@@ -45,6 +45,7 @@
 		A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814538271EFD9E00F17FE4 /* Tag.swift */; };
 		A781453D271F0D9400F17FE4 /* TagsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781453C271F0D9400F17FE4 /* TagsDatabase.swift */; };
 		A7929C9B2743DCA70062EEC9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7929C9A2743DCA60062EEC9 /* TimeUnit.swift */; };
+		A7AED3A82747DB83000D8231 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
 		A7BD6976268B41F30005331F /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6974268B41F30005331F /* Discover.storyboard */; };
@@ -137,6 +138,7 @@
 		A7814538271EFD9E00F17FE4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		A781453C271F0D9400F17FE4 /* TagsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsDatabase.swift; sourceTree = "<group>"; };
 		A7929C9A2743DCA60062EEC9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
+		A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				CDB896AD272B53580042B322 /* MaterialTableViewCell.xib */,
 				CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */,
 				CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */,
+				A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
 				A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */,
 				CDD905112728521F00FF9B82 /* UIView+Nib.swift in Sources */,
+				A7AED3A82747DB83000D8231 /* ContentSizedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

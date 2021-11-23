@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1H-G2-Zap">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <accessibilityOverrides dynamicTypePreference="5"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -386,11 +386,11 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v23-ya-Vtj">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v23-ya-Vtj" customClass="ContentSizedTableView" customModule="geppetto" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="74.5" width="382" height="150"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="150" id="cPH-pA-UP5"/>
+                                                                    <constraint firstAttribute="height" constant="150" placeholder="YES" id="n0u-vU-c9c"/>
                                                                 </constraints>
                                                             </tableView>
                                                         </subviews>
@@ -513,7 +513,6 @@
                         <outlet property="similarActivitiesStack" destination="5FH-5p-dLR" id="r3q-b6-Pxg"/>
                         <outlet property="similarCardHeight" destination="SWZ-Ac-Ala" id="buh-4P-IK8"/>
                         <outlet property="similarCollection" destination="6Ns-M0-Iph" id="hMq-nF-FZt"/>
-                        <outlet property="tableHeightConstraint" destination="cPH-pA-UP5" id="kmE-j6-wcu"/>
                         <outlet property="tagsStack" destination="oTo-Uq-aPz" id="7Bf-3a-tid"/>
                         <outlet property="votesLabel" destination="4qB-uj-5qK" id="H8L-UF-ORL"/>
                         <segue destination="eSk-Iy-hxK" kind="show" identifier="goToTag" id="VnZ-OB-oZh"/>
@@ -559,7 +558,7 @@
             <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="infoSquareColor">
-            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90588235294117647" green="0.34509803921568627" blue="0.4823529411764706" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

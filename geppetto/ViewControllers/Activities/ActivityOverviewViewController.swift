@@ -31,8 +31,6 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     
-    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
-    
     private let similarActivitiesController = SimilarActivitiesController()
     @IBOutlet weak var similarActivitiesStack: UIStackView!
     @IBOutlet weak var similarCollection: UICollectionView!
@@ -121,15 +119,6 @@ class ActivityOverviewViewController: UIViewController {
     private func loadMaterialLabels() {
         materials = activity?.materials ?? []
         materialsTableView.reloadData()
-        tableHeightConstraint.constant = CGFloat(Double(materials.count) * 45)
-    }
-    
-    private func createMaterialLabel(_ name: String) -> UILabel {
-        let label = UILabel()
-        label.text = name
-        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
-        label.numberOfLines = 0
-        return label
     }
     
     /// Clear default tags, load activity tags and add them in the horizontal stack
