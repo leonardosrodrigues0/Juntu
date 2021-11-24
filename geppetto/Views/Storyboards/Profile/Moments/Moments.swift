@@ -65,6 +65,12 @@ class Moments: UIView {
 extension Moments: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if images.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .moments, in: collectionView)
+        } else {
+            collectionView.backgroundView = nil
+        }
+        
         return images.count
     }
     

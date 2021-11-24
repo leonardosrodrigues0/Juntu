@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         let ids = UserTracker.shared.fetchActivityHistory()
         ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.historyView.activityList = activities
-            self.historyView.reloadCards(delegate: self)
+            self.historyView.reloadCards()
         }
     }
     
@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         let ids = UserTracker.shared.fetchSavedActivities()
         ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.savedActivitiesView.items = activities
-            self.savedActivitiesView.reloadCards(delegate: self)
+            self.savedActivitiesView.reloadCards()
         }
     }
     

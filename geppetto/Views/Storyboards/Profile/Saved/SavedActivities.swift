@@ -27,7 +27,12 @@ class SavedActivities: UIView {
         initTableView()
     }
     
-    func reloadCards(delegate: ActivityNavigationDelegate) {
+    func reloadCards() {
+        if items.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .saved, in: savedTableView)
+        } else {
+            savedTableView.backgroundView = nil
+        }
         savedTableView.reloadData()
     }
     
