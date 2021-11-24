@@ -24,10 +24,10 @@
 		3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C478E27341F5100F899AC /* LoadingHandler.swift */; };
 		3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F801DAA2743E80C007B6497 /* UIImage+Color.swift */; };
 		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
+		3F9E9323274BBFAD000534F2 /* EmptyViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */; };
 		3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
 		3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */; };
-		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
 		A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722F0BE2727318300F92E53 /* ActivityCardCell.swift */; };
 		A722F0C12727318300F92E53 /* ActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A722F0BF2727318300F92E53 /* ActivityCardCell.xib */; };
 		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
@@ -52,7 +52,6 @@
 		A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697A268B57B20005331F /* SearchViewController.swift */; };
 		A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697C268B59E10005331F /* DiscoverViewController.swift */; };
 		A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697E268B5A010005331F /* ProfileViewController.swift */; };
-		A7BD6987268B5DED0005331F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6986268B5DED0005331F /* Card.swift */; };
 		A7C1324E270C9A44000254CF /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C1324D270C9A44000254CF /* CameraManager.swift */; };
 		A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66192269340D500E79AC4 /* ActivityStep.swift */; };
 		A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */; };
@@ -114,10 +113,10 @@
 		3F7C478E27341F5100F899AC /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
 		3F801DAA2743E80C007B6497 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
+		3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewHandler.swift; sourceTree = "<group>"; };
 		3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
 		3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
-		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A70E8A7626E2469B002EE0F6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A70E8A7726E24ECB002EE0F6 /* juntu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juntu.png; sourceTree = "<group>"; };
 		A722F0BE2727318300F92E53 /* ActivityCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardCell.swift; sourceTree = "<group>"; };
@@ -145,7 +144,6 @@
 		A7BD697A268B57B20005331F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A7BD697C268B59E10005331F /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		A7BD697E268B5A010005331F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A7BD6986268B5DED0005331F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A7C1324D270C9A44000254CF /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		A7C66192269340D500E79AC4 /* ActivityStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStep.swift; sourceTree = "<group>"; };
 		A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityOverviewViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +345,7 @@
 		A760C32D2733FE330029E57B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */,
 				3F7C478E27341F5100F899AC /* LoadingHandler.swift */,
 				3F36292E273C0340001BC20D /* WeightLabel.swift */,
 			);
@@ -421,8 +420,6 @@
 				CDD9050B272851FE00FF9B82 /* ActivityCard.xib */,
 				CDD9050C272851FE00FF9B82 /* ActivityCardTableViewCell.swift */,
 				CDD9050A272851FE00FF9B82 /* ActivityCardTableViewCell.xib */,
-				A7BD6986268B5DED0005331F /* Card.swift */,
-				3FDB4645268F4D8600A46720 /* Card.xib */,
 				CDF009812701E41200485CFA /* DesignableUIView.swift */,
 				CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */,
 				CD0F882727340BC50039CC24 /* DiscoverTagUILabel.swift */,
@@ -583,7 +580,6 @@
 				A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */,
 				3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */,
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
-				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */,
 				A72E1CAE2722FC5400404FC3 /* Tag.storyboard in Resources */,
 				CDD9050D272851FE00FF9B82 /* ActivityCardTableViewCell.xib in Resources */,
@@ -682,7 +678,6 @@
 				3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */,
 				CD97CC2A273A911700DBAF74 /* HighlightedActivitiesController.swift in Sources */,
 				3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */,
-				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
 				3F36292D273C02F4001BC20D /* UIFont+Weight.swift in Sources */,
 				CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */,
 				CD97CC2E273AA53900DBAF74 /* DiscoverTagsController.swift in Sources */,
@@ -690,6 +685,7 @@
 				31DA3385270C8F6C0055E2B6 /* History.swift in Sources */,
 				CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */,
 				CD0F882827340BC50039CC24 /* DiscoverTagUILabel.swift in Sources */,
+				3F9E9323274BBFAD000534F2 /* EmptyViewHandler.swift in Sources */,
 				A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */,
 				D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */,
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,

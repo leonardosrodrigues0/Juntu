@@ -27,7 +27,12 @@ class History: UIView {
         initTableView()
     }
     
-    func reloadCards(delegate: ActivityNavigationDelegate) {
+    func reloadCards() {
+        if activityList.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .history, in: tableViewHistory)
+        } else {
+            tableViewHistory.backgroundView = nil
+        }
         tableViewHistory.reloadData()
     }
     
