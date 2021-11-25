@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2F381B932739466600EA18AA /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F381B922739466600EA18AA /* EditProfileViewController.swift */; };
-		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivitiesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */; };
 		2FE59A212747D6CF00FDAE94 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE59A202747D6CF00FDAE94 /* SavedActivities.xib */; };
 		2FE59A232747D8F800FDAE94 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE59A222747D8F800FDAE94 /* SavedActivities.swift */; };
@@ -97,7 +96,6 @@
 		2482F80FF0D8C7A94B446A4B /* Pods_geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E3FC289032081DC8A179C1 /* Pods-geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.debug.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.debug.xcconfig"; sourceTree = "<group>"; };
 		2F381B922739466600EA18AA /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDatabase.swift; sourceTree = "<group>"; };
 		2FE59A202747D6CF00FDAE94 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		2FE59A222747D8F800FDAE94 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
@@ -161,6 +159,8 @@
 		CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCardPhotoBackground.swift; sourceTree = "<group>"; };
 		CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUILabel.swift; sourceTree = "<group>"; };
 		CD0F882727340BC50039CC24 /* DiscoverTagUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTagUILabel.swift; sourceTree = "<group>"; };
+		CD77AF1B274B178800D5C9EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CD77AF1D274B178800D5C9EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD97CC272738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapFlowLayout.swift; sourceTree = "<group>"; };
 		CD97CC29273A911700DBAF74 /* HighlightedActivitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedActivitiesController.swift; sourceTree = "<group>"; };
 		CD97CC2B273AA37700DBAF74 /* TagNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNavigationDelegate.swift; sourceTree = "<group>"; };
@@ -457,11 +457,11 @@
 		A7E65C2E26860E1600570FBD /* geppetto */ = {
 			isa = PBXGroup;
 			children = (
+				CD77AF19274B178800D5C9EC /* Firebase */,
 				A7E65C2F26860E1600570FBD /* AppDelegate.swift */,
 				A7E65C3126860E1600570FBD /* SceneDelegate.swift */,
 				A7E65C3826860E1700570FBD /* Assets.xcassets */,
 				A7E65C3D26860E1700570FBD /* Info.plist */,
-				2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */,
 				A760C3262733FD050029E57B /* Services */,
 				A7BD6979268B56490005331F /* Model */,
 				A7BD6978268B54D30005331F /* Views */,
@@ -480,6 +480,31 @@
 				CD97CC272738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift */,
 			);
 			path = Discover;
+			sourceTree = "<group>";
+		};
+		CD77AF19274B178800D5C9EC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1A274B178800D5C9EC /* Prod */,
+				CD77AF1C274B178800D5C9EC /* Dev */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CD77AF1A274B178800D5C9EC /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1B274B178800D5C9EC /* GoogleService-Info.plist */,
+			);
+			path = Prod;
+			sourceTree = "<group>";
+		};
+		CD77AF1C274B178800D5C9EC /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1D274B178800D5C9EC /* GoogleService-Info.plist */,
+			);
+			path = Dev;
 			sourceTree = "<group>";
 		};
 		CDC9E4392734D6C40079FCEB /* Discover */ = {
@@ -527,9 +552,10 @@
 				2D317DC9BA8A125B80A02986 /* [CP] Check Pods Manifest.lock */,
 				A7E65C2826860E1600570FBD /* Sources */,
 				A7E65C2926860E1600570FBD /* Frameworks */,
+				CD77AF1E274B185100D5C9EC /* Setup Firebase Environment GoogleService-Info.plist */,
 				A7E65C2A26860E1600570FBD /* Resources */,
 				D644F2FDBC656D38D85C4AD5 /* [CP] Embed Pods Frameworks */,
-				A70E8A7526E244C0002EE0F6 /* ShellScript */,
+				A70E8A7526E244C0002EE0F6 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -595,7 +621,6 @@
 				A722F0C12727318300F92E53 /* ActivityCardCell.xib in Resources */,
 				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
 				31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */,
-				2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */,
 				A7BD6976268B41F30005331F /* Discover.storyboard in Resources */,
 				CDD9050E272851FE00FF9B82 /* ActivityCard.xib in Resources */,
 				A7DF158F268E0AE30004C616 /* ActivityStep.storyboard in Resources */,
@@ -627,7 +652,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A70E8A7526E244C0002EE0F6 /* ShellScript */ = {
+		A70E8A7526E244C0002EE0F6 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -636,6 +661,7 @@
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -643,6 +669,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		CD77AF1E274B185100D5C9EC /* Setup Firebase Environment GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n";
 		};
 		D644F2FDBC656D38D85C4AD5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
