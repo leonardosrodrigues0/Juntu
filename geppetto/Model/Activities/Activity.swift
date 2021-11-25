@@ -3,9 +3,9 @@ import FirebaseStorage
 import Promises
 
 struct Activity: Searchable, Codable {
-    
+
     // MARK: - Properties
-    
+
     let id: String
     let directory: String
     let name: String
@@ -20,15 +20,15 @@ struct Activity: Searchable, Codable {
     let materials: [String]
     let tags: [String]?
     private(set) var steps: [ActivityStep]
-    
+
     var minMaxAge: String {
-        return "\(minAge) a \(maxAge)"
+        "\(minAge) a \(maxAge)"
     }
-    
+
     var fullAgeText: String {
-        return "\(minMaxAge) anos"
+        "\(minMaxAge) anos"
     }
-    
+
     var minMaxTime: String {
         if let maxTime = maxTime {
             return "\(minTime) a \(maxTime)"
@@ -36,25 +36,29 @@ struct Activity: Searchable, Codable {
             return "\(minTime)"
         }
     }
-    
+
     var fullTimeText: String {
-        return "\(minMaxTime) \(timeUnit.rawValue)"
+        "\(minMaxTime) \(timeUnit.rawValue)"
     }
-    
+
+    var shareText: String {
+        "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
+    }
+
     // MARK: - Methods
-    
+
     func getSteps() -> [ActivityStep] {
-        return steps
+        steps
     }
-    
+
     func getDescription() -> String {
-        return fullAgeText
+        fullAgeText
     }
-    
+
     func isResultWithSearchString(_ searchString: String) -> Bool {
-        return name.lowercased().contains(searchString.lowercased())
+        name.lowercased().contains(searchString.lowercased())
     }
-    
+
     func getImageDatabaseRef() -> StorageReference {
         var path = ActivitiesDatabase.activitiesStorageDirectory
         path += "/\(directory)/"
@@ -62,16 +66,16 @@ struct Activity: Searchable, Codable {
         path += ActivitiesDatabase.imagesExtension
         return Storage.storage().reference().child(path)
     }
-    
+
     /// Add activity directory and index to steps. Used at initialization.
     mutating private func updateSteps() {
         for index in 0 ..< steps.count {
             steps[index].updateStep(directory: directory, index: index + 1)
         }
     }
-    
+
     // MARK: - Decodable
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -83,7 +87,7 @@ struct Activity: Searchable, Codable {
         caution = try? values.decode(String.self, forKey: .caution)
         minAge = try values.decode(Int.self, forKey: .minAge)
         maxAge = try values.decode(Int.self, forKey: .maxAge)
-        
+
         difficulty = try values.decode(String.self, forKey: .difficulty)
         minTime = try values.decode(Int.self, forKey: .minTime)
         maxTime = try? values.decode(Int.self, forKey: .maxTime)

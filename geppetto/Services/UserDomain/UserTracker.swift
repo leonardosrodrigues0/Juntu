@@ -104,6 +104,7 @@ class UserTracker {
         }
     }
     
+    /// Save an image to the user moments.
     private func saveImage(_ image: UIImage, at pathURL: URL) {
         let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
         do {
