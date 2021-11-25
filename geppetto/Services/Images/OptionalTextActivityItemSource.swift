@@ -23,10 +23,11 @@ class OptionalTextActivityItemSource: NSObject, UIActivityItemSource {
         _ activityViewController: UIActivityViewController,
         itemForActivityType activityType: UIActivity.ActivityType?
     ) -> Any? {
-        if activityType?.rawValue == "net.whatsapp.WhatsApp.ShareExtension" {
+        switch activityType?.rawValue {
+        case "net.whatsapp.WhatsApp.ShareExtension":
             // WhatsApp doesn't support both image and text, so return nil and thus only sharing an image.
             return nil
-        } else {
+        default:
             return text
         }
     }

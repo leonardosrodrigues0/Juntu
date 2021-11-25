@@ -61,6 +61,8 @@
 		A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C3126860E1600570FBD /* SceneDelegate.swift */; };
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
+		A7FB229E274D1B63007A0A03 /* SaveShareHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */; };
+		A7FB22A0274D1F6B007A0A03 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */; };
 		CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD12734EC5F00818453 /* MadeForYouActivitiesController.swift */; };
 		CD07BFD62734F48900818453 /* ActivityCardPhotoBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */; };
 		CD07BFD82734F49500818453 /* ActivityCardPhotoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */; };
@@ -154,6 +156,8 @@
 		A7E65C3626860E1600570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7E65C3826860E1700570FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7E65C3D26860E1700570FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveShareHelper.swift; sourceTree = "<group>"; };
+		A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		CD07BFD12734EC5F00818453 /* MadeForYouActivitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeForYouActivitiesController.swift; sourceTree = "<group>"; };
 		CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCardPhotoBackground.xib; sourceTree = "<group>"; };
 		CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCardPhotoBackground.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			children = (
 				D7FF5DE8271EEFA20010ED65 /* UserDomain */,
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
+				A766327B270744620024F879 /* Images */,
 				D76F4A69273E8F1800C58DAC /* AdManager.swift */,
 			);
 			path = Services;
@@ -352,13 +357,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A766327B270744620024F879 /* CameraUsage */ = {
+		A766327B270744620024F879 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A7C1324D270C9A44000254CF /* CameraManager.swift */,
+				A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */,
 				A766327C270744800024F879 /* OptionalTextActivityItemSource.swift */,
+				A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */,
 			);
-			path = CameraUsage;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A7BD6977268B54BF0005331F /* ViewControllers */ = {
@@ -366,12 +372,12 @@
 			children = (
 				CD07BFD02734EBCC00818453 /* Discover */,
 				A749F79B2710ACA000FB364E /* Search */,
-				A766327B270744620024F879 /* CameraUsage */,
 				A760C3272733FD210029E57B /* Activities */,
 				A760C32B2733FD9D0029E57B /* Profile */,
 				CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */,
 				A72E1CAF2722FDD900404FC3 /* TagViewController.swift */,
 				CD97CC2B273AA37700DBAF74 /* TagNavigationDelegate.swift */,
+				A7C1324D270C9A44000254CF /* CameraManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -738,11 +744,13 @@
 				3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
+				A7FB22A0274D1F6B007A0A03 /* ImageEditor.swift in Sources */,
 				CDB896A8272B52E70042B322 /* MaterialTableViewCell.swift in Sources */,
 				CDD90509272851E100FF9B82 /* ActivityCard.swift in Sources */,
 				313D3071270DC344000871C0 /* MomentsCell.swift in Sources */,
 				A72E1CB02722FDD900404FC3 /* TagViewController.swift in Sources */,
 				CD97CC282738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift in Sources */,
+				A7FB229E274D1B63007A0A03 /* SaveShareHelper.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,

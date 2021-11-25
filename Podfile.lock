@@ -1,4 +1,5 @@
 PODS:
+  - CropViewController (2.6.0)
   - Firebase/Analytics (8.9.1):
     - Firebase/Core
   - Firebase/Core (8.9.1):
@@ -117,6 +118,7 @@ PODS:
   - SDWebImage/Core (5.12.1)
 
 DEPENDENCIES:
+  - CropViewController
   - Firebase/Analytics
   - Firebase/Database
   - Firebase/Storage
@@ -126,6 +128,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CropViewController
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -148,6 +151,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  CropViewController: 7093b39ec3cb508531b22d35773e06cecd7378d8
   Firebase: fb5114cd2bf96e2ff7bcb01d0d9a156cf5fd2f07
   FirebaseAnalytics: 4ab446ce08a3fe52e8a4303dd997cf26276bf968
   FirebaseCore: c5aab092d9c4b8efea894946166b04c9d9ef0e68
@@ -169,6 +173,6 @@ SPEC CHECKSUMS:
   PromisesSwift: e0b2a6433469efb0b83a2b84c62a2abab8e5e5d4
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: 72fe92c9cc91a31c733542384a08d8de0ea8bdf7
+PODFILE CHECKSUM: 1c9688ecfe83defe5ab0afe63d5bb51a79111583
 
 COCOAPODS: 1.11.2

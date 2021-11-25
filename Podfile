@@ -11,5 +11,6 @@ pod 'FirebaseUI/Storage'
   # Pods for geppetto
 pod 'PromisesSwift'
 pod 'Google-Mobile-Ads-SDK'
+pod 'CropViewController'
 
 end

@@ -65,12 +65,24 @@ extension ActivityPageControlViewController: CameraManager {
         tryTakePicture()
     }
     
+    /// Called when image picker finished getting an image. Dismiss picker and prompt for confirmation.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        confirmImage(with: info, to: picker)
+        picker.dismiss(animated: true)
+        promptImageConfirmation(with: info, to: picker)
     }
-
-    func getShareText() -> String {
-        return "Estou usando Juntu e fazendo a atividade \(activity?.name ?? " ") com minha criança!"
+    
+    /// Dismiss picker, add watermark to image and handle conformation flow for saving and sharing.
+    private func promptImageConfirmation(with info: [UIImagePickerController.InfoKey: Any], to picker: UIImagePickerController) {
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found while unwrapping ImagePicker info")
+            return
+        }
+        
+        let editor = ImageEditor(image)
+        let watermarkedImage = editor.withWatermark
+        
+        let helper = SaveShareHelper(owner: self)
+        helper.saveImageToMomentsAndPromptForMore(for: watermarkedImage, activity: activity)
     }
     
 }
