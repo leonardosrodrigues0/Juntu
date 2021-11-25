@@ -1,4 +1,5 @@
 import UIKit
+import Photos
 
 /// Use from a view controller (`owner`) to save images to moments, to the library and to share images.
 class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
@@ -39,7 +40,7 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
         alert.addAction(actShare)
 
         let actLibrary = UIAlertAction(title: "Salvar na Biblioteca", style: .default, handler: { _ in
-            self.saveImageToLibrary(image)
+            self.trySaveImageToLibrary(image)
         })
         alert.addAction(actLibrary)
 
@@ -55,7 +56,61 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
     // MARK: - Save Image to Library
     
     /// Save image to library.
-    func saveImageToLibrary(_ image: UIImage) {
+    func trySaveImageToLibrary(_ image: UIImage) {
+        let status = PHPhotoLibrary.authorizationStatus(for: PHAccessLevel.addOnly)
+        switch status {
+        case .notDetermined:
+            requestPhotosAccess(image)
+        case .restricted:
+            presentPhotosAccessNeededAlert()
+        case .denied:
+            presentPhotosAccessNeededAlert()
+        case .authorized:
+            saveImageToLibrary(image)
+        default:
+            return
+        }
+    }
+    
+    /// Request photos access and save an image.
+    private func requestPhotosAccess(_ image: UIImage) {
+        PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { status in
+            switch status {
+            case .authorized:
+                self.saveImageToLibrary(image)
+            default:
+                return
+            }
+        }
+    }
+    
+    /// Present the alert that explain the need of photos access authorization and lead to settings app.
+    private func presentPhotosAccessNeededAlert() {
+        DispatchQueue.main.async {
+            let alert = self.createPhotosAccessNeededAlert()
+            self.owner.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    /// Create and alert that explain the need of photos access authorization and lead to settings app.
+    private func createPhotosAccessNeededAlert() -> UIAlertController {
+        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+
+        let alert = UIAlertController(
+            title: "Necessário acesso às Fotos",
+            message: "Para poder salvar uma imagem à galeria, precisamos da sua permissão.",
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Vá aos Ajustes", style: .cancel, handler: { _ -> Void in
+            UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+        }))
+
+        return alert
+    }
+    
+    private func saveImageToLibrary(_ image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
