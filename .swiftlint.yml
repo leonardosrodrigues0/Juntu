@@ -11,6 +11,7 @@ excluded:
 line_length:
     warning: 150
     error: 200
+    ignores_interpolated_strings: true
 identifier_name:
     min_length: 2
 reporter: "xcode"

@@ -38,6 +38,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var similarCardHeight: NSLayoutConstraint!
     
     var toggleSaveButton: UIBarButtonItem?
+    var shareButton: UIBarButtonItem?
     
     private let cellIdentifier = "MaterialTableViewCell"
     private var materials: [String] = []
@@ -54,7 +55,9 @@ class ActivityOverviewViewController: UIViewController {
         initTableView()
         updateOutlets()
         setupSaveButton()
+        setupShareActivity()
         
+        navigationItem.rightBarButtonItems = [toggleSaveButton!, shareButton!]
         clearTags()
         
         setupSimilarActivitiesController()
@@ -73,9 +76,17 @@ class ActivityOverviewViewController: UIViewController {
         materialsTableView.dataSource = self
     }
     
+    fileprivate func setupShareActivity() {
+        shareButton = UIBarButtonItem(
+            image: UIImage(systemName: "square.and.arrow.up"),
+            style: .done,
+            target: self,
+            action: #selector(shareActivity)
+        )
+    }
+    
     fileprivate func setupSaveButton() {
         toggleSaveButton = UIBarButtonItem(image: .none, style: .plain, target: self, action: #selector(self.editProfileButtonPressed(_:)))
-        navigationItem.rightBarButtonItems = [toggleSaveButton!]
         updateSavedActivityButtonImage()
     }
     
@@ -204,6 +215,13 @@ class ActivityOverviewViewController: UIViewController {
         activityPageControlViewController?.activity = activity
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
+    }
+    
+    @IBAction func shareActivity() {
+        let shareAll: [Any] = [image.image!, activity?.shareText]
+            let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func toggleSaveActivityButtonTapped(_ sender: UIBarButtonItem) {
