@@ -88,27 +88,13 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
     /// Present the alert that explain the need of photos access authorization and lead to settings app.
     private func presentPhotosAccessNeededAlert() {
         DispatchQueue.main.async {
-            let alert = self.createPhotosAccessNeededAlert()
+            let alert = AlertManager.multipleActionAlert(
+                title: "Necessário acesso às Fotos",
+                message: "Para poder salvar uma imagem à galeria, precisamos da sua permissão.",
+                actions: [AlertManager.cancelAction, AlertManager.settingsAction]
+            )
             self.owner.present(alert, animated: true, completion: nil)
         }
-    }
-
-    /// Create and alert that explain the need of photos access authorization and lead to settings app.
-    private func createPhotosAccessNeededAlert() -> UIAlertController {
-        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
-
-        let alert = UIAlertController(
-            title: "Necessário acesso às Fotos",
-            message: "Para poder salvar uma imagem à galeria, precisamos da sua permissão.",
-            preferredStyle: UIAlertController.Style.alert
-        )
-
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Vá aos Ajustes", style: .cancel, handler: { _ -> Void in
-            UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
-        }))
-
-        return alert
     }
     
     private func saveImageToLibrary(_ image: UIImage) {
