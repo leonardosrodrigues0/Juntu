@@ -14,6 +14,15 @@ class AlertManager {
         actions.forEach(alert.addAction(_:))
         return alert
     }
+    
+    static func shareLink(controller: UIViewController, text: String) -> UIActivityViewController {
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = controller.view // so that iPads won't crash
+        activityViewController.activityItemsConfiguration = [UIActivity.ActivityType.message] as? UIActivityItemsConfigurationReading
+        activityViewController.isModalInPresentation = true
+
+        return activityViewController
+    }
 
     static func shareImageAndTextAlert(controller: UIViewController, image: UIImage, text: String) -> UIActivityViewController {
         let shareItems: [Any] = [image, OptionalTextActivityItemSource(text: text)]

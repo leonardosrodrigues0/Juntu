@@ -234,8 +234,7 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     @IBAction func shareActivity() {
-        guard let safeImage = image.image else { return }
-        let alert = AlertManager.shareImageAndTextAlert(controller: self, image: safeImage, text: activity?.shareText ?? "")
+        let alert = AlertManager.shareLink(controller: self, text: activity?.shareText ?? "")
         self.present(alert, animated: true, completion: nil)
     }
     
