@@ -174,6 +174,38 @@ class UserTracker {
         
         return images
     }
+
+    func deleteMomentsPicture(_ data: Data, completion: @escaping (Bool) -> Void) {
+        let fm = FileManager.default
+
+        do {
+            var imagePaths = try fm.contentsOfDirectory(
+                at: UserTracker.picturesFolderDataPath,
+                includingPropertiesForKeys: nil,
+                options: .skipsHiddenFiles
+            )
+
+            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
+
+            for imagePath in imagePaths {
+                if imagePath.path.hasSuffix("png") {
+                    if let imageData = fm.contents(atPath: imagePath.path) {
+                        if imageData == data {
+                            try fm.removeItem(atPath: imagePath.path)
+                            completion(true)
+                            return
+                        }
+                    } else {
+                        print("Error finding path content.")
+                    }
+                }
+            }
+
+        } catch {
+            print("Error finding imagePaths: \(error)")
+        }
+        completion(false)
+    }
     
     // MARK: - Methods for Reading User Profile
     

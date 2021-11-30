@@ -43,27 +43,13 @@ extension CameraManager {
     /// Present the alert that explain the need of camera access authorization and lead to settings app.
     private func presentCameraAccessNeededAlert() {
         DispatchQueue.main.async {
-            let alert = self.createCameraAccessNeededAlert()
+            let alert = AlertManager.multipleActionAlert(
+                title: "Necessário acesso à Câmera",
+                message: "Para poder tirar fotos dentro do app, precisamos da sua permissão.",
+                actions: [AlertManager.cancelAction, AlertManager.settingsAction]
+            )
             self.present(alert, animated: true, completion: nil)
         }
-    }
-
-    /// Create and alert that explain the need of camera access authorization and lead to settings app.
-    private func createCameraAccessNeededAlert() -> UIAlertController {
-        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
-
-        let alert = UIAlertController(
-            title: "Necessário acesso à Câmera",
-            message: "Para poder tirar fotos dentro do app, precisamos da sua permissão.",
-            preferredStyle: UIAlertController.Style.alert
-        )
-
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Vá aos Ajustes", style: .cancel, handler: { _ -> Void in
-            UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
-        }))
-
-        return alert
     }
 
     // MARK: - Picture Taking

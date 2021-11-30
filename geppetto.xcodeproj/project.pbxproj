@@ -85,6 +85,7 @@
 		CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */; };
 		CDE41848273D403500505BA9 /* SimilarActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
+		D7217F7A274BD02B005E4900 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7217F79274BD02B005E4900 /* AlertManager.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
 		D76F4A6A273E8F1800C58DAC /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F4A69273E8F1800C58DAC /* AdManager.swift */; };
 		D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DE9271EEFC50010ED65 /* User.swift */; };
@@ -182,6 +183,7 @@
 		CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewController.swift; sourceTree = "<group>"; };
 		CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarActivitiesController.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
+		D7217F79274BD02B005E4900 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		D76F4A69273E8F1800C58DAC /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
 		D7FF5DE9271EEFC50010ED65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
 				A766327B270744620024F879 /* Images */,
 				D76F4A69273E8F1800C58DAC /* AdManager.swift */,
+				D7217F79274BD02B005E4900 /* AlertManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				A7FB229E274D1B63007A0A03 /* SaveShareHelper.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */,
+				D7217F7A274BD02B005E4900 /* AlertManager.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
 				A749F79D2710ACB300FB364E /* SearchResultsViewController.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivitiesDatabase.swift in Sources */,

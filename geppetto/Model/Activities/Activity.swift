@@ -42,7 +42,10 @@ struct Activity: Searchable, Codable {
     }
 
     var shareText: String {
-        "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
+        """
+        Olhe que incrível essa atividade que estou fazendo pelo aplicativo da Juntu, o nome dela é \(name). Baixe o App e brinque com sua criança!
+        https://testflight.apple.com/join/WKathfGk
+        """
     }
 
     // MARK: - Methods
