@@ -64,6 +64,12 @@ extension SearchResultsViewController: UISearchResultsUpdating {
     /// Update `filteredItems`.
     func filterContentForSearchText(_ searchText: String) {
         filteredItems = items.filter { $0.isResultWithSearchString(searchText) }
+        if filteredItems.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .search, in: tableView)
+        }
+        else {
+            tableView.backgroundView = nil
+        }
         tableView.reloadData()
     }
 }
