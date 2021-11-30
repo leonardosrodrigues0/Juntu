@@ -218,10 +218,9 @@ class ActivityOverviewViewController: UIViewController {
     }
     
     @IBAction func shareActivity() {
-        let shareAll: [Any] = [image.image!, activity?.shareText]
-            let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-            self.present(activityViewController, animated: true, completion: nil)
+        guard let safeImage = image.image else { return }
+        let alert = AlertManager.shareImageAndTextAlert(controller: self, image: safeImage, text: activity?.shareText ?? "")
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func toggleSaveActivityButtonTapped(_ sender: UIBarButtonItem) {
