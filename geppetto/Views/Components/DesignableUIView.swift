@@ -36,7 +36,7 @@ class DesignableLabel: UILabel {
     }
     
     /// Space between letters.
-    @IBInspectable public var kerningSpace: CGFloat {
+    @IBInspectable var kerningSpace: CGFloat {
         get {
             var kerning: CGFloat = 0
             if let attributedText = self.attributedText {

@@ -27,7 +27,12 @@ class History: UIView {
         initTableView()
     }
     
-    func reloadCards(delegate: ActivityNavigationDelegate) {
+    func reloadCards() {
+        if activityList.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .history, in: tableViewHistory)
+        } else {
+            tableViewHistory.backgroundView = nil
+        }
         tableViewHistory.reloadData()
     }
     
@@ -52,11 +57,11 @@ class History: UIView {
 }
 
 extension History: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activityList.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ActivityCardTableViewCell
         let activity = activityList[indexPath.row]
         if let card = cell?.card {

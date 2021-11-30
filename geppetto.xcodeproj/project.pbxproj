@@ -8,26 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		2F381B932739466600EA18AA /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F381B922739466600EA18AA /* EditProfileViewController.swift */; };
-		2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */; };
 		2FC95C4B2695C71300FCE2CC /* ActivitiesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */; };
+		2FE59A212747D6CF00FDAE94 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE59A202747D6CF00FDAE94 /* SavedActivities.xib */; };
+		2FE59A232747D8F800FDAE94 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE59A222747D8F800FDAE94 /* SavedActivities.swift */; };
 		313D3071270DC344000871C0 /* MomentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D306F270DC344000871C0 /* MomentsCell.swift */; };
 		313D3072270DC344000871C0 /* MomentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313D3070270DC344000871C0 /* MomentsCell.xib */; };
 		31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA3379270C7B7C0055E2B6 /* Moments.xib */; };
 		31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA337B270C7CC70055E2B6 /* Moments.swift */; };
 		31DA337E270C8E0C0055E2B6 /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337D270C8E0C0055E2B6 /* History.xib */; };
-		31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DA337F270C8E190055E2B6 /* SavedActivities.xib */; };
 		31DA3385270C8F6C0055E2B6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3384270C8F6C0055E2B6 /* History.swift */; };
-		31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */; };
 		3F36292D273C02F4001BC20D /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36292C273C02F4001BC20D /* UIFont+Weight.swift */; };
 		3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36292E273C0340001BC20D /* WeightLabel.swift */; };
 		3F55FCD327395CB600146221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F55FCD227395CB600146221 /* LaunchScreen.storyboard */; };
 		3F7C478F27341F5100F899AC /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C478E27341F5100F899AC /* LoadingHandler.swift */; };
 		3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F801DAA2743E80C007B6497 /* UIImage+Color.swift */; };
 		3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */; };
+		3F9E9323274BBFAD000534F2 /* EmptyViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */; };
 		3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */; };
 		3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD547062722F77C00363C65 /* FullscreenImage.storyboard */; };
 		3FD547092722F7E400363C65 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */; };
-		3FDB4646268F4D8600A46720 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB4645268F4D8600A46720 /* Card.xib */; };
 		A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722F0BE2727318300F92E53 /* ActivityCardCell.swift */; };
 		A722F0C12727318300F92E53 /* ActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A722F0BF2727318300F92E53 /* ActivityCardCell.xib */; };
 		A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A729CA85269477840000E9D3 /* ActivityOverview.storyboard */; };
@@ -45,13 +44,13 @@
 		A7814539271EFD9E00F17FE4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7814538271EFD9E00F17FE4 /* Tag.swift */; };
 		A781453D271F0D9400F17FE4 /* TagsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781453C271F0D9400F17FE4 /* TagsDatabase.swift */; };
 		A7929C9B2743DCA70062EEC9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7929C9A2743DCA60062EEC9 /* TimeUnit.swift */; };
+		A7AED3A82747DB83000D8231 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */; };
 		A7BD6971268B3AB50005331F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6970268B3AB50005331F /* Search.storyboard */; };
 		A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6972268B3AC70005331F /* Profile.storyboard */; };
 		A7BD6976268B41F30005331F /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BD6974268B41F30005331F /* Discover.storyboard */; };
 		A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697A268B57B20005331F /* SearchViewController.swift */; };
 		A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697C268B59E10005331F /* DiscoverViewController.swift */; };
 		A7BD697F268B5A010005331F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD697E268B5A010005331F /* ProfileViewController.swift */; };
-		A7BD6987268B5DED0005331F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6986268B5DED0005331F /* Card.swift */; };
 		A7C1324E270C9A44000254CF /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C1324D270C9A44000254CF /* CameraManager.swift */; };
 		A7C66193269340D500E79AC4 /* ActivityStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66192269340D500E79AC4 /* ActivityStep.swift */; };
 		A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */; };
@@ -62,6 +61,8 @@
 		A7E65C3226860E1600570FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E65C3126860E1600570FBD /* SceneDelegate.swift */; };
 		A7E65C3726860E1600570FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3526860E1600570FBD /* Main.storyboard */; };
 		A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E65C3826860E1700570FBD /* Assets.xcassets */; };
+		A7FB229E274D1B63007A0A03 /* SaveShareHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */; };
+		A7FB22A0274D1F6B007A0A03 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */; };
 		CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD12734EC5F00818453 /* MadeForYouActivitiesController.swift */; };
 		CD07BFD62734F48900818453 /* ActivityCardPhotoBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */; };
 		CD07BFD82734F49500818453 /* ActivityCardPhotoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */; };
@@ -84,6 +85,7 @@
 		CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */; };
 		CDE41848273D403500505BA9 /* SimilarActivitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */; };
 		CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF009812701E41200485CFA /* DesignableUIView.swift */; };
+		D7217F7A274BD02B005E4900 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7217F79274BD02B005E4900 /* AlertManager.swift */; };
 		D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */; };
 		D76F4A6A273E8F1800C58DAC /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F4A69273E8F1800C58DAC /* AdManager.swift */; };
 		D7FF5DEA271EEFC50010ED65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF5DE9271EEFC50010ED65 /* User.swift */; };
@@ -97,26 +99,25 @@
 		2482F80FF0D8C7A94B446A4B /* Pods_geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E3FC289032081DC8A179C1 /* Pods-geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geppetto.debug.xcconfig"; path = "Target Support Files/Pods-geppetto/Pods-geppetto.debug.xcconfig"; sourceTree = "<group>"; };
 		2F381B922739466600EA18AA /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FC95C4A2695C71300FCE2CC /* ActivitiesDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDatabase.swift; sourceTree = "<group>"; };
+		2FE59A202747D6CF00FDAE94 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
+		2FE59A222747D8F800FDAE94 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
 		313D306F270DC344000871C0 /* MomentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsCell.swift; sourceTree = "<group>"; };
 		313D3070270DC344000871C0 /* MomentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentsCell.xib; sourceTree = "<group>"; };
 		31DA3379270C7B7C0055E2B6 /* Moments.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Moments.xib; sourceTree = "<group>"; };
 		31DA337B270C7CC70055E2B6 /* Moments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
 		31DA337D270C8E0C0055E2B6 /* History.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = History.xib; sourceTree = "<group>"; };
-		31DA337F270C8E190055E2B6 /* SavedActivities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedActivities.xib; sourceTree = "<group>"; };
 		31DA3384270C8F6C0055E2B6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedActivities.swift; sourceTree = "<group>"; };
 		3F36292C273C02F4001BC20D /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
 		3F36292E273C0340001BC20D /* WeightLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLabel.swift; sourceTree = "<group>"; };
 		3F55FCD227395CB600146221 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7C478E27341F5100F899AC /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
 		3F801DAA2743E80C007B6497 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		3F9406EC272B802B0028AEBC /* PageMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMomentsViewController.swift; sourceTree = "<group>"; };
+		3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewHandler.swift; sourceTree = "<group>"; };
 		3F9F3BD627332B04001535DE /* MomentImageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentImageContentViewController.swift; sourceTree = "<group>"; };
 		3FD547062722F77C00363C65 /* FullscreenImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullscreenImage.storyboard; sourceTree = "<group>"; };
 		3FD547082722F7E400363C65 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
-		3FDB4645268F4D8600A46720 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		A70E8A7626E2469B002EE0F6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A70E8A7726E24ECB002EE0F6 /* juntu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juntu.png; sourceTree = "<group>"; };
 		A722F0BE2727318300F92E53 /* ActivityCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardCell.swift; sourceTree = "<group>"; };
@@ -137,13 +138,13 @@
 		A7814538271EFD9E00F17FE4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		A781453C271F0D9400F17FE4 /* TagsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsDatabase.swift; sourceTree = "<group>"; };
 		A7929C9A2743DCA60062EEC9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
+		A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		A7BD6970268B3AB50005331F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A7BD6972268B3AC70005331F /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A7BD6975268B41F30005331F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = geppetto/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 		A7BD697A268B57B20005331F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A7BD697C268B59E10005331F /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		A7BD697E268B5A010005331F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A7BD6986268B5DED0005331F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A7C1324D270C9A44000254CF /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		A7C66192269340D500E79AC4 /* ActivityStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStep.swift; sourceTree = "<group>"; };
 		A7C66196269350D500E79AC4 /* ActivityOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityOverviewViewController.swift; sourceTree = "<group>"; };
@@ -156,11 +157,15 @@
 		A7E65C3626860E1600570FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7E65C3826860E1700570FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7E65C3D26860E1700570FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveShareHelper.swift; sourceTree = "<group>"; };
+		A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		CD07BFD12734EC5F00818453 /* MadeForYouActivitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeForYouActivitiesController.swift; sourceTree = "<group>"; };
 		CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCardPhotoBackground.xib; sourceTree = "<group>"; };
 		CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCardPhotoBackground.swift; sourceTree = "<group>"; };
 		CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUILabel.swift; sourceTree = "<group>"; };
 		CD0F882727340BC50039CC24 /* DiscoverTagUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTagUILabel.swift; sourceTree = "<group>"; };
+		CD77AF1B274B178800D5C9EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CD77AF1D274B178800D5C9EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD97CC272738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapFlowLayout.swift; sourceTree = "<group>"; };
 		CD97CC29273A911700DBAF74 /* HighlightedActivitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedActivitiesController.swift; sourceTree = "<group>"; };
 		CD97CC2B273AA37700DBAF74 /* TagNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNavigationDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +183,7 @@
 		CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewController.swift; sourceTree = "<group>"; };
 		CDE41847273D403500505BA9 /* SimilarActivitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarActivitiesController.swift; sourceTree = "<group>"; };
 		CDF009812701E41200485CFA /* DesignableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIView.swift; sourceTree = "<group>"; };
+		D7217F79274BD02B005E4900 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		D7581E1026F8B7E700903D9C /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		D76F4A69273E8F1800C58DAC /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
 		D7FF5DE9271EEFC50010ED65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -273,7 +279,9 @@
 			children = (
 				D7FF5DE8271EEFA20010ED65 /* UserDomain */,
 				D7581E0F26F8B7BA00903D9C /* Analytics */,
+				A766327B270744620024F879 /* Images */,
 				D76F4A69273E8F1800C58DAC /* AdManager.swift */,
+				D7217F79274BD02B005E4900 /* AlertManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -315,8 +323,8 @@
 		A760C32A2733FD860029E57B /* Saved */ = {
 			isa = PBXGroup;
 			children = (
-				31DA337F270C8E190055E2B6 /* SavedActivities.xib */,
-				31DA3386270C8F7D0055E2B6 /* SavedActivities.swift */,
+				2FE59A202747D6CF00FDAE94 /* SavedActivities.xib */,
+				2FE59A222747D8F800FDAE94 /* SavedActivities.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -345,19 +353,21 @@
 		A760C32D2733FE330029E57B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3F9E9322274BBFAD000534F2 /* EmptyViewHandler.swift */,
 				3F7C478E27341F5100F899AC /* LoadingHandler.swift */,
 				3F36292E273C0340001BC20D /* WeightLabel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A766327B270744620024F879 /* CameraUsage */ = {
+		A766327B270744620024F879 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A7C1324D270C9A44000254CF /* CameraManager.swift */,
+				A7FB229D274D1B63007A0A03 /* SaveShareHelper.swift */,
 				A766327C270744800024F879 /* OptionalTextActivityItemSource.swift */,
+				A7FB229F274D1F6B007A0A03 /* ImageEditor.swift */,
 			);
-			path = CameraUsage;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A7BD6977268B54BF0005331F /* ViewControllers */ = {
@@ -365,12 +375,12 @@
 			children = (
 				CD07BFD02734EBCC00818453 /* Discover */,
 				A749F79B2710ACA000FB364E /* Search */,
-				A766327B270744620024F879 /* CameraUsage */,
 				A760C3272733FD210029E57B /* Activities */,
 				A760C32B2733FD9D0029E57B /* Profile */,
 				CDE41845273D3DF600505BA9 /* ActivitiesCollectionViewController.swift */,
 				A72E1CAF2722FDD900404FC3 /* TagViewController.swift */,
 				CD97CC2B273AA37700DBAF74 /* TagNavigationDelegate.swift */,
+				A7C1324D270C9A44000254CF /* CameraManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -419,8 +429,6 @@
 				CDD9050B272851FE00FF9B82 /* ActivityCard.xib */,
 				CDD9050C272851FE00FF9B82 /* ActivityCardTableViewCell.swift */,
 				CDD9050A272851FE00FF9B82 /* ActivityCardTableViewCell.xib */,
-				A7BD6986268B5DED0005331F /* Card.swift */,
-				3FDB4645268F4D8600A46720 /* Card.xib */,
 				CDF009812701E41200485CFA /* DesignableUIView.swift */,
 				CD09B1BF272AFAA0008B1A39 /* TagUILabel.swift */,
 				CD0F882727340BC50039CC24 /* DiscoverTagUILabel.swift */,
@@ -429,6 +437,7 @@
 				CDB896AD272B53580042B322 /* MaterialTableViewCell.xib */,
 				CD07BFD72734F49500818453 /* ActivityCardPhotoBackground.swift */,
 				CD07BFD52734F48900818453 /* ActivityCardPhotoBackground.xib */,
+				A7AED3A72747DB83000D8231 /* ContentSizedTableView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -457,11 +466,11 @@
 		A7E65C2E26860E1600570FBD /* geppetto */ = {
 			isa = PBXGroup;
 			children = (
+				CD77AF19274B178800D5C9EC /* Firebase */,
 				A7E65C2F26860E1600570FBD /* AppDelegate.swift */,
 				A7E65C3126860E1600570FBD /* SceneDelegate.swift */,
 				A7E65C3826860E1700570FBD /* Assets.xcassets */,
 				A7E65C3D26860E1700570FBD /* Info.plist */,
-				2FC95C482695C4A600FCE2CC /* GoogleService-Info.plist */,
 				A760C3262733FD050029E57B /* Services */,
 				A7BD6979268B56490005331F /* Model */,
 				A7BD6978268B54D30005331F /* Views */,
@@ -480,6 +489,31 @@
 				CD97CC272738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift */,
 			);
 			path = Discover;
+			sourceTree = "<group>";
+		};
+		CD77AF19274B178800D5C9EC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1A274B178800D5C9EC /* Prod */,
+				CD77AF1C274B178800D5C9EC /* Dev */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CD77AF1A274B178800D5C9EC /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1B274B178800D5C9EC /* GoogleService-Info.plist */,
+			);
+			path = Prod;
+			sourceTree = "<group>";
+		};
+		CD77AF1C274B178800D5C9EC /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				CD77AF1D274B178800D5C9EC /* GoogleService-Info.plist */,
+			);
+			path = Dev;
 			sourceTree = "<group>";
 		};
 		CDC9E4392734D6C40079FCEB /* Discover */ = {
@@ -527,9 +561,10 @@
 				2D317DC9BA8A125B80A02986 /* [CP] Check Pods Manifest.lock */,
 				A7E65C2826860E1600570FBD /* Sources */,
 				A7E65C2926860E1600570FBD /* Frameworks */,
+				CD77AF1E274B185100D5C9EC /* Setup Firebase Environment GoogleService-Info.plist */,
 				A7E65C2A26860E1600570FBD /* Resources */,
 				D644F2FDBC656D38D85C4AD5 /* [CP] Embed Pods Frameworks */,
-				A70E8A7526E244C0002EE0F6 /* ShellScript */,
+				A70E8A7526E244C0002EE0F6 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -580,8 +615,6 @@
 				A7BD6973268B3AC70005331F /* Profile.storyboard in Resources */,
 				3FD547072722F77C00363C65 /* FullscreenImage.storyboard in Resources */,
 				A7E65C3926860E1700570FBD /* Assets.xcassets in Resources */,
-				31DA3380270C8E190055E2B6 /* SavedActivities.xib in Resources */,
-				3FDB4646268F4D8600A46720 /* Card.xib in Resources */,
 				A749F79A2710AC7A00FB364E /* SearchResults.storyboard in Resources */,
 				A72E1CAE2722FC5400404FC3 /* Tag.storyboard in Resources */,
 				CDD9050D272851FE00FF9B82 /* ActivityCardTableViewCell.xib in Resources */,
@@ -593,10 +626,10 @@
 				313D3072270DC344000871C0 /* MomentsCell.xib in Resources */,
 				31DA337E270C8E0C0055E2B6 /* History.xib in Resources */,
 				CDB896AE272B53580042B322 /* MaterialTableViewCell.xib in Resources */,
+				2FE59A212747D6CF00FDAE94 /* SavedActivities.xib in Resources */,
 				A722F0C12727318300F92E53 /* ActivityCardCell.xib in Resources */,
 				A729CA86269477840000E9D3 /* ActivityOverview.storyboard in Resources */,
 				31DA337A270C7B7C0055E2B6 /* Moments.xib in Resources */,
-				2FC95C492695C4A600FCE2CC /* GoogleService-Info.plist in Resources */,
 				A7BD6976268B41F30005331F /* Discover.storyboard in Resources */,
 				CDD9050E272851FE00FF9B82 /* ActivityCard.xib in Resources */,
 				A7DF158F268E0AE30004C616 /* ActivityStep.storyboard in Resources */,
@@ -628,7 +661,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A70E8A7526E244C0002EE0F6 /* ShellScript */ = {
+		A70E8A7526E244C0002EE0F6 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,6 +670,7 @@
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -644,6 +678,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		CD77AF1E274B185100D5C9EC /* Setup Firebase Environment GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n";
 		};
 		D644F2FDBC656D38D85C4AD5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -670,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7929C9B2743DCA70062EEC9 /* TimeUnit.swift in Sources */,
+				2FE59A232747D8F800FDAE94 /* SavedActivities.swift in Sources */,
 				A7814536271EDD6400F17FE4 /* TagCardCell.swift in Sources */,
 				A781453D271F0D9400F17FE4 /* TagsDatabase.swift in Sources */,
 				CDD9050F272851FE00FF9B82 /* ActivityCardTableViewCell.swift in Sources */,
@@ -678,7 +731,6 @@
 				3F801DAB2743E80C007B6497 /* UIImage+Color.swift in Sources */,
 				CD97CC2A273A911700DBAF74 /* HighlightedActivitiesController.swift in Sources */,
 				3F36292F273C0340001BC20D /* WeightLabel.swift in Sources */,
-				A7BD6987268B5DED0005331F /* Card.swift in Sources */,
 				3F36292D273C02F4001BC20D /* UIFont+Weight.swift in Sources */,
 				CD09B1C0272AFAA0008B1A39 /* TagUILabel.swift in Sources */,
 				CD97CC2E273AA53900DBAF74 /* DiscoverTagsController.swift in Sources */,
@@ -686,6 +738,7 @@
 				31DA3385270C8F6C0055E2B6 /* History.swift in Sources */,
 				CDE41846273D3DF700505BA9 /* ActivitiesCollectionViewController.swift in Sources */,
 				CD0F882827340BC50039CC24 /* DiscoverTagUILabel.swift in Sources */,
+				3F9E9323274BBFAD000534F2 /* EmptyViewHandler.swift in Sources */,
 				A722F0C02727318300F92E53 /* ActivityCardCell.swift in Sources */,
 				D7FF5DEC271EEFE00010ED65 /* UserActivity.swift in Sources */,
 				A7BD697D268B59E10005331F /* DiscoverViewController.swift in Sources */,
@@ -694,13 +747,16 @@
 				3F9F3BD727332B04001535DE /* MomentImageContentViewController.swift in Sources */,
 				A7BD697B268B57B20005331F /* SearchViewController.swift in Sources */,
 				D7581E1126F8B7E700903D9C /* AnalyticsHelper.swift in Sources */,
+				A7FB22A0274D1F6B007A0A03 /* ImageEditor.swift in Sources */,
 				CDB896A8272B52E70042B322 /* MaterialTableViewCell.swift in Sources */,
 				CDD90509272851E100FF9B82 /* ActivityCard.swift in Sources */,
 				313D3071270DC344000871C0 /* MomentsCell.swift in Sources */,
 				A72E1CB02722FDD900404FC3 /* TagViewController.swift in Sources */,
 				CD97CC282738BBEA00DBAF74 /* ZoomAndSnapFlowLayout.swift in Sources */,
+				A7FB229E274D1B63007A0A03 /* SaveShareHelper.swift in Sources */,
 				A74A0BFE268F488C00F99C7C /* ActivityStepViewController.swift in Sources */,
 				CD07BFD22734EC5F00818453 /* MadeForYouActivitiesController.swift in Sources */,
+				D7217F7A274BD02B005E4900 /* AlertManager.swift in Sources */,
 				A7CE1E1A268CB33E00180E01 /* Searchable.swift in Sources */,
 				A749F79D2710ACB300FB364E /* SearchResultsViewController.swift in Sources */,
 				2FC95C4B2695C71300FCE2CC /* ActivitiesDatabase.swift in Sources */,
@@ -715,7 +771,6 @@
 				A7C66197269350D500E79AC4 /* ActivityOverviewViewController.swift in Sources */,
 				A7CE1E1C268CB38200180E01 /* Activity.swift in Sources */,
 				D7FF5DEE271EEFF40010ED65 /* UserTracker.swift in Sources */,
-				31DA3387270C8F7D0055E2B6 /* SavedActivities.swift in Sources */,
 				A74A0BFC268F3D4000F99C7C /* ActivityPageViewController.swift in Sources */,
 				3F9406ED272B802B0028AEBC /* PageMomentsViewController.swift in Sources */,
 				31DA337C270C7CC70055E2B6 /* Moments.swift in Sources */,
@@ -728,6 +783,7 @@
 				CDF009822701E41200485CFA /* DesignableUIView.swift in Sources */,
 				A766327D270744800024F879 /* OptionalTextActivityItemSource.swift in Sources */,
 				CDD905112728521F00FF9B82 /* UIView+Nib.swift in Sources */,
+				A7AED3A82747DB83000D8231 /* ContentSizedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,7 +932,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 4FRA3TQ955;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -884,7 +940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juntu.geppettoinc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -899,7 +955,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 4FRA3TQ955;
 				INFOPLIST_FILE = geppetto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -907,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juntu.geppettoinc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

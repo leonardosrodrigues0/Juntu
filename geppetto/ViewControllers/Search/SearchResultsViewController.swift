@@ -4,7 +4,7 @@ class SearchResultsViewController: UIViewController {
 
     // MARK: - Properties
     
-    @IBOutlet public var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     var items: [Searchable] = []
     var filteredItems: [Searchable] = []
@@ -31,7 +31,7 @@ class SearchResultsViewController: UIViewController {
     }
 
     /// Deselect row when returning to view.
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -56,7 +56,7 @@ class SearchResultsViewController: UIViewController {
 extension SearchResultsViewController: UISearchResultsUpdating {
 
     /// Called when search text is changed.
-    public func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
@@ -64,16 +64,21 @@ extension SearchResultsViewController: UISearchResultsUpdating {
     /// Update `filteredItems`.
     func filterContentForSearchText(_ searchText: String) {
         filteredItems = items.filter { $0.isResultWithSearchString(searchText) }
+        if filteredItems.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .search, in: tableView)
+        } else {
+            tableView.backgroundView = nil
+        }
         tableView.reloadData()
     }
 }
 
 extension SearchResultsViewController: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredItems.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ActivityCardTableViewCell
         let item = filteredItems[indexPath.row]
 

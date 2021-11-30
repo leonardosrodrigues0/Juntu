@@ -8,6 +8,9 @@ class ActivityOverviewViewController: UIViewController {
     
     var activity: Activity?
     private var selectedActivity: Activity?
+    static var stepsImages: [Int: UIImage] = [:]
+    private var isDataStored: Bool = false
+    private var activityPageControlViewController: ActivityPageControlViewController?
     
     private var tags: [Tag] = []
     private var selectedTagCell: Tag?
@@ -28,10 +31,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var savedActivityButton: UIButton!
     
     @IBOutlet weak var tagsStack: UIStackView!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var votesLabel: UILabel!
-    
-    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tagHeightConstraint: NSLayoutConstraint!
     
     private let similarActivitiesController = SimilarActivitiesController()
     @IBOutlet weak var similarActivitiesStack: UIStackView!
@@ -39,6 +39,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var similarCardHeight: NSLayoutConstraint!
     
     var toggleSaveButton: UIBarButtonItem?
+    var shareButton: UIBarButtonItem?
     
     private let cellIdentifier = "MaterialTableViewCell"
     private var materials: [String] = []
@@ -48,13 +49,16 @@ class ActivityOverviewViewController: UIViewController {
     // MARK: - Methods
     
     override func viewDidLoad() {
+
         helper = AnalyticsHelper.init()
         super.viewDidLoad()
         
         initTableView()
         updateOutlets()
         setupSaveButton()
+        setupShareActivity()
         
+        navigationItem.rightBarButtonItems = [toggleSaveButton!, shareButton!]
         clearTags()
         
         setupSimilarActivitiesController()
@@ -67,15 +71,38 @@ class ActivityOverviewViewController: UIViewController {
         updateSavedActivityButtonImage()
     }
     
+    /// Runs when the environment's traits change to update content based on the current ContentSizeCategory
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if previousTraitCollection?.preferredContentSizeCategory !=
+            traitCollection.preferredContentSizeCategory {
+            similarActivitiesController.invalidateLayoutIfPossible()
+            adjustTagHeight()
+        }
+    }
+    
+    func adjustTagHeight() {
+        let tagAdjustedHeight = UIFontMetrics(forTextStyle: .footnote).scaledValue(for: 30.0)
+        tagHeightConstraint.constant = tagAdjustedHeight
+    }
+    
     private func initTableView() {
+        adjustTagHeight()
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
         materialsTableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         materialsTableView.dataSource = self
     }
     
+    fileprivate func setupShareActivity() {
+        shareButton = UIBarButtonItem(
+            image: UIImage(systemName: "square.and.arrow.up"),
+            style: .done,
+            target: self,
+            action: #selector(shareActivity)
+        )
+    }
+    
     fileprivate func setupSaveButton() {
         toggleSaveButton = UIBarButtonItem(image: .none, style: .plain, target: self, action: #selector(self.editProfileButtonPressed(_:)))
-        navigationItem.rightBarButtonItems = [toggleSaveButton!]
         updateSavedActivityButtonImage()
     }
     
@@ -90,15 +117,10 @@ class ActivityOverviewViewController: UIViewController {
             print("Error: failed to unwrap activity at overview screen")
             return
         }
-
+        
         image.sd_setImage(with: activity.getImageDatabaseRef())
         name.text = activity.name
         fullDescription.text = activity.introduction
-        
-        let rating: Double = 5
-        let votes: Int = 2
-        ratingLabel.text = String(format: "%.1f", rating)
-        votesLabel.text = "(\(votes) avaliações)"
 
         if (activity.caution ?? "").isEmpty {
             keepInMind.removeFromSuperview()
@@ -121,15 +143,6 @@ class ActivityOverviewViewController: UIViewController {
     private func loadMaterialLabels() {
         materials = activity?.materials ?? []
         materialsTableView.reloadData()
-        tableHeightConstraint.constant = CGFloat(Double(materials.count) * 45)
-    }
-    
-    private func createMaterialLabel(_ name: String) -> UILabel {
-        let label = UILabel()
-        label.text = name
-        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
-        label.numberOfLines = 0
-        return label
     }
     
     /// Clear default tags, load activity tags and add them in the horizontal stack
@@ -172,20 +185,57 @@ class ActivityOverviewViewController: UIViewController {
         similarActivitiesController.similarTo = self.activity
         similarActivitiesController.delegate = self
         
-        similarActivitiesController.setup()
+        _ = similarActivitiesController.setup()
+    }
+    
+    /// Empty `stepsImages`. Download images from their storage reference and set it to the step
+    /// image view using its view controller and add them to `stepsImages`.
+    private func downloadStepsImages() {
+        ActivityOverviewViewController.stepsImages.removeAll()
+        if let activity = activity {
+            for step in activity.getSteps() {
+                let storageRef = step.getImageDatabaseRef()
+                storageRef?.getData(maxSize: 4 * 1024 * 1024, completion: { (data, error) in
+                    if let error = error {
+                        print("Got an error fetching data: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    if
+                        let data = data,
+                        let pages = self.activityPageControlViewController?.pageViewController?.pages,
+                        let stepVC = pages[step.stepIndex! - 1] as? ActivityStepViewController
+                    {
+                        stepVC.image?.image = UIImage(data: data)
+                        ActivityOverviewViewController.stepsImages[step.stepIndex!] = UIImage(data: data)
+                    }
+                })
+            }
+            self.isDataStored = true
+        }
     }
 
     // MARK: - Actions
     
     @IBAction private func enterActivityButtonTapped() {
+        
+        if !isDataStored {
+            downloadStepsImages()
+        }
+        
         let storyboard = UIStoryboard(name: "ActivityStep", bundle: nil)
-        let activityPageControlViewController = storyboard.instantiateViewController(
+        activityPageControlViewController = storyboard.instantiateViewController(
             withIdentifier: String(describing: ActivityPageControlViewController.self)
         ) as? ActivityPageControlViewController
         
         activityPageControlViewController?.activity = activity
         helper.logDiveInPressed(activity: self.activity!)
         show(activityPageControlViewController!, sender: self)
+    }
+    
+    @IBAction func shareActivity() {
+        let alert = AlertManager.shareLink(controller: self, text: activity?.shareText ?? "")
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func toggleSaveActivityButtonTapped(_ sender: UIBarButtonItem) {
@@ -218,7 +268,7 @@ extension ActivityOverviewViewController: UITableViewDataSource {
         return materials.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MaterialTableViewCell
         let item = materials[indexPath.row]
         cell?.name.text = item

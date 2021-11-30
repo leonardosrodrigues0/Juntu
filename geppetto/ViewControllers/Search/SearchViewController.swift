@@ -1,6 +1,6 @@
 import UIKit
 
-public class SearchViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ public class SearchViewController: UIViewController {
     
     // MARK: - Initializers
     
-    public required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         let storyboard = UIStoryboard(name: "SearchResults", bundle: nil)
         guard let resultsViewController = storyboard.instantiateViewController(
             withIdentifier: "ResultsController"
@@ -35,7 +35,7 @@ public class SearchViewController: UIViewController {
     
     // MARK: - Methods
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setSearchConfig()
         initCollectionView()
@@ -69,7 +69,7 @@ public class SearchViewController: UIViewController {
     }
     
     /// Prepare for navigate to Tag
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTag" {
             // Get the first child of navigation controller,
             // which is supposed to be TagViewController.
@@ -86,12 +86,12 @@ public class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     /// Return total number of items.
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
     }
     
     /// Return the cell for a given index.
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellIdentifier, for: indexPath) as? TagCardCell
         
         // Set cell tag element:
@@ -103,7 +103,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         return cell!
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let tag = tags.get(at: indexPath.row) {
             selectedTagCell = tag
         }
@@ -116,16 +116,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
     /// Return the item size for collection view.
     /// Use aspect ratio of 16:9 for two columns of items.
-    public func collectionView(
+    func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        // Space between cells: (defined only here)
-        let horizontalSpacing = CGFloat(10)
-        // Space between cells and safe area (horizontally): (defined in the storyboard)
-        let contentInsets = CGFloat(16) // defined in the storyboard
-        // Width must be (totalWidth - 2 * contentInsets - horizontalSpacing) / 2
+        let horizontalSpacing = CGFloat(10) // space between cells (defined only here)
+        let contentInsets = CGFloat(16) // space between cells and safe area (horizontally, defined in the storyboard)
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
         let height = width * (9 / 16)
         return CGSize(width: width, height: height)

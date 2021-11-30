@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Pink4x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Pink4x-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "frameprofile.png",
+      "filename" : "Pink4x-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

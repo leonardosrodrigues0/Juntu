@@ -1,6 +1,6 @@
 import Foundation
 
-public class UserActivity: Codable {
+class UserActivity: Codable {
 
     // MARK: - Properties
     
@@ -11,7 +11,7 @@ public class UserActivity: Codable {
     // MARK: - Setters
     
     /// Add activity to the history.
-    public func seeActivity(_ activity: Activity) {
+    func seeActivity(_ activity: Activity) {
         if let index = activityHistory.firstIndex(where: { $0 == activity.id }) {
             activityHistory.remove(at: index)
         }
@@ -19,12 +19,12 @@ public class UserActivity: Codable {
         activityHistory.append(activity.id)
     }
     
-    public func completeActivity(_ activity: Activity) {
+    func completeActivity(_ activity: Activity) {
         completedActivities.append(activity)
     }
     
     /// Look for activity in saved. Remove if present and add otherwise.
-    public func toggleSaveActivity(_ activity: Activity) {
+    func toggleSaveActivity(_ activity: Activity) {
         if let index = savedActivities.firstIndex(where: { $0 == activity.id }) {
             savedActivities.remove(at: index)
             return
@@ -35,15 +35,15 @@ public class UserActivity: Codable {
     
     // MARK: - Getters
 
-    public func fetchActivityHistory() -> [String] {
+    func fetchActivityHistory() -> [String] {
         return activityHistory.reversed()
     }
     
-    public func fetchSavedActivities() -> [String] {
+    func fetchSavedActivities() -> [String] {
         return savedActivities.reversed()
     }
     
-    public func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
+    func fetchIfActivityIsSaved(_ activity: Activity) -> Bool {
         if savedActivities.firstIndex(where: { $0 == activity.id }) != nil {
             return true
         }

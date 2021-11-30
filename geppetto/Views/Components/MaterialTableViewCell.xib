@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,46 +12,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MaterialTableViewCell" selectionStyle="none" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="MaterialTableViewCell" customModule="geppetto" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="238" height="44"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MaterialTableViewCell" selectionStyle="none" indentationWidth="10" rowHeight="138" id="KGk-i7-Jjw" customClass="MaterialTableViewCell" customModule="geppetto" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="286" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="238" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="286" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yuW-lf-ExQ">
-                        <rect key="frame" x="8" y="0.0" width="230" height="44"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yuW-lf-ExQ">
+                        <rect key="frame" x="8" y="8" width="278" height="34"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lE-fcL">
-                                <rect key="frame" x="0.0" y="1" width="20" height="41.5"/>
+                                <rect key="frame" x="0.0" y="1" width="20" height="17.5"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="H7q-fI-aI6"/>
-                                    <constraint firstAttribute="height" constant="44" id="y8C-vX-lDZ"/>
                                 </constraints>
                                 <imageReference key="image" image="checkmark.square.fill" catalog="system" symbolScale="medium"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qic-T9-0hr">
-                                <rect key="frame" x="28" y="0.0" width="202" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material 01 - &quot;1 pote (prato, Tupperware ou vasilha)&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riK-aG-Cp4" userLabel="Material">
-                                        <rect key="frame" x="0.0" y="0.0" width="202" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material 01 - &quot;1 pote (prato, Tupperware ou vasilha)&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riK-aG-Cp4" userLabel="Material">
+                                <rect key="frame" x="28" y="0.0" width="250" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="80a-lE-fcL" secondAttribute="bottom" id="5AY-hc-3SV"/>
-                            <constraint firstItem="80a-lE-fcL" firstAttribute="top" secondItem="yuW-lf-ExQ" secondAttribute="top" id="YfT-nv-NkL"/>
+                            <constraint firstItem="riK-aG-Cp4" firstAttribute="top" secondItem="yuW-lf-ExQ" secondAttribute="top" id="PGp-Ec-bQn"/>
+                            <constraint firstAttribute="bottom" secondItem="riK-aG-Cp4" secondAttribute="bottom" id="urK-dS-1vj"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="yuW-lf-ExQ" secondAttribute="bottom" id="EQp-dP-btI"/>
-                    <constraint firstItem="yuW-lf-ExQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M6E-gm-JFL"/>
+                    <constraint firstAttribute="bottom" secondItem="yuW-lf-ExQ" secondAttribute="bottom" constant="8" id="EQp-dP-btI"/>
+                    <constraint firstItem="yuW-lf-ExQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="M6E-gm-JFL"/>
                     <constraint firstAttribute="trailing" secondItem="yuW-lf-ExQ" secondAttribute="trailing" id="QF2-Wi-Fun"/>
                     <constraint firstItem="yuW-lf-ExQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gSU-HU-AHC"/>
                 </constraints>
@@ -61,7 +55,7 @@
                 <outlet property="checkMarkButton" destination="80a-lE-fcL" id="APA-rF-KAB"/>
                 <outlet property="name" destination="riK-aG-Cp4" id="duD-4l-Hyy"/>
             </connections>
-            <point key="canvasLocation" x="360.86956521739131" y="36.160714285714285"/>
+            <point key="canvasLocation" x="395.6521739130435" y="64.955357142857139"/>
         </tableViewCell>
     </objects>
     <resources>

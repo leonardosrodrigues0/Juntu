@@ -24,8 +24,10 @@ class ActivityPageViewController: UIPageViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let adManager = AdManager()
-        adManager.addBannerViewToBottomOfView(self)
+        if let shouldDisplayAds = Bundle.main.infoDictionary?["shouldDisplayAds"] as? Bool, shouldDisplayAds {
+            let adManager = AdManager()
+            adManager.addBannerViewToBottomOfView(self)
+        }
     }
     
     func setActivity(_ activity: Activity) {
@@ -76,7 +78,6 @@ class ActivityPageViewController: UIPageViewController {
             view.bringSubviewToFront(pageControl!)
         }
     }
-    
 }
 
 extension ActivityPageViewController {
@@ -121,10 +122,14 @@ extension ActivityPageViewController {
         
         view.addSubview(pageControl)
         
+        var constant: CGFloat = 0.0
+        if let shouldDisplayAds = Bundle.main.infoDictionary?["shouldDisplayAds"] as? Bool, shouldDisplayAds {
+            constant = -AdManager.height
+        }
         NSLayoutConstraint.activate([
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -AdManager.height)
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: constant)
         ])
     }
 }

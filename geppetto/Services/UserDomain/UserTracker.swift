@@ -3,7 +3,7 @@ import UIKit
 
 /// Is the main interface for interacting with the User
 /// Singleton class: use `UserTracker.shared` attribute.
-public class UserTracker {
+class UserTracker {
     
     // MARK: - Static attributes and Methods for Data Persistence
     
@@ -104,11 +104,12 @@ public class UserTracker {
         }
     }
     
+    /// Save an image to the user moments.
     private func saveImage(_ image: UIImage, at pathURL: URL) {
         let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
         do {
             try data!.write(to: URL(fileURLWithPath: pathURL.path))
-            print("Logging saved image on datapath  \(pathURL.path)")
+            print("Logging saved image on data path  \(pathURL.path)")
         } catch {
             print("Unable to Write Data to Disk \(error.localizedDescription)")
         }
@@ -172,6 +173,38 @@ public class UserTracker {
         }
         
         return images
+    }
+
+    func deleteMomentsPicture(_ data: Data, completion: @escaping (Bool) -> Void) {
+        let fm = FileManager.default
+
+        do {
+            var imagePaths = try fm.contentsOfDirectory(
+                at: UserTracker.picturesFolderDataPath,
+                includingPropertiesForKeys: nil,
+                options: .skipsHiddenFiles
+            )
+
+            imagePaths.sort { $0.lastPathComponent > $1.lastPathComponent }
+
+            for imagePath in imagePaths {
+                if imagePath.path.hasSuffix("png") {
+                    if let imageData = fm.contents(atPath: imagePath.path) {
+                        if imageData == data {
+                            try fm.removeItem(atPath: imagePath.path)
+                            completion(true)
+                            return
+                        }
+                    } else {
+                        print("Error finding path content.")
+                    }
+                }
+            }
+
+        } catch {
+            print("Error finding imagePaths: \(error)")
+        }
+        completion(false)
     }
     
     // MARK: - Methods for Reading User Profile

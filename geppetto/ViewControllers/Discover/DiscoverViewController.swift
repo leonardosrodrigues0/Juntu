@@ -40,6 +40,14 @@ class DiscoverViewController: UIViewController {
         helper.logAppOpen()
     }
     
+    /// Runs when the environment's traits change to update content based on the current ContentSizeCategory
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if previousTraitCollection?.preferredContentSizeCategory !=
+            traitCollection.preferredContentSizeCategory {
+            madeForYouController.invalidateLayoutIfPossible()
+        }
+    }
+
     private func setupTagsController() -> Promise<[Tag]> {
         discoverTagsController.tagsStack = tagsStack
         discoverTagsController.tagsScrollView = tagsScrollView

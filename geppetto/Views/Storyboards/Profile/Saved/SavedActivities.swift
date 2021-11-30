@@ -3,10 +3,12 @@ import UIKit
 class SavedActivities: UIView {
     
     // MARK: - Properties
-
+    
     @IBOutlet var savedView: UIView!
-    @IBOutlet weak var stack: UIStackView!
+    @IBOutlet var savedTableView: UITableView!
+    private let cellIdentifier = "ActivityCardTableViewCell"
     var items: [Activity] = []
+    weak var activityNavigationDelegate: ActivityNavigationDelegate?
     
     // MARK: - Initializers
     
@@ -16,30 +18,62 @@ class SavedActivities: UIView {
     }
     
     // MARK: - Methods
-    
+        
     private func commonInit() {
         Bundle.main.loadNibNamed("SavedActivities", owner: self, options: nil)
         addSubview(savedView)
         savedView.frame = self.bounds
         savedView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        initTableView()
     }
     
-    /// Reload cards in view with items array
-    func reloadCards(delegate: ActivityNavigationDelegate) {
-        let cards = items.map { createCard($0, delegate: delegate) }
-        stack.populateWithCards(cards)
+    func reloadCards() {
+        if items.isEmpty {
+            EmptyViewHandler.setEmptyView(for: .saved, in: savedTableView)
+        } else {
+            savedTableView.backgroundView = nil
+        }
+        savedTableView.reloadData()
     }
     
-    /// Instantiate the Card Views with data from activity
-    private func createCard(_ activity: Activity, delegate: ActivityNavigationDelegate) -> Card {
-        let card = Card()
+    private func initTableView() {
+        let nib = UINib(nibName: cellIdentifier, bundle: nil)
+        savedTableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        savedTableView.delegate = self
+        savedTableView.dataSource = self
+    }
+    
+    private func updateCardActivity(card: ActivityCard, with activity: Activity) {
         card.activity = activity
-        card.delegate = delegate
         card.updateView()
-        stack.addSubview(card) // add card as subview of the horizontal stack
-        let constraint = [card.widthAnchor.constraint(equalTo: stack.widthAnchor)]
-        NSLayoutConstraint.activate(constraint)
-        return card
+
+        if let tagId = activity.tags?.first {
+            TagsDatabase.shared.getTag(withId: tagId).then { tag in
+                card.setTag(tag)
+            }
+        }
+    }
+}
+
+extension SavedActivities: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ActivityCardTableViewCell
+        let activity = items[indexPath.row]
+        if let card = cell?.card {
+            updateCardActivity(card: card, with: activity)
+        }
+        return cell!
+    }
+}
+
+extension SavedActivities: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let activity = items.get(at: indexPath.row) {
+            self.activityNavigationDelegate?.navigate(to: activity)
+        }
+    }
 }

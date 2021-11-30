@@ -7,8 +7,8 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileSegmentedControl: UISegmentedControl!
     @IBOutlet var momentsView: Moments!
-    @IBOutlet var savedActivitiesView: SavedActivities!
     @IBOutlet var historyView: History!
+    @IBOutlet var savedActivitiesView: SavedActivities!
     
     var selectedActivity: Activity?
     var selectedImageIndex: Int = 0
@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         super.viewDidLoad()
         
         historyView.activityNavigationDelegate = self
+        savedActivitiesView.activityNavigationDelegate = self
         
         setupProfileEditing()
         
@@ -79,7 +80,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         let ids = UserTracker.shared.fetchActivityHistory()
         ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.historyView.activityList = activities
-            self.historyView.reloadCards(delegate: self)
+            self.historyView.reloadCards()
         }
     }
     
@@ -87,7 +88,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
         let ids = UserTracker.shared.fetchSavedActivities()
         ActivitiesDatabase.shared.getActivities(ids: ids).then { activities in
             self.savedActivitiesView.items = activities
-            self.savedActivitiesView.reloadCards(delegate: self)
+            self.savedActivitiesView.reloadCards()
         }
     }
     
@@ -118,6 +119,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
             fullscreenImageViewController.images = momentsView.images
             fullscreenImageViewController.currentImageIndex = selectedImageIndex
+            fullscreenImageViewController.profileViewReference = self
         }
     }
     

@@ -9,6 +9,8 @@ class ActivityPageControlViewController: UIViewController {
     var activity: Activity?
     var helper = AnalyticsHelper()
     
+    var pageViewController: ActivityPageViewController?
+    
     // MARK: - Methods
     
     override func viewDidLoad() {
@@ -24,6 +26,8 @@ class ActivityPageControlViewController: UIViewController {
         ) as? ActivityPageViewController else {
             return
         }
+        
+        self.pageViewController = pageViewController
         
         if activity != nil {
             pageViewController.setActivity(activity!)
@@ -61,15 +65,24 @@ extension ActivityPageControlViewController: CameraManager {
         tryTakePicture()
     }
     
+    /// Called when image picker finished getting an image. Dismiss picker and prompt for confirmation.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true)
-        
-        guard let name = activity?.name else {
+        promptImageConfirmation(with: info, to: picker)
+    }
+    
+    /// Dismiss picker, add watermark to image and handle conformation flow for saving and sharing.
+    private func promptImageConfirmation(with info: [UIImagePickerController.InfoKey: Any], to picker: UIImagePickerController) {
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found while unwrapping ImagePicker info")
             return
         }
         
-        let shareText = "Estou usando Juntu e fazendo a atividade \(name) com minha criança!"
-        shareImageAndText(didFinishPickingMediaWithInfo: info, text: shareText)
+        let editor = ImageEditor(image)
+        let watermarkedImage = editor.withWatermark
+        
+        let helper = SaveShareHelper(owner: self)
+        helper.saveImageToMomentsAndPromptForMore(for: watermarkedImage, activity: activity)
     }
     
 }

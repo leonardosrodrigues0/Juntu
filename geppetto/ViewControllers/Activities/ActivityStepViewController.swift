@@ -18,24 +18,40 @@ class ActivityStepViewController: UIViewController {
     // MARK: - Methods
     
     override func viewDidLoad() {
+        setBackgroundColor()
         super.viewDidLoad()
         updateOutlets()
+        setupBottomConstraint()
+    }
+    
+    private func setupBottomConstraint() {
+        if let shouldDisplayAds = Bundle.main.infoDictionary?["shouldDisplayAds"] as? Bool, shouldDisplayAds {
+            insertAdSpace()
+        } else {
+            removeAdSpace()
+        }
+    }
+    private func insertAdSpace() {
         /// This 20 comes from pageControl height
         scrollViewBottomConstraint.constant = AdManager.height + 20
     }
+    private func removeAdSpace() {
+        /// This 20 comes from pageControl height
+        scrollViewBottomConstraint.constant = 20
+    }
+    
+    private func setBackgroundColor() {
+        image.backgroundColor = .systemGray4
+    }
     
     private func updateOutlets() {
+        
         guard let indexValue = index, let totalSteps = activity?.getSteps().count else {
             print("Error: failed to unwrap index optional at activity step.")
             return
         }
-        
-        guard let imageRef = step?.getImageDatabaseRef() else {
-            return
-        }
 
-        let placeholderImage = UIImage(color: .systemGray4, size: image.frame.size)
-        image.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+        image.image = ActivityOverviewViewController.stepsImages[indexValue + 1]
         indexLabel.text = "Passo \(indexValue + 1) de \(totalSteps)"
         instructions.text = step?.information
         if (step?.reference ?? "").isEmpty {
