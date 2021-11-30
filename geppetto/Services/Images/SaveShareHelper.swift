@@ -1,4 +1,5 @@
 import UIKit
+import Photos
 
 /// Use from a view controller (`owner`) to save images to moments, to the library and to share images.
 class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
@@ -34,7 +35,7 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
         })
 
         let actLibrary = UIAlertAction(title: "Salvar na Biblioteca", style: .default, handler: { _ in
-            self.saveImageToLibrary(image)
+            self.trySaveImageToLibrary(image)
         })
 
         let alert = AlertManager.multipleActionAlert(
@@ -56,7 +57,47 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
     // MARK: - Save Image to Library
     
     /// Save image to library.
-    func saveImageToLibrary(_ image: UIImage) {
+    func trySaveImageToLibrary(_ image: UIImage) {
+        let status = PHPhotoLibrary.authorizationStatus(for: PHAccessLevel.addOnly)
+        switch status {
+        case .notDetermined:
+            requestPhotosAccess(image)
+        case .restricted:
+            presentPhotosAccessNeededAlert()
+        case .denied:
+            presentPhotosAccessNeededAlert()
+        case .authorized:
+            saveImageToLibrary(image)
+        default:
+            return
+        }
+    }
+    
+    /// Request photos access and save an image.
+    private func requestPhotosAccess(_ image: UIImage) {
+        PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { status in
+            switch status {
+            case .authorized:
+                self.saveImageToLibrary(image)
+            default:
+                return
+            }
+        }
+    }
+    
+    /// Present the alert that explain the need of photos access authorization and lead to settings app.
+    private func presentPhotosAccessNeededAlert() {
+        DispatchQueue.main.async {
+            let alert = AlertManager.multipleActionAlert(
+                title: "Necessário acesso às Fotos",
+                message: "Para poder salvar uma imagem à galeria, precisamos da sua permissão.",
+                actions: [AlertManager.cancelAction, AlertManager.settingsAction]
+            )
+            self.owner.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func saveImageToLibrary(_ image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
