@@ -18,30 +18,31 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
     /// Save to moments and prompts user for saving image to photos or sharing it.
     func saveImageToMomentsAndPromptForMore(for image: UIImage, activity: Activity?) {
         saveImageToMoments(image)
-        let alert = UIAlertController(title: "Sucesso!", message: "Sua foto está salva na aba Momentos", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+
+        let alert = AlertManager.singleActionAlert(title: "Sucesso!", message: "Sua foto está salva na aba Momentos", action: { _ in
             self.promptForSavingOrSharing(for: image, activity: activity)
-        }))
+        })
 
         owner.present(alert, animated: true)
     }
     
     /// Warn user that the picture was saved in moments.
     func promptForSavingOrSharing(for image: UIImage, activity: Activity?) {
-        let alert = UIAlertController(title: nil, message: "Você quer fazer algo a mais com a foto que tirou?", preferredStyle: .actionSheet)
-
-        let actCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        alert.addAction(actCancel)
-
         let actShare = UIAlertAction(title: "Compartilhar", style: .default, handler: { _ in
-            self.shareImageAndText(image: image, text: activity?.shareText ?? "")
+            let alert = AlertManager.shareImageAndTextAlert(controller: self.owner, image: image, text: activity?.shareText ?? "")
+            self.owner.present(alert, animated: true)
         })
-        alert.addAction(actShare)
 
         let actLibrary = UIAlertAction(title: "Salvar na Biblioteca", style: .default, handler: { _ in
             self.saveImageToLibrary(image)
         })
-        alert.addAction(actLibrary)
+
+        let alert = AlertManager.multipleActionAlert(
+            title: nil,
+            message: "Você quer fazer algo a mais com a foto que tirou?",
+            actions: [AlertManager.cancelAction, actShare, actLibrary],
+            preferredStyle: .actionSheet
+        )
 
         owner.present(alert, animated: true)
     }
@@ -61,29 +62,9 @@ class SaveShareHelper: NSObject, UIImagePickerControllerDelegate {
     
     @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            showAlertWith(title: "Erro!", message: error.localizedDescription)
+            owner.present(AlertManager.singleActionAlert(title: "Erro!", message: error.localizedDescription), animated: true)
         } else {
-            showAlertWith(title: "Imagem salva!", message: "Sua imagem foi salva na galeria.")
+            owner.present(AlertManager.singleActionAlert(title: "Imagem salva!", message: "Sua imagem foi salva na galeria."), animated: true)
         }
-    }
-    
-    // MARK: - Share Image
-    
-    func shareImageAndText(image: UIImage, text: String) {
-        // Set up activity view controller
-        let shareItems: [Any] = [image, OptionalTextActivityItemSource(text: text)]
-        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = owner.view // so that iPads won't crash
-
-        // Present the share view controller
-        owner.present(activityViewController, animated: true)
-    }
-    
-    // MARK: - Auxiliary Methods
-    
-    private func showAlertWith(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        owner.present(alertController, animated: true)
     }
 }

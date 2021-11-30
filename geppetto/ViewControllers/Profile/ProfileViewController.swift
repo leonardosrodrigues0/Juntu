@@ -119,6 +119,7 @@ class ProfileViewController: UIViewController, ActivityNavigationDelegate, Fulls
             guard let fullscreenImageViewController = segue.destination as? FullscreenImageViewController else { return }
             fullscreenImageViewController.images = momentsView.images
             fullscreenImageViewController.currentImageIndex = selectedImageIndex
+            fullscreenImageViewController.profileViewReference = self
         }
     }
     
