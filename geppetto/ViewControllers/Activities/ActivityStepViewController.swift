@@ -21,8 +21,23 @@ class ActivityStepViewController: UIViewController {
         setBackgroundColor()
         super.viewDidLoad()
         updateOutlets()
+        setupBottomConstraint()
+    }
+    
+    private func setupBottomConstraint() {
+        if let shouldDisplayAds = Bundle.main.infoDictionary?["shouldDisplayAds"] as? Bool, shouldDisplayAds {
+            insertAdSpace()
+        } else {
+            removeAdSpace()
+        }
+    }
+    private func insertAdSpace() {
         /// This 20 comes from pageControl height
         scrollViewBottomConstraint.constant = AdManager.height + 20
+    }
+    private func removeAdSpace() {
+        /// This 20 comes from pageControl height
+        scrollViewBottomConstraint.constant = 20
     }
     
     private func setBackgroundColor() {

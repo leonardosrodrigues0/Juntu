@@ -84,5 +84,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>shouldDisplayAds</key>
+	<false/>
 </dict>
 </plist>
