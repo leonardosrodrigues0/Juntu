@@ -65,7 +65,7 @@ struct Activity: Searchable, Codable {
     }
 
     func isResultWithSearchString(_ searchString: String) -> Bool {
-        name.lowercased().contains(searchString.lowercased())
+        name.range(of: searchString, options: [.caseInsensitive, .diacriticInsensitive]) != nil
     }
 
     func getImageDatabaseRef() -> StorageReference {
