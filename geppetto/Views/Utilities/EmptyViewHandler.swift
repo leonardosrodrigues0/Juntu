@@ -1,10 +1,10 @@
 import UIKit
 
 /// Define each profile screen case
-enum ProfileScreen {
-    case moments, saved, history
+enum EmptyScreen {
+    case moments, saved, history, search
     
-    /// Return descriptive symbol for each `ProfileScreen`
+    /// Return descriptive symbol for each `EmptyScreen`
     func getImage() -> UIImage? {
         let config = UIImage.SymbolConfiguration(pointSize: 80)
         
@@ -15,10 +15,12 @@ enum ProfileScreen {
             return UIImage(systemName: "bookmark", withConfiguration: config)
         case .history:
             return UIImage(systemName: "clock.arrow.circlepath", withConfiguration: config)
+        case .search:
+            return UIImage(systemName: "magnifyingglass", withConfiguration: config)
         }
     }
     
-    /// Return descriptive text for each `ProfileScreen`
+    /// Return descriptive text for each `EmptyScreen`
     func getText() -> String {
         switch self {
         case .moments:
@@ -27,6 +29,8 @@ enum ProfileScreen {
             return "Você ainda não salvou nenhuma brincadeira"
         case .history:
             return "Você ainda não visualizou nenhuma brincadeira"
+        case .search:
+            return "Nenhuma brincadeira encontrada"
         }
     }
 }
@@ -58,7 +62,7 @@ class EmptyViewHandler {
     
     // MARK: - Functions
 
-    private static func createBackgroundView(screen: ProfileScreen, frame: CGRect) -> UIView {
+    private static func createBackgroundView(screen: EmptyScreen, frame: CGRect) -> UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = self.spacing
@@ -69,6 +73,7 @@ class EmptyViewHandler {
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.text = screen.getText()
+        label.textAlignment = .center
         label.textColor = self.color
 
         let imageView = UIImageView()
@@ -93,7 +98,7 @@ class EmptyViewHandler {
     
     // MARK: - Methods
 
-    static func setEmptyView(for screen: ProfileScreen, in parentView: EmptyView) {
+    static func setEmptyView(for screen: EmptyScreen, in parentView: EmptyView) {
         let bgView = createBackgroundView(screen: screen, frame: parentView.frame)
         
         parentView.setBackgroundView(bgView)
