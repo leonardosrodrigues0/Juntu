@@ -66,8 +66,7 @@ extension SearchResultsViewController: UISearchResultsUpdating {
         filteredItems = items.filter { $0.isResultWithSearchString(searchText) }
         if filteredItems.isEmpty {
             EmptyViewHandler.setEmptyView(for: .search, in: tableView)
-        }
-        else {
+        } else {
             tableView.backgroundView = nil
         }
         tableView.reloadData()
