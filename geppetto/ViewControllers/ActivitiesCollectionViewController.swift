@@ -32,6 +32,12 @@ class ActivitiesCollectionViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    func invalidateLayoutIfPossible() {
+        if !self.activities.isEmpty {
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
 }
 
 // MARK: - DataSource and Delegate
@@ -68,13 +74,25 @@ extension ActivitiesCollectionViewController: UICollectionViewDelegateFlowLayout
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let horizontalSpacing = CGFloat(10)
-        let contentInsets = CGFloat(16)
+        let horizontalSpacing = CGFloat(10) // space between cells (defined only here)
+        let contentInsets = CGFloat(16) // space between cells and safe area (horizontally, defined in the storyboard)
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
-        let height = width * (20 / 9)
+        let imageHeight = width * (3/2)
         
-        cardHeightConstraint.constant = CGFloat(height)
+        // The next 4 constants come from ActivityCardCell storyboard
+        // Title font style is headline and it has 20.5 height when there is no font scale,
+        // but since scaledValue is not scaling as expected, a bigger value was necessary
+        let titleAdjustedHeight = UIFontMetrics(forTextStyle: .headline).scaledValue(for: 25.0)
+        // Description font style is footnote and it has 52.0 height when there is no font scale,
+        // but since scaledValue is not scaling as expected, a bigger value was necessary
+        let descriptionAdjustedHeight = UIFontMetrics(forTextStyle: .footnote).scaledValue(for: 55.0)
+        let spaceAboveTitle = 8.0
+        let spaceAboveDescription = 8.0
         
-        return CGSize(width: width, height: height)
+        let adjustedHeight = imageHeight + descriptionAdjustedHeight + titleAdjustedHeight + spaceAboveTitle + spaceAboveDescription
+        
+        cardHeightConstraint.constant = CGFloat(adjustedHeight)
+        
+        return CGSize(width: width, height: adjustedHeight)
     }
 }

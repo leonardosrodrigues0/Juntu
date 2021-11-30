@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <accessibilityOverrides dynamicTypePreference="2"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,15 +22,15 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LF7-Ut-F7l" userLabel="Card">
-                    <rect key="frame" x="16" y="16" width="382" height="150"/>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LF7-Ut-F7l" userLabel="Card">
+                    <rect key="frame" x="16" y="16" width="382" height="348"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nid-Vh-aAK" customClass="DesignableImageView" customModule="geppetto" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="115" height="150"/>
+                            <rect key="frame" x="0.0" y="99" width="115" height="150"/>
                             <color key="backgroundColor" name="pageTintColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="MtF-vi-HTQ"/>
@@ -42,13 +43,13 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-MO-ik5">
-                            <rect key="frame" x="131" y="0.0" width="251" height="150"/>
+                            <rect key="frame" x="131" y="0.0" width="251" height="348"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-1h-WXt" userLabel="MainInfo">
-                                    <rect key="frame" x="0.0" y="0.0" width="251" height="34.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-1h-WXt" userLabel="MainInfo">
+                                    <rect key="frame" x="0.0" y="0.0" width="251" height="39"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COZINHA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlY-MQ-pae" userLabel="Category" customClass="DesignableLabel" customModule="geppetto" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="13.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COZINHA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlY-MQ-pae" userLabel="Category" customClass="DesignableLabel" customModule="geppetto" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="251" height="14.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="systemYellowColor"/>
                                             <nil key="highlightedColor"/>
@@ -58,49 +59,49 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini chef" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUl-wX-Xbt" userLabel="Title" customClass="SemiBoldLabel" customModule="geppetto" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="17.5" width="62" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini chef" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUl-wX-Xbt" userLabel="Title" customClass="SemiBoldLabel" customModule="geppetto" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="18.5" width="251" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duis gravida fringilla vivamus sed mollis. Nunc nulla vestibulum et nisi mollis nisi." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noe-ud-IBq" userLabel="Description">
-                                    <rect key="frame" x="0.0" y="70" width="235" height="30.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Duis gravida fringilla vivamus sed mollis. Nunc nulla vestibulum et nisi mollis nisi." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noe-ud-IBq" userLabel="Description">
+                                    <rect key="frame" x="0.0" y="159.5" width="235" height="52"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="6Tw-ku-wIa" userLabel="Footnote">
-                                    <rect key="frame" x="0.0" y="135.5" width="171.5" height="14.5"/>
+                                    <rect key="frame" x="0.0" y="332" width="171.5" height="16"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="7 a 12 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-yL-C9e" userLabel="Age">
-                                            <rect key="frame" x="0.0" y="0.0" width="59" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="7 a 12 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-yL-C9e" userLabel="Age">
+                                            <rect key="frame" x="0.0" y="0.0" width="59" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiy-Fy-88x" userLabel="|">
-                                            <rect key="frame" x="65" y="0.0" width="3.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiy-Fy-88x" userLabel="|">
+                                            <rect key="frame" x="65" y="0.0" width="3.5" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="60 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ4-Bg-aqW" userLabel="Duration">
-                                            <rect key="frame" x="74.5" y="0.0" width="36.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="60 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ4-Bg-aqW" userLabel="Duration">
+                                            <rect key="frame" x="74.5" y="0.0" width="36.5" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZl-ZZ-7Rn" userLabel="|">
-                                            <rect key="frame" x="117" y="0.0" width="3.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZl-ZZ-7Rn" userLabel="|">
+                                            <rect key="frame" x="117" y="0.0" width="3.5" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Mediano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfC-sb-0c2" userLabel="Dificulty">
-                                            <rect key="frame" x="126.5" y="0.0" width="45" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Mediano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfC-sb-0c2" userLabel="Dificulty">
+                                            <rect key="frame" x="126.5" y="0.0" width="45" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -118,9 +119,11 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="0f5-dv-2nP"/>
-                        <constraint firstAttribute="bottom" secondItem="nid-Vh-aAK" secondAttribute="bottom" id="Sc7-NR-aya"/>
-                        <constraint firstItem="nid-Vh-aAK" firstAttribute="top" secondItem="LF7-Ut-F7l" secondAttribute="top" id="n14-7D-CZ0"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="0f5-dv-2nP"/>
+                        <constraint firstAttribute="bottom" secondItem="wP5-MO-ik5" secondAttribute="bottom" id="iOL-lX-W6r"/>
+                        <constraint firstItem="wP5-MO-ik5" firstAttribute="top" secondItem="LF7-Ut-F7l" secondAttribute="top" id="l4e-qn-hn4"/>
+                        <constraint firstItem="nid-Vh-aAK" firstAttribute="centerY" secondItem="LF7-Ut-F7l" secondAttribute="centerY" id="usV-xS-rUc"/>
+                        <constraint firstAttribute="trailing" secondItem="wP5-MO-ik5" secondAttribute="trailing" id="xFd-7s-Dfv"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -137,7 +140,7 @@
     </objects>
     <designables>
         <designable name="ZlY-MQ-pae">
-            <size key="intrinsicContentSize" width="57.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="62" height="14.5"/>
         </designable>
     </designables>
     <resources>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHf-tk-AET">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHf-tk-AET">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <accessibilityOverrides isEnabled="YES" dynamicTypePreference="6"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,19 +20,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-Hq-0WY">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="142" width="414" height="671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yx-fCS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="987"/>
                                         <subviews>
                                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oq-Eu-qyv">
                                                 <rect key="frame" x="16" y="0.0" width="382" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1go-rM-akH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="14" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oev-1y-1Iv">
-                                                                <rect key="frame" x="5" y="0.0" width="4" height="50"/>
+                                                                <rect key="frame" x="5" y="0.0" width="5.5" height="50"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <color key="textColor" systemColor="tintColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -51,14 +52,14 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="CV8-M7-2sO"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="PSZ-CR-uJt"/>
                                             </scrollView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brincadeiras em destaque" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-Fm-hZZ" userLabel="Brincadeiras em destaque" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="66" width="382" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brincadeiras em destaque" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-Fm-hZZ" userLabel="Brincadeiras em destaque" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="66" width="382" height="33.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-N0-ezy" userLabel="Highlighted Activities">
-                                                <rect key="frame" x="0.0" y="105" width="414" height="426"/>
+                                                <rect key="frame" x="0.0" y="115.5" width="414" height="426"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z9R-Cg-w6j">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
@@ -83,16 +84,16 @@
                                                     </pageControl>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feitas para você" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py4-AI-Zdz" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="547" width="382" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feitas para você" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py4-AI-Zdz" customClass="BoldLabel" customModule="geppetto" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="557.5" width="382" height="33.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dE9-yJ-5cW">
-                                                <rect key="frame" x="0.0" y="586" width="414" height="380"/>
+                                                <rect key="frame" x="0.0" y="607" width="414" height="380"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="380" id="dtj-Qn-vzv"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="380" id="dtj-Qn-vzv"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nOy-JP-6IE">
                                                     <size key="itemSize" width="270" height="318"/>
@@ -169,7 +170,7 @@
                     <tabBarItem key="tabBarItem" title="Explorar" image="square.grid.2x2.fill" catalog="system" id="AOs-Nz-FN7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1kv-p9-ddV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="98"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -121,11 +121,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        // Space between cells: (defined only here)
-        let horizontalSpacing = CGFloat(10)
-        // Space between cells and safe area (horizontally): (defined in the storyboard)
-        let contentInsets = CGFloat(16) // defined in the storyboard
-        // Width must be (totalWidth - 2 * contentInsets - horizontalSpacing) / 2
+        let horizontalSpacing = CGFloat(10) // space between cells (defined only here)
+        let contentInsets = CGFloat(16) // space between cells and safe area (horizontally, defined in the storyboard)
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
         let height = width * (9 / 16)
         return CGSize(width: width, height: height)
