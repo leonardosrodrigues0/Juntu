@@ -23,15 +23,20 @@ class TagUILabel: DesignableLabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInitializeLabel()
         initializeLabel()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInitializeLabel()
         initializeLabel()
     }
     
     // MARK: - Methods
+    func commonInitializeLabel() {
+        self.adjustsFontForContentSizeCategory = true
+    }
 
     func initializeLabel() {
         self.font = UIFont.preferredFont(forTextStyle: .subheadline)

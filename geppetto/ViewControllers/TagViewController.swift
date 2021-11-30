@@ -21,6 +21,16 @@ class TagViewController: UIViewController {
         initCollectionView()
     }
     
+    /// Runs when the environment's traits change to update content based on the current ContentSizeCategory
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if previousTraitCollection?.preferredContentSizeCategory !=
+            traitCollection.preferredContentSizeCategory {
+            if !activities.isEmpty {
+                collectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
+    }
+    
     /// Register `TagCardCell` in collection view.
     /// Get tags from database and reload collection view data.
     private func initCollectionView() {
@@ -80,15 +90,23 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        // Space between cells: (defined only here)
-        let horizontalSpacing = CGFloat(10)
-        // Space between cells and safe area (horizontally): (defined in the storyboard)
-        let contentInsets = CGFloat(16) // defined in the storyboard
-        // Width must be (totalWidth - 2 * contentInsets - horizontalSpacing) / 2
+        let horizontalSpacing = CGFloat(10) // space between cells (defined only here)
+        let contentInsets = CGFloat(16) // space between cells and safe area (horizontally, defined in the storyboard)
         let width: CGFloat = floor((collectionView.frame.size.width - 2 * contentInsets - horizontalSpacing) / 2)
-        // Height must be equal to image height (2:3 ratio defined in the cell xib)
-        // plus a constant related to labels' height and spacing (defined by trial and error)
-        let height = width * (3 / 2) + 100
-        return CGSize(width: width, height: height)
+        let imageHeight = width * (3/2)
+        
+        // The next 4 constants come from ActivityCardCell storyboard
+        // Title font style is headline and it has 20.5 height when there is no font scale,
+        // but since scaledValue is not scaling as expected, a bigger value was necessary
+        let titleAdjustedHeight = UIFontMetrics(forTextStyle: .headline).scaledValue(for: 25.0)
+        // Description font style is footnote and it has 52.0 height when there is no font scale,
+        // but since scaledValue is not scaling as expected, a bigger value was necessary
+        let descriptionAdjustedHeight = UIFontMetrics(forTextStyle: .footnote).scaledValue(for: 55.0)
+        let spaceAboveTitle = 8.0
+        let spaceAboveDescription = 8.0
+        
+        let adjustedHeight = imageHeight + descriptionAdjustedHeight + titleAdjustedHeight + spaceAboveTitle + spaceAboveDescription
+        
+        return CGSize(width: width, height: adjustedHeight)
     }
 }

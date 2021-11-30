@@ -31,6 +31,7 @@ class ActivityOverviewViewController: UIViewController {
     @IBOutlet weak var savedActivityButton: UIButton!
     
     @IBOutlet weak var tagsStack: UIStackView!
+    @IBOutlet weak var tagHeightConstraint: NSLayoutConstraint!
     
     private let similarActivitiesController = SimilarActivitiesController()
     @IBOutlet weak var similarActivitiesStack: UIStackView!
@@ -70,7 +71,22 @@ class ActivityOverviewViewController: UIViewController {
         updateSavedActivityButtonImage()
     }
     
+    /// Runs when the environment's traits change to update content based on the current ContentSizeCategory
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if previousTraitCollection?.preferredContentSizeCategory !=
+            traitCollection.preferredContentSizeCategory {
+            similarActivitiesController.invalidateLayoutIfPossible()
+            adjustTagHeight()
+        }
+    }
+    
+    func adjustTagHeight() {
+        let tagAdjustedHeight = UIFontMetrics(forTextStyle: .footnote).scaledValue(for: 30.0)
+        tagHeightConstraint.constant = tagAdjustedHeight
+    }
+    
     private func initTableView() {
+        adjustTagHeight()
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
         materialsTableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         materialsTableView.dataSource = self

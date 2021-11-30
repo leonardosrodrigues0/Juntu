@@ -66,6 +66,8 @@ class EmptyViewHandler {
         
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.text = screen.getText()
         label.textColor = self.color
 
@@ -80,9 +82,11 @@ class EmptyViewHandler {
         bgView.addSubview(stack)
         
         stack.translatesAutoresizingMaskIntoConstraints = false
+        let leadingConstraint = stack.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16)
+        let trailingConstraint = bgView.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: 16)
         let hConstraint = stack.centerXAnchor.constraint(equalTo: bgView.centerXAnchor)
         let vConstraint = stack.centerYAnchor.constraint(equalTo: bgView.centerYAnchor)
-        bgView.addConstraints([hConstraint, vConstraint])
+        bgView.addConstraints([leadingConstraint, trailingConstraint, hConstraint, vConstraint])
         
         return bgView
     }
