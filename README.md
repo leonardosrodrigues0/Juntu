@@ -74,6 +74,7 @@ This was the first iOS app developed by all 6 team members during a project in t
 | Gabriel  | [GitHub](https://github.com/MuelasU)             | [LinkedIn](https://www.linkedin.com/in/gabriel-muelas/)                    |
 | Leonardo | [GitHub](https://github.com/leonardosrodrigues0) | [LinkedIn](https://www.linkedin.com/in/leonardosrodrigues1/)               |
 | Matheus  | [GitHub](https://github.com/MaThhiVick)          | [LinkedIn](https://www.linkedin.com/in/matheus-alencar-vicente-32977b14b/) |
+| Renato   | [GitHub](https://github.com/RNMaximo)            | [LinkedIn](https://www.linkedin.com/in/renato-n-m%C3%A1ximo/)              |
 
 <!--
 Thanks to Robert
